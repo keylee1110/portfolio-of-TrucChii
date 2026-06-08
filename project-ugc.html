@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influencer Marketing Campaign — TrucLu</title>
+    <meta name="description" content="Case study of the influencer marketing and UGC content campaign for a lifestyle brand, driving engagement and social conversions.">
+    <!-- Google Fonts: Inter for Body, Outfit for display/numbers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .detail-hero {
+            padding: 180px 0 64px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .detail-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+            border-top: 1px solid var(--border-color);
+            padding-top: var(--space-md);
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .meta-item .lbl {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .meta-item .val {
+            font-size: 1rem;
+            color: var(--color-text-primary);
+        }
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: var(--space-xl);
+            padding: var(--space-xl) 0;
+        }
+        .cs-block {
+            margin-bottom: var(--space-xl);
+        }
+        .cs-block-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-primary);
+        }
+        .cs-block-text {
+            color: var(--color-text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 65ch;
+        }
+        .cs-visuals-col {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        .cs-visual-box {
+            width: 100%;
+            height: 360px;
+            border: 1px solid var(--border-color);
+        }
+        .cs-visual-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.7) contrast(1.1);
+        }
+        .detail-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--border-color);
+            margin: var(--space-xl) 0;
+        }
+        .detail-stat-card {
+            padding: var(--space-md);
+            border-right: 1px solid var(--border-color);
+            text-align: center;
+        }
+        .detail-stat-card:last-child {
+            border-right: none;
+        }
+        .detail-stat-num {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1;
+            color: var(--color-text-primary);
+        }
+        .detail-stat-lbl {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            letter-spacing: 0.1em;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+        .cs-nav-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding: var(--space-lg) 0;
+            margin-top: var(--space-2xl);
+        }
+        @media (max-width: 768px) {
+            .detail-meta-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-md);
+            }
+            .case-study-grid {
+                grid-template-columns: 1fr;
+            }
+            .detail-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .detail-stat-card:nth-child(2) {
+                border-right: none;
+            }
+            .detail-stat-card:nth-child(even) {
+                border-right: none;
+            }
+            .detail-stat-card {
+                border-bottom: 1px solid var(--border-color);
+            }
+            .detail-stat-card:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black text-white antialiased selection-accent">
+
+    <!-- Page Wipe Overlay for Transitions -->
+    <div class="page-wipe wipe-initial-in" id="page-wipe"></div>
+
+    <!-- Header Navigation -->
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo" id="nav-logo">TrucLu®</a>
+            <div class="nav-center">
+                <span class="nav-header-label">Quick Links</span>
+                <nav class="nav-menu">
+                    <a href="index.html#projects" class="nav-link">Projects</a><span class="nav-comma">,</span>
+                    <a href="index.html#results" class="nav-link">Results</a><span class="nav-comma">,</span>
+                    <a href="index.html#case-study" class="nav-link">Case Study</a><span class="nav-comma">,</span>
+                    <a href="index.html#expertise" class="nav-link">Expertise</a><span class="nav-comma">,</span>
+                    <a href="index.html#reference" class="nav-link">Reference</a><span class="nav-comma">,</span>
+                    <a href="index.html#practice" class="nav-link">Practice</a><span class="nav-comma">,</span>
+                    <a href="index.html#contact" class="nav-link btn-contact-trigger">Contact</a>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <span class="nav-header-label">Based in Saigon Sài Gòn</span>
+                <span class="nav-header-sublabel">Campaign Strategist + Content Creator</span>
+            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobile-drawer-menu">
+        <nav class="mobile-nav-links">
+            <a href="index.html#projects" class="mobile-nav-link">Projects</a>
+            <a href="index.html#results" class="mobile-nav-link">Results</a>
+            <a href="index.html#case-study" class="mobile-nav-link">Case Study</a>
+            <a href="index.html#expertise" class="mobile-nav-link">Expertise</a>
+            <a href="index.html#reference" class="mobile-nav-link">Reference</a>
+            <a href="index.html#practice" class="mobile-nav-link">Practice</a>
+            <a href="index.html#contact" class="mobile-nav-link btn-contact-trigger">Contact</a>
+        </nav>
+    </div>
+
+    <main class="grid-container">
+        <!-- Project Hero Header -->
+        <section class="detail-hero reveal-fade-up">
+            <div class="section-tag">PROJECT 03 / COMMUNITY ENGAGEMENT</div>
+            <h1 class="section-title font-display">Influencer Marketing Campaign</h1>
+            
+            <div class="detail-meta-grid">
+                <div class="meta-item">
+                    <span class="lbl">Client</span>
+                    <span class="val">Lifestyle Retail Brand</span>
+                </div>
+                <div class="meta-item">
+                    <span class="lbl">Platforms</span>
+                    <span class="val">TikTok, Instagram</span>
+                </div>
+                <div class="meta-item">
+                    <span class="lbl">Year</span>
+                    <span class="val">2024</span>
+                </div>
+                <div class="meta-item">
+                    <span class="lbl">Role</span>
+                    <span class="val">Influencer Manager</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Stats Block -->
+        <section class="reveal-fade-up" style="padding: 32px 0; border-bottom: 1px solid var(--border-color);">
+            <div class="detail-stats-grid">
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">35</div>
+                    <div class="detail-stat-lbl">Creators Briefed</div>
+                </div>
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">120</div>
+                    <div class="detail-stat-lbl">UGC Videos</div>
+                </div>
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">4.8M</div>
+                    <div class="detail-stat-lbl">Views</div>
+                </div>
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">12%</div>
+                    <div class="detail-stat-lbl">Conversion Rate</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study Layout Grid -->
+        <section class="reveal-fade-up" style="padding: 32px 0; border-bottom: none;">
+            <div class="case-study-grid">
+                <div class="cs-content-col">
+                    <div class="cs-block">
+                        <h2 class="cs-block-title font-display">Campaign Overview</h2>
+                        <p class="cs-block-text">
+                            An organic social advocacy program designed to partner a lifestyle brand with micro-creators. By utilizing a standardized creative briefing framework, we generated a large asset base of authentic content that drove conversions.
+                        </p>
+                    </div>
+
+                    <div class="cs-block">
+                        <h2 class="cs-block-title font-display">Objective</h2>
+                        <p class="cs-block-text">
+                            Build social validation, accumulate authentic user-generated reviews, and scale brand trust across TikTok and Reels. The goal was to bypass typical corporate marketing in favor of high-performing creator channels.
+                        </p>
+                    </div>
+
+                    <div class="cs-block">
+                        <h2 class="cs-block-title font-display">Target Audience</h2>
+                        <p class="cs-block-text">
+                            Gen Z and young millennial buyers active in lifestyle subcultures. These users buy based on visual proof, peer reviews, styling guides, and authentic recommendations.
+                        </p>
+                    </div>
+
+                    <div class="cs-block">
+                        <h2 class="cs-block-title font-display">Strategy & Creative Direction</h2>
+                        <p class="cs-block-text">
+                            We engineered a structured creator onboarding guide specifying visual hook timings (first 3 seconds), visual text overlay formatting, and lighting setups, while leaving the narrative in the creator's voice to protect authenticity.
+                        </p>
+                    </div>
+
+                    <div class="cs-block">
+                        <h2 class="cs-block-title font-display">Channel & Platform Mix</h2>
+                        <p class="cs-block-text">
+                            TikTok was the primary channel for native reach (80%), supplemented by Instagram Reels for cross-promotional creator collaborations and product review catalogs (20%).
+                        </p>
+                    </div>
+
+                    <div class="cs-block">
+                        <h2 class="cs-block-title font-display">Learnings & Optimization</h2>
+                        <p class="cs-block-text">
+                            Videos that displayed creator reactions within the first 1.5 seconds saw a 45% increase in total watch retention. Using the creator's original audio rather than adding music tracks yielded a 14% higher link click rate.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cs-visuals-col">
+                    <div class="cs-block">
+                        <h2 class="cs-block-title font-display">Campaign Visuals</h2>
+                    </div>
+                    <div class="cs-visual-box hover-zoom-frame">
+                        <img src="assets/campaign-ugc.png" alt="UGC Creators Content Visual" class="detail-img">
+                    </div>
+                    <div class="cs-visual-box hover-zoom-frame">
+                        <img src="assets/brand-photoshoot.png" alt="Brand Lifestyle Photoshoot" class="detail-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail Navigation Footer -->
+            <div class="cs-nav-footer">
+                <a href="index.html#projects" class="btn btn-outline">BACK TO PROJECTS</a>
+                <a href="project-awareness.html" class="btn btn-filled">FIRST PROJECT ←</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Copyright Info -->
+    <footer class="footer-bottom">
+        <div class="fb-container">
+            <p class="fb-copy">© 2026 TrucLu. ALL RIGHTS RESERVED.</p>
+            <p class="fb-design">SWISS PUNK PERFORMANCE SYSTEM V1.0</p>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Logic Script -->
+    <script src="app.js"></script>
+</body>
+</html>

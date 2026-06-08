@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrucLu — Digital Marketing Portfolio & Campaign Strategist</title>
+    <meta name="description" content="Portfolio of TrucLu, a Digital Marketing Specialist and Campaign Strategist focusing on data-driven growth, content strategy, and viral social campaigns.">
+    <!-- Google Fonts: Inter for Body, Outfit for display/numbers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="TrucLu — Digital Marketing Portfolio & Campaign Strategist">
+    <meta property="og:description" content="Portfolio of TrucLu, a Digital Marketing Specialist and Campaign Strategist focusing on data-driven growth and performance results.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://truclumarketing.com">
+    <meta property="og:image" content="assets/dashboard-stats.png">
+</head>
+<body class="bg-black text-white antialiased selection-accent">
+
+    <!-- Custom Smooth Scroll Indicator -->
+    <div id="scroll-indicator" class="scroller-depth-tracker"></div>
+
+    <!-- Page Wipe Overlay for Transitions -->
+    <div class="page-wipe" id="page-wipe"></div>
+
+    <!-- Live Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Header Navigation -->
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <a href="#" class="brand-logo" id="nav-logo">TrucLu®</a>
+            <div class="nav-center">
+                <span class="nav-header-label">Quick Links</span>
+                <nav class="nav-menu">
+                    <a href="#projects" class="nav-link">Projects</a><span class="nav-comma">,</span>
+                    <a href="#results" class="nav-link">Results</a><span class="nav-comma">,</span>
+                    <a href="#case-study" class="nav-link">Case Study</a><span class="nav-comma">,</span>
+                    <a href="#expertise" class="nav-link">Expertise</a><span class="nav-comma">,</span>
+                    <a href="#reference" class="nav-link">Reference</a><span class="nav-comma">,</span>
+                    <a href="#practice" class="nav-link">Practice</a><span class="nav-comma">,</span>
+                    <a href="#contact" class="nav-link btn-contact-trigger">Contact</a>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <span class="nav-header-label">Based in Saigon Sài Gòn</span>
+                <span class="nav-header-sublabel">Campaign Strategist + Content Creator</span>
+            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobile-drawer-menu">
+        <nav class="mobile-nav-links">
+            <a href="#projects" class="mobile-nav-link">Projects</a>
+            <a href="#results" class="mobile-nav-link">Results</a>
+            <a href="#case-study" class="mobile-nav-link">Case Study</a>
+            <a href="#expertise" class="mobile-nav-link">Expertise</a>
+            <a href="#reference" class="mobile-nav-link">Reference</a>
+            <a href="#practice" class="mobile-nav-link">Practice</a>
+            <a href="#contact" class="mobile-nav-link btn-contact-trigger">Contact</a>
+        </nav>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <main>
+        <section class="hero-section" id="home">
+            <div class="hero-content grid-container">
+                <div class="hero-left reveal-fade-up">
+                    <h1 class="hero-headline font-display">
+                        Pattern Dimensions<br>
+                        and Moments that<br>
+                        Connect and Leave a<br>
+                        Bold <span class="font-weight-light italic">インパクト_</span>
+                    </h1>
+                </div>
+                
+                <div class="hero-right reveal-fade-up">
+                    <!-- Rounded visual card matching Tokyo reference -->
+                    <div class="hero-card">
+                        <img src="assets/campaign-tiktok.png" alt="TikTok creative content production visual" class="hero-card-img">
+                        <!-- Creative star overlay in the center -->
+                        <div class="hero-card-logo-overlay">
+                            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 0L15 9L24 12L15 15L12 24L9 15L0 12L9 9Z" />
+                            </svg>
+                        </div>
+                        <!-- Social icon in the bottom right -->
+                        <a href="https://tiktok.com" target="_blank" rel="noopener" class="hero-card-social-icon" aria-label="Social Profile">
+                            <svg viewBox="0 0 448 512" width="14" height="14" fill="currentColor">
+                                <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.38v78.4a84.15,84.15,0,1,0,59.39,80.79V0h80.7a125.16,125.16,0,0,0,122.91,124.77v85.14Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Massive signature typography banner -->
+            <div class="massive-name-container reveal-fade-in">
+                <h2 class="massive-name font-display">TrucLu™</h2>
+                <a href="#projects" class="hero-signature-cta">
+                    <span class="cta-arrow">↓</span>
+                    <span class="cta-text">Explore Campaigns</span>
+                </a>
+            </div>
+
+            <!-- Hero Footer Annotations -->
+            <div class="hero-footer reveal-fade-in">
+                <div class="hf-item">© TrucLu™ CAMPAIGNS ビジュアル</div>
+                <div class="hf-item font-display font-weight-bold">(TCL® — VN)</div>
+                <div class="hf-item font-display font-weight-bold">CAMPAIGN STRATEGIST</div>
+            </div>
+        </section>
+
+        <!-- 2. About & Positioning Section -->
+        <section class="about-section" id="about">
+            <div class="grid-container grid-2-col">
+                <div class="about-visual-col reveal-fade-up">
+                    <div class="image-wrapper hover-zoom-frame">
+                        <img src="assets/brand-photoshoot.png" alt="TrucLu brand photoshoot portrait" class="about-image">
+                    </div>
+                </div>
+                
+                <div class="about-text-col reveal-fade-up">
+                    <div class="section-tag">01 / BRAND POSITIONING</div>
+                    <h2 class="about-headline font-display">
+                        A digital marketer focused on campaign strategy, content direction, social growth, and measurable brand impact.
+                    </h2>
+                    <p class="about-description max-w-prose">
+                        I combine creative storytelling, performance thinking, and platform insights to build campaigns that connect with audiences and generate real business results. No generic setups, only customized growth funnels.
+                    </p>
+                    <div class="about-cta-container">
+                        <a href="#contact" class="btn btn-outline btn-primary btn-contact-trigger">CONTACT ME</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mini Statistic Cards Row (Editable Metric Cards) -->
+            <div class="stats-row reveal-fade-up">
+                <div class="stat-card editable-metric-card" data-metric-id="mini-campaigns">
+                    <div class="stat-num font-display"><span class="metric-val" contenteditable="true">50</span><span class="metric-suffix">+</span></div>
+                    <div class="stat-label">CAMPAIGNS MANAGED</div>
+                    <div class="metric-edit-indicator" title="Click number to edit"></div>
+                </div>
+                <div class="stat-card editable-metric-card" data-metric-id="mini-reach">
+                    <div class="stat-num font-display"><span class="metric-val" contenteditable="true">10M</span><span class="metric-suffix">+</span></div>
+                    <div class="stat-label">TOTAL REACH</div>
+                    <div class="metric-edit-indicator" title="Click number to edit"></div>
+                </div>
+                <div class="stat-card editable-metric-card" data-metric-id="mini-engagements">
+                    <div class="stat-num font-display"><span class="metric-val" contenteditable="true">300K</span><span class="metric-suffix">+</span></div>
+                    <div class="stat-label">TOTAL ENGAGEMENTS</div>
+                    <div class="metric-edit-indicator" title="Click number to edit"></div>
+                </div>
+                <div class="stat-card editable-metric-card" data-metric-id="mini-platforms">
+                    <div class="stat-num font-display"><span class="metric-val" contenteditable="true">5</span><span class="metric-suffix">+</span></div>
+                    <div class="stat-label">PLATFORMS COVERED</div>
+                    <div class="metric-edit-indicator" title="Click number to edit"></div>
+                </div>
+                <div class="stat-card editable-metric-card" data-metric-id="mini-projects">
+                    <div class="stat-num font-display"><span class="metric-val" contenteditable="true">20</span><span class="metric-suffix">+</span></div>
+                    <div class="stat-label">BRAND PROJECTS</div>
+                    <div class="metric-edit-indicator" title="Click number to edit"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Campaign Highlights Section -->
+        <section class="campaigns-section" id="projects">
+            <div class="section-header reveal-fade-up">
+                <div class="section-tag">02 / WORK HIGHLIGHTS</div>
+                <h2 class="section-title font-display">Featured Projects©</h2>
+            </div>
+
+            <!-- Asymmetric Editorial Grid of Campaign Cards -->
+            <div class="campaign-grid">
+                
+                <!-- Campaign Card 1 -->
+                <a href="project-awareness.html" class="campaign-card reveal-fade-up">
+                    <div class="campaign-image-box hover-zoom-frame">
+                        <img src="assets/campaign-tiktok.png" alt="TikTok campaign visual content creation" class="campaign-image">
+                        <!-- Hover Reveal Metrics Overlay -->
+                        <div class="campaign-metrics-overlay">
+                            <h3 class="overlay-title font-display">KEY CAMPAIGN METRICS</h3>
+                            <div class="overlay-stats-grid">
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">2.5M</div>
+                                    <div class="lbl">Reach</div>
+                                </div>
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">180K</div>
+                                    <div class="lbl">Engagements</div>
+                                </div>
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">8.2%</div>
+                                    <div class="lbl">Engagement Rate</div>
+                                </div>
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">+35%</div>
+                                    <div class="lbl">Follower Growth</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaign-info">
+                        <div class="campaign-meta">
+                            <span class="c-client">FASHION BRAND</span>
+                            <span class="c-dot"></span>
+                            <span class="c-platform">TIKTOK, REELS</span>
+                        </div>
+                        <h3 class="campaign-name font-display">Brand Awareness Campaign</h3>
+                        <p class="campaign-objective"><strong>Objective:</strong> Increase brand visibility, attract Gen Z demographic, and drive viral engagement.</p>
+                        <p class="campaign-desc">Integrated short-form dynamic videos with native TikTok styling, triggering cultural trends and driving high-retention audience pools.</p>
+                    </div>
+                </a>
+
+                <!-- Campaign Card 2 -->
+                <a href="project-launch.html" class="campaign-card reveal-fade-up card-shifted-down">
+                    <div class="campaign-image-box hover-zoom-frame">
+                        <img src="assets/campaign-launch.png" alt="Product launch photoshoot visual" class="campaign-image">
+                        <!-- Hover Reveal Metrics Overlay -->
+                        <div class="campaign-metrics-overlay">
+                            <h3 class="overlay-title font-display">KEY CAMPAIGN METRICS</h3>
+                            <div class="overlay-stats-grid">
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">1.2M</div>
+                                    <div class="lbl">Impressions</div>
+                                </div>
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">45K</div>
+                                    <div class="lbl">Clicks</div>
+                                </div>
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">4.5%</div>
+                                    <div class="lbl">CTR</div>
+                                </div>
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">+28%</div>
+                                    <div class="lbl">Sales Uplift</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaign-info">
+                        <div class="campaign-meta">
+                            <span class="c-client">BEAUTY BRAND</span>
+                            <span class="c-dot"></span>
+                            <span class="c-platform">FB, IG, TIKTOK</span>
+                        </div>
+                        <h3 class="campaign-name font-display">Product Launch Campaign</h3>
+                        <p class="campaign-objective"><strong>Objective:</strong> Launch new organic product line, drive digital storefront traffic, and boost conversions.</p>
+                        <p class="campaign-desc">Strategically planned multi-channel launch roadmap utilizing paid product placements, retargeting funnels, and optimized landing paths.</p>
+                    </div>
+                </a>
+
+                <!-- Campaign Card 3 -->
+                <a href="project-ugc.html" class="campaign-card reveal-fade-up">
+                    <div class="campaign-image-box hover-zoom-frame">
+                        <img src="assets/campaign-ugc.png" alt="UGC content creator filming layout" class="campaign-image">
+                        <!-- Hover Reveal Metrics Overlay -->
+                        <div class="campaign-metrics-overlay">
+                            <h3 class="overlay-title font-display">KEY CAMPAIGN METRICS</h3>
+                            <div class="overlay-stats-grid">
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">35</div>
+                                    <div class="lbl">Creators Briefed</div>
+                                </div>
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">120</div>
+                                    <div class="lbl">UGC Videos</div>
+                                </div>
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">4.8M</div>
+                                    <div class="lbl">Views</div>
+                                </div>
+                                <div class="overlay-stat-item">
+                                    <div class="val font-display">12%</div>
+                                    <div class="lbl">Conversion Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaign-info">
+                        <div class="campaign-meta">
+                            <span class="c-client">LIFESTYLE BRAND</span>
+                            <span class="c-dot"></span>
+                            <span class="c-platform">TIKTOK, REELS</span>
+                        </div>
+                        <h3 class="campaign-name font-display">Influencer Marketing Campaign</h3>
+                        <p class="campaign-objective"><strong>Objective:</strong> Leverage user-generated content, build community trust, and scale product reviews.</p>
+                        <p class="campaign-desc">Sourced, briefed, and managed collaborations with micro-creators, standardizing visual hooks to maximize platform recommendations.</p>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- 4. Results & Metrics Section -->
+        <section class="results-section" id="results">
+            <div class="section-header reveal-fade-up">
+                <div class="section-tag">03 / PERFORMANCE INDEX</div>
+                <h2 class="section-title font-display">Results in Numbers.</h2>
+                <p class="section-subtitle">
+                    Data-driven marketing yields tangible outcomes. Double-click or hover over any metric value below to customize values dynamically.
+                </p>
+            </div>
+
+            <!-- Premium Dashboard Style Metric Blocks -->
+            <div class="results-dashboard grid-container reveal-fade-up">
+                
+                <!-- Metric Block 1 -->
+                <div class="metric-block editable-metric-card" data-metric-id="total-reach">
+                    <div class="mb-num font-display">
+                        <span class="metric-val" contenteditable="true">10M</span><span class="metric-suffix">+</span>
+                    </div>
+                    <h3 class="mb-title">TOTAL CAMPAIGN REACH</h3>
+                    <p class="mb-desc">Aggregated verified impressions and reach generated across key client social networks.</p>
+                    <div class="metric-edit-indicator" title="Click to edit"></div>
+                </div>
+
+                <!-- Metric Block 2 -->
+                <div class="metric-block editable-metric-card" data-metric-id="total-engagements">
+                    <div class="mb-num font-display">
+                        <span class="metric-val" contenteditable="true">500K</span><span class="metric-suffix">+</span>
+                    </div>
+                    <h3 class="mb-title">TOTAL ENGAGEMENTS</h3>
+                    <p class="mb-desc">Likes, shares, saves, and comments verifying organic resonance and high user interest.</p>
+                    <div class="metric-edit-indicator" title="Click to edit"></div>
+                </div>
+
+                <!-- Metric Block 3 -->
+                <div class="metric-block editable-metric-card" data-metric-id="campaigns-executed">
+                    <div class="mb-num font-display">
+                        <span class="metric-val" contenteditable="true">40</span><span class="metric-suffix">+</span>
+                    </div>
+                    <h3 class="mb-title">CAMPAIGNS EXECUTED</h3>
+                    <p class="mb-desc">End-to-end campaign funnels managed, optimized, and deployed in retail, digital storefront, and F&B sectors.</p>
+                    <div class="metric-edit-indicator" title="Click to edit"></div>
+                </div>
+
+                <!-- Metric Block 4 -->
+                <div class="metric-block editable-metric-card" data-metric-id="videos-produced">
+                    <div class="mb-num font-display">
+                        <span class="metric-val" contenteditable="true">120</span><span class="metric-suffix">+</span>
+                    </div>
+                    <h3 class="mb-title">VIDEOS PRODUCED</h3>
+                    <p class="mb-desc">Short-form videos engineered with customized hooks, audio, and visual pacing structures.</p>
+                    <div class="metric-edit-indicator" title="Click to edit"></div>
+                </div>
+
+                <!-- Metric Block 5 -->
+                <div class="metric-block editable-metric-card" data-metric-id="avg-engagement-rate">
+                    <div class="mb-num font-display">
+                        <span class="metric-val" contenteditable="true">8.5</span><span class="metric-suffix">%</span>
+                    </div>
+                    <h3 class="mb-title">AVG. ENGAGEMENT RATE</h3>
+                    <p class="mb-desc">Consistently outperforming platform benchmarks (industry averages float around 2.4%).</p>
+                    <div class="metric-edit-indicator" title="Click to edit"></div>
+                </div>
+
+                <!-- Metric Block 6 -->
+                <div class="metric-block editable-metric-card" data-metric-id="avg-growth-rate">
+                    <div class="mb-num font-display">
+                        <span class="metric-val" contenteditable="true">35</span><span class="metric-suffix">%</span>
+                    </div>
+                    <h3 class="mb-title">AVG. GROWTH RATE</h3>
+                    <p class="mb-desc">Year-over-year expansion metrics monitored for active, long-term content strategies.</p>
+                    <div class="metric-edit-indicator" title="Click to edit"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. Campaign Case Study Section -->
+        <section class="case-study-section" id="case-study">
+            <div class="case-study-header reveal-fade-up">
+                <div class="section-tag">04 / STRATEGIC DRILLDOWN</div>
+                <h2 class="case-study-title font-display">Case Study_ Product Launch Campaign</h2>
+            </div>
+
+            <div class="grid-container grid-2-col">
+                <div class="cs-content-col reveal-fade-up">
+                    <div class="cs-summary-block">
+                        <div class="cs-summary-item">
+                            <span class="lbl">OBJECTIVE</span>
+                            <p class="val">Build awareness and drive product trial among Gen Z consumers.</p>
+                        </div>
+                        <div class="cs-summary-item">
+                            <span class="lbl">STRATEGY</span>
+                            <p class="val">Combine organic short-form storytelling, micro-creator collaboration, paid boosting, and interactive social proof points.</p>
+                        </div>
+                        <div class="cs-summary-item">
+                            <span class="lbl">CHANNELS</span>
+                            <p class="val">TikTok Organic, Instagram Reels, Meta Retargeting Ads, Creator Platforms.</p>
+                        </div>
+                    </div>
+
+                    <div class="cs-narrative">
+                        <h3 class="cs-subtitle font-display">The Execution</h3>
+                        <p class="cs-paragraph max-w-prose">
+                            We mapped a three-tier content roadmap. First, we initiated **The Hook Phase**—producing native trend videos targeting student lifestyles. Second, we launched **The Credibility Phase**—briefing 35 lifestyle creators on specific product textures and benefits. Finally, **The Conversion Phase** utilized Meta Ads retargeting video viewers with trial coupon codes.
+                        </p>
+                        
+                        <h3 class="cs-subtitle font-display">Key Learnings</h3>
+                        <p class="cs-paragraph max-w-prose">
+                            Direct product pitches underperformed organic creator reactions by 140%. Creative pacing, specifically editing transitions in synchronization with trending tempos, boosted watch time rates by 22% overall.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cs-visual-col reveal-fade-up">
+                    <div class="image-wrapper hover-zoom-frame">
+                        <img src="assets/campaign-launch.png" alt="Detailed cosmetics campaign product shot" class="cs-main-image">
+                    </div>
+                    <!-- Absolute Positioned Stats Annotation -->
+                    <div class="cs-floating-stats reveal-slide-left">
+                        <div class="cs-stat-box">
+                            <span class="num font-display">2.1M</span>
+                            <span class="lbl">REACH</span>
+                        </div>
+                        <div class="cs-stat-box">
+                            <span class="num font-display">150K</span>
+                            <span class="lbl">ENGAGEMENTS</span>
+                        </div>
+                        <div class="cs-stat-box">
+                            <span class="num font-display">6.8%</span>
+                            <span class="lbl">ENG. RATE</span>
+                        </div>
+                        <div class="cs-stat-box">
+                            <span class="num font-display">32%</span>
+                            <span class="lbl">INQUIRY RISE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Services & Expertise Section -->
+        <section class="expertise-section" id="expertise">
+            <div class="section-header reveal-fade-up">
+                <div class="section-tag">05 / CORE CAPABILITIES</div>
+                <h2 class="section-title font-display">Expertise.</h2>
+            </div>
+
+            <!-- Table-style Layout for Services -->
+            <div class="expertise-table reveal-fade-up">
+                
+                <!-- Row 1 -->
+                <div class="table-row">
+                    <div class="row-num">01</div>
+                    <div class="row-title font-display">Campaign Strategy</div>
+                    <div class="row-desc">
+                        Plan digital campaigns based on deep business goals, target audience insights, platform behavior, content parameters, and performance targets.
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="table-row">
+                    <div class="row-num">02</div>
+                    <div class="row-title font-display">Content Marketing</div>
+                    <div class="row-desc">
+                        Develop structural content pillars, localized calendars, visual hooks, engaging copy, short-form video angles, and campaign stories.
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="table-row">
+                    <div class="row-num">03</div>
+                    <div class="row-title font-display">Social Media Growth</div>
+                    <div class="row-desc">
+                        Optimize channels including TikTok, Instagram, and Facebook through algorithm-native posting habits, SEO indexing, and engagement loops.
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="table-row">
+                    <div class="row-num">04</div>
+                    <div class="row-title font-display">Influencer / Creator Marketing</div>
+                    <div class="row-desc">
+                        Identify key organic fits, negotiate collaborations, brief dynamic creative guidelines, and track UGC output metrics.
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="table-row">
+                    <div class="row-num">05</div>
+                    <div class="row-title font-display">Performance Analysis</div>
+                    <div class="row-desc">
+                        Conduct detailed auditing of impressions, CTR, conversion rates, cost-per-acquisition, viewer duration, and client campaign ROI.
+                    </div>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="table-row">
+                    <div class="row-num">06</div>
+                    <div class="row-title font-display">Brand Communication</div>
+                    <div class="row-desc">
+                        Standardize brand messaging guidelines, campaign taglines, and overall content tone across diverse digital touchpoints.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 7. Campaign Archive Section -->
+        <section class="archive-section" id="archive">
+            <div class="section-header reveal-fade-up">
+                <div class="section-tag">06 / THE REPOSITORY</div>
+                <h2 class="section-title font-display">Campaign Archive_</h2>
+            </div>
+
+            <!-- Curated Marketing Table -->
+            <div class="archive-table-wrapper reveal-fade-up">
+                <table class="archive-table">
+                    <thead>
+                        <tr>
+                            <th>CAMPAIGN</th>
+                            <th>BRAND</th>
+                            <th>PLATFORM</th>
+                            <th>OBJECTIVE</th>
+                            <th>RESULT</th>
+                            <th>YEAR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-display c-name">Summer Launch</td>
+                            <td>Fashion Retail</td>
+                            <td>TikTok, Instagram</td>
+                            <td>Awareness</td>
+                            <td class="text-accent">2.5M Reach</td>
+                            <td>2025</td>
+                        </tr>
+                        <tr>
+                            <td class="font-display c-name">New Menu Campaign</td>
+                            <td>F&B Group</td>
+                            <td>TikTok</td>
+                            <td>Engagement</td>
+                            <td class="text-accent">180K Interactions</td>
+                            <td>2025</td>
+                        </tr>
+                        <tr>
+                            <td class="font-display c-name">Creator Push</td>
+                            <td>Beauty & Care</td>
+                            <td>TikTok, Reels</td>
+                            <td>UGC Growth</td>
+                            <td class="text-accent">120 UGC Videos</td>
+                            <td>2024</td>
+                        </tr>
+                        <tr>
+                            <td class="font-display c-name">Membership Drive</td>
+                            <td>EdTech Platform</td>
+                            <td>Facebook, TikTok</td>
+                            <td>Lead Gen</td>
+                            <td class="text-accent">3,000 Leads</td>
+                            <td>2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 8. References Section -->
+        <section class="reference-section" id="reference">
+            <div class="section-header reveal-fade-up">
+                <div class="section-tag">07 / CLIENT ENDORSEMENTS</div>
+                <h2 class="section-title font-display">References.</h2>
+            </div>
+
+            <div class="reference-grid grid-container">
+                <!-- Reference 01 -->
+                <div class="reference-item reveal-fade-up">
+                    <div class="ref-num">01</div>
+                    <div class="ref-header">
+                        <h3 class="ref-name font-display">Minh Anh Tran</h3>
+                        <span class="ref-title">Marketing Manager</span>
+                    </div>
+                    <p class="ref-quote">
+                        "TrucLu has a strong ability to turn campaign objectives into clear content directions. She understands how to balance creative ideas with measurable performance, making each campaign both visually engaging and strategically grounded."
+                    </p>
+                    <div class="ref-strength">
+                        <span class="ref-label">STRENGTH //</span>
+                        <span class="ref-val">Campaign Strategy / Content Direction</span>
+                    </div>
+                </div>
+
+                <!-- Reference 02 -->
+                <div class="reference-item reveal-fade-up">
+                    <div class="ref-num">02</div>
+                    <div class="ref-header">
+                        <h3 class="ref-name font-display">Hoang Nam Le</h3>
+                        <span class="ref-title">Social Media Lead</span>
+                    </div>
+                    <p class="ref-quote">
+                        "TrucLu is detail-oriented in execution and sharp in reading platform behavior. Her work consistently shows a strong understanding of audience attention, content rhythm, and engagement-driven storytelling."
+                    </p>
+                    <div class="ref-strength">
+                        <span class="ref-label">STRENGTH //</span>
+                        <span class="ref-val">Social Media Growth / Platform Insight</span>
+                    </div>
+                </div>
+
+                <!-- Reference 03 -->
+                <div class="reference-item reveal-fade-up">
+                    <div class="ref-num">03</div>
+                    <div class="ref-header">
+                        <h3 class="ref-name font-display">Phuong Vy Nguyen</h3>
+                        <span class="ref-title">Brand Executive</span>
+                    </div>
+                    <p class="ref-quote">
+                        "Working with TrucLu helped our campaign become more structured and visually consistent. She brings a clear strategic mindset while still caring deeply about how the audience experiences each piece of content."
+                    </p>
+                    <div class="ref-strength">
+                        <span class="ref-label">STRENGTH //</span>
+                        <span class="ref-val">Brand Communication / Campaign Execution</span>
+                    </div>
+                </div>
+
+                <!-- Reference 04 -->
+                <div class="reference-item reveal-fade-up">
+                    <div class="ref-num">04</div>
+                    <div class="ref-header">
+                        <h3 class="ref-name font-display">Gia Han Pham</h3>
+                        <span class="ref-title">Project Collaborator</span>
+                    </div>
+                    <p class="ref-quote">
+                        "TrucLu connects creative thinking with performance analysis very well. She can review numbers, identify what is working, and translate those insights into better content decisions for the next campaign."
+                    </p>
+                    <div class="ref-strength">
+                        <span class="ref-label">STRENGTH //</span>
+                        <span class="ref-val">Performance Analysis / Optimization</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Practice / Experience Section -->
+        <section class="practice-section" id="practice">
+            <div class="section-header reveal-fade-up">
+                <div class="section-tag">08 / CAREER TRACK</div>
+                <h2 class="section-title font-display">Practice_</h2>
+            </div>
+
+            <!-- Table listing of work history -->
+            <div class="practice-list reveal-fade-up">
+                
+                <!-- Work 1 -->
+                <div class="practice-item">
+                    <div class="pi-company font-display">ABC Agency</div>
+                    <div class="pi-year">2024 – PRESENT</div>
+                    <div class="pi-role text-accent">Digital Marketing Executive</div>
+                    <div class="pi-focus">Campaign Strategy, Content Planning, Paid Funnels</div>
+                </div>
+
+                <!-- Work 2 -->
+                <div class="practice-item">
+                    <div class="pi-company font-display">XYZ Brand</div>
+                    <div class="pi-year">2023 – 2024</div>
+                    <div class="pi-role text-accent">Social Media Executive</div>
+                    <div class="pi-focus">TikTok Account Growth, Creator Sourcing, In-house Production</div>
+                </div>
+
+                <!-- Work 3 -->
+                <div class="practice-item">
+                    <div class="pi-company font-display">Freelance Projects</div>
+                    <div class="pi-year">2022 – PRESENT</div>
+                    <div class="pi-role text-accent">Content Marketer</div>
+                    <div class="pi-focus">Short-form Video Pacing, Visual Copywriting, Social Campaigns</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 10. Contact / Call to Action Section -->
+        <section class="contact-section" id="contact">
+            <div class="contact-container reveal-fade-up">
+                <h2 class="contact-headline font-display">
+                    Let’s build campaigns that <span class="text-accent italic">people remember</span> and numbers can prove.
+                </h2>
+                
+                <div class="contact-actions">
+                    <a href="mailto:truclu@marketingportfolio.com?subject=Campaign%20Strategy%20Inquiry" class="btn btn-filled btn-primary btn-large" id="btn-email-contact">CONTACT ME</a>
+                    <a href="#projects" class="btn btn-outline btn-large">VIEW PROJECTS</a>
+                    <button class="btn btn-outline btn-large" id="btn-download-portfolio">
+                        DOWNLOAD PORTFOLIO
+                        <!-- Progress visual hidden inside button -->
+                        <span class="btn-progress" id="btn-download-progress"></span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Dynamic Modal for PDF Progress Download -->
+        <div id="download-modal" class="modal-overlay">
+            <div class="modal-card">
+                <h3 class="modal-title font-display">PREPARING PORTFOLIO</h3>
+                <p class="modal-desc">Generating customized marketing case study PDF. Please wait...</p>
+                <div class="modal-progress-track">
+                    <div class="modal-progress-fill" id="modal-progress-bar"></div>
+                </div>
+                <div class="modal-status" id="modal-status-text">0%</div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Footer Copyright Info -->
+    <footer class="footer-bottom">
+        <div class="fb-container">
+            <p class="fb-copy">© 2026 TrucLu. ALL RIGHTS RESERVED.</p>
+            <p class="fb-design">SWISS PUNK PERFORMANCE SYSTEM V1.0</p>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Logic Script -->
+    <script src="app.js"></script>
+</body>
+</html>
