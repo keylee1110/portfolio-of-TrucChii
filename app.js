@@ -2,15 +2,159 @@
    SWISS PUNK PERFORMANCE SYSTEM - INTERACTIVE LOGIC
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+function init() {
+    initIntroSplash();
     initPageTransitions();
     initScrollDynamics();
     initScrollObserver();
     initMobileNav();
     initEditableMetrics();
     initPortfolioDownload();
-    showToast('System active. Double-click any number to customize portfolio metrics.');
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
+
+/* --------------------------------------------------------------------------
+   0. INTRO SPLASH
+   -------------------------------------------------------------------------- */
+function initIntroSplash() {
+    console.log("initIntroSplash: Started execution");
+    const splash = document.getElementById('intro-splash');
+    const target = document.querySelector('.massive-name');
+    
+    console.log("initIntroSplash: splash element found =", !!splash);
+    console.log("initIntroSplash: target element found =", !!target);
+    
+    if (!splash || !target) {
+        console.log("initIntroSplash: early return because splash or target is missing");
+        return;
+    }
+
+    // Lock scroll immediately on load
+    document.body.style.overflow = 'hidden';
+    console.log("initIntroSplash: Scroll locked");
+
+    // Get the original parent to restore it later
+    const originalParent = target.parentNode;
+    console.log("initIntroSplash: Original parent =", originalParent ? originalParent.className : "null");
+
+    // Split target text into individual letters
+    const text = target.textContent.trim();
+    target.innerHTML = text.split('').map(char => {
+        if (char === ' ') return '<span>&nbsp;</span>';
+        return `<span>${char}</span>`;
+    }).join('');
+    console.log("initIntroSplash: Target text split into spans");
+
+    const letterSpans = target.querySelectorAll('span');
+    console.log("initIntroSplash: Letter spans count =", letterSpans.length);
+
+    // Measure natural position *before* detaching
+    const targetRect = target.getBoundingClientRect();
+    console.log("initIntroSplash: targetRect =", JSON.stringify(targetRect));
+
+    // Move target to document.body so it escapes any stacking context and sits on top of splash overlay
+    document.body.appendChild(target);
+    console.log("initIntroSplash: Target appended to body");
+
+    // Style target to occupy the exact same visual position, but as a fixed overlay on top of splash
+    target.style.position = 'fixed';
+    target.style.left = `${targetRect.left}px`;
+    target.style.top = `${targetRect.top}px`;
+    target.style.width = `${targetRect.width}px`;
+    target.style.height = `${targetRect.height}px`;
+    target.style.margin = '0';
+    target.style.zIndex = '10000';
+    target.classList.add('intro-animating');
+
+    // Calculate center of viewport
+    const viewportCenterX = window.innerWidth / 2;
+    const viewportCenterY = window.innerHeight / 2;
+    
+    // Calculate center of target in its fixed position
+    const targetCenterX = targetRect.left + targetRect.width / 2;
+    const targetCenterY = targetRect.top + targetRect.height / 2;
+
+    const translateX = viewportCenterX - targetCenterX;
+    const translateY = viewportCenterY - targetCenterY;
+
+    // Calculate scale factor (desired size: 16vw / final size: 18vw, clamped)
+    const baseSize = 16;
+    const introFontSize = Math.max(6 * baseSize, Math.min(window.innerWidth * 0.16, 14 * baseSize));
+    const targetFontSize = Math.max(6 * baseSize, Math.min(window.innerWidth * 0.18, 18 * baseSize));
+    const scale = introFontSize / targetFontSize;
+    console.log(`initIntroSplash: translate=(${translateX}, ${translateY}) scale=${scale}`);
+
+    // Position target in the center of the viewport
+    target.style.transition = 'none';
+    target.style.transformOrigin = 'center center';
+    target.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+    target.style.opacity = '1';
+
+    // Step 1: Reveal letters one-by-one (gray)
+    letterSpans.forEach((span, index) => {
+        setTimeout(() => {
+            span.classList.add('revealed');
+        }, index * 80);
+    });
+
+    // Step 2: Highlight letters to white one-by-one (loading effect)
+    const highlightDelay = letterSpans.length * 80 + 300;
+    letterSpans.forEach((span, index) => {
+        setTimeout(() => {
+            span.classList.add('active');
+        }, highlightDelay + (index * 120));
+    });
+
+    // Step 3: Trigger morph and background fade out
+    const morphTime = highlightDelay + (letterSpans.length * 120) + 400;
+    console.log("initIntroSplash: morphTime =", morphTime);
+    
+    setTimeout(() => {
+        console.log("initIntroSplash: Morph timeout fired. Starting transition.");
+        // Fade out background color of splash overlay
+        splash.style.backgroundColor = 'transparent';
+        splash.style.pointerEvents = 'none';
+
+        // Morph target back to its natural position
+        target.style.transition = 'transform 1.4s cubic-bezier(0.16, 1, 0.3, 1)';
+        target.style.transform = 'translate(0, 0) scale(1)';
+
+        // Step 4: Finalize transition and unlock scroll
+        setTimeout(() => {
+            console.log("initIntroSplash: Swap timeout fired. Finalizing.");
+            splash.style.display = 'none';
+            document.body.style.overflow = '';
+            
+            // Append target back to its original parent as the first child
+            originalParent.insertBefore(target, originalParent.firstChild);
+            console.log("initIntroSplash: Target restored to original parent");
+
+            // Clean up target styles and remove animating class
+            target.classList.remove('intro-animating');
+            target.style.position = '';
+            target.style.left = '';
+            target.style.top = '';
+            target.style.width = '';
+            target.style.height = '';
+            target.style.margin = '';
+            target.style.zIndex = '';
+            target.style.transform = '';
+            target.style.transformOrigin = '';
+            target.style.transition = '';
+            
+            const cta = document.querySelector('.hero-signature-cta');
+            if (cta) {
+                cta.classList.add('visible');
+            }
+            console.log("initIntroSplash: Complete");
+        }, 1400); // Match morph transit time
+    }, morphTime);
+}
 
 /* --------------------------------------------------------------------------
    1. SCROLL DYNAMICS & PROGRESS BAR
@@ -31,7 +175,7 @@ function initScrollDynamics() {
             const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-            
+
             if (scrollIndicator) {
                 scrollIndicator.style.width = scrolled + '%';
             }
@@ -70,7 +214,7 @@ function initScrollDynamics() {
    -------------------------------------------------------------------------- */
 function initScrollObserver() {
     const revealElements = document.querySelectorAll('.reveal-fade-up, .reveal-fade-in, .reveal-slide-left');
-    
+
     // Disable animations if user prefers reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         revealElements.forEach(el => el.classList.add('reveal-active'));
@@ -158,11 +302,11 @@ function initEditableMetrics() {
     metricCards.forEach(card => {
         const metricId = card.getAttribute('data-metric-id');
         const editableSpan = card.querySelector('.metric-val');
-        
+
         if (!editableSpan || !metricId) return;
 
         // 4.1 Load persisted value from localStorage on launch
-        const savedValue = localStorage.getItem(`truclu_metric_${metricId}`);
+        const savedValue = localStorage.getItem(`elyslu_metric_${metricId}`);
         if (savedValue) {
             editableSpan.textContent = savedValue;
         }
@@ -204,8 +348,8 @@ function initEditableMetrics() {
             }
 
             const finalVal = editableSpan.textContent;
-            localStorage.setItem(`truclu_metric_${metricId}`, finalVal);
-            
+            localStorage.setItem(`elyslu_metric_${metricId}`, finalVal);
+
             // Sync values across duplicated cards (e.g. mini-reach vs total-reach)
             syncRelatedMetrics(metricId, finalVal);
 
@@ -221,7 +365,7 @@ function syncRelatedMetrics(metricId, value) {
     } else if (metricId === 'total-reach') {
         updateMetricElement('mini-reach', value);
     }
-    
+
     // Sync mini-campaigns with campaigns-executed
     if (metricId === 'mini-campaigns') {
         updateMetricElement('campaigns-executed', value);
@@ -243,7 +387,7 @@ function updateMetricElement(metricId, value) {
         const span = card.querySelector('.metric-val');
         if (span) {
             span.textContent = value;
-            localStorage.setItem(`truclu_metric_${metricId}`, value);
+            localStorage.setItem(`elyslu_metric_${metricId}`, value);
         }
     }
 }
@@ -303,26 +447,26 @@ function initPortfolioDownload() {
 
     function finalizeDownload() {
         descText.textContent = 'Download ready! Initiating transmission...';
-        
+
         // Dynamic simulated file trigger
         setTimeout(() => {
             triggerFileDownload();
             modal.classList.remove('open');
             document.body.style.overflow = '';
-            showToast('Linh_Marketing_Portfolio.pdf downloaded successfully!');
+            showToast('ElysLu_Marketing_Portfolio.pdf downloaded successfully!');
         }, 1000);
     }
 
     function triggerFileDownload() {
         // Create an active mock data blob download to trigger browser's save window
-        const mockContent = 'Linh - Digital Marketing Portfolio PDF Mock Content\n' +
-                            'Campaign awareness data, product launch results, and growth indexes.\n' +
-                            'Generated dynamically on: ' + new Date().toLocaleDateString();
-        
+        const mockContent = 'TrucLu - Digital Marketing Portfolio PDF Mock Content\n' +
+            'Campaign awareness data, product launch results, and growth indexes.\n' +
+            'Generated dynamically on: ' + new Date().toLocaleDateString();
+
         const blob = new Blob([mockContent], { type: 'application/pdf' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = 'Linh_Marketing_Portfolio.pdf';
+        link.download = 'ElysLu_Marketing_Portfolio.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -376,7 +520,7 @@ function dismissToast(toast) {
    -------------------------------------------------------------------------- */
 function initPageTransitions() {
     const wipe = document.getElementById('page-wipe');
-    
+
     // 1. Initial Page Load Reveal
     if (wipe) {
         // Force reflow
@@ -392,7 +536,7 @@ function initPageTransitions() {
     const links = document.querySelectorAll('a');
     links.forEach(link => {
         const href = link.getAttribute('href');
-        
+
         // Skip links that are empty, anchors on the same page, external URLs, or mailto/tel
         if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || (href.startsWith('http') && !href.includes(window.location.hostname))) {
             return;
@@ -400,7 +544,7 @@ function initPageTransitions() {
 
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            
+
             if (wipe) {
                 wipe.classList.add('wipe-active-out');
                 setTimeout(() => {

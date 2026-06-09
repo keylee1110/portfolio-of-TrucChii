@@ -1,6 +1,6 @@
 # AG Kit Architecture
 
-> Comprehensive AI Agent Capability Expansion Toolkit — 2026.5.31
+> Comprehensive AI Agent Capability Expansion Toolkit - 2026.5.31
 
 ---
 

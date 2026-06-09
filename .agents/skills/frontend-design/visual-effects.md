@@ -177,7 +177,7 @@ Good Gradient Rules:
 Multiple radial gradients overlapped:
 ├── Each at different position
 ├── Each with transparent falloff
-├── Use with INTENT — overused as a lazy "wow" default
+├── Use with INTENT - overused as a lazy "wow" default
 └── Creates organic, colorful effect; pair with a deliberate palette
 ```
 

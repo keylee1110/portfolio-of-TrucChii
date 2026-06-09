@@ -74,7 +74,7 @@ The entire website should feel closer to:
 
 The website should communicate:
 
-**“This person is a digital marketer who creates campaigns, shapes content, and delivers measurable growth — but their portfolio is presented with high-end visual taste and editorial precision.”**
+**“This person is a digital marketer who creates campaigns, shapes content, and delivers measurable growth - but their portfolio is presented with high-end visual taste and editorial precision.”**
 
 ---
 
@@ -84,7 +84,7 @@ The website should communicate:
 
 Keep the top header extremely minimal and refined.
 
-* left: personal name / logo, e.g. **LINH™**
+* left: personal name / logo, e.g. **TrucLu™**
 * center: small navigation links
 * right: role and location in subtle small uppercase text
 

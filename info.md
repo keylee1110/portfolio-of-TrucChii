@@ -41,7 +41,7 @@ Alternative headline:
 
 Add a large personal brand/name in oversized typography, for example:
 
-**“Linh™”**
+**“TrucLu™”**
 or
 **“Marketing Portfolio™”**
 

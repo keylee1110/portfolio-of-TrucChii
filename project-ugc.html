@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Influencer Marketing Campaign — TrucLu</title>
-    <meta name="description" content="Case study of the influencer marketing and UGC content campaign for a lifestyle brand, driving engagement and social conversions.">
-    <!-- Google Fonts: Inter for Body, Outfit for display/numbers -->
+    <title>Influencer Marketing Campaign - TrucLu</title>
+    <meta name="description"
+        content="Case study of the influencer marketing and UGC content campaign for a lifestyle brand, driving engagement and social conversions.">
+    <!-- Google Fonts: Inter for Body and fallback typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Influencer Marketing Campaign - TrucLu">
+    <meta property="og:description"
+        content="Case study of the influencer marketing and UGC content campaign for a lifestyle brand, driving engagement and social conversions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://truclumarketing.com/project-ugc.html">
+    <meta property="og:image" content="assets/campaign-ugc.png">
     <style>
         .detail-hero {
             padding: 180px 0 64px 0;
             border-bottom: 1px solid var(--border-color);
         }
+
         .detail-meta-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -23,11 +34,13 @@
             border-top: 1px solid var(--border-color);
             padding-top: var(--space-md);
         }
+
         .meta-item {
             display: flex;
             flex-direction: column;
             gap: 4px;
         }
+
         .meta-item .lbl {
             font-size: 0.75rem;
             font-weight: 700;
@@ -35,19 +48,23 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
+
         .meta-item .val {
             font-size: 1rem;
             color: var(--color-text-primary);
         }
+
         .case-study-grid {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: var(--space-xl);
             padding: var(--space-xl) 0;
         }
+
         .cs-block {
             margin-bottom: var(--space-xl);
         }
+
         .cs-block-title {
             font-size: 1.5rem;
             font-weight: 700;
@@ -56,48 +73,57 @@
             margin-bottom: var(--space-sm);
             color: var(--color-text-primary);
         }
+
         .cs-block-text {
             color: var(--color-text-secondary);
             font-size: 1.05rem;
             line-height: 1.6;
             max-width: 65ch;
         }
+
         .cs-visuals-col {
             display: flex;
             flex-direction: column;
             gap: var(--space-md);
         }
+
         .cs-visual-box {
             width: 100%;
             height: 360px;
             border: 1px solid var(--border-color);
         }
+
         .cs-visual-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             filter: grayscale(100%) brightness(0.7) contrast(1.1);
         }
+
         .detail-stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             border: 1px solid var(--border-color);
             margin: var(--space-xl) 0;
         }
+
         .detail-stat-card {
             padding: var(--space-md);
             border-right: 1px solid var(--border-color);
             text-align: center;
         }
+
         .detail-stat-card:last-child {
             border-right: none;
         }
+
         .detail-stat-num {
             font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 900;
             line-height: 1;
             color: var(--color-text-primary);
         }
+
         .detail-stat-lbl {
             font-size: 0.75rem;
             font-weight: 700;
@@ -106,6 +132,7 @@
             margin-top: 8px;
             text-transform: uppercase;
         }
+
         .cs-nav-footer {
             display: flex;
             justify-content: space-between;
@@ -114,32 +141,40 @@
             padding: var(--space-lg) 0;
             margin-top: var(--space-2xl);
         }
+
         @media (max-width: 768px) {
             .detail-meta-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: var(--space-md);
             }
+
             .case-study-grid {
                 grid-template-columns: 1fr;
             }
+
             .detail-stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
             .detail-stat-card:nth-child(2) {
                 border-right: none;
             }
+
             .detail-stat-card:nth-child(even) {
                 border-right: none;
             }
+
             .detail-stat-card {
                 border-bottom: 1px solid var(--border-color);
             }
+
             .detail-stat-card:nth-last-child(-n+2) {
                 border-bottom: none;
             }
         }
     </style>
 </head>
+
 <body class="bg-black text-white antialiased selection-accent">
 
     <!-- Page Wipe Overlay for Transitions -->
@@ -162,8 +197,8 @@
                 </nav>
             </div>
             <div class="nav-right">
-                <span class="nav-header-label">Based in Saigon Sài Gòn</span>
-                <span class="nav-header-sublabel">Campaign Strategist + Content Creator</span>
+                <span class="nav-header-label">Based in SGN</span>
+                <span class="nav-header-sublabel">Digital Growth Specialist + Creative Lead</span>
             </div>
             <!-- Mobile Menu Toggle Button -->
             <button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-menu-btn">
@@ -191,7 +226,7 @@
         <section class="detail-hero reveal-fade-up">
             <div class="section-tag">PROJECT 03 / COMMUNITY ENGAGEMENT</div>
             <h1 class="section-title font-display">Influencer Marketing Campaign</h1>
-            
+
             <div class="detail-meta-grid">
                 <div class="meta-item">
                     <span class="lbl">Client</span>
@@ -241,42 +276,52 @@
                     <div class="cs-block">
                         <h2 class="cs-block-title font-display">Campaign Overview</h2>
                         <p class="cs-block-text">
-                            An organic social advocacy program designed to partner a lifestyle brand with micro-creators. By utilizing a standardized creative briefing framework, we generated a large asset base of authentic content that drove conversions.
+                            An organic social advocacy program designed to partner a lifestyle brand with
+                            micro-creators. By utilizing a standardized creative briefing framework, we generated a
+                            large asset base of authentic content that drove conversions.
                         </p>
                     </div>
 
                     <div class="cs-block">
                         <h2 class="cs-block-title font-display">Objective</h2>
                         <p class="cs-block-text">
-                            Build social validation, accumulate authentic user-generated reviews, and scale brand trust across TikTok and Reels. The goal was to bypass typical corporate marketing in favor of high-performing creator channels.
+                            Build social validation, accumulate authentic user-generated reviews, and scale brand trust
+                            across TikTok and Reels. The goal was to bypass typical corporate marketing in favor of
+                            high-performing creator channels.
                         </p>
                     </div>
 
                     <div class="cs-block">
                         <h2 class="cs-block-title font-display">Target Audience</h2>
                         <p class="cs-block-text">
-                            Gen Z and young millennial buyers active in lifestyle subcultures. These users buy based on visual proof, peer reviews, styling guides, and authentic recommendations.
+                            Gen Z and young millennial buyers active in lifestyle subcultures. These users buy based on
+                            visual proof, peer reviews, styling guides, and authentic recommendations.
                         </p>
                     </div>
 
                     <div class="cs-block">
                         <h2 class="cs-block-title font-display">Strategy & Creative Direction</h2>
                         <p class="cs-block-text">
-                            We engineered a structured creator onboarding guide specifying visual hook timings (first 3 seconds), visual text overlay formatting, and lighting setups, while leaving the narrative in the creator's voice to protect authenticity.
+                            We engineered a structured creator onboarding guide specifying visual hook timings (first 3
+                            seconds), visual text overlay formatting, and lighting setups, while leaving the narrative
+                            in the creator's voice to protect authenticity.
                         </p>
                     </div>
 
                     <div class="cs-block">
                         <h2 class="cs-block-title font-display">Channel & Platform Mix</h2>
                         <p class="cs-block-text">
-                            TikTok was the primary channel for native reach (80%), supplemented by Instagram Reels for cross-promotional creator collaborations and product review catalogs (20%).
+                            TikTok was the primary channel for native reach (80%), supplemented by Instagram Reels for
+                            cross-promotional creator collaborations and product review catalogs (20%).
                         </p>
                     </div>
 
                     <div class="cs-block">
                         <h2 class="cs-block-title font-display">Learnings & Optimization</h2>
                         <p class="cs-block-text">
-                            Videos that displayed creator reactions within the first 1.5 seconds saw a 45% increase in total watch retention. Using the creator's original audio rather than adding music tracks yielded a 14% higher link click rate.
+                            Videos that displayed creator reactions within the first 1.5 seconds saw a 45% increase in
+                            total watch retention. Using the creator's original audio rather than adding music tracks
+                            yielded a 14% higher link click rate.
                         </p>
                     </div>
                 </div>
@@ -313,4 +358,5 @@
     <!-- Core Interactive Logic Script -->
     <script src="app.js"></script>
 </body>
+
 </html>

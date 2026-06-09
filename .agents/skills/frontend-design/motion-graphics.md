@@ -303,4 +303,4 @@ What animation do you need?
 
 ---
 
-> **Remember**: Motion graphics should enhance, not distract. Every animation must serve a PURPOSE—feedback, guidance, delight, or storytelling.
+> **Remember**: Motion graphics should enhance, not distract. Every animation must serve a PURPOSE-feedback, guidance, delight, or storytelling.
