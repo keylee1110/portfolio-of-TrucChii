@@ -17,9 +17,12 @@ Keep the project dependency-light and deployable as a static Vercel site:
 ```text
 /
 |-- index.html
+|-- work.html
 |-- project-awareness.html
 |-- project-launch.html
 |-- project-ugc.html
+|-- project-placeholder-04.html
+|-- project-placeholder-05.html
 |-- assets/
 |   |-- images/
 |   `-- fonts/
@@ -64,16 +67,36 @@ The homepage retains these content groups:
 2. Editorial hero with ElysLu wordmark.
 3. Positioning/about section.
 4. Skills and tools.
-5. Featured project cards.
+5. Five featured project cards.
 6. Results and campaign details.
 7. Archive, testimonials, and contact footer.
 
 Long sections may be visually simplified, but no meaningful portfolio content
 or case-study link will be removed.
 
+The homepage does not include a Services section. Service-related content from
+the Framer reference is intentionally excluded.
+
+## Work Index
+
+`work.html` is the complete project archive and mirrors the purpose of the
+Framer reference's `/work` route without copying its generated implementation.
+
+It contains:
+
+- An editorial page introduction.
+- All five projects in a responsive asymmetric grid.
+- Project number, title, category, year, image, and short summary.
+- Direct links to the five case-study pages.
+- Shared ElysLu navigation, page transition, and footer.
+
+The homepage and Work page use the same project card markup and styling so
+future edits remain consistent.
+
 ## Featured Project Interaction
 
-Each project card uses explicit visual layers:
+Exactly five project cards appear on both the homepage and Work page. Each card
+uses explicit visual layers:
 
 - Base image with subtle scale and contrast shift.
 - Optional foreground layer for depth where a suitable transparent asset
@@ -104,7 +127,7 @@ transition delays.
 
 ## Case Studies
 
-The three case-study pages share:
+Five case-study pages share:
 
 - Consistent ElysLu navigation and footer.
 - Shared project-page typography and spacing.
@@ -112,8 +135,18 @@ The three case-study pages share:
 - Previous/next project navigation.
 - The same page transition system as the homepage.
 
-Existing case-study content and imagery remain intact unless duplicated or
-clearly placeholder text.
+The first three case studies retain their existing content and imagery unless
+duplicated or clearly placeholder text.
+
+Project 04 and Project 05 use visibly editable placeholder content. They must:
+
+- Be labeled `Project 04` and `Project 05` in source comments and metadata.
+- Avoid invented client names, testimonials, campaign metrics, or claims.
+- Use headings such as `Replace with project title` and copy that explicitly
+  tells the editor what information belongs there.
+- Reuse local portfolio imagery temporarily, with comments marking each image
+  for replacement.
+- Participate in the same previous/next project navigation loop.
 
 ## Content And Brand Rules
 
@@ -151,11 +184,16 @@ clearly placeholder text.
 Automated checks will cover:
 
 - No stale `TrucLu` or template branding in production files.
+- No Services section in `index.html` or `work.html`.
+- Exactly five featured project links on the homepage.
+- Exactly five project entries on the Work page.
+- Exactly five reachable case-study pages.
 - Every local HTML asset reference resolves.
 - Every internal page link resolves.
 - Required landmarks, titles, and project links exist.
 - JavaScript files parse successfully.
-- The local server returns all four pages successfully.
+- The local server returns the homepage, Work page, and all five case-study
+  pages successfully.
 
 Browser verification will cover desktop and mobile layouts, keyboard
 navigation, project interactions, reduced motion, page transitions, and console
