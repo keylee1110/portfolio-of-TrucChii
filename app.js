@@ -8,6 +8,8 @@ function init() {
     initScrollDynamics();
     initScrollObserver();
     initMobileNav();
+    initProjectCards();
+    // initCertificationMarquee(); - Disabled for list layout
     initEditableMetrics();
     initPortfolioDownload();
 }
@@ -17,6 +19,20 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
+
+function initProjectCards() {
+    const cards = document.querySelectorAll('[data-project-card]');
+    if (!cards.length || !window.matchMedia('(pointer: fine)').matches) return;
+
+    cards.forEach(card => {
+        card.addEventListener('pointerenter', () => card.classList.add('is-active'));
+        card.addEventListener('pointerleave', () => card.classList.remove('is-active'));
+        card.addEventListener('focus', () => card.classList.add('is-active'));
+        card.addEventListener('blur', () => card.classList.remove('is-active'));
+    });
+}
+
+/* initCertificationMarquee removed for list layout */
 
 /* --------------------------------------------------------------------------
    0. INTRO SPLASH
@@ -82,10 +98,11 @@ function initIntroSplash() {
     const translateX = viewportCenterX - targetCenterX;
     const translateY = viewportCenterY - targetCenterY;
 
-    // Calculate scale factor (desired size: 16vw / final size: 18vw, clamped)
+    // Calculate scale factor using actual computed target font size dynamically
+    const computedStyle = window.getComputedStyle(target);
+    const targetFontSize = parseFloat(computedStyle.fontSize) || 96;
     const baseSize = 16;
     const introFontSize = Math.max(6 * baseSize, Math.min(window.innerWidth * 0.16, 14 * baseSize));
-    const targetFontSize = Math.max(6 * baseSize, Math.min(window.innerWidth * 0.18, 18 * baseSize));
     const scale = introFontSize / targetFontSize;
     console.log(`initIntroSplash: translate=(${translateX}, ${translateY}) scale=${scale}`);
 
@@ -459,7 +476,7 @@ function initPortfolioDownload() {
 
     function triggerFileDownload() {
         // Create an active mock data blob download to trigger browser's save window
-        const mockContent = 'TrucLu - Digital Marketing Portfolio PDF Mock Content\n' +
+        const mockContent = 'ElysLu - Digital Marketing Portfolio PDF Mock Content\n' +
             'Campaign awareness data, product launch results, and growth indexes.\n' +
             'Generated dynamically on: ' + new Date().toLocaleDateString();
 
