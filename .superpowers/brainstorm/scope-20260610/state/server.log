@@ -1,0 +1,6 @@
+{"type":"server-started","port":53120,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:53120","screen_dir":"D:\\Khoa Lee\\IT\\For babi\\.superpowers\\brainstorm\\scope-20260610\\content","state_dir":"D:\\Khoa Lee\\IT\\For babi\\.superpowers\\brainstorm\\scope-20260610\\state"}
+{"type":"screen-added","file":"D:\\Khoa Lee\\IT\\For babi\\.superpowers\\brainstorm\\scope-20260610\\content\\scope-options.html"}
+{"source":"user-event","type":"click","text":"CURRENT + SELECTED REFERENCE\n      HERO / ABOUT / SKILLS - GIU NGUYEN\n      FEATURED PROJECTS MOI\n      RESULTS / CASE STUDY\n      ARCHIVE / EXPERIENCE\n      CONTACT\n    \n    \n      B. Project section + cac section ben duoi\n      Lam lai Featured Projects va lan luot nang cap Results, Case Study, Archive, Experience, Contact theo reference. Khong them Pricing, FAQ, Blog.","choice":"b","id":null,"timestamp":1781093104802}
+{"type":"screen-added","file":"D:\\Khoa Lee\\IT\\For babi\\.superpowers\\brainstorm\\scope-20260610\\content\\project-layout.html"}
+{"type":"screen-added","file":"D:\\Khoa Lee\\IT\\For babi\\.superpowers\\brainstorm\\scope-20260610\\content\\work-page-sticky.html"}
+{"type":"server-stopped","reason":"idle timeout"}
