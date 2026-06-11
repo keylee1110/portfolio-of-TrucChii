@@ -1,0 +1,52 @@
+Create a premium editorial testimonial section inspired by a scattered floating layout.
+
+Overall direction:
+The section should feel like a dark, cinematic portfolio testimonial area, not a standard SaaS testimonial grid. Use a black background, oversized typography, floating testimonial cards, thin blue guide lines, and lots of negative space.
+
+Section structure:
+- Full-width black section.
+- At the top, add an oversized heading that is partially cropped horizontally by the viewport.
+- Heading text example: “Testimonial© - Reviews”
+- The heading should be very large, bold, white, and slightly overflowing outside the container to create an editorial feel.
+- Under the heading, center a small pill button that says “GET IN TOUCH”.
+- Below the button, place a small circular icon/avatar button in the center.
+- Add a thin horizontal blue line across the full section width around the upper-middle area.
+
+Testimonial card layout:
+- Do not use a normal 3-column grid.
+- Cards must be positioned asymmetrically across the section, like floating notes on a large canvas.
+- Use absolute positioning or CSS grid with manual placement.
+- Each card should have different x/y positions to create a scattered composition.
+- Some cards can be partially near the edge of the screen.
+- Keep lots of empty black space between cards.
+
+Card style:
+- Dark card background, close to #050505 or #080808.
+- Thin border, around 1px, using dark gray with subtle blue highlight.
+- Rounded corners around 6px to 10px.
+- Small compact size, around 220px to 260px wide.
+- Padding around 14px to 18px.
+- Text should be white or light gray.
+- Quote text should be small, dense, and professional.
+- Bottom area includes avatar, name, role, and client logo.
+- Add a small blue verified badge next to the name.
+- Logo should sit on the bottom right of the card.
+
+Composition:
+- Card 1: left side, just below the blue horizontal line.
+- Card 2: right side, slightly lower than card 1.
+- Card 3: center lower area.
+- Card 4: far right lower area, partially lower in the viewport.
+- Optional card 5: left bottom area, partly cropped to create depth.
+
+Animation:
+- On scroll, cards should fade in and move slightly upward.
+- Each card should have a different delay.
+- Add subtle parallax movement when scrolling.
+- On hover, each card should lift slightly, border becomes brighter, and background becomes a bit lighter.
+- Keep animation minimal, premium, and smooth.
+
+Responsive:
+- On desktop, keep the scattered absolute layout.
+- On tablet, reduce heading size and bring cards slightly closer.
+- On mobile, switch cards into a vertical stacked layout, because absolute scattered layout may become unreadable.
