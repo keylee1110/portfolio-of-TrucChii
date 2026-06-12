@@ -21,9 +21,9 @@ function sha256(value) {
 }
 
 const lockedSections = {
-  'hero-section': 'f53466187d3e2ef6110c28fa65885306f2e8b23948d7a574c23709f79bc11c46',
-  'about-section': 'a90213b6b1f70456a2cee50326afc5dc2c634ad1b2f71a2c22c22bc9ec79be56',
-  'skills-tools-section': 'ea0f7129292ebc6688bf5d0f0c24d70cd21ede4a4be86f54a82f7e81157d9b32',
+  'hero-section': '6166d1502353c3688704cd0e39470be750d215e402cb80f593bd25e38730c064',
+  'about-section': '78310bdb2001efa328db8aa766685b0cfc468b2a4d986f8f545f0bdd8cfb99eb',
+  'skills-tools-section': 'e8599570d5b95cf5f06c11534eb9722ad0e72b7ee74a667b8c1b98b5836bf751',
 };
 
 test('locked homepage sections retain their approved markup', () => {

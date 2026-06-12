@@ -1,0 +1,34 @@
+Create a project showcase section using a curated asymmetrical editorial layout.
+
+Important:
+Do not use a uniform card grid.
+Do not make all project cards the same size or align them evenly.
+
+The layout should feel intentionally unbalanced but visually harmonious, like a high-end editorial portfolio. 
+Project cards should be scattered across the canvas with different sizes, different vertical offsets, and generous negative space.
+
+Composition rules:
+- Some cards should be larger and act as visual anchors.
+- Some cards should be smaller and placed higher or lower to create rhythm.
+- Cards should not line up perfectly in rows.
+- Keep the arrangement asymmetrical, but balanced overall.
+- Leave large empty spaces between some cards to create a premium feel.
+- The composition should feel curated, not random.
+
+Visual rhythm:
+- Alternate between large and small cards.
+- Stagger the cards vertically.
+- Avoid stacking all cards at the same height.
+- Spread cards across left, center, and right areas of the section.
+
+Card behavior:
+- Each project card contains a main visual, a smaller foreground image or inset visual, and a footer line with project name and index.
+- On hover, the card can animate subtly, but the layout itself should already feel strong without hover.
+
+Overall feel:
+- Minimal
+- Premium
+- Editorial
+- Fashion-like portfolio composition
+- Clean black background
+- Strong use of negative space

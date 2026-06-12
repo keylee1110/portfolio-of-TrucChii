@@ -1,0 +1,27 @@
+Create the testimonial section with a layered scroll effect.
+
+Important:
+This is not a normal static testimonial layout.
+The section should behave like a parallax-style composition where the oversized background text stays fixed or sticky behind the content, while the testimonial cards move upward as the user scrolls.
+
+Behavior:
+- The large background word / title (such as “Reviews” or “Testimonial”) should remain visually anchored in place.
+- It should stay behind all testimonial cards.
+- The testimonial cards should scroll vertically through the section.
+- As the page scrolls, the cards move upward naturally with the page, creating a layered depth effect.
+- The result should feel like the testimonials are floating over a fixed editorial background.
+
+Layout logic:
+- Use one background layer for the huge text / visual.
+- Use one foreground layer for the testimonial cards.
+- The background layer should be fixed or sticky.
+- The card layer should remain in the normal scroll flow or be animated slightly with scroll-based translateY.
+- Keep strong negative space and asymmetrical card placement.
+
+Visual feeling:
+- Premium editorial portfolio
+- Black canvas
+- Oversized cropped white typography in the background
+- Floating testimonial cards in front
+- Smooth, subtle motion
+- No obvious “techy” parallax effect

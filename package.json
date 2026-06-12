@@ -1,0 +1,10 @@
+{
+  "name": "elyslu-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "minify": "python .scripts/minify.py",
+    "compress-images": "python .scripts/compress_images.py",
+    "test": "node tests/site.test.mjs"
+  }
+}
