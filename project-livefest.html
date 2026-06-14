@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVE FEST 2025 - ElysLu</title>
+    <meta name="description"
+        content="Case study of the TikTok LIVE FEST 2025 regional campaign operations, GTM strategy, and interactive UI/UX design.">
+    <!-- Google Fonts: Inter for Body and fallback typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="LIVE FEST 2025 - ElysLu">
+    <meta property="og:description"
+        content="Case study of the TikTok LIVE FEST 2025 regional campaign operations, GTM strategy, and interactive UI/UX design.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elyslumarketing.com/project-livefest.html">
+    <meta property="og:image" content="assets/campaign-tiktok.webp">
+    <style>
+        /* ── Page Layout ── */
+        .detail-hero {
+            padding: 180px 0 64px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        main.grid-container {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        main.grid-container > section {
+            min-width: 0;
+        }
+
+        .hero-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .hero-meta-item .lbl {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-meta-item .val {
+            font-size: 0.95rem;
+            color: var(--color-text-primary);
+        }
+
+        .hero-date {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .hero-subtitle-left {
+            color: var(--color-text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.65;
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 0;
+            align-items: stretch;
+            border-bottom: 1px solid var(--border-color);
+            margin-top: var(--space-xl);
+        }
+
+        .hero-left-col {
+            padding-right: var(--space-xl);
+            padding-bottom: var(--space-xl);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .hero-right-col {
+            padding: 0;
+        }
+
+        /* ── Info Table (Swiss Brutalist) ── */
+        .info-table {
+            border-top: 1px solid var(--border-color);
+            margin: var(--space-lg) 0;
+            width: 100%;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 8px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+            align-items: center;
+        }
+
+        .info-lbl {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .info-val {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* ── Visual Placeholders ── */
+        .visual-placeholder {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            background: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .visual-placeholder:hover {
+            border-color: var(--color-text-secondary);
+        }
+
+        .visual-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.01) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0.01) 75%, transparent 75%, transparent);
+            background-size: 40px 40px;
+            opacity: 0.6;
+        }
+
+        .visual-label {
+            font-family: var(--font-display);
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            z-index: 2;
+            text-align: center;
+            padding: var(--space-md);
+        }
+
+        .hero-cover-placeholder {
+            height: 100%;
+            min-height: 480px;
+            border: none;
+            overflow: hidden;
+            background: #000;
+            position: relative;
+        }
+
+        .hero-yt-iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* Scale up to fill the container while keeping 9:16 aspect */
+            width: 100%;
+            height: 177.78%; /* 16/9 * 100% */
+            transform: translate(-50%, -50%);
+            border: none;
+            pointer-events: none;
+        }
+
+        .hero-yt-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* ── Stats Grid ── */
+        .detail-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--border-color);
+            margin: 0 0 var(--space-xl) 0;
+            background: #000;
+        }
+
+        .detail-stat-card {
+            padding: var(--space-md);
+            border-right: 1px solid var(--border-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .detail-stat-card:last-child {
+            border-right: none;
+        }
+
+        .detail-stat-num {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1;
+            color: var(--color-text-primary);
+        }
+
+        .detail-stat-lbl {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            letter-spacing: 0.1em;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+
+        /* ── Section Header (Center-Aligned) ── */
+        .center-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 56px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .center-header p {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* ── Ring Orbit Visual ── */
+        .ring-visual {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 48px auto;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        .ring-center {
+            width: 90px;
+            height: 90px;
+            background: #050505;
+            border: 1.5px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-align: center;
+            color: var(--color-text-primary);
+            box-shadow: 0 0 20px rgba(255,255,255,0.02);
+        }
+
+        .ring-node {
+            position: absolute;
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: #0a0a0a;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.62rem;
+            color: var(--color-text-secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.3s ease,
+                        color 0.3s ease,
+                        box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .ring-node:hover {
+            border-color: #ffffff;
+            color: #ffffff;
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .node-1 { top: -20px; left: 126px; }
+        .node-2 { top: 46px; right: -16px; }
+        .node-3 { bottom: 46px; right: -16px; }
+        .node-4 { bottom: -20px; left: 126px; }
+        .node-5 { bottom: 46px; left: -16px; }
+        .node-6 { top: 46px; left: -16px; }
+
+        /* ── Strategy Layout v2 ── */
+        .case-study-section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4.8vw, 4.6rem);
+            font-weight: 700;
+            line-height: 0.98;
+            color: var(--color-text-primary);
+            letter-spacing: -0.04em;
+            white-space: normal;
+            max-width: 18ch;
+        }
+
+        .strategy-section-title {
+            font-family: var(--font-display);
+            font-size: clamp(3.25rem, 4.7vw, 4.6rem);
+            font-weight: 700;
+            line-height: 0.94;
+            letter-spacing: -0.035em;
+            max-width: none;
+            white-space: nowrap;
+            margin-top: 56px;
+            margin-bottom: 38px;
+        }
+
+        .strategy-grid-v2 {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+            gap: clamp(48px, 7vw, 108px);
+            align-items: start;
+        }
+
+        .strategy-text-block {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .strategy-text-block p {
+            color: var(--color-text-primary);
+            font-size: clamp(1.15rem, 1.65vw, 1.55rem);
+            font-weight: 300;
+            line-height: 1.3;
+            letter-spacing: -0.015em;
+            max-width: 40ch;
+        }
+
+        .strategy-text-block strong {
+            color: inherit;
+            font-weight: inherit;
+        }
+
+        /* Planning showcase: two stacked visual layers with an overlaid label. */
+        .planning-showcase-img-wrap {
+            width: 100%;
+            position: relative;
+            min-height: 320px;
+        }
+
+        .planning-showcase-sheet,
+        .planning-showcase-img-placeholder {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            border: none;
+            background-color: #f3f3f0;
+        }
+
+        .planning-showcase-sheet {
+            top: 0;
+            height: 42%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .planning-showcase-img-placeholder {
+            bottom: 0;
+            height: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .planning-showcase-bar {
+            position: absolute;
+            z-index: 3;
+            top: 45%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            min-height: 60px;
+            background: #050505;
+            padding: 2px 18px 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .planning-showcase-bar-text {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.3vw, 3.3rem);
+            font-weight: 700;
+            line-height: 0.9;
+            color: var(--color-text-primary);
+            letter-spacing: -0.035em;
+            text-transform: lowercase;
+        }
+
+        .status-pill {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            border-color: #00ff66;
+            color: #00ff66;
+            background: rgba(0, 255, 102, 0.05);
+        }
+
+        /* ── Phone Mockups Swipe Row ── */
+        .mockups-swipe-section {
+            margin-top: 80px;
+            border-top: 1px solid var(--border-color);
+            padding-top: var(--space-xl);
+        }
+
+        .mockups-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: var(--space-lg);
+        }
+
+        .mockups-header-left {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            max-width: 250px;
+            line-height: 1.5;
+        }
+
+        .mockups-header-right {
+            text-align: right;
+        }
+
+        .mockups-large-title {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 900;
+            line-height: 0.9;
+            text-transform: lowercase;
+            letter-spacing: -0.04em;
+        }
+
+        .phone-marquee {
+            width: 100%;
+            overflow: hidden;
+            padding-bottom: 24px;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+        }
+
+        .phone-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: phoneMarqueeScroll 70s linear infinite;
+            will-change: transform;
+        }
+
+        .phone-marquee:hover .phone-marquee-track {
+            animation-play-state: paused;
+        }
+
+        .phone-marquee-group {
+            display: flex;
+            gap: 24px;
+            padding-right: 24px;
+        }
+
+        @keyframes phoneMarqueeScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .phone-card {
+            flex-shrink: 0;
+            width: 200px;
+        }
+
+        .phone-chassis {
+            border: 3px solid #1a1a1a;
+            border-radius: 28px;
+            height: 380px;
+            background: #070707;
+            position: relative;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+            transition: border-color 0.3s ease;
+        }
+
+        .phone-card:hover .phone-chassis {
+            border-color: #333333;
+        }
+
+        .phone-notch {
+            width: 70px;
+            height: 12px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            margin: 0 auto;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+
+        .phone-screen {
+            flex: 1;
+            border: 1px dashed rgba(255, 255, 255, 0.05);
+            margin-top: 8px;
+            border-radius: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-screen::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.01) 0%, transparent 70%);
+        }
+
+        .phone-screen-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .from-shooting-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+            text-transform: lowercase;
+            margin-top: 56px;
+            text-align: right;
+            color: var(--color-text-muted);
+        }
+
+        .from-shooting-title em {
+            color: var(--color-text-primary);
+            font-style: italic;
+        }
+
+        /* ── Section 3: Event Support ── */
+        .event-support-section {
+            padding: clamp(64px, 7vw, 88px) 0;
+        }
+
+        .event-support-title {
+            font-size: clamp(2rem, 3.6vw, 3.5rem);
+            max-width: none;
+            white-space: nowrap;
+        }
+
+        .event-support-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+            gap: clamp(24px, 4vw, 48px);
+            align-items: stretch;
+            margin-top: var(--space-md);
+        }
+
+        .support-left-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .support-image {
+            display: block;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            background: #0a0a0a;
+        }
+
+        .workshop-image {
+            height: 195px;
+            border-radius: 0;
+            object-fit: cover;
+            object-position: center 58%;
+        }
+
+        .support-text-block {
+            color: var(--color-text-primary);
+            font-size: clamp(0.82rem, 1vw, 0.95rem);
+            font-weight: 500;
+            line-height: 1.25;
+            max-width: 43ch;
+        }
+
+        .event-poster-image {
+            display: block;
+            width: 100%;
+            width: 82%;
+            height: 105px;
+            margin-inline: auto;
+            border-radius: 0;
+            border: 1px solid var(--border-color);
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hall-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 445px;
+            max-height: 500px;
+            border-radius: 0;
+            border: 1px solid var(--border-color);
+            object-fit: cover;
+            object-position: center 48%;
+        }
+
+        /* ── Section 4: Full-width UI/UX artwork ── */
+        .ui-ux-artwork {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border: 0;
+        }
+
+        .ui-ux-section {
+            padding: 0;
+        }
+
+        /* ── Sections 5-7: Editorial campaign layouts ── */
+        .editorial-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .merchandise-section,
+        .ooh-section {
+            padding: clamp(64px, 7vw, 88px) 0;
+        }
+
+        .editorial-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -12%;
+            width: 52%;
+            height: 180px;
+            pointer-events: none;
+            background: radial-gradient(ellipse at top, rgba(90, 0, 78, 0.18), transparent 70%);
+        }
+
+        .editorial-placeholder {
+            min-height: 180px;
+            background:
+                linear-gradient(135deg, rgba(255,255,255,0.025), transparent 45%),
+                #080808;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-muted);
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-align: center;
+            text-transform: uppercase;
+            padding: var(--space-md);
+        }
+
+        .merchandise-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+            gap: clamp(32px, 4vw, 56px);
+            align-items: start;
+        }
+
+        .merchandise-monitor {
+            width: 100%;
+            min-height: 0;
+            aspect-ratio: 1;
+        }
+
+        .merchandise-content {
+            display: grid;
+            gap: 24px;
+        }
+
+        .merchandise-small-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .merchandise-small-grid .editorial-placeholder {
+            min-height: 180px;
+        }
+
+        .merchandise-text {
+            align-self: start;
+            padding-top: 4px;
+        }
+
+        .merchandise-hat-placeholder {
+            grid-column: 2;
+        }
+
+        .editorial-copy {
+            color: var(--color-text-primary);
+            max-width: 48ch;
+            font-size: clamp(1rem, 1.5vw, 1.35rem);
+            font-weight: 600;
+            line-height: 1.18;
+        }
+
+        .merchandise-title {
+            font-size: clamp(1.7rem, 2.35vw, 2.35rem);
+            max-width: none;
+            line-height: 1;
+        }
+
+        .merchandise-copy {
+            font-size: clamp(0.78rem, 0.95vw, 0.95rem);
+            line-height: 1.25;
+            max-width: 40ch;
+        }
+
+        .editorial-impact {
+            font-family: var(--font-display);
+            font-size: clamp(1.35rem, 2.2vw, 2.2rem);
+            font-weight: 700;
+            line-height: 1.02;
+            letter-spacing: -0.035em;
+            max-width: 33ch;
+        }
+
+        /* Let each section travel upward like the homepage instead of fading in as a block. */
+        main.grid-container > section.reveal-fade-up {
+            opacity: 1;
+            transform: translate3d(0, 72px, 0);
+            transition: transform 1.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: 0s !important;
+        }
+
+        main.grid-container > section.reveal-fade-up.reveal-active {
+            opacity: 1 !important;
+            transform: translate3d(0, 0, 0) !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            main.grid-container > section.reveal-fade-up,
+            main.grid-container > section.reveal-fade-up.reveal-active {
+                transform: none !important;
+                transition: none !important;
+            }
+
+            .phone-marquee-track {
+                animation: none;
+            }
+        }
+
+        .ooh-header {
+            margin-bottom: var(--space-md);
+        }
+
+        .ooh-title {
+            font-size: clamp(2rem, 4.1vw, 4rem);
+            max-width: none;
+            white-space: nowrap;
+        }
+
+        .ooh-intro-grid {
+            display: grid;
+            grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+            gap: clamp(32px, 5vw, 72px);
+            align-items: start;
+            margin-bottom: 0;
+        }
+
+        .ooh-hero {
+            min-height: 360px;
+            margin-top: 0;
+        }
+
+        .ooh-banner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--space-md);
+            align-items: end;
+            position: relative;
+            z-index: 2;
+            margin-top: -72px;
+        }
+
+        .ooh-banner-stack {
+            display: grid;
+            gap: 8px;
+        }
+
+        .ooh-banner-stack:nth-child(2) {
+            transform: translateY(70px);
+        }
+
+        .ooh-banner-stack:nth-child(3) {
+            transform: translateY(150px);
+        }
+
+        .ooh-banner {
+            min-height: 76px;
+        }
+
+        .livestream-header {
+            margin-bottom: var(--space-xl);
+        }
+
+        .livestream-header .case-study-section-title {
+            max-width: none;
+        }
+
+        .livestream-copy {
+            max-width: 90ch;
+            margin-top: var(--space-md);
+        }
+
+        .livestream-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(24px, 5vw, 72px);
+            align-items: start;
+        }
+
+        .livestream-shot {
+            min-height: 680px;
+        }
+
+        .livestream-shot:nth-child(2) {
+            margin-top: 20px;
+        }
+
+        .livestream-shot:nth-child(3) {
+            margin-top: -15px;
+        }
+
+        /* ── Responsive breakpoints ── */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .hero-left-col {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding-right: 0;
+                padding-bottom: var(--space-xl);
+            }
+
+            .hero-right-col {
+                padding: var(--space-xl) 0 0 0;
+            }
+
+            .hero-cover-placeholder {
+                height: 360px;
+                border: 1px solid var(--border-color);
+            }
+
+            .strategy-grid-v2 {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .strategy-section-title {
+                white-space: normal;
+            }
+
+            .event-support-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+
+            .event-support-title,
+            .ooh-title {
+                white-space: normal;
+            }
+
+            .hall-image {
+                min-height: 360px;
+            }
+
+            .merchandise-layout,
+            .ooh-intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .merchandise-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .merchandise-monitor {
+                width: min(100%, 620px);
+            }
+
+            .ooh-hero {
+                margin-top: 0;
+            }
+
+            .ooh-banner-grid {
+                margin-top: var(--space-md);
+            }
+
+            .ooh-banner-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .ooh-banner-stack:nth-child(2),
+            .ooh-banner-stack:nth-child(3) {
+                transform: none;
+            }
+
+            .livestream-grid {
+                gap: var(--space-md);
+            }
+
+            .livestream-shot {
+                min-height: 520px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-meta-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-md);
+            }
+
+            .detail-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .detail-stat-card:nth-child(2) {
+                border-right: none;
+            }
+
+            .detail-stat-card:nth-child(even) {
+                border-right: none;
+            }
+
+            .detail-stat-card {
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .detail-stat-card:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+
+            .merchandise-small-grid,
+            .ooh-banner-grid,
+            .livestream-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .merchandise-hat-placeholder {
+                grid-column: auto;
+            }
+
+            .case-study-section-title {
+                font-size: clamp(2rem, 10vw, 3rem);
+                max-width: none;
+                overflow-wrap: anywhere;
+            }
+
+            .planning-showcase-img-wrap {
+                min-height: 245px;
+            }
+
+            .livestream-shot {
+                min-height: 520px;
+            }
+
+            .livestream-shot:nth-child(2),
+            .livestream-shot:nth-child(3) {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white antialiased selection-accent">
+
+    <!-- Page Wipe Overlay for Transitions -->
+    <div class="page-wipe wipe-initial-in" id="page-wipe"></div>
+
+    <!-- Header Navigation -->
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <!-- Left: Navigation Links -->
+            <nav class="nav-menu" id="main-nav">
+                <a href="index.html#about" class="nav-link">About</a><span class="nav-comma">,</span>
+                <a href="index.html#projects" class="nav-link">Work</a><span class="nav-comma">,</span>
+                <a href="index.html#contact" class="nav-link btn-contact-trigger">Contact</a>
+            </nav>
+            <!-- Center: Brand Name -->
+            <a href="index.html" class="brand-logo nav-brand-center" id="nav-logo">ElysLu</a>
+            <!-- Right: Location info -->
+            <div class="nav-right">
+                <span class="nav-header-label">Based in SGN</span>
+                <span class="nav-header-sublabel">Digital Growth Specialist + Creative Lead</span>
+            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobile-drawer-menu">
+        <nav class="mobile-nav-links">
+            <a href="index.html#about" class="mobile-nav-link">About</a>
+            <a href="index.html#projects" class="mobile-nav-link">Work</a>
+            <a href="index.html#contact" class="mobile-nav-link btn-contact-trigger">Contact</a>
+        </nav>
+    </div>
+
+    <main class="grid-container">
+        <!-- ── SECTION 1: HERO & METRICS ── -->
+        <section class="detail-hero reveal-fade-up">
+            <div class="section-tag">PROJECT 01 / LIVE FEST</div>
+            <h1 class="section-title-massive" style="text-transform: uppercase;">LIVE FEST 2025</h1>
+
+            <div class="hero-meta-grid">
+                <div class="hero-meta-item">
+                    <span class="lbl">Client</span>
+                    <span class="val">TikTok LIVE Vietnam</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="lbl">Platforms</span>
+                    <span class="val">TikTok, Reels</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="lbl">Year</span>
+                    <span class="val">2025</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="lbl">Role</span>
+                    <span class="val">Regional Campaign Manager</span>
+                </div>
+            </div>
+
+            <div class="hero-grid">
+                <div class="hero-left-col">
+                    <div class="hero-date">Tuesday, June 3, 2025</div>
+                    <p class="hero-subtitle-left">
+                        Coordinating and executing regional campaign operations for TikTok LIVE's flagship annual creator event. Establishing visual strategies, creator collaborations, and high-impact GTM promotional designs.
+                    </p>
+
+                    <div class="info-table">
+                        <div class="info-row">
+                            <span class="info-lbl">Category:</span>
+                            <span class="info-val">Event Campaign</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-lbl">Client:</span>
+                            <span class="info-val">TikTok LIVE Vietnam</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-lbl">Duration:</span>
+                            <span class="info-val">6 – 7 Weeks</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-lbl">Location:</span>
+                            <span class="info-val">Ho Chi Minh City, VN</span>
+                        </div>
+                    </div>
+
+                    <a href="index.html#projects" class="btn btn-outline btn-pill-animate">
+                        <span class="label-stack">
+                            <span class="pill-label">LIVE WEBSITE</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="hero-right-col">
+                    <div class="visual-placeholder hero-cover-placeholder">
+                        <div class="hero-yt-wrapper">
+                            <iframe
+                                class="hero-yt-iframe"
+                                src="https://www.youtube.com/embed/2f5aXx50wIQ?autoplay=1&mute=1&loop=1&playlist=2f5aXx50wIQ&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                                allow="autoplay; encrypted-media"
+                                allowfullscreen
+                                title="LIVE FEST 2025 Campaign Video"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- ── SECTION 2: KEY ROLE & STRATEGY ── -->
+        <section class="reveal-fade-up">
+
+            <!-- Section 2 Poster Image -->
+            <div style="width:100%;overflow:hidden;margin-bottom:var(--space-xl);position:relative;">
+                <img
+                    src="assets/section-2-poster.png"
+                    alt="LIVE FEST 2025 – TikTok Campaign Visual"
+                    style="width:100%;max-height:520px;object-fit:cover;object-position:center top;display:block;filter:brightness(0.95);"
+                >
+            </div>
+            <div class="center-header">
+                <div class="section-tag">02 / CAMPAIGN OPERATION</div>
+                <h2 class="case-study-section-title">My key role.</h2>
+                <p>
+                    Directly managing regional campaign operations, creator seeding, and social media content workflows. Coordinating visual assets, promotional toolkits, and interactive mechanics to optimize user acquisition.
+                </p>
+            </div>
+
+            <!-- Ring Orbit Visual -->
+            <div class="ring-visual">
+                <div class="ring-center">LIVE FEST</div>
+                <div class="ring-node node-1">Shooting</div>
+                <div class="ring-node node-2">Editing</div>
+                <div class="ring-node node-3">Directing</div>
+                <div class="ring-node node-4">GTM Plan</div>
+                <div class="ring-node node-5">Creator</div>
+                <div class="ring-node node-6">Metrics</div>
+            </div>
+
+            <!-- Strategy & Execution Detail — new layout -->
+            <h3 class="case-study-section-title strategy-section-title">Social Media Strategy &amp; Execution:</h3>
+            <div class="strategy-grid-v2">
+
+                <!-- Left: plain text block -->
+                <div class="strategy-text-block">
+                    <p>
+                        Planned the content roadmap and managed the end-to-end production of 30+ videos during the warm-up phase to build massive campaign awareness. Handled everything from scriptwriting and directing agencies for production to publishing across all TikTok LIVE Vietnam channels <strong>100M view</strong>
+                    </p>
+                </div>
+
+                <!-- Right: planning showcase placeholder with label overlaid on top -->
+                <div class="planning-showcase-img-wrap">
+                    <img
+                        class="planning-showcase-sheet"
+                        src="assets/livefest-planning-sheet.png"
+                        alt="LIVE FEST social media content planning spreadsheet"
+                        loading="lazy"
+                    >
+                    <div class="planning-showcase-bar">
+                        <span class="planning-showcase-bar-text">planning showcase</span>
+                    </div>
+                    <img
+                        class="planning-showcase-img-placeholder"
+                        src="assets/livefest-planning-showcase-lower.png"
+                        alt="Detailed LIVE FEST social media planning tracker"
+                        loading="lazy"
+                    >
+                </div>
+
+            </div>
+
+            <!-- Phone Mockups Swiper -->
+            <div class="mockups-swipe-section">
+                <div class="mockups-header">
+                    <div class="mockups-header-left">
+                        Can watch detail design in this drive or TikTok LIVE Viet Nam Channel
+                    </div>
+                    <div class="mockups-header-right">
+                        <div class="mockups-large-title">many more..</div>
+                    </div>
+                </div>
+
+                <div class="phone-marquee">
+                    <div class="phone-marquee-track">
+                        <div class="phone-marquee-group">
+                            <div class="phone-card" data-phone-slot="1"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 1 ]</span></div></div></div>
+                            <div class="phone-card" data-phone-slot="2"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 2 ]</span></div></div></div>
+                            <div class="phone-card" data-phone-slot="3"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 3 ]</span></div></div></div>
+                            <div class="phone-card" data-phone-slot="4"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 4 ]</span></div></div></div>
+                            <div class="phone-card" data-phone-slot="5"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 5 ]</span></div></div></div>
+                            <div class="phone-card" data-phone-slot="6"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 6 ]</span></div></div></div>
+                            <div class="phone-card" data-phone-slot="7"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 7 ]</span></div></div></div>
+                            <div class="phone-card" data-phone-slot="8"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 8 ]</span></div></div></div>
+                            <div class="phone-card" data-phone-slot="9"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 9 ]</span></div></div></div>
+                            <div class="phone-card" data-phone-slot="10"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 10 ]</span></div></div></div>
+                        </div>
+                        <div class="phone-marquee-group" aria-hidden="true">
+                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 1 ]</span></div></div></div>
+                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 2 ]</span></div></div></div>
+                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 3 ]</span></div></div></div>
+                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 4 ]</span></div></div></div>
+                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 5 ]</span></div></div></div>
+                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 6 ]</span></div></div></div>
+                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 7 ]</span></div></div></div>
+                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 8 ]</span></div></div></div>
+                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 9 ]</span></div></div></div>
+                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 10 ]</span></div></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="from-shooting-title">
+                    from shooting for video <em>to planning details.</em>
+                </div>
+
+                <!-- Stats Block relocated here -->
+                <div class="detail-stats-grid" style="margin-top: var(--space-lg);">
+                    <div class="detail-stat-card">
+                        <div class="detail-stat-num font-display">2.5M</div>
+                        <div class="detail-stat-lbl">Reach</div>
+                    </div>
+                    <div class="detail-stat-card">
+                        <div class="detail-stat-num font-display">180K</div>
+                        <div class="detail-stat-lbl">Engagements</div>
+                    </div>
+                    <div class="detail-stat-card">
+                        <div class="detail-stat-num font-display">8.2%</div>
+                        <div class="detail-stat-lbl">Engagement Rate</div>
+                    </div>
+                    <div class="detail-stat-card">
+                        <div class="detail-stat-num font-display">+35%</div>
+                        <div class="detail-stat-lbl">Follower Growth</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SECTION 3: EVENT SUPPORT ── -->
+        <section class="event-support-section reveal-fade-up">
+            <div class="section-tag">03 / EVENT OPERATIONS</div>
+            <h2 class="case-study-section-title event-support-title">GTM Event Support &amp; Material Lead:</h2>
+
+            <div class="event-support-grid">
+                <div class="support-left-col">
+                    <img
+                        class="support-image workshop-image"
+                        src="assets/livefest-nexus-workshop.png"
+                        alt="TikTok LIVE FEST workshop at Nexus with creators and agency partners"
+                        loading="lazy"
+                    >
+
+                    <div class="support-text-block">
+                        <p>
+                            Providing operational event support for host/creator workshops and live talkshows at the Nexus. Directing logistics for physical invitations, creative merchandise, and brand toolkits distributed to 200+ top creator agencies.
+                        </p>
+                    </div>
+
+                    <img
+                        class="event-poster-image"
+                        src="assets/livefest-event-poster.png"
+                        alt="TikTok LIVE FEST 2025 event stage poster"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="support-right-col">
+                    <img
+                        class="hall-image"
+                        src="assets/livefest-auditorium-hall.png"
+                        alt="Audience attending the TikTok LIVE FEST workshop in the Nexus auditorium"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SECTION 4: UI/UX FULL-PAGE ARTWORK ── -->
+        <section class="ui-ux-section reveal-fade-up" data-section="ui-ux-showcase">
+            <img
+                class="ui-ux-artwork"
+                src="assets/livefest-ui-ux.png"
+                alt="Complete UI and UX flow showcase for the TikTok LIVE FEST campaign"
+                loading="lazy"
+            >
+        </section>
+
+        <!-- ── SECTION 5: MERCHANDISE CAMPAIGN ── -->
+        <section class="editorial-section merchandise-section reveal-fade-up" data-section="merchandise-campaign">
+            <div class="merchandise-layout">
+                <div class="editorial-placeholder merchandise-monitor">Merchandise presentation placeholder</div>
+
+                <div class="merchandise-content">
+                    <div class="merchandise-small-grid">
+                        <div class="editorial-placeholder">T-shirt concept placeholder</div>
+                        <div class="editorial-placeholder">T-shirt mockup placeholder</div>
+
+                        <div class="merchandise-text">
+                            <h2 class="case-study-section-title merchandise-title">Merchandise Campaign Lead</h2>
+                            <p class="editorial-copy merchandise-copy" style="margin-top: var(--space-sm);">
+                                Analyzed performance metrics of Vietnam’s top creators to identify high-impact profiles, while personally designing the exclusive LIVE FEST merchandise and managing vendors for production. Partnered with AM/CM teams to distribute these products to 300+ Top LIVE Creators during the warm-up phase.
+                            </p>
+                        </div>
+
+                        <div class="editorial-placeholder merchandise-hat-placeholder">Bucket hat mockup placeholder</div>
+                    </div>
+
+                    <p class="editorial-impact">
+                        Warm-up Phase Impact: Successfully achieved a 90% participation rate among top-tier creators during the pre-event phase.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SECTION 6: OOH CAMPAIGN ── -->
+        <section class="editorial-section ooh-section reveal-fade-up" data-section="ooh-campaign">
+            <div class="ooh-header">
+                <h2 class="case-study-section-title ooh-title">OOH Campaign Execution (Saigon River)</h2>
+            </div>
+
+            <div class="ooh-intro-grid">
+                <p class="editorial-copy">
+                    Managed the end-to-end launch of a massive 4,500m² OOH launching, dominating the Saigon Riverfront with 3 prime billboards simultaneously. Handled everything from visual design oversight to agency coordination, successfully generating an immediate 150K–300K views in a single day across major traffic routes from District 1 to Thu Thiem.
+                </p>
+                <div class="editorial-placeholder ooh-hero">4,500m² Saigon River OOH hero placeholder</div>
+            </div>
+
+            <div class="ooh-banner-grid" aria-label="OOH campaign banner placeholders">
+                <div class="ooh-banner-stack">
+                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
+                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
+                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
+                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
+                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
+                </div>
+                <div class="ooh-banner-stack">
+                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
+                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
+                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
+                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
+                </div>
+                <div class="ooh-banner-stack">
+                    <div class="editorial-placeholder ooh-banner">Riverfront banner placeholder</div>
+                    <div class="editorial-placeholder ooh-banner">Riverfront banner placeholder</div>
+                    <div class="editorial-placeholder ooh-banner">Riverfront banner placeholder</div>
+                    <div class="editorial-placeholder ooh-banner">Riverfront banner placeholder</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SECTION 7: DAILY LIVE STREAM ── -->
+        <section class="editorial-section reveal-fade-up" data-section="daily-livestream">
+            <div class="livestream-header">
+                <h2 class="case-study-section-title">Daily Live Stream Communications:</h2>
+                <p class="editorial-copy livestream-copy">
+                    Managed and hosted daily livestreams on the TikTok LIVE Vietnam channel to educate users on event rules and maximize campaign scale. Successfully generated over 10M total organic views, massively boosting campaign awareness before the main event.
+                </p>
+            </div>
+
+            <div class="livestream-grid">
+                <div class="editorial-placeholder livestream-shot">Daily livestream screen placeholder 01</div>
+                <div class="editorial-placeholder livestream-shot">Daily livestream screen placeholder 02</div>
+                <div class="editorial-placeholder livestream-shot">Daily livestream screen placeholder 03</div>
+            </div>
+        </section>
+
+        <section style="padding-top: var(--space-xl); border-bottom: none;">
+            <div class="cs-nav-footer">
+                <a href="project-placeholder-08.html" class="btn btn-outline">← PROJECT 08</a>
+                <a href="project-launch.html" class="btn btn-filled">NEXT PROJECT →</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Copyright Info -->
+    <footer class="footer-bottom">
+        <div class="fb-container">
+            <p class="fb-copy">© 2026 ElysLu. ALL RIGHTS RESERVED.</p>
+            <p class="fb-design">SWISS PUNK PERFORMANCE SYSTEM V1.0</p>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Logic Script -->
+    <script src="app.js"></script>
+</body>
+
+</html>
