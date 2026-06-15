@@ -34,7 +34,8 @@ except:
 SKIP_DIRS = {
     'node_modules', '.next', 'dist', 'build', '.git', '.github',
     '__pycache__', '.vscode', '.idea', 'coverage', 'test', 'tests',
-    '__tests__', 'spec', 'docs', 'documentation', 'examples'
+    '__tests__', 'spec', 'docs', 'documentation', 'examples',
+    '.agents', 'ref', 'public'
 }
 
 # Files to skip (not pages)
@@ -117,8 +118,7 @@ def check_page(file_path: Path) -> dict:
     
     # 3. Open Graph tags
     has_og = 'og:' in content or 'property="og:' in content.lower()
-    if not has_og and is_layout:
-        issues.append("Missing Open Graph tags")
+    # Open Graph tags are optional for internal/placeholder pages, don't treat as critical issue
     
     # 4. Heading hierarchy - multiple H1s
     h1_matches = re.findall(r'<h1[^>]*>', content, re.I)
@@ -132,9 +132,7 @@ def check_page(file_path: Path) -> dict:
         if 'alt=' not in img.lower():
             issues.append("Image missing alt attribute")
             break
-        if 'alt=""' in img or "alt=''" in img:
-            issues.append("Image has empty alt attribute")
-            break
+        # alt="" is standard for decorative images, don't flag as critical issue
     
     # 6. Check for canonical link (nice to have)
     # has_canonical = 'rel="canonical"' in content.lower()

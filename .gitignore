@@ -1,0 +1,11 @@
+# Ignore reference assets directory
+ref/
+
+# Common node.js / environment files
+node_modules/
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
