@@ -5,6 +5,7 @@ initScrollDynamics();
 initScrollObserver();
 initMobileNav();
 initProjectCards();
+initProjectsScrollStack();
 initEditableMetrics();
 initPortfolioDownload();
 initScrollRevealText();
@@ -25,6 +26,81 @@ card.addEventListener('pointerleave', () => card.classList.remove('is-active'));
 card.addEventListener('focus', () => card.classList.add('is-active'));
 card.addEventListener('blur', () => card.classList.remove('is-active'));
 });
+}
+function initProjectsScrollStack() {
+const cards = document.querySelectorAll('.project-card-wrapper');
+const container = document.querySelector('.scroll-stack-container');
+if (!cards.length || !container) return;
+let cardOffsets = [];
+const isDesktop = window.matchMedia('(min-width: 769px)');
+function calculateOffsets() {
+if (!isDesktop.matches) {
+cardOffsets = [];
+return;
+}
+cards.forEach(card => {
+const cardRow = card.querySelector('.project-editorial-row');
+if (cardRow) {
+cardRow.style.transform = '';
+cardRow.style.filter = '';
+}
+});
+const containerRect = container.getBoundingClientRect();
+const scrollTop = window.scrollY;
+const containerOffsetTop = containerRect.top + scrollTop;
+cardOffsets = Array.from(cards).map(card => {
+return containerOffsetTop + card.offsetTop;
+});
+}
+function handleScroll() {
+if (!isDesktop.matches) {
+cards.forEach(card => {
+const cardRow = card.querySelector('.project-editorial-row');
+if (cardRow) {
+cardRow.style.transform = '';
+cardRow.style.filter = '';
+}
+});
+return;
+}
+if (cardOffsets.length === 0) {
+calculateOffsets();
+}
+const scrollTop = window.scrollY;
+const viewportHeight = window.innerHeight;
+const stackPositionOffset = 56;
+const itemStackDistance = 0;
+const baseScale = 0.75;
+const itemScale = 0.03;
+cards.forEach((card, i) => {
+const pinPosition = stackPositionOffset + i * itemStackDistance;
+const cardOffsetTop = cardOffsets[i] || 0;
+const scrollPast = scrollTop - (cardOffsetTop - pinPosition);
+let progress = 0;
+if (scrollPast > 0) {
+progress = Math.min(1, scrollPast / 450);
+}
+const targetScale = baseScale + i * itemScale;
+const scale = 1 - progress * (1 - targetScale);
+const brightness = 1 - progress * 0.25;
+const cardRow = card.querySelector('.project-editorial-row');
+if (cardRow) {
+cardRow.style.transform = `scale(${scale})`;
+cardRow.style.filter = `brightness(${brightness})`;
+}
+});
+}
+window.addEventListener('resize', () => {
+calculateOffsets();
+handleScroll();
+});
+window.addEventListener('load', () => {
+calculateOffsets();
+handleScroll();
+});
+window.addEventListener('scroll', handleScroll, { passive: true });
+calculateOffsets();
+handleScroll();
 }
 function initIntroSplash() {
 console.log("initIntroSplash: Started execution");

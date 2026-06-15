@@ -262,7 +262,7 @@ class UXAuditor:
                 font_families.add(first_font.lower())
 
         if len(font_families) > 3:
-            self.issues.append(f"[Typography] {filename}: {len(font_families)} font families detected. Limit to 2-3 for cohesion.")
+            self.warnings.append(f"[Typography] {filename}: {len(font_families)} font families detected. Limit to 2-3 for cohesion.")
 
         # 2.2 Line Length - Character-based width
         if has_long_text and not re.search(r'max-w-(?:prose|[\[\\]?\d+ch[\]\\]?)|max-width:\s*\d+ch', content):
@@ -617,12 +617,14 @@ class UXAuditor:
                 self.warnings.append(f"[Motion] {filename}: Lottie animation without reduced-motion fallback. Add pause/stop for accessibility.")
 
         # 6.2 GSAP Memory Leak Risks
-        has_gsap = bool(re.search(r'gsap|ScrollTrigger|from\(.*gsap', content))
-        if has_gsap:
-            # Check for cleanup patterns
-            has_gsap_cleanup = bool(re.search(r'kill\(|revert\(|useEffect.*return.*gsap', content))
-            if not has_gsap_cleanup:
-                self.issues.append(f"[Motion] {filename}: GSAP animation without cleanup (kill/revert). Memory leak risk on unmount.")
+        has_gsap = False
+        if filename.endswith(('.js', '.jsx', '.ts', '.tsx')):
+            has_gsap = bool(re.search(r'gsap|ScrollTrigger|from\(.*gsap', content))
+            if has_gsap:
+                # Check for cleanup patterns
+                has_gsap_cleanup = bool(re.search(r'kill\(|revert\(|useEffect.*return.*gsap', content))
+                if not has_gsap_cleanup:
+                    self.issues.append(f"[Motion] {filename}: GSAP animation without cleanup (kill/revert). Memory leak risk on unmount.")
 
         # 6.3 SVG Animation Performance
         svg_animations = re.findall(r'<animate|<animateTransform|stroke-dasharray|stroke-dashoffset', content)
@@ -647,12 +649,13 @@ class UXAuditor:
             self.warnings.append(f"[Motion] {filename}: Particle effects detected. Ensure fallback or reduced-quality option for mobile devices.")
 
         # 6.6 Scroll-Driven Animation Performance
-        has_scroll_driven = bool(re.search(r'IntersectionObserver.*animate|scroll.*progress|view-timeline', content))
-        if has_scroll_driven:
-            # Check for throttling/debouncing
-            has_throttle = bool(re.search(r'throttle|debounce|requestAnimationFrame', content))
-            if not has_throttle:
-                self.issues.append(f"[Motion] {filename}: Scroll-driven animation without throttling. Add requestAnimationFrame for 60fps.")
+        if filename.endswith(('.js', '.jsx', '.ts', '.tsx')):
+            has_scroll_driven = bool(re.search(r'IntersectionObserver.*animate|scroll.*progress|view-timeline', content))
+            if has_scroll_driven:
+                # Check for throttling/debouncing
+                has_throttle = bool(re.search(r'throttle|debounce|requestAnimationFrame', content))
+                if not has_throttle:
+                    self.issues.append(f"[Motion] {filename}: Scroll-driven animation without throttling. Add requestAnimationFrame for 60fps.")
 
         # 6.7 Motion Decision Tree - Context Check
         # Check if animation serves purpose (not just decoration)

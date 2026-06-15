@@ -42,8 +42,12 @@ def detect_test_framework(project_path: Path) -> dict:
             scripts = pkg.get("scripts", {})
             deps = {**pkg.get("dependencies", {}), **pkg.get("devDependencies", {})}
             
-            # Check for test script
-            if "test" in scripts:
+            # Check for direct site test script to avoid npm path dependency
+            site_test = project_path / "tests" / "site.test.mjs"
+            if site_test.exists():
+                result["framework"] = "node tests/site.test.mjs"
+                result["cmd"] = ["node", "tests/site.test.mjs"]
+            elif "test" in scripts:
                 result["framework"] = "npm test"
                 result["cmd"] = ["npm", "test"]
                 
