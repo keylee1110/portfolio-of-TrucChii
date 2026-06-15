@@ -200,7 +200,13 @@ function initScrollDynamics() {
 const scrollIndicator = document.getElementById('scroll-indicator');
 const header = document.querySelector('.sticky-nav');
 const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section');
+const localNavLinks = Array.from(navLinks).filter(link => {
+const href = link.getAttribute('href') || '';
+return href.startsWith('#') && href.length > 1;
+});
+const sections = localNavLinks.length
+? document.querySelectorAll('section[id]')
+: [];
 let scrollTimeout;
 window.addEventListener('scroll', () => {
 if (scrollTimeout) {
@@ -220,6 +226,7 @@ header.classList.add('scrolled');
 header.classList.remove('scrolled');
 }
 }
+if (localNavLinks.length) {
 let currentSectionId = '';
 sections.forEach(section => {
 const sectionTop = section.offsetTop - 100;
@@ -228,12 +235,13 @@ if (winScroll >= sectionTop && winScroll < sectionTop + sectionHeight) {
 currentSectionId = section.getAttribute('id');
 }
 });
-navLinks.forEach(link => {
+localNavLinks.forEach(link => {
 link.classList.remove('active');
 if (link.getAttribute('href') === `#${currentSectionId}`) {
 link.classList.add('active');
 }
 });
+}
 });
 }, { passive: true });
 }

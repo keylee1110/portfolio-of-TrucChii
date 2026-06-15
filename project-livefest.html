@@ -32,7 +32,7 @@
             grid-template-columns: minmax(0, 1fr);
         }
 
-        main.grid-container > section {
+        main.grid-container>section {
             min-width: 0;
         }
 
@@ -144,7 +144,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(45deg, rgba(255,255,255,0.01) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0.01) 75%, transparent 75%, transparent);
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.01) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0.01) 75%, transparent 75%, transparent);
             background-size: 40px 40px;
             opacity: 0.6;
         }
@@ -176,7 +176,8 @@
             left: 50%;
             /* Scale up to fill the container while keeping 9:16 aspect */
             width: 100%;
-            height: 177.78%; /* 16/9 * 100% */
+            height: 177.78%;
+            /* 16/9 * 100% */
             transform: translate(-50%, -50%);
             border: none;
             pointer-events: none;
@@ -272,7 +273,7 @@
             letter-spacing: 0.05em;
             text-align: center;
             color: var(--color-text-primary);
-            box-shadow: 0 0 20px rgba(255,255,255,0.02);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.02);
         }
 
         .ring-node {
@@ -294,9 +295,9 @@
             letter-spacing: 0.05em;
             text-align: center;
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                        border-color 0.3s ease,
-                        color 0.3s ease,
-                        box-shadow 0.3s ease;
+                border-color 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
             cursor: pointer;
         }
 
@@ -307,12 +308,35 @@
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
         }
 
-        .node-1 { top: -20px; left: 126px; }
-        .node-2 { top: 46px; right: -16px; }
-        .node-3 { bottom: 46px; right: -16px; }
-        .node-4 { bottom: -20px; left: 126px; }
-        .node-5 { bottom: 46px; left: -16px; }
-        .node-6 { top: 46px; left: -16px; }
+        .node-1 {
+            top: -20px;
+            left: 126px;
+        }
+
+        .node-2 {
+            top: 46px;
+            right: -16px;
+        }
+
+        .node-3 {
+            bottom: 46px;
+            right: -16px;
+        }
+
+        .node-4 {
+            bottom: -20px;
+            left: 126px;
+        }
+
+        .node-5 {
+            bottom: 46px;
+            left: -16px;
+        }
+
+        .node-6 {
+            top: 46px;
+            left: -16px;
+        }
 
         /* ── Strategy Layout v2 ── */
         .case-study-section-title {
@@ -426,7 +450,7 @@
             padding: 2px 8px;
             font-size: 0.6rem;
             font-weight: 700;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
             color: var(--color-text-muted);
             text-transform: uppercase;
@@ -447,16 +471,22 @@
 
         .mockups-header {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: var(--space-lg);
+            justify-content: flex-end;
+            align-items: baseline;
+            gap: clamp(16px, 2.5vw, 36px);
+            margin-top: var(--space-md);
+            margin-bottom: 56px;
         }
 
         .mockups-header-left {
-            font-size: 0.85rem;
-            color: var(--color-text-muted);
-            max-width: 250px;
-            line-height: 1.5;
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 1.7vw, 1.55rem);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -0.035em;
+            text-transform: lowercase;
+            color: var(--color-text-primary);
+            white-space: nowrap;
         }
 
         .mockups-header-right {
@@ -482,11 +512,15 @@
         .phone-marquee-track {
             display: flex;
             width: max-content;
-            animation: phoneMarqueeScroll 70s linear infinite;
+            animation: phoneMarqueeScroll 50s linear infinite;
             will-change: transform;
         }
 
         .phone-marquee:hover .phone-marquee-track {
+            animation-play-state: paused;
+        }
+
+        .phone-marquee:not(.reveal-active) .phone-marquee-track {
             animation-play-state: paused;
         }
 
@@ -497,13 +531,19 @@
         }
 
         @keyframes phoneMarqueeScroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         .phone-card {
             flex-shrink: 0;
             width: 200px;
+            contain: layout paint style;
         }
 
         .phone-chassis {
@@ -516,12 +556,18 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
-            transition: border-color 0.3s ease;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+            transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 500ms ease,
+                box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+            backface-visibility: hidden;
         }
 
         .phone-card:hover .phone-chassis {
-            border-color: #333333;
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-8px) scale(1.025);
+            box-shadow: 0 24px 56px rgba(0, 0, 0, 0.72);
         }
 
         .phone-notch {
@@ -555,7 +601,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.01) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.01) 0%, transparent 70%);
         }
 
         .phone-screen-label {
@@ -568,20 +614,108 @@
             z-index: 2;
         }
 
+        .tiktok-phone-link {
+            position: relative;
+            z-index: 2;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .tiktok-phone-cover {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tiktok-phone-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        }
+
+        .tiktok-phone-play::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 52%;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 11px solid #fff;
+            transform: translate(-35%, -50%);
+        }
+
         .from-shooting-title {
             font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 900;
-            line-height: 0.85;
+            line-height: 0.95;
             letter-spacing: -0.04em;
             text-transform: lowercase;
-            margin-top: 56px;
-            text-align: right;
-            color: var(--color-text-muted);
+            margin-top: 0;
+            text-align: left;
+            color: var(--color-text-primary);
         }
 
         .from-shooting-title em {
+            color: inherit;
+            font-style: normal;
+        }
+
+        .shooting-video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(20px, 3vw, 44px);
+            margin-top: var(--space-xl);
+        }
+
+        .shooting-video-frame {
+            aspect-ratio: 9 / 16;
+            border: 1px solid var(--border-color);
+            background: #080808;
+            overflow: hidden;
+        }
+
+        .shooting-video-frame video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .published-content-text {
+            margin-top: var(--space-lg);
             color: var(--color-text-primary);
-            font-style: italic;
+            font-size: clamp(1.05rem, 1.7vw, 1.5rem);
+            font-weight: 400;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        main.grid-container>section[data-section] {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 900px;
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 80ms !important;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 160ms !important;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 240ms !important;
         }
 
         /* ── Section 3: Event Support ── */
@@ -698,7 +832,7 @@
         .editorial-placeholder {
             min-height: 180px;
             background:
-                linear-gradient(135deg, rgba(255,255,255,0.025), transparent 45%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.025), transparent 45%),
                 #080808;
             border: 1px solid var(--border-color);
             display: flex;
@@ -780,26 +914,7 @@
             max-width: 33ch;
         }
 
-        /* Let each section travel upward like the homepage instead of fading in as a block. */
-        main.grid-container > section.reveal-fade-up {
-            opacity: 1;
-            transform: translate3d(0, 72px, 0);
-            transition: transform 1.35s cubic-bezier(0.16, 1, 0.3, 1);
-            transition-delay: 0s !important;
-        }
-
-        main.grid-container > section.reveal-fade-up.reveal-active {
-            opacity: 1 !important;
-            transform: translate3d(0, 0, 0) !important;
-        }
-
         @media (prefers-reduced-motion: reduce) {
-            main.grid-container > section.reveal-fade-up,
-            main.grid-container > section.reveal-fade-up.reveal-active {
-                transform: none !important;
-                transition: none !important;
-            }
-
             .phone-marquee-track {
                 animation: none;
             }
@@ -1013,6 +1128,20 @@
                 min-height: 245px;
             }
 
+            .mockups-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .mockups-header-left {
+                white-space: normal;
+            }
+
+            .shooting-video-grid {
+                grid-template-columns: 1fr;
+            }
+
             .livestream-shot {
                 min-height: 520px;
             }
@@ -1023,16 +1152,16 @@
             }
         }
 
-        /* ── Image Hover Effects ── */
+        /* ── Image Hover Effects matching the homepage motion system ── */
         .support-image,
         .event-poster-image,
         .hall-image,
         .ui-ux-artwork,
         .livestream-shot,
         .ooh-banner,
-        .strategy-grid-v2 img,
-        .center-header + div img {
-            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        .center-header+div img {
+            transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1);
             will-change: transform;
         }
 
@@ -1042,9 +1171,9 @@
         .ui-ux-artwork:hover,
         .livestream-shot:hover,
         .ooh-banner:hover,
-        .strategy-grid-v2 img:hover,
-        .center-header + div img:hover {
-            transform: scale(1.05);
+        .center-header+div img:hover {
+            transform: translateY(-6px) scale(1.035) !important;
+            box-shadow: 0 22px 52px rgba(0, 0, 0, 0.62);
             position: relative;
             z-index: 10;
         }
@@ -1097,14 +1226,6 @@
 
             <div class="hero-meta-grid">
                 <div class="hero-meta-item">
-                    <span class="lbl">Client</span>
-                    <span class="val">TikTok LIVE Vietnam</span>
-                </div>
-                <div class="hero-meta-item">
-                    <span class="lbl">Platforms</span>
-                    <span class="val">TikTok, Reels</span>
-                </div>
-                <div class="hero-meta-item">
                     <span class="lbl">Year</span>
                     <span class="val">2025</span>
                 </div>
@@ -1116,29 +1237,11 @@
 
             <div class="hero-grid">
                 <div class="hero-left-col">
-                    <div class="hero-date">Tuesday, June 3, 2025</div>
                     <p class="hero-subtitle-left">
-                        Coordinating and executing regional campaign operations for TikTok LIVE's flagship annual creator event. Establishing visual strategies, creator collaborations, and high-impact GTM promotional designs.
+                        TikTok LIVE’s flagship annual global event spanning 90+ countries. A massive IP campaign built
+                        around multi-stage creator challenges, live audience voting, and a landmark global Gala night in
+                        Las Vegas. All engineered to foster deep, sustainable creator communities.
                     </p>
-
-                    <div class="info-table">
-                        <div class="info-row">
-                            <span class="info-lbl">Category:</span>
-                            <span class="info-val">Event Campaign</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="info-lbl">Client:</span>
-                            <span class="info-val">TikTok LIVE Vietnam</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="info-lbl">Duration:</span>
-                            <span class="info-val">6 – 7 Weeks</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="info-lbl">Location:</span>
-                            <span class="info-val">Ho Chi Minh City, VN</span>
-                        </div>
-                    </div>
 
                     <a href="index.html#projects" class="btn btn-outline btn-pill-animate">
                         <span class="label-stack">
@@ -1150,13 +1253,10 @@
                 <div class="hero-right-col">
                     <div class="visual-placeholder hero-cover-placeholder">
                         <div class="hero-yt-wrapper">
-                            <iframe
-                                class="hero-yt-iframe"
-                                src="https://www.youtube.com/embed/2f5aXx50wIQ?autoplay=1&mute=1&loop=1&playlist=2f5aXx50wIQ&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-                                allow="autoplay; encrypted-media"
-                                allowfullscreen
-                                title="LIVE FEST 2025 Campaign Video"
-                            ></iframe>
+                            <iframe class="hero-yt-iframe"
+                                src="https://www.youtube.com/embed/2f5aXx50wIQ?autoplay=1&mute=1&loop=1&playlist=2f5aXx50wIQ&controls=0&rel=0&modestbranding=1&playsinline=1"
+                                allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen
+                                title="LIVE FEST 2025 Campaign Video"></iframe>
                         </div>
                     </div>
                 </div>
@@ -1188,61 +1288,275 @@
         </section>
 
         <!-- ── SECTION 2: KEY ROLE & STRATEGY ── -->
-        <section class="reveal-fade-up" style="padding-top: 0; margin-top: -12px;">
+        <section style="padding-top: 0; margin-top: -12px;">
 
             <!-- Section 2 Poster Image -->
             <div style="width:100%;overflow:hidden;margin-bottom:var(--space-md);position:relative;">
-                <img
-                    src="assets/section-2-poster.png"
-                    alt="LIVE FEST 2025 – TikTok Campaign Visual"
-                    style="width:100%;max-height:520px;object-fit:cover;object-position:center top;display:block;filter:brightness(0.95);"
-                >
+                <img src="assets/section-2-poster.webp" alt="LIVE FEST 2025 – TikTok Campaign Visual"
+                    style="width:100%;max-height:520px;object-fit:cover;object-position:center top;display:block;filter:brightness(0.95);">
             </div>
-            <div class="center-header">
+            <div class="center-header reveal-fade-up">
                 <div class="section-tag">02 / CAMPAIGN OPERATION</div>
                 <h2 class="case-study-section-title">My key role.</h2>
                 <p>
-                    Directly managing regional campaign operations, creator seeding, and social media content workflows. Coordinating visual assets, promotional toolkits, and interactive mechanics to optimize user acquisition.
+                    Directly managing regional campaign operations, creator seeding, and social media content workflows.
+                    Coordinating visual assets, promotional toolkits, and interactive mechanics to optimize user
+                    acquisition.
                 </p>
             </div>
 
 
 
             <!-- Strategy & Execution Detail — new layout -->
-            <h3 class="case-study-section-title strategy-section-title">Social Media Strategy &amp; Execution:</h3>
+            <h3 class="case-study-section-title strategy-section-title reveal-fade-up">Social Media Strategy &amp;
+                Execution:</h3>
             <div class="strategy-grid-v2">
 
                 <!-- Left: plain text block -->
-                <div class="strategy-text-block">
+                <div class="strategy-text-block reveal-fade-up reveal-delay-1">
                     <p>
-                        Planned the content roadmap and managed the end-to-end production of 30+ videos during the warm-up phase to build massive campaign awareness. Handled everything from scriptwriting and directing agencies for production to publishing across all TikTok LIVE Vietnam channels <strong>100M view</strong>
+                        Planned the content roadmap and managed the end-to-end production of 30+ videos during the
+                        warm-up phase to build massive campaign awareness. Handled everything from scriptwriting and
+                        directing agencies for production to publishing across all TikTok LIVE Vietnam channels
+                        <strong>100M view</strong>
                     </p>
                 </div>
 
                 <!-- Right: planning showcase placeholder with label overlaid on top -->
                 <div class="planning-showcase-img-wrap">
-                    <img
-                        class="planning-showcase-sheet"
-                        src="assets/livefest-planning-sheet.png"
-                        alt="LIVE FEST social media content planning spreadsheet"
-                        loading="lazy"
-                    >
+                    <img class="planning-showcase-sheet" src="assets/livefest-planning-sheet.png"
+                        alt="LIVE FEST social media content planning spreadsheet" loading="lazy">
                     <div class="planning-showcase-bar">
                         <span class="planning-showcase-bar-text">planning showcase</span>
                     </div>
-                    <img
-                        class="planning-showcase-img-placeholder"
-                        src="assets/livefest-planning-showcase-lower.png"
-                        alt="Detailed LIVE FEST social media planning tracker"
-                        loading="lazy"
-                    >
+                    <img class="planning-showcase-img-placeholder" src="assets/livefest-planning-showcase-lower.png"
+                        alt="Detailed LIVE FEST social media planning tracker" loading="lazy">
                 </div>
 
             </div>
 
             <!-- Phone Mockups Swiper -->
             <div class="mockups-swipe-section">
-                <div class="mockups-header">
+                <div class="phone-marquee reveal-fade-up">
+                    <div class="phone-marquee-track">
+                        <div class="phone-marquee-group">
+                            <div class="phone-card" data-phone-slot="1">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><a class="tiktok-phone-link"
+                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7575083009800523016"
+                                            target="_blank" rel="noopener noreferrer"
+                                            aria-label="Watch TikTok LIVE Vietnam video 1"><img
+                                                class="tiktok-phone-cover"
+                                                src="assets/livefest-tiktok-7575083009800523016.jpg" alt=""
+                                                loading="lazy"><span class="tiktok-phone-play"
+                                                aria-hidden="true"></span></a></div>
+                                </div>
+                            </div>
+                            <div class="phone-card" data-phone-slot="2">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><a class="tiktok-phone-link"
+                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7572837860756212999"
+                                            target="_blank" rel="noopener noreferrer"
+                                            aria-label="Watch TikTok LIVE Vietnam video 2"><img
+                                                class="tiktok-phone-cover"
+                                                src="assets/livefest-tiktok-7572837860756212999.jpg" alt=""
+                                                loading="lazy"><span class="tiktok-phone-play"
+                                                aria-hidden="true"></span></a></div>
+                                </div>
+                            </div>
+                            <div class="phone-card" data-phone-slot="3">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><a class="tiktok-phone-link"
+                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7572837860756212999"
+                                            target="_blank" rel="noopener noreferrer"
+                                            aria-label="Watch TikTok LIVE Vietnam video 3"><img
+                                                class="tiktok-phone-cover"
+                                                src="assets/livefest-tiktok-7572837860756212999.jpg" alt=""
+                                                loading="lazy"><span class="tiktok-phone-play"
+                                                aria-hidden="true"></span></a></div>
+                                </div>
+                            </div>
+                            <div class="phone-card" data-phone-slot="4">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><a class="tiktok-phone-link"
+                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7569229312101207304"
+                                            target="_blank" rel="noopener noreferrer"
+                                            aria-label="Watch TikTok LIVE Vietnam video 4"><img
+                                                class="tiktok-phone-cover"
+                                                src="assets/livefest-tiktok-7569229312101207304.jpg" alt=""
+                                                loading="lazy"><span class="tiktok-phone-play"
+                                                aria-hidden="true"></span></a></div>
+                                </div>
+                            </div>
+                            <div class="phone-card" data-phone-slot="5">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><a class="tiktok-phone-link"
+                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7570586038666562824"
+                                            target="_blank" rel="noopener noreferrer"
+                                            aria-label="Watch TikTok LIVE Vietnam video 5"><img
+                                                class="tiktok-phone-cover"
+                                                src="assets/livefest-tiktok-7570586038666562824.jpg" alt=""
+                                                loading="lazy"><span class="tiktok-phone-play"
+                                                aria-hidden="true"></span></a></div>
+                                </div>
+                            </div>
+                            <div class="phone-card" data-phone-slot="6">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><a class="tiktok-phone-link"
+                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7571335514410798354"
+                                            target="_blank" rel="noopener noreferrer"
+                                            aria-label="Watch TikTok LIVE Vietnam video 6"><img
+                                                class="tiktok-phone-cover"
+                                                src="assets/livefest-tiktok-7571335514410798354.jpg" alt=""
+                                                loading="lazy"><span class="tiktok-phone-play"
+                                                aria-hidden="true"></span></a></div>
+                                </div>
+                            </div>
+                            <div class="phone-card" data-phone-slot="7">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><a class="tiktok-phone-link"
+                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7580645355226696980"
+                                            target="_blank" rel="noopener noreferrer"
+                                            aria-label="Watch TikTok LIVE Vietnam video 7"><img
+                                                class="tiktok-phone-cover"
+                                                src="assets/livefest-tiktok-7580645355226696980.jpg" alt=""
+                                                loading="lazy"><span class="tiktok-phone-play"
+                                                aria-hidden="true"></span></a></div>
+                                </div>
+                            </div>
+                            <div class="phone-card" data-phone-slot="8">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><a class="tiktok-phone-link"
+                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7572076770388610312"
+                                            target="_blank" rel="noopener noreferrer"
+                                            aria-label="Watch TikTok LIVE Vietnam video 8"><img
+                                                class="tiktok-phone-cover"
+                                                src="assets/livefest-tiktok-7572076770388610312.jpg" alt=""
+                                                loading="lazy"><span class="tiktok-phone-play"
+                                                aria-hidden="true"></span></a></div>
+                                </div>
+                            </div>
+                            <div class="phone-card" data-phone-slot="9">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><a class="tiktok-phone-link"
+                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7576329236454133010"
+                                            target="_blank" rel="noopener noreferrer"
+                                            aria-label="Watch TikTok LIVE Vietnam video 9"><img
+                                                class="tiktok-phone-cover"
+                                                src="assets/livefest-tiktok-7576329236454133010.jpg" alt=""
+                                                loading="lazy"><span class="tiktok-phone-play"
+                                                aria-hidden="true"></span></a></div>
+                                </div>
+                            </div>
+                            <div class="phone-card" data-phone-slot="10">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><a class="tiktok-phone-link"
+                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7575465004921539858"
+                                            target="_blank" rel="noopener noreferrer"
+                                            aria-label="Watch TikTok LIVE Vietnam video 10"><img
+                                                class="tiktok-phone-cover"
+                                                src="assets/livefest-tiktok-7575465004921539858.jpg" alt=""
+                                                loading="lazy"><span class="tiktok-phone-play"
+                                                aria-hidden="true"></span></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="phone-marquee-group" aria-hidden="true">
+                            <div class="phone-card">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><img class="tiktok-phone-cover"
+                                            src="assets/livefest-tiktok-7575083009800523016.jpg" alt="" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-card">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><img class="tiktok-phone-cover"
+                                            src="assets/livefest-tiktok-7572837860756212999.jpg" alt="" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-card">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><img class="tiktok-phone-cover"
+                                            src="assets/livefest-tiktok-7572837860756212999.jpg" alt="" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-card">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><img class="tiktok-phone-cover"
+                                            src="assets/livefest-tiktok-7569229312101207304.jpg" alt="" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-card">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><img class="tiktok-phone-cover"
+                                            src="assets/livefest-tiktok-7570586038666562824.jpg" alt="" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-card">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><img class="tiktok-phone-cover"
+                                            src="assets/livefest-tiktok-7571335514410798354.jpg" alt="" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-card">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><img class="tiktok-phone-cover"
+                                            src="assets/livefest-tiktok-7580645355226696980.jpg" alt="" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-card">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><img class="tiktok-phone-cover"
+                                            src="assets/livefest-tiktok-7572076770388610312.jpg" alt="" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-card">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><img class="tiktok-phone-cover"
+                                            src="assets/livefest-tiktok-7576329236454133010.jpg" alt="" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-card">
+                                <div class="phone-chassis">
+                                    <div class="phone-notch"></div>
+                                    <div class="phone-screen"><img class="tiktok-phone-cover"
+                                            src="assets/livefest-tiktok-7575465004921539858.jpg" alt="" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mockups-header reveal-fade-up">
                     <div class="mockups-header-left">
                         Can watch detail design in this drive or TikTok LIVE Viet Nam Channel
                     </div>
@@ -1251,47 +1565,43 @@
                     </div>
                 </div>
 
-                <div class="phone-marquee">
-                    <div class="phone-marquee-track">
-                        <div class="phone-marquee-group">
-                            <div class="phone-card" data-phone-slot="1"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 1 ]</span></div></div></div>
-                            <div class="phone-card" data-phone-slot="2"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 2 ]</span></div></div></div>
-                            <div class="phone-card" data-phone-slot="3"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 3 ]</span></div></div></div>
-                            <div class="phone-card" data-phone-slot="4"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 4 ]</span></div></div></div>
-                            <div class="phone-card" data-phone-slot="5"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 5 ]</span></div></div></div>
-                            <div class="phone-card" data-phone-slot="6"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 6 ]</span></div></div></div>
-                            <div class="phone-card" data-phone-slot="7"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 7 ]</span></div></div></div>
-                            <div class="phone-card" data-phone-slot="8"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 8 ]</span></div></div></div>
-                            <div class="phone-card" data-phone-slot="9"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 9 ]</span></div></div></div>
-                            <div class="phone-card" data-phone-slot="10"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 10 ]</span></div></div></div>
-                        </div>
-                        <div class="phone-marquee-group" aria-hidden="true">
-                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 1 ]</span></div></div></div>
-                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 2 ]</span></div></div></div>
-                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 3 ]</span></div></div></div>
-                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 4 ]</span></div></div></div>
-                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 5 ]</span></div></div></div>
-                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 6 ]</span></div></div></div>
-                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 7 ]</span></div></div></div>
-                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 8 ]</span></div></div></div>
-                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 9 ]</span></div></div></div>
-                            <div class="phone-card"><div class="phone-chassis"><div class="phone-notch"></div><div class="phone-screen"><span class="phone-screen-label">[ Phone Mockup 10 ]</span></div></div></div>
-                        </div>
+                <div class="from-shooting-title reveal-fade-up">
+                    from shooting for video ...
+                </div>
+
+                <div class="shooting-video-grid" aria-label="Social media video showcase">
+                    <div class="shooting-video-frame">
+                        <video controls playsinline loop preload="none"
+                            poster="assets/videos/livefest-behind-scenes-01.jpg" aria-label="Behind the scenes video 1">
+                            <source src="assets/videos/livefest-behind-scenes-01.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="shooting-video-frame">
+                        <video controls playsinline loop preload="none"
+                            poster="assets/videos/livefest-behind-scenes-02.jpg" aria-label="Behind the scenes video 2">
+                            <source src="assets/videos/livefest-behind-scenes-02.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="shooting-video-frame">
+                        <video controls playsinline loop preload="none"
+                            poster="assets/videos/livefest-behind-scenes-03.jpg" aria-label="Behind the scenes video 3">
+                            <source src="assets/videos/livefest-behind-scenes-03.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
 
-                <div class="from-shooting-title">
-                    from shooting for video <em>to planning details.</em>
-                </div>
+                <p class="published-content-text reveal-fade-up">
+                    Published content across social media platforms, generating
+                </p>
 
                 <!-- Stats Block relocated here -->
-                <div class="detail-stats-grid" style="margin-top: var(--space-lg);">
+                <div class="detail-stats-grid reveal-fade-up" style="margin-top: var(--space-lg);">
                     <div class="detail-stat-card">
-                        <div class="detail-stat-num font-display">2.5M</div>
+                        <div class="detail-stat-num font-display">50M</div>
                         <div class="detail-stat-lbl">Reach</div>
                     </div>
                     <div class="detail-stat-card">
-                        <div class="detail-stat-num font-display">180K</div>
+                        <div class="detail-stat-num font-display">150K</div>
                         <div class="detail-stat-lbl">Engagements</div>
                     </div>
                     <div class="detail-stat-card">
@@ -1308,75 +1618,70 @@
 
         <!-- ── SECTION 3: EVENT SUPPORT ── -->
         <section class="event-support-section reveal-fade-up">
-            <div class="section-tag">03 / EVENT OPERATIONS</div>
-            <h2 class="case-study-section-title event-support-title">GTM Event Support &amp; Material Lead:</h2>
+            <div class="section-tag reveal-fade-up">03 / EVENT OPERATIONS</div>
+            <h2 class="case-study-section-title event-support-title reveal-fade-up reveal-delay-1">GTM Event Support
+                &amp; Material Lead:</h2>
 
-            <div class="event-support-grid">
+            <div class="event-support-grid reveal-fade-up reveal-delay-2">
                 <div class="support-left-col">
-                    <img
-                        class="support-image workshop-image"
-                        src="assets/livefest-nexus-workshop.png"
-                        alt="TikTok LIVE FEST workshop at Nexus with creators and agency partners"
-                        loading="lazy"
-                    >
+                    <img class="support-image workshop-image" src="assets/livefest-nexus-workshop.webp"
+                        alt="TikTok LIVE FEST workshop at Nexus with creators and agency partners" loading="lazy">
 
                     <div class="support-text-block">
                         <p>
-                            Providing operational event support for host/creator workshops and live talkshows at the Nexus. Directing logistics for physical invitations, creative merchandise, and brand toolkits distributed to 200+ top creator agencies.
+                            Providing operational event support for host/creator workshops and live talkshows at the
+                            Nexus. Directing logistics for physical invitations, creative merchandise, and brand
+                            toolkits distributed to 200+ top creator agencies.
                         </p>
                     </div>
 
-                    <img
-                        class="event-poster-image"
-                        src="assets/livefest-event-poster.png"
-                        alt="TikTok LIVE FEST 2025 event stage poster"
-                        loading="lazy"
-                    >
+                    <img class="event-poster-image" src="assets/livefest-event-poster.webp"
+                        alt="TikTok LIVE FEST 2025 event stage poster" loading="lazy">
                 </div>
 
                 <div class="support-right-col">
-                    <img
-                        class="hall-image"
-                        src="assets/livefest-auditorium-hall.png"
-                        alt="Audience attending the TikTok LIVE FEST workshop in the Nexus auditorium"
-                        loading="lazy"
-                    >
+                    <img class="hall-image" src="assets/livefest-auditorium-hall.webp"
+                        alt="Audience attending the TikTok LIVE FEST workshop in the Nexus auditorium" loading="lazy">
                 </div>
             </div>
         </section>
 
         <!-- ── SECTION 4: UI/UX FULL-PAGE ARTWORK ── -->
         <section class="ui-ux-section reveal-fade-up" data-section="ui-ux-showcase">
-            <img
-                class="ui-ux-artwork"
-                src="assets/livefest-ui-ux.png"
-                alt="Complete UI and UX flow showcase for the TikTok LIVE FEST campaign"
-                loading="lazy"
-            >
+            <img class="ui-ux-artwork reveal-fade-up" src="assets/livefest-ui-ux.webp"
+                alt="Complete UI and UX flow showcase for the TikTok LIVE FEST campaign" loading="lazy">
         </section>
 
         <!-- ── SECTION 5: MERCHANDISE CAMPAIGN ── -->
         <section class="editorial-section merchandise-section reveal-fade-up" data-section="merchandise-campaign">
-            <div class="merchandise-layout">
-                <img class="support-image merchandise-monitor" src="assets/livefest-merchandise-presentation.png" alt="Merchandise presentation" loading="lazy" style="object-fit: cover;">
+            <div class="merchandise-layout reveal-fade-up">
+                <img class="support-image merchandise-monitor" src="assets/livefest-merchandise-presentation.webp"
+                    alt="Merchandise presentation" loading="lazy" style="object-fit: cover;">
 
                 <div class="merchandise-content">
                     <div class="merchandise-small-grid">
-                        <img class="support-image" src="assets/livefest-tshirt-concept.png" alt="T-shirt concept" loading="lazy" style="height: 180px; object-fit: cover;">
-                        <img class="support-image" src="assets/livefest-tshirt-mockup.png" alt="T-shirt mockup" loading="lazy" style="height: 180px; object-fit: cover;">
+                        <img class="support-image" src="assets/livefest-tshirt-concept.png" alt="T-shirt concept"
+                            loading="lazy" style="height: 180px; object-fit: cover;">
+                        <img class="support-image" src="assets/livefest-tshirt-mockup.png" alt="T-shirt mockup"
+                            loading="lazy" style="height: 180px; object-fit: cover;">
 
                         <div class="merchandise-text">
                             <h2 class="case-study-section-title merchandise-title">Merchandise Campaign Lead</h2>
                             <p class="editorial-copy merchandise-copy" style="margin-top: var(--space-sm);">
-                                Analyzed performance metrics of Vietnam’s top creators to identify high-impact profiles, while personally designing the exclusive LIVE FEST merchandise and managing vendors for production. Partnered with AM/CM teams to distribute these products to 300+ Top LIVE Creators during the warm-up phase.
+                                Analyzed performance metrics of Vietnam’s top creators to identify high-impact profiles,
+                                while personally designing the exclusive LIVE FEST merchandise and managing vendors for
+                                production. Partnered with AM/CM teams to distribute these products to 300+ Top LIVE
+                                Creators during the warm-up phase.
                             </p>
                         </div>
 
-                        <img class="support-image merchandise-hat-placeholder" src="assets/livefest-bucket-hat.png" alt="Bucket hat mockup" loading="lazy" style="height: 180px; object-fit: cover;">
+                        <img class="support-image merchandise-hat-placeholder" src="assets/livefest-bucket-hat.png"
+                            alt="Bucket hat mockup" loading="lazy" style="height: 180px; object-fit: cover;">
                     </div>
 
                     <p class="editorial-impact">
-                        Warm-up Phase Impact: Successfully achieved a 90% participation rate among top-tier creators during the pre-event phase.
+                        Warm-up Phase Impact: Successfully achieved a 90% participation rate among top-tier creators
+                        during the pre-event phase.
                     </p>
                 </div>
             </div>
@@ -1384,43 +1689,55 @@
 
         <!-- ── SECTION 6: OOH CAMPAIGN ── -->
         <section class="editorial-section ooh-section reveal-fade-up" data-section="ooh-campaign">
-            <div class="ooh-header">
+            <div class="ooh-header reveal-fade-up">
                 <h2 class="case-study-section-title ooh-title">OOH Campaign Execution (Saigon River)</h2>
             </div>
 
-            <div class="ooh-intro-grid">
+            <div class="ooh-intro-grid reveal-fade-up reveal-delay-1">
                 <p class="editorial-copy">
-                    Managed the end-to-end launch of a massive 4,500m² OOH launching, dominating the Saigon Riverfront with 3 prime billboards simultaneously. Handled everything from visual design oversight to agency coordination, successfully generating an immediate 150K–300K views in a single day across major traffic routes from District 1 to Thu Thiem.
+                    Managed the end-to-end launch of a massive 4,500m² OOH launching, dominating the Saigon Riverfront
+                    with 3 prime billboards simultaneously. Handled everything from visual design oversight to agency
+                    coordination, successfully generating an immediate 150K–300K views in a single day across major
+                    traffic routes from District 1 to Thu Thiem.
                 </p>
                 <div class="editorial-placeholder ooh-hero">4,500m² Saigon River OOH hero placeholder</div>
             </div>
 
-            <div class="ooh-banner-grid" style="margin-top: var(--space-2xl);" aria-label="OOH campaign banner placeholders">
+            <div class="ooh-banner-grid reveal-fade-up reveal-delay-2" style="margin-top: var(--space-2xl);"
+                aria-label="OOH campaign banner placeholders">
                 <div class="ooh-banner-stack">
-                    <img class="support-image ooh-banner ooh-banner-tall" src="assets/banner-column-1.png" alt="Saigon Riverfront OOH billboard banner 1" loading="lazy">
+                    <img class="support-image ooh-banner ooh-banner-tall" src="assets/banner-column-1.webp"
+                        alt="Saigon Riverfront OOH billboard banner 1" loading="lazy">
                 </div>
                 <div class="ooh-banner-stack">
-                    <img class="support-image ooh-banner ooh-banner-medium" src="assets/banner-column-2.png" alt="Saigon Riverfront OOH billboard banner 2" loading="lazy">
+                    <img class="support-image ooh-banner ooh-banner-medium" src="assets/banner-column-2.webp"
+                        alt="Saigon Riverfront OOH billboard banner 2" loading="lazy">
                 </div>
                 <div class="ooh-banner-stack">
-                    <img class="support-image ooh-banner ooh-banner-low" src="assets/banner-column-3.png" alt="Saigon Riverfront OOH billboard banner 3" loading="lazy">
+                    <img class="support-image ooh-banner ooh-banner-low" src="assets/banner-column-3.webp"
+                        alt="Saigon Riverfront OOH billboard banner 3" loading="lazy">
                 </div>
             </div>
         </section>
 
         <!-- ── SECTION 7: DAILY LIVE STREAM ── -->
         <section class="editorial-section reveal-fade-up" data-section="daily-livestream">
-            <div class="livestream-header">
+            <div class="livestream-header reveal-fade-up">
                 <h2 class="case-study-section-title">Daily Live Stream Communications:</h2>
                 <p class="editorial-copy livestream-copy">
-                    Managed and hosted daily livestreams on the TikTok LIVE Vietnam channel to educate users on event rules and maximize campaign scale. Successfully generated over 10M total organic views, massively boosting campaign awareness before the main event.
+                    Managed and hosted daily livestreams on the TikTok LIVE Vietnam channel to educate users on event
+                    rules and maximize campaign scale. Successfully generated over 10M total organic views, massively
+                    boosting campaign awareness before the main event.
                 </p>
             </div>
 
-            <div class="livestream-grid">
-                <img class="support-image livestream-shot" src="assets/livefest-livestream-01.png" alt="Daily livestream screen 01" loading="lazy">
-                <img class="support-image livestream-shot" src="assets/livefest-livestream-02.png" alt="Daily livestream screen 02" loading="lazy">
-                <img class="support-image livestream-shot" src="assets/livefest-livestream-03.png" alt="Daily livestream screen 03" loading="lazy">
+            <div class="livestream-grid reveal-fade-up reveal-delay-1">
+                <img class="support-image livestream-shot" src="assets/livefest-livestream-01.webp"
+                    alt="Daily livestream screen 01" loading="lazy">
+                <img class="support-image livestream-shot" src="assets/livefest-livestream-02.webp"
+                    alt="Daily livestream screen 02" loading="lazy">
+                <img class="support-image livestream-shot" src="assets/livefest-livestream-03.webp"
+                    alt="Daily livestream screen 03" loading="lazy">
             </div>
         </section>
 
