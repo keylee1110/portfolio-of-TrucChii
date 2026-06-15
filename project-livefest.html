@@ -671,18 +671,7 @@
             justify-self: center;
         }
 
-        /* Let each section travel upward like the homepage instead of fading in as a block. */
-        main.grid-container>section.reveal-fade-up {
-            opacity: 1;
-            transform: translate3d(0, 72px, 0);
-            transition: transform 1.35s cubic-bezier(0.16, 1, 0.3, 1);
-            transition-delay: 0s !important;
-        }
 
-        main.grid-container>section.reveal-fade-up.reveal-active {
-            opacity: 1 !important;
-            transform: translate3d(0, 0, 0) !important;
-        }
 
         /* ── Sections 5-7: Editorial campaign layouts ── */
         .editorial-section {
@@ -1043,7 +1032,8 @@
         .ooh-banner,
         .strategy-grid-v2 img,
         .center-header + div img {
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
         }
 
         .support-image:hover,
@@ -1054,7 +1044,7 @@
         .ooh-banner:hover,
         .strategy-grid-v2 img:hover,
         .center-header + div img:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
             position: relative;
             z-index: 10;
         }
