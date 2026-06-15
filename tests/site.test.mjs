@@ -63,7 +63,7 @@ test('Certification contains exactly six accessible items', () => {
 });
 
 const projects = [
-  ['project-awareness.html', 'Brand Awareness Campaign'],
+  ['project-livefest.html', 'LIVE FEST 2025'],
   ['project-launch.html', 'Product Launch Campaign'],
   ['project-ugc.html', 'Influencer Marketing Campaign'],
   ['project-placeholder-04.html', 'Project 04'],
@@ -108,5 +108,43 @@ test('all local HTML src and href references resolve', () => {
       const target = reference.split(/[?#]/)[0];
       assert.ok(existsSync(join(root, dirname(file), target)), `${file} -> ${reference}`);
     }
+  }
+});
+
+test('LIVE FEST case study uses the approved editorial sections and artwork', () => {
+  const html = read('project-livefest.html');
+  const assets = [
+    'assets/livefest-nexus-workshop.png',
+    'assets/livefest-auditorium-hall.png',
+    'assets/livefest-event-poster.png',
+    'assets/livefest-ui-ux.png',
+    'assets/livefest-planning-sheet.png',
+    'assets/livefest-planning-showcase-lower.png',
+  ];
+
+  for (const asset of assets) {
+    assert.ok(existsSync(join(root, asset)), `Missing ${asset}`);
+    assert.match(html, new RegExp(asset.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  }
+
+  assert.doesNotMatch(html, /class="ui-card"/);
+  assert.doesNotMatch(html, /Selected interface and interactive screen designs/);
+  assert.doesNotMatch(html, /OOH planning and production sheet placeholder/);
+  assert.doesNotMatch(html, /class="phone-caption"/);
+  assert.equal((html.match(/data-phone-slot=/g) || []).length, 10);
+  assert.match(html, /class="phone-marquee-track"/);
+
+  const orderedMarkers = [
+    'data-section="ui-ux-showcase"',
+    'data-section="merchandise-campaign"',
+    'data-section="ooh-campaign"',
+    'data-section="daily-livestream"',
+    'class="cs-nav-footer"',
+  ];
+  let previous = -1;
+  for (const marker of orderedMarkers) {
+    const current = html.indexOf(marker);
+    assert.ok(current > previous, `${marker} is missing or out of order`);
+    previous = current;
   }
 });
