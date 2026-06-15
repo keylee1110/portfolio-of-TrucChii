@@ -756,7 +756,8 @@ function initPillAnimations() {
             text.includes('SEE WORKS') || 
             text.includes('SEE ALL WORKS') ||
             text.includes('BACK TO TOP') ||
-            text.includes('CONTACT ME')) {
+            text.includes('CONTACT ME') ||
+            text.includes('LIVE WEBSITE')) {
             if (!targetButtons.includes(btn)) {
                 targetButtons.push(btn);
             }

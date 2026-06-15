@@ -24,8 +24,8 @@
     <style>
         /* ── Page Layout ── */
         .detail-hero {
-            padding: 180px 0 64px 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 180px 0 24px 0;
+            border-bottom: none;
         }
 
         main.grid-container {
@@ -667,6 +667,21 @@
 
         .ui-ux-section {
             padding: 0;
+            width: min(100vw, 1600px);
+            justify-self: center;
+        }
+
+        /* Let each section travel upward like the homepage instead of fading in as a block. */
+        main.grid-container>section.reveal-fade-up {
+            opacity: 1;
+            transform: translate3d(0, 72px, 0);
+            transition: transform 1.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: 0s !important;
+        }
+
+        main.grid-container>section.reveal-fade-up.reveal-active {
+            opacity: 1 !important;
+            transform: translate3d(0, 0, 0) !important;
         }
 
         /* ── Sections 5-7: Editorial campaign layouts ── */
@@ -837,18 +852,13 @@
         .ooh-banner-stack {
             display: grid;
             gap: 8px;
-        }
-
-        .ooh-banner-stack:nth-child(2) {
-            transform: translateY(70px);
-        }
-
-        .ooh-banner-stack:nth-child(3) {
-            transform: translateY(150px);
+            align-items: end;
         }
 
         .ooh-banner {
-            min-height: 76px;
+            height: auto;
+            width: 100%;
+            display: block;
         }
 
         .livestream-header {
@@ -1023,6 +1033,31 @@
                 margin-top: 0;
             }
         }
+
+        /* ── Image Hover Effects ── */
+        .support-image,
+        .event-poster-image,
+        .hall-image,
+        .ui-ux-artwork,
+        .livestream-shot,
+        .ooh-banner,
+        .strategy-grid-v2 img,
+        .center-header + div img {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .support-image:hover,
+        .event-poster-image:hover,
+        .hall-image:hover,
+        .ui-ux-artwork:hover,
+        .livestream-shot:hover,
+        .ooh-banner:hover,
+        .strategy-grid-v2 img:hover,
+        .center-header + div img:hover {
+            transform: scale(1.03);
+            position: relative;
+            z-index: 10;
+        }
     </style>
 </head>
 
@@ -1140,11 +1175,33 @@
 
         </section>
 
+        <!-- Project Stats Block -->
+        <section class="reveal-fade-up" style="padding: 0; margin-top: 0; border-bottom: none;">
+            <div class="detail-stats-grid" style="margin-bottom: 0;">
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">50M</div>
+                    <div class="detail-stat-lbl">Reach</div>
+                </div>
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">150K</div>
+                    <div class="detail-stat-lbl">Engagements</div>
+                </div>
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">8.2%</div>
+                    <div class="detail-stat-lbl">Engagement Rate</div>
+                </div>
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">+35%</div>
+                    <div class="detail-stat-lbl">Follower Growth</div>
+                </div>
+            </div>
+        </section>
+
         <!-- ── SECTION 2: KEY ROLE & STRATEGY ── -->
-        <section class="reveal-fade-up">
+        <section class="reveal-fade-up" style="padding-top: 0; margin-top: -12px;">
 
             <!-- Section 2 Poster Image -->
-            <div style="width:100%;overflow:hidden;margin-bottom:var(--space-xl);position:relative;">
+            <div style="width:100%;overflow:hidden;margin-bottom:var(--space-md);position:relative;">
                 <img
                     src="assets/section-2-poster.png"
                     alt="LIVE FEST 2025 – TikTok Campaign Visual"
@@ -1159,16 +1216,7 @@
                 </p>
             </div>
 
-            <!-- Ring Orbit Visual -->
-            <div class="ring-visual">
-                <div class="ring-center">LIVE FEST</div>
-                <div class="ring-node node-1">Shooting</div>
-                <div class="ring-node node-2">Editing</div>
-                <div class="ring-node node-3">Directing</div>
-                <div class="ring-node node-4">GTM Plan</div>
-                <div class="ring-node node-5">Creator</div>
-                <div class="ring-node node-6">Metrics</div>
-            </div>
+
 
             <!-- Strategy & Execution Detail — new layout -->
             <h3 class="case-study-section-title strategy-section-title">Social Media Strategy &amp; Execution:</h3>
@@ -1320,12 +1368,12 @@
         <!-- ── SECTION 5: MERCHANDISE CAMPAIGN ── -->
         <section class="editorial-section merchandise-section reveal-fade-up" data-section="merchandise-campaign">
             <div class="merchandise-layout">
-                <div class="editorial-placeholder merchandise-monitor">Merchandise presentation placeholder</div>
+                <img class="support-image merchandise-monitor" src="assets/livefest-merchandise-presentation.png" alt="Merchandise presentation" loading="lazy" style="object-fit: cover;">
 
                 <div class="merchandise-content">
                     <div class="merchandise-small-grid">
-                        <div class="editorial-placeholder">T-shirt concept placeholder</div>
-                        <div class="editorial-placeholder">T-shirt mockup placeholder</div>
+                        <img class="support-image" src="assets/livefest-tshirt-concept.png" alt="T-shirt concept" loading="lazy" style="height: 180px; object-fit: cover;">
+                        <img class="support-image" src="assets/livefest-tshirt-mockup.png" alt="T-shirt mockup" loading="lazy" style="height: 180px; object-fit: cover;">
 
                         <div class="merchandise-text">
                             <h2 class="case-study-section-title merchandise-title">Merchandise Campaign Lead</h2>
@@ -1334,7 +1382,7 @@
                             </p>
                         </div>
 
-                        <div class="editorial-placeholder merchandise-hat-placeholder">Bucket hat mockup placeholder</div>
+                        <img class="support-image merchandise-hat-placeholder" src="assets/livefest-bucket-hat.png" alt="Bucket hat mockup" loading="lazy" style="height: 180px; object-fit: cover;">
                     </div>
 
                     <p class="editorial-impact">
@@ -1357,25 +1405,15 @@
                 <div class="editorial-placeholder ooh-hero">4,500m² Saigon River OOH hero placeholder</div>
             </div>
 
-            <div class="ooh-banner-grid" aria-label="OOH campaign banner placeholders">
+            <div class="ooh-banner-grid" style="margin-top: var(--space-2xl);" aria-label="OOH campaign banner placeholders">
                 <div class="ooh-banner-stack">
-                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
-                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
-                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
-                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
-                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
+                    <img class="support-image ooh-banner ooh-banner-tall" src="assets/banner-column-1.png" alt="Saigon Riverfront OOH billboard banner 1" loading="lazy">
                 </div>
                 <div class="ooh-banner-stack">
-                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
-                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
-                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
-                    <div class="editorial-placeholder ooh-banner">Banner placeholder</div>
+                    <img class="support-image ooh-banner ooh-banner-medium" src="assets/banner-column-2.png" alt="Saigon Riverfront OOH billboard banner 2" loading="lazy">
                 </div>
                 <div class="ooh-banner-stack">
-                    <div class="editorial-placeholder ooh-banner">Riverfront banner placeholder</div>
-                    <div class="editorial-placeholder ooh-banner">Riverfront banner placeholder</div>
-                    <div class="editorial-placeholder ooh-banner">Riverfront banner placeholder</div>
-                    <div class="editorial-placeholder ooh-banner">Riverfront banner placeholder</div>
+                    <img class="support-image ooh-banner ooh-banner-low" src="assets/banner-column-3.png" alt="Saigon Riverfront OOH billboard banner 3" loading="lazy">
                 </div>
             </div>
         </section>
@@ -1390,9 +1428,9 @@
             </div>
 
             <div class="livestream-grid">
-                <div class="editorial-placeholder livestream-shot">Daily livestream screen placeholder 01</div>
-                <div class="editorial-placeholder livestream-shot">Daily livestream screen placeholder 02</div>
-                <div class="editorial-placeholder livestream-shot">Daily livestream screen placeholder 03</div>
+                <img class="support-image livestream-shot" src="assets/livefest-livestream-01.png" alt="Daily livestream screen 01" loading="lazy">
+                <img class="support-image livestream-shot" src="assets/livefest-livestream-02.png" alt="Daily livestream screen 02" loading="lazy">
+                <img class="support-image livestream-shot" src="assets/livefest-livestream-03.png" alt="Daily livestream screen 03" loading="lazy">
             </div>
         </section>
 
