@@ -276,7 +276,13 @@ function initScrollDynamics() {
     const scrollIndicator = document.getElementById('scroll-indicator');
     const header = document.querySelector('.sticky-nav');
     const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section');
+    const localNavLinks = Array.from(navLinks).filter(link => {
+        const href = link.getAttribute('href') || '';
+        return href.startsWith('#') && href.length > 1;
+    });
+    const sections = localNavLinks.length
+        ? document.querySelectorAll('section[id]')
+        : [];
     let scrollTimeout;
 
     window.addEventListener('scroll', () => {
@@ -303,21 +309,23 @@ function initScrollDynamics() {
             }
 
             // 1.3 Active Link Highlighting on Scroll
-            let currentSectionId = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                if (winScroll >= sectionTop && winScroll < sectionTop + sectionHeight) {
-                    currentSectionId = section.getAttribute('id');
-                }
-            });
+            if (localNavLinks.length) {
+                let currentSectionId = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    if (winScroll >= sectionTop && winScroll < sectionTop + sectionHeight) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSectionId}`) {
-                    link.classList.add('active');
-                }
-            });
+                localNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
         });
     }, { passive: true });
 }
@@ -756,7 +764,8 @@ function initPillAnimations() {
             text.includes('SEE WORKS') || 
             text.includes('SEE ALL WORKS') ||
             text.includes('BACK TO TOP') ||
-            text.includes('CONTACT ME')) {
+            text.includes('CONTACT ME') ||
+            text.includes('LIVE WEBSITE')) {
             if (!targetButtons.includes(btn)) {
                 targetButtons.push(btn);
             }
