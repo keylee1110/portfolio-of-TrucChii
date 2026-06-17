@@ -218,12 +218,13 @@
         }
 
         .detail-stat-lbl {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--color-text-muted);
-            letter-spacing: 0.1em;
+            color: var(--color-text-primary);
+            font-size: clamp(1.05rem, 1.7vw, 1.5rem);
+            font-weight: 400;
+            line-height: 1.4;
+            letter-spacing: 0;
             margin-top: 8px;
-            text-transform: uppercase;
+            text-transform: none;
         }
 
         /* ── Section Header (Center-Aligned) ── */
@@ -795,6 +796,7 @@
             display: block;
             width: 100%;
             height: auto;
+            aspect-ratio: 1987 / 987;
             object-fit: contain;
             border: 0;
         }
@@ -803,6 +805,8 @@
             padding: 0;
             width: min(100vw, 1600px);
             justify-self: center;
+            content-visibility: visible;
+            contain-intrinsic-size: auto;
         }
 
 
@@ -1648,8 +1652,9 @@
 
         <!-- ── SECTION 4: UI/UX FULL-PAGE ARTWORK ── -->
         <section class="ui-ux-section reveal-fade-up" data-section="ui-ux-showcase">
-            <img class="ui-ux-artwork reveal-fade-up" src="assets/livefest-ui-ux.webp"
-                alt="Complete UI and UX flow showcase for the TikTok LIVE FEST campaign" loading="lazy">
+            <img class="ui-ux-artwork" src="assets/livefest-ui-ux.webp"
+                alt="Complete UI and UX flow showcase for the TikTok LIVE FEST campaign" width="1987" height="987"
+                loading="lazy">
         </section>
 
         <!-- ── SECTION 5: MERCHANDISE CAMPAIGN ── -->

@@ -39,10 +39,14 @@ cardOffsets = [];
 return;
 }
 cards.forEach(card => {
+card.style.top = '';
+card.style.zIndex = '';
+card.style.visibility = '';
 const cardRow = card.querySelector('.project-editorial-row');
 if (cardRow) {
 cardRow.style.transform = '';
 cardRow.style.filter = '';
+cardRow.style.opacity = '';
 }
 });
 const containerRect = container.getBoundingClientRect();
@@ -55,10 +59,14 @@ return containerOffsetTop + card.offsetTop;
 function handleScroll() {
 if (!isDesktop.matches) {
 cards.forEach(card => {
+card.style.zIndex = '';
+card.style.top = '';
+card.style.visibility = '';
 const cardRow = card.querySelector('.project-editorial-row');
 if (cardRow) {
 cardRow.style.transform = '';
 cardRow.style.filter = '';
+cardRow.style.opacity = '';
 }
 });
 return;
@@ -67,26 +75,36 @@ if (cardOffsets.length === 0) {
 calculateOffsets();
 }
 const scrollTop = window.scrollY;
-const viewportHeight = window.innerHeight;
-const stackPositionOffset = 56;
+const firstCardRow = cards[0]?.querySelector('.project-editorial-row');
+const cardHeight = firstCardRow?.offsetHeight || 520;
+const stackPositionOffset = Math.max(48, Math.round((window.innerHeight - cardHeight) / 2));
 const itemStackDistance = 0;
-const baseScale = 0.75;
-const itemScale = 0.03;
 cards.forEach((card, i) => {
 const pinPosition = stackPositionOffset + i * itemStackDistance;
 const cardOffsetTop = cardOffsets[i] || 0;
-const scrollPast = scrollTop - (cardOffsetTop - pinPosition);
+const nextCardOffsetTop = cardOffsets[i + 1];
+const transitionDistance = Math.min(900, Math.max(560, cardHeight * 0.95));
 let progress = 0;
-if (scrollPast > 0) {
-progress = Math.min(1, scrollPast / 450);
+if (nextCardOffsetTop) {
+const nextDistanceToPin = nextCardOffsetTop - scrollTop - pinPosition;
+if (nextDistanceToPin < transitionDistance) {
+progress = Math.min(1, Math.max(0, (transitionDistance - nextDistanceToPin) / transitionDistance));
 }
-const targetScale = baseScale + i * itemScale;
-const scale = 1 - progress * (1 - targetScale);
-const brightness = 1 - progress * 0.25;
+}
+const easedProgress = progress * progress * (3 - 2 * progress);
+const scale = 1 - easedProgress * 0.42;
+const brightness = 1 - easedProgress * 0.48;
+const opacity = Math.max(0.34, 1 - easedProgress * 0.66);
+const lift = 0;
+const depth = 0;
 const cardRow = card.querySelector('.project-editorial-row');
+card.style.zIndex = String(i + 1);
+card.style.top = `${pinPosition}px`;
+card.style.visibility = 'visible';
 if (cardRow) {
-cardRow.style.transform = `scale(${scale})`;
+cardRow.style.transform = `translate3d(0, ${lift}px, ${depth}px) scale(${scale})`;
 cardRow.style.filter = `brightness(${brightness})`;
+cardRow.style.opacity = opacity.toFixed(3);
 }
 });
 }

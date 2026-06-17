@@ -2232,17 +2232,21 @@ button:focus-visible,
     width: min(1400px, calc(100% - 64px));
     width: min(1400px, calc(100% - 64px), calc((100svh - 96px) * 2));
     margin-inline: auto;
+    perspective: 1400px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
 }
 
 .project-card-wrapper {
     position: sticky;
     top: 56px; /* Positioned snugly below the scrolled navbar */
     width: 100%;
-    background-color: var(--color-bg);
+    background-color: transparent;
     text-decoration: none;
     color: inherit;
     display: block;
     border-radius: 24px;
+    transform-style: preserve-3d;
 }
 
 .project-editorial-row {
@@ -2256,9 +2260,10 @@ button:focus-visible,
     border-radius: 24px;
     overflow: hidden;
     min-height: 520px;
-    transform-origin: top center;
-    will-change: transform, filter;
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: center center;
+    will-change: transform, opacity, filter;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
 }
 
 /* Left side: Large featured image */
