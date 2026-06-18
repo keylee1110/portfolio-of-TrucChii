@@ -124,7 +124,8 @@ test('LIVE FEST case study uses the approved editorial sections and artwork', ()
 
   for (const asset of assets) {
     assert.ok(existsSync(join(root, asset)), `Missing ${asset}`);
-    assert.match(html, new RegExp(asset.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    const pattern = asset.replace(/\.png$/, '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\.(?:png|webp)';
+    assert.match(html, new RegExp(pattern));
   }
 
   assert.doesNotMatch(html, /class="ui-card"/);
