@@ -202,7 +202,14 @@ test('Community Project 01 follows the approved three-section campaign story', (
   assert.match(html, /data-src="https:\/\/www\.tiktok\.com\/player\/v1\/7516599034404982024/);
   assert.match(html, /assets\/community-project-01-master-video\.jpg/);
   assert.match(html, /isEdgeOrWebView/);
+  for (const asset of [
+    'community-project-01-shooting-01.png',
+    'community-project-01-shooting-02.png',
+    'community-project-01-campaign-visual.png',
+    'community-project-01-performance-dashboard.png',
+    'community-project-01-conversion-dashboard.png',
+  ]) assert.match(html, new RegExp(`assets/${asset.replaceAll('.', '\\.')}`));
   assert.equal((html.match(/class="phone-screen"/g) || []).length, 5);
   for (const result of ['2.5M', '180K', '8.2%', '+35%']) assert.match(html, new RegExp(result.replace('+', '\\+')));
-  assert.equal((html.match(/<img\b/gi) || []).length, 1);
+  assert.equal((html.match(/<img\b/gi) || []).length, 6);
 });

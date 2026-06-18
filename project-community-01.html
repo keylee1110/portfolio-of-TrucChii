@@ -102,6 +102,17 @@
             text-transform: uppercase;
         }
 
+        .media-placeholder.has-media::before {
+            display: none;
+        }
+
+        .media-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         /* Section 01 */
         .master-copy {
             margin-top: 0;
@@ -131,6 +142,12 @@
 
         .shooting-placeholder {
             aspect-ratio: 9 / 16;
+            min-height: 0;
+        }
+
+        .shooting-placeholder .media-image {
+            position: absolute;
+            inset: 0;
         }
 
         .master-video-column {
@@ -286,6 +303,12 @@
         .promo-decoration {
             aspect-ratio: 1.18;
             border-radius: 50% 50% 12px 50%;
+            border: 0;
+            background: transparent;
+        }
+
+        .promo-decoration .media-image {
+            object-fit: contain;
         }
 
         .promo-heading-copy .community-section-title {
@@ -463,8 +486,14 @@
         }
 
         .dashboard-placeholder {
-            min-height: 220px;
-            aspect-ratio: 16 / 5;
+            min-height: 0;
+            aspect-ratio: auto;
+            background: #fff;
+        }
+
+        .dashboard-placeholder .media-image {
+            height: auto;
+            object-fit: contain;
         }
 
         .subproject-nav {
@@ -548,8 +577,8 @@
             }
 
             .dashboard-placeholder {
-                min-height: 150px;
-                aspect-ratio: 4 / 3;
+                min-height: 0;
+                aspect-ratio: auto;
             }
 
             .subproject-nav {
@@ -593,11 +622,15 @@
                         likes to drive massive event awareness.
                     </p>
                     <div class="shooting-placeholder-grid" aria-label="Behind-the-scenes image placeholders">
-                        <div class="media-placeholder shooting-placeholder">
-                            <span class="placeholder-label">Shooting Placeholder 01</span>
+                        <div class="media-placeholder shooting-placeholder has-media">
+                            <img class="media-image" src="assets/community-project-01-shooting-01.png"
+                                alt="Behind the scenes of the Community Fest studio production" width="787"
+                                height="1458" decoding="async">
                         </div>
-                        <div class="media-placeholder shooting-placeholder">
-                            <span class="placeholder-label">Shooting Placeholder 02</span>
+                        <div class="media-placeholder shooting-placeholder has-media">
+                            <img class="media-image" src="assets/community-project-01-shooting-02.png"
+                                alt="Community Fest creator filming session" width="828" height="1458"
+                                decoding="async">
                         </div>
                     </div>
                 </div>
@@ -626,8 +659,9 @@
 
         <section class="community-detail-section promo-videos-section" data-section="promotional-videos">
             <div class="promo-header">
-                <div class="media-placeholder promo-decoration" aria-hidden="true">
-                    <span class="placeholder-label">Campaign Visual Placeholder</span>
+                <div class="media-placeholder promo-decoration has-media" aria-hidden="true">
+                    <img class="media-image" src="assets/community-project-01-campaign-visual.png" alt="" width="1079"
+                        height="1016" decoding="async">
                 </div>
                 <div class="promo-heading-copy">
                     <div class="project-kicker">Community Fest / Project 01 / Section 02</div>
@@ -723,11 +757,15 @@
 
                     <h3 class="dashboard-title font-display">Campaign Metrics Dashboard</h3>
                     <div class="dashboard-stack" aria-label="Campaign dashboard placeholders">
-                        <div class="media-placeholder dashboard-placeholder">
-                            <span class="placeholder-label">Performance Dashboard Placeholder</span>
+                        <div class="media-placeholder dashboard-placeholder has-media">
+                            <img class="media-image" src="assets/community-project-01-performance-dashboard.png"
+                                alt="Community Fest campaign performance dashboard" width="1845" height="528"
+                                decoding="async">
                         </div>
-                        <div class="media-placeholder dashboard-placeholder">
-                            <span class="placeholder-label">Conversion Dashboard Placeholder</span>
+                        <div class="media-placeholder dashboard-placeholder has-media">
+                            <img class="media-image" src="assets/community-project-01-conversion-dashboard.png"
+                                alt="Community Fest campaign conversion dashboard" width="1845" height="821"
+                                decoding="async">
                         </div>
                     </div>
                 </div>
