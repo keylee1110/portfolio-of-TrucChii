@@ -104,15 +104,22 @@
 
         /* Section 01 */
         .master-copy {
-            margin-top: var(--space-md);
+            margin-top: 0;
         }
 
         .master-production-grid {
             display: grid;
-            grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
             gap: clamp(24px, 4vw, 64px);
-            align-items: end;
-            margin-top: var(--space-xl);
+            align-items: start;
+            margin-top: var(--space-md);
+        }
+
+        .master-left-column {
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .shooting-placeholder-grid {
@@ -130,14 +137,18 @@
             align-self: stretch;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-end;
+            align-items: center;
+            justify-content: space-between;
+            width: min(100%, 440px);
+            margin-left: auto;
         }
 
         .master-video-title {
             margin-bottom: var(--space-sm);
             font-size: clamp(1.8rem, 4vw, 3.5rem);
             letter-spacing: -0.04em;
+            text-align: center;
+            width: 100%;
         }
 
         .master-video-frame {
@@ -479,8 +490,18 @@
                 width: min(260px, 70vw);
             }
 
+            .master-left-column {
+                gap: var(--space-md);
+            }
+
             .master-video-column {
                 margin-top: var(--space-xl);
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .master-video-title {
+                text-align: left;
             }
 
             .revenue-header {
@@ -564,19 +585,20 @@
         <section class="community-detail-section master-production-section" data-section="master-video-production">
             <div class="project-kicker">Community Fest / Project 01 / Section 01</div>
             <h1 class="community-section-title font-display">Master Video Production</h1>
-            <p class="community-section-copy master-copy">
-                Assisted in the on-site shooting and production execution for the campaign's official Master Video.
-                Delivered high-impact visual content that went viral on the platform, capturing 89M+ views and 92K+
-                likes to drive massive event awareness.
-            </p>
-
             <div class="master-production-grid">
-                <div class="shooting-placeholder-grid" aria-label="Behind-the-scenes image placeholders">
-                    <div class="media-placeholder shooting-placeholder">
-                        <span class="placeholder-label">Shooting Placeholder 01</span>
-                    </div>
-                    <div class="media-placeholder shooting-placeholder">
-                        <span class="placeholder-label">Shooting Placeholder 02</span>
+                <div class="master-left-column">
+                    <p class="community-section-copy master-copy">
+                        Assisted in the on-site shooting and production execution for the campaign's official Master Video.
+                        Delivered high-impact visual content that went viral on the platform, capturing 89M+ views and 92K+
+                        likes to drive massive event awareness.
+                    </p>
+                    <div class="shooting-placeholder-grid" aria-label="Behind-the-scenes image placeholders">
+                        <div class="media-placeholder shooting-placeholder">
+                            <span class="placeholder-label">Shooting Placeholder 01</span>
+                        </div>
+                        <div class="media-placeholder shooting-placeholder">
+                            <span class="placeholder-label">Shooting Placeholder 02</span>
+                        </div>
                     </div>
                 </div>
 
