@@ -561,13 +561,15 @@ updateReveal();
 }
 function initPillAnimations() {
 const targetButtons = [];
+const isProjectPage = /(^|\/)project-[^/]+\.html$/i.test(window.location.pathname);
 const emailContact = document.getElementById('btn-email-contact');
 if (emailContact) targetButtons.push(emailContact);
 const downloadPortfolio = document.getElementById('btn-download-portfolio');
 if (downloadPortfolio) targetButtons.push(downloadPortfolio);
 document.querySelectorAll('.btn').forEach(btn => {
 const text = btn.textContent.trim().toUpperCase();
-if (text.includes('VIEW PROJECTS') ||
+if (isProjectPage ||
+text.includes('VIEW PROJECTS') ||
 text.includes('SEE WORKS') ||
 text.includes('SEE ALL WORKS') ||
 text.includes('BACK TO TOP') ||
@@ -581,11 +583,13 @@ targetButtons.push(btn);
 if (!targetButtons.length) return;
 targetButtons.forEach(btn => {
 btn.classList.add('btn-pill-animate');
+if (btn.querySelector(':scope > .hover-circle')) return;
 const progressBar = btn.querySelector('.btn-progress') || btn.querySelector('#download-progress');
 if (progressBar) {
 progressBar.remove();
 }
-const labelText = btn.innerHTML.trim();
+const existingLabel = btn.querySelector(':scope > .label-stack > .pill-label');
+const labelText = existingLabel ? existingLabel.innerHTML.trim() : btn.innerHTML.trim();
 btn.innerHTML = `
 <span class="hover-circle" aria-hidden="true"></span>
 <span class="label-stack">

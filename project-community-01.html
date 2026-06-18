@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Project 01 - ElysLu</title>
+    <meta name="description"
+        content="Community Fest campaign production, promotional video series, and revenue acceleration case study.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .skip-link {
+            position: fixed;
+            top: 8px;
+            left: 8px;
+            z-index: 10000;
+            padding: 10px 14px;
+            background: var(--color-text-primary);
+            color: var(--color-bg);
+            font-weight: 700;
+            transform: translateY(-160%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        main.grid-container {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 0;
+            padding-top: 104px;
+        }
+
+        .community-detail-section {
+            padding: clamp(72px, 9vw, 128px) 0;
+        }
+
+        .project-kicker {
+            margin-bottom: var(--space-md);
+            color: var(--color-text-muted);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .community-section-title {
+            max-width: 14ch;
+            font-size: clamp(2.7rem, 6.5vw, 6.4rem);
+            line-height: 0.92;
+            letter-spacing: -0.06em;
+        }
+
+        .community-section-copy {
+            max-width: 62ch;
+            color: var(--color-text-secondary);
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            line-height: 1.55;
+        }
+
+        .media-placeholder {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 200px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 48%),
+                repeating-linear-gradient(90deg, #111 0, #111 1px, #070707 1px, #070707 12.5%);
+            color: var(--color-text-muted);
+            transition: border-color 300ms ease, filter 300ms ease;
+        }
+
+        .media-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 14px;
+            border: 1px dashed rgba(255, 255, 255, 0.09);
+            pointer-events: none;
+        }
+
+        .media-placeholder:hover {
+            border-color: rgba(255, 255, 255, 0.35);
+            filter: brightness(1.16);
+        }
+
+        .placeholder-label {
+            position: relative;
+            z-index: 1;
+            padding: 10px 14px;
+            background: rgba(0, 0, 0, 0.78);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .media-placeholder.has-media::before {
+            display: none;
+        }
+
+        .media-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Section 01 */
+        .master-copy {
+            margin-top: 0;
+        }
+
+        .master-production-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+            gap: clamp(24px, 4vw, 64px);
+            align-items: start;
+            margin-top: var(--space-md);
+        }
+
+        .master-left-column {
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .shooting-placeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(16px, 2vw, 28px);
+            align-items: end;
+        }
+
+        .shooting-placeholder {
+            aspect-ratio: 9 / 16;
+            min-height: 0;
+        }
+
+        .shooting-placeholder .media-image {
+            position: absolute;
+            inset: 0;
+        }
+
+        .master-video-column {
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: min(100%, 440px);
+            margin-left: auto;
+        }
+
+        .master-video-title {
+            margin-bottom: var(--space-sm);
+            font-size: clamp(1.8rem, 4vw, 3.5rem);
+            letter-spacing: -0.04em;
+            text-align: center;
+            width: 100%;
+        }
+
+        .master-video-frame {
+            position: relative;
+            display: grid;
+            place-items: center;
+            width: min(100%, 440px);
+            aspect-ratio: 9 / 16;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background:
+                radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.08), transparent 30%),
+                repeating-linear-gradient(90deg, #111 0, #111 1px, #070707 1px, #070707 12.5%);
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: border-color 300ms ease, filter 300ms ease;
+        }
+
+        .master-video-embed {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: #000;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .master-video-frame.use-fallback .master-video-embed {
+            display: none;
+        }
+
+        .master-video-frame:not(.use-fallback) .master-video-fallback {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .master-video-frame::before {
+            content: '';
+            position: absolute;
+            inset: 14px;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .master-video-fallback {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: grid;
+            place-items: center;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .master-video-thumbnail {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .master-video-fallback::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 52%, rgba(0, 0, 0, 0.78) 100%);
+        }
+
+        .master-video-fallback:hover,
+        .master-video-fallback:focus-visible {
+            border-color: rgba(255, 255, 255, 0.55);
+            filter: brightness(1.18);
+        }
+
+        .master-video-fallback:focus-visible {
+            outline: 2px solid var(--color-text-primary);
+            outline-offset: -7px;
+        }
+
+        .master-video-play {
+            position: relative;
+            z-index: 2;
+            width: 84px;
+            height: 84px;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.72);
+            transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms ease;
+        }
+
+        .master-video-play::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 54%;
+            border-top: 11px solid transparent;
+            border-bottom: 11px solid transparent;
+            border-left: 17px solid #fff;
+            transform: translate(-45%, -50%);
+        }
+
+        .master-video-fallback:hover .master-video-play,
+        .master-video-fallback:focus-visible .master-video-play {
+            transform: scale(1.08);
+            background: #000;
+        }
+
+        .master-video-poster-label {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            z-index: 2;
+            color: var(--color-text-muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* Section 02 */
+        .promo-header {
+            display: grid;
+            grid-template-columns: minmax(180px, 0.55fr) minmax(0, 1.45fr);
+            gap: var(--space-xl);
+            align-items: center;
+        }
+
+        .promo-decoration {
+            aspect-ratio: 1.18;
+            border-radius: 50% 50% 12px 50%;
+            border: 0;
+            background: transparent;
+        }
+
+        .promo-decoration .media-image {
+            object-fit: contain;
+        }
+
+        .promo-heading-copy .community-section-title {
+            max-width: none;
+        }
+
+        .promo-heading-copy .community-section-copy {
+            margin-top: var(--space-md);
+        }
+
+        .phones-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: clamp(18px, 3vw, 40px);
+            margin-top: clamp(48px, 7vw, 88px);
+        }
+
+        .phone-card {
+            width: 100%;
+            max-width: 220px;
+            margin-inline: auto;
+            min-width: 0;
+        }
+
+        .phone-chassis {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 17.2;
+            padding: 11px;
+            border: 3px solid #242424;
+            border-radius: clamp(24px, 3vw, 38px);
+            background: #070707;
+            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5);
+            transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), border-color 500ms ease;
+        }
+
+        .phone-card:hover .phone-chassis {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.48);
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            z-index: 2;
+            width: 35%;
+            height: 14px;
+            border-radius: 999px;
+            background: #202020;
+            transform: translateX(-50%);
+        }
+
+        .phone-screen {
+            position: relative;
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border: 1px dashed rgba(255, 255, 255, 0.08);
+            border-radius: clamp(17px, 2.3vw, 28px);
+            background:
+                radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.06), transparent 38%),
+                #0b0b0b;
+        }
+
+        .phone-screen-label {
+            color: var(--color-text-muted);
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .results-title {
+            margin: clamp(64px, 8vw, 112px) 0 var(--space-md);
+            font-size: clamp(2.6rem, 5vw, 4.8rem);
+            text-align: center;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            border: 1px solid var(--border-color);
+            background: #000;
+        }
+
+        .result-card {
+            padding: clamp(24px, 3vw, 42px) 16px;
+            border-right: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .result-card:last-child {
+            border-right: 0;
+        }
+
+        .result-value {
+            font-size: clamp(2rem, 4.6vw, 5rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+        }
+
+        .result-label {
+            margin-top: 12px;
+            color: var(--color-text-muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* Section 03 */
+        .revenue-header {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: var(--space-xl);
+            align-items: end;
+            margin-bottom: var(--space-xl);
+        }
+
+        .revenue-header .community-section-title {
+            max-width: 13ch;
+        }
+
+        .revenue-layout {
+            display: grid;
+            grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+            gap: clamp(28px, 5vw, 72px);
+            align-items: start;
+        }
+
+        .revenue-phone {
+            width: 100%;
+            max-width: 390px;
+        }
+
+        .revenue-phone .phone-chassis {
+            max-width: 390px;
+            margin-inline: auto;
+        }
+
+        .campaign-assets {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            align-items: end;
+        }
+
+        .campaign-asset {
+            aspect-ratio: 4 / 5;
+            min-height: 0;
+        }
+
+        .campaign-asset:nth-child(1) {
+            transform: translateY(26px);
+        }
+
+        .campaign-asset:nth-child(3) {
+            transform: translateY(42px);
+        }
+
+        .dashboard-title {
+            margin: clamp(64px, 7vw, 96px) 0 var(--space-md);
+            font-size: clamp(2rem, 4vw, 4rem);
+            letter-spacing: -0.05em;
+        }
+
+        .dashboard-stack {
+            display: grid;
+            gap: 18px;
+        }
+
+        .dashboard-placeholder {
+            min-height: 0;
+            aspect-ratio: auto;
+            background: #fff;
+        }
+
+        .dashboard-placeholder .media-image {
+            height: auto;
+            object-fit: contain;
+        }
+
+        .subproject-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-md);
+            padding: var(--space-xl) 0 var(--space-2xl);
+        }
+
+        @media (max-width: 900px) {
+            .master-production-grid,
+            .promo-header,
+            .revenue-header,
+            .revenue-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .phones-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .promo-decoration {
+                width: min(260px, 70vw);
+            }
+
+            .master-left-column {
+                gap: var(--space-md);
+            }
+
+            .master-video-column {
+                margin-top: var(--space-xl);
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .master-video-title {
+                text-align: left;
+            }
+
+            .revenue-header {
+                align-items: start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            main.grid-container {
+                padding-top: 84px;
+            }
+
+            .community-detail-section {
+                padding: 64px 0;
+            }
+
+            .shooting-placeholder-grid {
+                gap: 12px;
+            }
+
+            .campaign-asset:nth-child(1),
+            .campaign-asset:nth-child(3) {
+                transform: none;
+            }
+
+            .phones-grid {
+                gap: 14px;
+            }
+
+            .results-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .result-card:nth-child(2) {
+                border-right: 0;
+            }
+
+            .result-card:nth-child(-n + 2) {
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .campaign-assets {
+                gap: 8px;
+            }
+
+            .dashboard-placeholder {
+                min-height: 0;
+                aspect-ratio: auto;
+            }
+
+            .subproject-nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .media-placeholder,
+            .phone-chassis {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white antialiased selection-accent">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="page-wipe wipe-initial-in" id="page-wipe"></div>
+
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo" id="nav-logo">ElysLu®</a>
+            <div class="nav-right">
+                <span class="nav-header-label">Community Fest</span>
+                <span class="nav-header-sublabel">Selected Activation 01</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid-container" id="main-content">
+        <section class="community-detail-section master-production-section" data-section="master-video-production">
+            <div class="project-kicker">Community Fest / Project 01 / Section 01</div>
+            <h1 class="community-section-title font-display">Master Video Production</h1>
+            <div class="master-production-grid">
+                <div class="master-left-column">
+                    <p class="community-section-copy master-copy">
+                        Assisted in the on-site shooting and production execution for the campaign's official Master Video.
+                        Delivered high-impact visual content that went viral on the platform, capturing 89M+ views and 92K+
+                        likes to drive massive event awareness.
+                    </p>
+                    <div class="shooting-placeholder-grid" aria-label="Behind-the-scenes image placeholders">
+                        <div class="media-placeholder shooting-placeholder has-media">
+                            <img class="media-image" src="assets/community-project-01-shooting-01.png"
+                                alt="Behind the scenes of the Community Fest studio production" width="787"
+                                height="1458" decoding="async">
+                        </div>
+                        <div class="media-placeholder shooting-placeholder has-media">
+                            <img class="media-image" src="assets/community-project-01-shooting-02.png"
+                                alt="Community Fest creator filming session" width="828" height="1458"
+                                decoding="async">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="master-video-column">
+                    <h2 class="master-video-title font-display">Master video</h2>
+                    <div class="master-video-frame" data-tiktok-progressive-embed>
+                        <iframe class="master-video-embed"
+                            data-src="https://www.tiktok.com/player/v1/7516599034404982024?autoplay=0&amp;loop=1"
+                            title="Community Fest official Master Video on TikTok" loading="lazy"
+                            allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen>
+                        </iframe>
+                        <a class="master-video-fallback"
+                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7516599034404982024?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7625483623424378385"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="Watch the Community Fest official Master Video on TikTok">
+                            <img class="master-video-thumbnail" src="assets/community-project-01-master-video.jpg"
+                                alt="Community Fest Master Video thumbnail" width="720" height="1280">
+                            <span class="master-video-play" aria-hidden="true"></span>
+                            <span class="master-video-poster-label">Watch the Master Video on TikTok</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="community-detail-section promo-videos-section" data-section="promotional-videos">
+            <div class="promo-header">
+                <div class="media-placeholder promo-decoration has-media" aria-hidden="true">
+                    <img class="media-image" src="assets/community-project-01-campaign-visual.png" alt="" width="1079"
+                        height="1016" decoding="async">
+                </div>
+                <div class="promo-heading-copy">
+                    <div class="project-kicker">Community Fest / Project 01 / Section 02</div>
+                    <h2 class="community-section-title font-display">A series of MOY promotional videos</h2>
+                    <p class="community-section-copy">
+                        Partnered with top creators (pthao103, s.squad8, natholl99, benhoangquan2004) to produce four
+                        promotional videos for the offline festival. Handled the entire process from scriptwriting to
+                        on-site shooting to drive strong community engagement.
+                    </p>
+                </div>
+            </div>
+
+            <div class="phones-grid" aria-label="Promotional video phone placeholders">
+                <div class="phone-card">
+                    <div class="phone-chassis">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen"><span class="phone-screen-label">Video Placeholder 01</span></div>
+                    </div>
+                </div>
+                <div class="phone-card">
+                    <div class="phone-chassis">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen"><span class="phone-screen-label">Video Placeholder 02</span></div>
+                    </div>
+                </div>
+                <div class="phone-card">
+                    <div class="phone-chassis">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen"><span class="phone-screen-label">Video Placeholder 03</span></div>
+                    </div>
+                </div>
+                <div class="phone-card">
+                    <div class="phone-chassis">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen"><span class="phone-screen-label">Video Placeholder 04</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="results-title font-display">Result</h3>
+            <div class="results-grid" aria-label="Campaign results">
+                <div class="result-card">
+                    <div class="result-value font-display">2.5M</div>
+                    <div class="result-label">Reach</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value font-display">180K</div>
+                    <div class="result-label">Engagements</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value font-display">8.2%</div>
+                    <div class="result-label">Engagement Rate</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value font-display">+35%</div>
+                    <div class="result-label">Follower Growth</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="community-detail-section revenue-section" data-section="revenue-acceleration">
+            <div class="revenue-header">
+                <div>
+                    <div class="project-kicker">Community Fest / Project 01 / Section 03</div>
+                    <h2 class="community-section-title font-display">MOY Campaign Revenue Acceleration</h2>
+                </div>
+                <p class="community-section-copy">
+                    Launched multiple online campaign pages during the MOY event to boost creator activation,
+                    participation, and revenue. The campaign generated $1.03M in cumulative revenue, delivering a
+                    +$841.7K revenue uplift and 451.91% growth vs baseline. It also activated 675 GO LIVE creators from
+                    689 target users, achieving a 97.97% GO LIVE rate and 67.92% participation rate.
+                </p>
+            </div>
+
+            <div class="revenue-layout">
+                <div class="revenue-phone phone-card">
+                    <div class="phone-chassis">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen"><span class="phone-screen-label">Campaign Page Placeholder</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="revenue-right-column">
+                    <div class="campaign-assets" aria-label="Campaign asset placeholders">
+                        <div class="media-placeholder campaign-asset"><span class="placeholder-label">Asset 01</span>
+                        </div>
+                        <div class="media-placeholder campaign-asset"><span class="placeholder-label">Asset 02</span>
+                        </div>
+                        <div class="media-placeholder campaign-asset"><span class="placeholder-label">Asset 03</span>
+                        </div>
+                    </div>
+
+                    <h3 class="dashboard-title font-display">Campaign Metrics Dashboard</h3>
+                    <div class="dashboard-stack" aria-label="Campaign dashboard placeholders">
+                        <div class="media-placeholder dashboard-placeholder has-media">
+                            <img class="media-image" src="assets/community-project-01-performance-dashboard.png"
+                                alt="Community Fest campaign performance dashboard" width="1845" height="528"
+                                decoding="async">
+                        </div>
+                        <div class="media-placeholder dashboard-placeholder has-media">
+                            <img class="media-image" src="assets/community-project-01-conversion-dashboard.png"
+                                alt="Community Fest campaign conversion dashboard" width="1845" height="821"
+                                decoding="async">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="subproject-nav" aria-label="Community project navigation">
+            <a href="project-ugc.html#community-subprojects-title" class="btn btn-outline">← BACK TO COMMUNITY FEST</a>
+            <a href="project-community-02.html" class="btn btn-filled">COMMUNITY PROJECT 02 →</a>
+        </nav>
+    </main>
+
+    <footer class="footer-bottom">
+        <div class="fb-container">
+            <p class="fb-copy">© 2026 ElysLu. ALL RIGHTS RESERVED.</p>
+            <p class="fb-design">COMMUNITY FEST / SELECTED ACTIVATION 01</p>
+        </div>
+    </footer>
+
+    <script>
+        (() => {
+            const frame = document.querySelector('[data-tiktok-progressive-embed]');
+            const iframe = frame?.querySelector('.master-video-embed');
+            if (!frame || !iframe) return;
+
+            const userAgent = navigator.userAgent;
+            const params = new URLSearchParams(window.location.search);
+            const isEdgeOrWebView = /Edg(?:A|iOS)?\//i.test(userAgent)
+                || /WebView2/i.test(userAgent)
+                || /Google Chrome Chromium/i.test(userAgent)
+                || Boolean(window.chrome?.webview);
+            const useFallback = !params.has('player') && (params.has('verify') || isEdgeOrWebView);
+
+            if (useFallback) {
+                frame.classList.add('use-fallback');
+                iframe.removeAttribute('src');
+                return;
+            }
+
+            iframe.src = iframe.dataset.src;
+        })();
+    </script>
+    <script src="app.js?v=20260618"></script>
+</body>
+
+</html>

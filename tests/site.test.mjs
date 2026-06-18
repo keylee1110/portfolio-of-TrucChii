@@ -65,7 +65,7 @@ test('Certification contains exactly six accessible items', () => {
 const projects = [
   ['project-livefest.html', 'LIVE FEST 2025'],
   ['project-launch.html', 'Product Launch Campaign'],
-  ['project-ugc.html', 'Influencer Marketing Campaign'],
+  ['project-ugc.html', 'Community Fest'],
   ['project-placeholder-04.html', 'Project 04'],
   ['project-placeholder-05.html', 'Project 05'],
   ['project-placeholder-06.html', 'Project 06'],
@@ -148,4 +148,68 @@ test('LIVE FEST case study uses the approved editorial sections and artwork', ()
     assert.ok(current > previous, `${marker} is missing or out of order`);
     previous = current;
   }
+});
+
+test('Community Fest uses the approved results, overview, and subproject layout', () => {
+  const html = read('project-ugc.html');
+  assert.match(html, /<h1[^>]*>Community Fest<\/h1>/);
+  assert.equal((html.match(/class="detail-stat-card"/g) || []).length, 4);
+  assert.match(html, /assets\/community-fest-poster\.png/);
+  assert.equal((html.match(/class="community-project-card"/g) || []).length, 2);
+  assert.match(html, /href="project-community-01\.html"/);
+  assert.match(html, /href="project-community-02\.html"/);
+  assert.doesNotMatch(html, />Objective</);
+  assert.doesNotMatch(html, />Campaign Visuals</);
+
+  for (const file of ['project-community-01.html', 'project-community-02.html']) {
+    assert.ok(existsSync(join(root, file)), `Missing ${file}`);
+    assert.match(read(file), /href="project-ugc\.html#community-subprojects-title"/);
+  }
+});
+
+test('all project pages use the homepage pill button system', () => {
+  const projectFiles = [
+    ...projects.map(([file]) => file),
+    'project-community-01.html',
+    'project-community-02.html',
+  ];
+
+  for (const file of projectFiles) {
+    assert.match(read(file), /src="app\.js\?v=20260618"/, file);
+  }
+
+  const appSource = read('app.src.js');
+  assert.match(appSource, /const isProjectPage =/);
+  assert.match(appSource, /if \(isProjectPage \|\|/);
+});
+
+test('Community Project 01 follows the approved three-section campaign story', () => {
+  const html = read('project-community-01.html');
+  const orderedSections = [
+    'data-section="master-video-production"',
+    'data-section="promotional-videos"',
+    'data-section="revenue-acceleration"',
+  ];
+  let previous = -1;
+
+  for (const marker of orderedSections) {
+    const current = html.indexOf(marker);
+    assert.ok(current > previous, `${marker} is missing or out of order`);
+    previous = current;
+  }
+
+  assert.match(html, /www\.tiktok\.com\/@tiktoklive_vietnam\/video\/7516599034404982024/);
+  assert.match(html, /data-src="https:\/\/www\.tiktok\.com\/player\/v1\/7516599034404982024/);
+  assert.match(html, /assets\/community-project-01-master-video\.jpg/);
+  assert.match(html, /isEdgeOrWebView/);
+  for (const asset of [
+    'community-project-01-shooting-01.png',
+    'community-project-01-shooting-02.png',
+    'community-project-01-campaign-visual.png',
+    'community-project-01-performance-dashboard.png',
+    'community-project-01-conversion-dashboard.png',
+  ]) assert.match(html, new RegExp(`assets/${asset.replaceAll('.', '\\.')}`));
+  assert.equal((html.match(/class="phone-screen"/g) || []).length, 5);
+  for (const result of ['2.5M', '180K', '8.2%', '+35%']) assert.match(html, new RegExp(result.replace('+', '\\+')));
+  assert.equal((html.match(/<img\b/gi) || []).length, 6);
 });

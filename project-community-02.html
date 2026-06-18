@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Project 02 - ElysLu</title>
+    <meta name="description" content="Community Fest activation project placeholder.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; padding: 10px 14px; background: var(--color-text-primary); color: var(--color-bg-primary); font-weight: 700; transform: translateY(-160%); }
+        .skip-link:focus { transform: translateY(0); }
+        .subproject-shell { min-height: 100vh; display: grid; align-content: center; padding: 160px 0 80px; }
+        .subproject-label { margin-bottom: var(--space-md); color: var(--color-text-muted); font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+        .subproject-title { max-width: 10ch; font-size: clamp(3.5rem, 10vw, 9rem); line-height: .86; letter-spacing: -.07em; text-transform: uppercase; }
+        .subproject-placeholder { margin: var(--space-xl) 0; padding: clamp(32px, 6vw, 80px); border: 1px solid var(--border-color); color: var(--color-text-secondary); font-size: clamp(1rem, 2vw, 1.4rem); }
+    </style>
+</head>
+<body class="bg-black text-white antialiased selection-accent">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="page-wipe wipe-initial-in" id="page-wipe"></div>
+    <header class="sticky-nav"><div class="nav-container"><a href="index.html" class="brand-logo" id="nav-logo">ElysLu®</a><div class="nav-right"><span class="nav-header-label">Community Fest</span><span class="nav-header-sublabel">Selected Activation 02</span></div></div></header>
+    <main class="grid-container subproject-shell" id="main-content" data-editable-placeholder>
+        <div class="subproject-label">Community Fest / Project 02</div>
+        <h1 class="subproject-title font-display">Community Project 02</h1>
+        <div class="subproject-placeholder">Replace with project imagery, context, and campaign outcomes.</div>
+        <div><a href="project-ugc.html#community-subprojects-title" class="btn btn-outline">← BACK TO COMMUNITY FEST</a></div>
+    </main>
+    <script src="app.js?v=20260618"></script>
+</body>
+</html>
