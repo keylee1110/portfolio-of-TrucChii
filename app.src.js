@@ -766,6 +766,7 @@ function initScrollRevealText() {
    -------------------------------------------------------------------------- */
 function initPillAnimations() {
     const targetButtons = [];
+    const isProjectPage = /(^|\/)project-[^/]+\.html$/i.test(window.location.pathname);
     
     // 1. Target ID-specific buttons
     const emailContact = document.getElementById('btn-email-contact');
@@ -777,8 +778,9 @@ function initPillAnimations() {
     // 2. Target text-specific buttons
     document.querySelectorAll('.btn').forEach(btn => {
         const text = btn.textContent.trim().toUpperCase();
-        if (text.includes('VIEW PROJECTS') || 
-            text.includes('SEE WORKS') || 
+        if (isProjectPage ||
+            text.includes('VIEW PROJECTS') ||
+            text.includes('SEE WORKS') ||
             text.includes('SEE ALL WORKS') ||
             text.includes('BACK TO TOP') ||
             text.includes('CONTACT ME') ||
@@ -795,13 +797,17 @@ function initPillAnimations() {
     targetButtons.forEach(btn => {
         btn.classList.add('btn-pill-animate');
 
+        // Already initialized: keep the existing structure and only wire the animation.
+        if (btn.querySelector(':scope > .hover-circle')) return;
+
         // Extract progress bar if it exists (e.g. download button)
         const progressBar = btn.querySelector('.btn-progress') || btn.querySelector('#download-progress');
         if (progressBar) {
             progressBar.remove();
         }
 
-        const labelText = btn.innerHTML.trim();
+        const existingLabel = btn.querySelector(':scope > .label-stack > .pill-label');
+        const labelText = existingLabel ? existingLabel.innerHTML.trim() : btn.innerHTML.trim();
         btn.innerHTML = `
             <span class="hover-circle" aria-hidden="true"></span>
             <span class="label-stack">
