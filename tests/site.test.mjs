@@ -226,3 +226,32 @@ test('Community Project 01 follows the approved three-section campaign story', (
   for (const result of ['2.5M', '180K', '8.2%', '+35%']) assert.match(html, new RegExp(result.replace('+', '\\+')));
   assert.equal((html.match(/<img\b/gi) || []).length, 12);
 });
+
+test('Community Project 02 follows the approved five-section event story', () => {
+  const html = read('project-community-02.html');
+  const orderedSections = [
+    'data-section="core-concept"',
+    'data-section="on-site-operations"',
+    'data-section="day-2"',
+    'data-section="day-3"',
+    'data-section="post-event-production"',
+  ];
+  let previous = -1;
+
+  for (const marker of orderedSections) {
+    const current = html.indexOf(marker);
+    assert.ok(current > previous, `${marker} is missing or out of order`);
+    previous = current;
+  }
+
+  assert.match(html, /Core Concept: “THE SPARK”/);
+  assert.match(html, /On-Site Event Operations \(with Agency Inspike\):/);
+  assert.match(html, /Post-Event Video Production/);
+  assert.match(html, /Crafting the Brief/);
+  assert.match(html, /planning-showcase-img-wrap/);
+  assert.match(html, /https:\/\/drive\.google\.com\/drive\/folders\/1IHczm0DTxmpmijZK1PPtwYP87D0RTMm8/);
+  assert.match(html, /View the team merchandise collection/);
+  assert.equal((html.match(/class="phone-placeholder"/g) || []).length, 5);
+  assert.equal((html.match(/<img\b/gi) || []).length, 0);
+  assert.doesNotMatch(html, /Xem chi tiết|bộ merchandise|tại đây/i);
+});

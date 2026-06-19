@@ -1,33 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Project 02 - ElysLu</title>
-    <meta name="description" content="Community Fest activation project placeholder.">
+    <meta name="description" content="Community Fest event concept, operations, and post-event production case study.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; padding: 10px 14px; background: var(--color-text-primary); color: var(--color-bg-primary); font-weight: 700; transform: translateY(-160%); }
+        .skip-link {
+            position: fixed;
+            top: 8px;
+            left: 8px;
+            z-index: 10000;
+            padding: 10px 14px;
+            background: var(--color-text-primary);
+            color: var(--color-bg);
+            font-weight: 700;
+            transform: translateY(-160%);
+        }
+
         .skip-link:focus { transform: translateY(0); }
-        .subproject-shell { min-height: 100vh; display: grid; align-content: center; padding: 160px 0 80px; }
-        .subproject-label { margin-bottom: var(--space-md); color: var(--color-text-muted); font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-        .subproject-title { max-width: 10ch; font-size: clamp(3.5rem, 10vw, 9rem); line-height: .86; letter-spacing: -.07em; text-transform: uppercase; }
-        .subproject-placeholder { margin: var(--space-xl) 0; padding: clamp(32px, 6vw, 80px); border: 1px solid var(--border-color); color: var(--color-text-secondary); font-size: clamp(1rem, 2vw, 1.4rem); }
+
+        main.grid-container {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 0;
+            padding-top: 104px;
+        }
+
+        .cp2-section {
+            padding: clamp(72px, 9vw, 128px) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cp2-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 5vw, 5.7rem);
+            font-weight: 900;
+            line-height: .92;
+            letter-spacing: -.055em;
+        }
+
+        .cp2-subtitle {
+            font-family: var(--font-display);
+            font-size: clamp(1.9rem, 3.2vw, 3.5rem);
+            font-weight: 900;
+            line-height: .96;
+            letter-spacing: -.045em;
+        }
+
+        .cp2-copy {
+            color: var(--color-text-primary);
+            font-size: clamp(1rem, 1.45vw, 1.25rem);
+            line-height: 1.42;
+        }
+
+        .cp2-copy p + p { margin-top: 16px; }
+
+        .cp2-placeholder {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 220px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .22);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, .065), transparent 45%),
+                repeating-linear-gradient(90deg, #111 0, #111 1px, #070707 1px, #070707 12.5%);
+            color: #888;
+            transition: border-color 300ms ease, filter 300ms ease, transform 500ms cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .cp2-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 14px;
+            border: 1px dashed rgba(255, 255, 255, .1);
+        }
+
+        .cp2-placeholder:hover {
+            border-color: rgba(255, 255, 255, .52);
+            filter: brightness(1.16);
+            transform: translateY(-4px);
+        }
+
+        .cp2-placeholder span {
+            position: relative;
+            z-index: 1;
+            padding: 10px 14px;
+            background: rgba(0, 0, 0, .82);
+            font-size: .66rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .core-grid {
+            display: grid;
+            grid-template-columns: minmax(0, .95fr) minmax(340px, 1.05fr);
+            gap: clamp(32px, 5vw, 76px);
+            align-items: start;
+        }
+
+        .core-copy { margin-top: 34px; max-width: 48ch; }
+        .core-copy ul { margin: 0; padding-left: 1.15em; }
+        .concept-stage { aspect-ratio: 1.3 / 1; min-height: 0; }
+        .award-stage { aspect-ratio: 16 / 9; min-height: 0; margin-top: 34px; }
+
+        .merch-block { margin-top: clamp(64px, 8vw, 110px); }
+
+        .merch-grid {
+            display: grid;
+            grid-template-columns: minmax(0, .82fr) minmax(280px, 1.18fr);
+            gap: clamp(28px, 4vw, 58px);
+            align-items: start;
+            margin-top: 18px;
+        }
+
+        .phone-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 3vw, 44px); }
+
+        .phone-placeholder {
+            position: relative;
+            display: grid;
+            place-items: center;
+            aspect-ratio: 9 / 16;
+            max-height: 460px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background:
+                linear-gradient(145deg, rgba(255,255,255,.08), transparent 38%),
+                #0b0b0b;
+            overflow: hidden;
+        }
+
+        .phone-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 7% 10%;
+            border: 5px solid #303030;
+            border-radius: 34px;
+            box-shadow: inset 0 0 0 2px #050505;
+        }
+
+        .phone-placeholder::after {
+            content: '';
+            position: absolute;
+            top: 9%;
+            left: 50%;
+            width: 28%;
+            height: 4%;
+            border-radius: 999px;
+            background: #020202;
+            transform: translateX(-50%);
+        }
+
+        .phone-placeholder span {
+            position: relative;
+            z-index: 2;
+            padding: 8px 10px;
+            background: rgba(0, 0, 0, .76);
+            color: #777;
+            font-size: .6rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .merch-copy { max-width: 38ch; padding-top: 12px; }
+        .merch-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 34px;
+            color: var(--color-text-primary);
+            font-family: var(--font-display);
+            font-size: clamp(1.45rem, 2.6vw, 2.7rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -.03em;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+
+        .operations-intro { max-width: 860px; }
+        .operations-intro .cp2-copy { margin-top: 26px; font-size: clamp(1.2rem, 2.2vw, 2rem); font-weight: 700; line-height: 1.12; }
+
+        .operations-gallery {
+            display: grid;
+            grid-template-columns: .55fr 1.45fr 1.18fr;
+            gap: 8px;
+            margin-top: 42px;
+            align-items: stretch;
+        }
+
+        .operations-gallery .cp2-placeholder { aspect-ratio: 4 / 3; min-height: 0; }
+        .operations-gallery .cp2-placeholder:first-child { aspect-ratio: auto; }
+
+        .day-header { max-width: 54ch; margin-left: 3%; }
+        .day-header .cp2-copy { margin-top: 20px; max-width: 50ch; }
+
+        .day-two-gallery {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+            grid-template-rows: auto auto;
+            gap: clamp(28px, 4vw, 54px);
+            margin-top: 50px;
+            align-items: start;
+        }
+
+        .workshop-shot { grid-row: 1; aspect-ratio: 16 / 9; min-height: 0; }
+        .bus-shot { grid-column: 2; grid-row: 1; aspect-ratio: 16 / 8.5; min-height: 0; margin-top: -180px; }
+        .team-shot { grid-column: 1; grid-row: 2; width: 72%; aspect-ratio: 4 / 3; min-height: 0; margin-left: auto; }
+        .night-shot { grid-column: 2; grid-row: 2; aspect-ratio: 3 / 4.5; min-height: 0; }
+
+        .day-three-grid {
+            display: grid;
+            grid-template-columns: minmax(0, .88fr) minmax(320px, 1.12fr);
+            gap: clamp(30px, 4vw, 54px);
+            margin-top: 34px;
+        }
+
+        .day-three-left, .day-three-right { display: grid; gap: 28px; align-content: start; }
+        .day-three-copy { max-width: 44ch; margin: 0 0 12px 8%; }
+        .vip-shot { aspect-ratio: 16 / 10; min-height: 0; }
+        .portrait-shot { aspect-ratio: 4 / 3; min-height: 0; }
+        .stage-shot { aspect-ratio: 16 / 10.5; min-height: 0; }
+        .group-shot { aspect-ratio: 16 / 10.5; min-height: 0; margin-top: 8px; }
+
+        .production-top {
+            display: grid;
+            grid-template-columns: minmax(0, .95fr) minmax(340px, 1.05fr);
+            gap: clamp(36px, 6vw, 88px);
+            align-items: start;
+        }
+
+        .production-copy { max-width: 43ch; margin-top: 28px; font-size: clamp(1.1rem, 1.8vw, 1.55rem); font-weight: 600; line-height: 1.28; }
+
+        .planning-showcase-img-wrap {
+            position: relative;
+            width: 100%;
+            min-height: 320px;
+        }
+
+        .planning-sheet-placeholder,
+        .planning-lower-placeholder {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            border: 1px solid rgba(255,255,255,.2);
+            background:
+                repeating-linear-gradient(0deg, transparent 0, transparent 17px, rgba(255,255,255,.08) 17px, rgba(255,255,255,.08) 18px),
+                repeating-linear-gradient(90deg, #111 0, #111 72px, rgba(255,255,255,.08) 72px, rgba(255,255,255,.08) 73px);
+        }
+
+        .planning-sheet-placeholder { top: 0; height: 42%; }
+        .planning-lower-placeholder { bottom: 0; height: 50%; }
+
+        .planning-showcase-bar {
+            position: absolute;
+            z-index: 3;
+            top: 45%;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 60px;
+            padding: 2px 18px 5px;
+            background: #050505;
+            transform: translateY(-50%);
+        }
+
+        .planning-showcase-bar-text {
+            font-family: var(--font-display);
+            color: var(--color-text-primary);
+            font-size: clamp(2rem, 3.3vw, 3.3rem);
+            font-weight: 700;
+            line-height: .9;
+            letter-spacing: -.035em;
+        }
+
+        .production-phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 42px); margin-top: clamp(58px, 8vw, 110px); }
+
+        .subproject-nav { display: flex; justify-content: space-between; gap: 16px; padding: 60px 0; }
+
+        @media (max-width: 900px) {
+            .core-grid, .merch-grid, .production-top, .day-three-grid { grid-template-columns: 1fr; }
+            .concept-stage { order: -1; }
+            .operations-gallery { grid-template-columns: 1fr 1fr; }
+            .operations-gallery .cp2-placeholder:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 7; }
+            .day-two-gallery { grid-template-columns: 1fr 1fr; }
+            .bus-shot { margin-top: 0; }
+            .team-shot { width: 100%; }
+            .day-three-copy { margin-left: 0; }
+        }
+
+        @media (max-width: 640px) {
+            main.grid-container { padding-top: 82px; }
+            .cp2-section { padding: 64px 0; }
+            .core-grid { gap: 28px; }
+            .phone-pair { gap: 12px; }
+            .operations-gallery, .day-two-gallery { grid-template-columns: 1fr; }
+            .operations-gallery .cp2-placeholder:first-child,
+            .workshop-shot, .bus-shot, .team-shot, .night-shot { grid-column: auto; grid-row: auto; aspect-ratio: 4 / 3; margin: 0; width: 100%; }
+            .production-phones { gap: 10px; }
+            .phone-placeholder::before { border-width: 3px; border-radius: 20px; }
+            .phone-placeholder span { font-size: .48rem; }
+            .planning-showcase-img-wrap { min-height: 245px; }
+            .subproject-nav { align-items: stretch; flex-direction: column; }
+            .subproject-nav .btn { justify-content: center; }
+        }
     </style>
 </head>
+
 <body class="bg-black text-white antialiased selection-accent">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="page-wipe wipe-initial-in" id="page-wipe"></div>
-    <header class="sticky-nav"><div class="nav-container"><a href="index.html" class="brand-logo" id="nav-logo">ElysLu®</a><div class="nav-right"><span class="nav-header-label">Community Fest</span><span class="nav-header-sublabel">Selected Activation 02</span></div></div></header>
-    <main class="grid-container subproject-shell" id="main-content" data-editable-placeholder>
-        <div class="subproject-label">Community Fest / Project 02</div>
-        <h1 class="subproject-title font-display">Community Project 02</h1>
-        <div class="subproject-placeholder">Replace with project imagery, context, and campaign outcomes.</div>
-        <div><a href="project-ugc.html#community-subprojects-title" class="btn btn-outline">← BACK TO COMMUNITY FEST</a></div>
+
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <nav class="nav-menu" id="main-nav">
+                <a href="index.html#about" class="nav-link">About</a><span class="nav-comma">,</span>
+                <a href="index.html#projects" class="nav-link">Work</a><span class="nav-comma">,</span>
+                <a href="index.html#contact" class="nav-link btn-contact-trigger">Contact</a>
+            </nav>
+            <a href="index.html" class="brand-logo nav-brand-center" id="nav-logo">ElysLu</a>
+            <div class="nav-right"><span class="nav-header-label">Community Fest</span><span class="nav-header-sublabel">Selected Activation 02</span></div>
+            <button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-menu-btn"><span class="bar"></span><span class="bar"></span></button>
+        </div>
+    </header>
+
+    <main class="grid-container" id="main-content">
+        <section class="cp2-section" data-section="core-concept">
+            <div class="core-grid">
+                <div>
+                    <h1 class="cp2-title">Core Concept: “THE SPARK”</h1>
+                    <div class="cp2-copy core-copy">
+                        <ul>
+                            <li>This is more than just an award ceremony — it is a celebration of the emotional energy ignited by passionate fan communities, and a moment for creators to give back the spotlight to those who supported them.</li>
+                            <li>The TikTok logo surrounded by a heart symbolizes the deep emotional connection between creators and fans.</li>
+                        </ul>
+                    </div>
+                    <div class="cp2-placeholder award-stage" role="img" aria-label="Award stage concept placeholder"><span>Award stage concept placeholder</span></div>
+                </div>
+                <div class="cp2-placeholder concept-stage" role="img" aria-label="The Spark key visual placeholder"><span>The Spark key visual placeholder</span></div>
+            </div>
+
+            <div class="merch-block">
+                <h2 class="cp2-subtitle">Offline Merchandise &amp; Event Assets</h2>
+                <div class="merch-grid">
+                    <div class="phone-pair" aria-label="Merchandise phone mockup placeholders">
+                        <div class="phone-placeholder"><span>Merchandise 01</span></div>
+                        <div class="phone-placeholder"><span>Merchandise 02</span></div>
+                    </div>
+                    <div class="cp2-copy merch-copy">
+                        <p>Helped plan the event gifts to bring a premium experience to creators. I managed the whole production process: wrote briefs for agencies to make the three-day event brochure and Award Gala invitations, and supported the operation of the official Welcome Kit.</p>
+                    </div>
+                </div>
+                <a class="merch-cta" href="https://drive.google.com/drive/folders/1IHczm0DTxmpmijZK1PPtwYP87D0RTMm8" target="_blank" rel="noopener noreferrer">View the team merchandise collection <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+
+        <section class="cp2-section" data-section="on-site-operations">
+            <div class="operations-intro">
+                <h2 class="cp2-title">On-Site Event Operations (with Agency Inspike):</h2>
+                <p class="cp2-copy">Partnered with Inspike agency to execute the 3-day festival smoothly.</p>
+            </div>
+            <div class="operations-gallery" aria-label="On-site event image placeholders">
+                <div class="cp2-placeholder"><span>Arrival activation</span></div>
+                <div class="cp2-placeholder"><span>Main stage</span></div>
+                <div class="cp2-placeholder"><span>Outdoor activation</span></div>
+            </div>
+        </section>
+
+        <section class="cp2-section" data-section="day-2">
+            <div class="day-header">
+                <h2 class="cp2-title">Day 2</h2>
+                <p class="cp2-copy">On Day 2, I supervised the workshop room setup and supported local/international creators and AMs/CMs during the HCMC Bus Tour and cultural activities.</p>
+            </div>
+            <div class="day-two-gallery" aria-label="Day 2 image placeholders">
+                <div class="cp2-placeholder workshop-shot"><span>Workshop room</span></div>
+                <div class="cp2-placeholder bus-shot"><span>HCMC bus tour</span></div>
+                <div class="cp2-placeholder team-shot"><span>Creator activity</span></div>
+                <div class="cp2-placeholder night-shot"><span>Evening event</span></div>
+            </div>
+        </section>
+
+        <section class="cp2-section" data-section="day-3">
+            <div class="day-three-grid">
+                <div class="day-three-left">
+                    <div class="day-three-copy">
+                        <h2 class="cp2-title">Day 3</h2>
+                        <p class="cp2-copy" style="margin-top:20px">On Day 3, I designed and sent invitations to TikTok teams and premium partners (MoMo, VTV, The Anh 28), while managing on-site logistics for the Award Night, which welcomed 350+ VIP guests and broadcasted nationwide.</p>
+                    </div>
+                    <div class="cp2-placeholder vip-shot"><span>VIP guests</span></div>
+                    <div class="cp2-placeholder portrait-shot"><span>Award night portrait</span></div>
+                </div>
+                <div class="day-three-right">
+                    <div class="cp2-placeholder stage-shot"><span>Award night stage</span></div>
+                    <div class="cp2-placeholder group-shot"><span>Event team</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cp2-section" data-section="post-event-production">
+            <div class="production-top">
+                <div>
+                    <h2 class="cp2-title">Post-Event Video Production</h2>
+                    <p class="cp2-copy production-copy">Collaborated with Inspike agency to gather all event footage, then worked with Things To Do agency to produce 3 daily recap videos for the offline festival. Handled the process from content direction to final delivery to wrap up the campaign successfully.</p>
+                </div>
+                <div class="planning-showcase-img-wrap" aria-label="Crafting the Brief planning showcase placeholders">
+                    <div class="planning-sheet-placeholder"></div>
+                    <div class="planning-showcase-bar"><span class="planning-showcase-bar-text">Crafting the Brief</span></div>
+                    <div class="planning-lower-placeholder"></div>
+                </div>
+            </div>
+            <div class="production-phones" aria-label="Daily recap video placeholders">
+                <div class="phone-placeholder"><span>Daily recap 01</span></div>
+                <div class="phone-placeholder"><span>Daily recap 02</span></div>
+                <div class="phone-placeholder"><span>Daily recap 03</span></div>
+            </div>
+        </section>
+
+        <nav class="subproject-nav" aria-label="Community project navigation">
+            <a href="project-community-01.html" class="btn btn-outline">← COMMUNITY PROJECT 01</a>
+            <a href="project-ugc.html#community-subprojects-title" class="btn btn-filled">BACK TO COMMUNITY FEST →</a>
+        </nav>
     </main>
+
+    <footer class="footer-bottom">
+        <div class="fb-container"><p class="fb-copy">© 2026 ElysLu. ALL RIGHTS RESERVED.</p><p class="fb-design">COMMUNITY FEST / SELECTED ACTIVATION 02</p></div>
+    </footer>
+
     <script src="app.js?v=20260618"></script>
 </body>
+
 </html>
