@@ -209,7 +209,20 @@ test('Community Project 01 follows the approved three-section campaign story', (
     'community-project-01-performance-dashboard.png',
     'community-project-01-conversion-dashboard.png',
   ]) assert.match(html, new RegExp(`assets/${asset.replaceAll('.', '\\.')}`));
-  assert.equal((html.match(/class="phone-screen"/g) || []).length, 5);
+  for (const id of [
+    '7518232367668972807',
+    '7518005984829213959',
+    '7517989704755711239',
+    '7517993704393674002',
+  ]) assert.match(html, new RegExp(`tiktoklive_vietnam/video/${id}`));
+  assert.equal((html.match(/class="tiktok-phone-link"/g) || []).length, 4);
+  assert.equal((html.match(/community-project-01-video-0[1-4]\.jpg/g) || []).length, 4);
+  assert.match(html, /assets\/community-project-01-campaign-asset\.png/);
+  assert.match(html, /assets\/community-project-01-campaign-page\.png/);
+  assert.match(html, /data-scrollable-phone/);
+  assert.match(html, /overscroll-behavior:\s*contain/);
+  assert.doesNotMatch(html, />Asset 0[1-3]</);
+  assert.equal((html.match(/class="phone-screen[^"]*"/g) || []).length, 5);
   for (const result of ['2.5M', '180K', '8.2%', '+35%']) assert.match(html, new RegExp(result.replace('+', '\\+')));
-  assert.equal((html.match(/<img\b/gi) || []).length, 6);
+  assert.equal((html.match(/<img\b/gi) || []).length, 12);
 });
