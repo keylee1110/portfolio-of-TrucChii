@@ -175,7 +175,7 @@ test('all project pages use the homepage pill button system', () => {
   ];
 
   for (const file of projectFiles) {
-    assert.match(read(file), /src="app\.js\?v=20260618"/, file);
+    assert.match(read(file), /src="app\.js\?v=20260621"/, file);
   }
 
   const appSource = read('app.src.js');

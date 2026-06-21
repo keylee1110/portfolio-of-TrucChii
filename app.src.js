@@ -766,7 +766,7 @@ function initScrollRevealText() {
    -------------------------------------------------------------------------- */
 function initPillAnimations() {
     const targetButtons = [];
-    const isProjectPage = /(^|\/)project-[^/]+\.html$/i.test(window.location.pathname);
+    const isProjectPage = /(^|\/)(project-|community-subprojects)[^/]*(\.html)?$/i.test(window.location.pathname);
     
     // 1. Target ID-specific buttons
     const emailContact = document.getElementById('btn-email-contact');
