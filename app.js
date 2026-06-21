@@ -561,7 +561,7 @@ updateReveal();
 }
 function initPillAnimations() {
 const targetButtons = [];
-const isProjectPage = /(^|\/)project-[^/]+\.html$/i.test(window.location.pathname);
+const isProjectPage = /(^|\/)(project-|community-subprojects)[^/]*(\.html)?$/i.test(window.location.pathname);
 const emailContact = document.getElementById('btn-email-contact');
 if (emailContact) targetButtons.push(emailContact);
 const downloadPortfolio = document.getElementById('btn-download-portfolio');

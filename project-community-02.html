@@ -32,13 +32,13 @@
         }
 
         .cp2-section {
-            padding: clamp(72px, 9vw, 128px) 0;
+            padding: clamp(48px, 5.5vw, 72px) 0;
             border-bottom: 1px solid var(--border-color);
         }
 
         .cp2-title {
             font-family: var(--font-display);
-            font-size: clamp(2.6rem, 5vw, 5.7rem);
+            font-size: clamp(2.4rem, 4.2vw, 4.5rem);
             font-weight: 900;
             line-height: .92;
             letter-spacing: -.055em;
@@ -81,6 +81,17 @@
             border: 1px dashed rgba(255, 255, 255, .1);
         }
 
+        .cp2-placeholder.has-media::before { display: none; }
+
+        .cp2-media {
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .cp2-placeholder:hover {
             border-color: rgba(255, 255, 255, .52);
             filter: brightness(1.16);
@@ -108,65 +119,196 @@
 
         .core-copy { margin-top: 34px; max-width: 48ch; }
         .core-copy ul { margin: 0; padding-left: 1.15em; }
-        .concept-stage { aspect-ratio: 1.3 / 1; min-height: 0; }
+        .concept-stage { align-self: stretch; min-height: 0; }
         .award-stage { aspect-ratio: 16 / 9; min-height: 0; margin-top: 34px; }
 
         .merch-block { margin-top: clamp(64px, 8vw, 110px); }
 
         .merch-grid {
             display: grid;
-            grid-template-columns: minmax(0, .82fr) minmax(280px, 1.18fr);
+            grid-template-columns: minmax(0, 1.42fr) minmax(260px, .58fr);
             gap: clamp(28px, 4vw, 58px);
             align-items: start;
             margin-top: 18px;
         }
 
-        .phone-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 3vw, 44px); }
-
-        .phone-placeholder {
-            position: relative;
+        .phone-pair {
             display: grid;
-            place-items: center;
-            aspect-ratio: 9 / 16;
-            max-height: 460px;
-            border: 1px solid rgba(255, 255, 255, .18);
-            background:
-                linear-gradient(145deg, rgba(255,255,255,.08), transparent 38%),
-                #0b0b0b;
-            overflow: hidden;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(18px, 2.5vw, 34px);
         }
 
-        .phone-placeholder::before {
-            content: '';
-            position: absolute;
-            inset: 7% 10%;
-            border: 5px solid #303030;
-            border-radius: 34px;
-            box-shadow: inset 0 0 0 2px #050505;
+        .phone-card {
+            width: 100%;
+            max-width: 320px;
+            min-width: 0;
+            margin-inline: auto;
         }
 
-        .phone-placeholder::after {
-            content: '';
+        .merch-phone { max-width: 350px; }
+
+        .merch-phone-title {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            min-height: 2.4em;
+            margin-bottom: 14px;
+            color: var(--color-text-secondary);
+            font-family: var(--font-display);
+            font-size: clamp(.72rem, 1vw, .9rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: .08em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .phone-chassis {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 17.2;
+            padding: clamp(9px, 1vw, 12px);
+            border: 3px solid #242424;
+            border-radius: clamp(28px, 3vw, 44px);
+            background: #070707;
+            box-shadow: 0 18px 38px rgba(0, 0, 0, .5);
+            transition: transform 500ms cubic-bezier(.16, 1, .3, 1),
+                border-color 500ms ease, box-shadow 500ms cubic-bezier(.16, 1, .3, 1);
+            will-change: transform;
+        }
+
+        .phone-card:hover .phone-chassis {
+            border-color: rgba(255, 255, 255, .5);
+            box-shadow: 0 26px 58px rgba(0, 0, 0, .7);
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .phone-notch {
             position: absolute;
-            top: 9%;
+            top: 8px;
             left: 50%;
-            width: 28%;
-            height: 4%;
+            z-index: 4;
+            width: 35%;
+            height: 14px;
             border-radius: 999px;
-            background: #020202;
+            background: #202020;
             transform: translateX(-50%);
         }
 
-        .phone-placeholder span {
+        .phone-screen {
             position: relative;
-            z-index: 2;
-            padding: 8px 10px;
-            background: rgba(0, 0, 0, .76);
-            color: #777;
-            font-size: .6rem;
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: clamp(20px, 2.3vw, 34px);
+            background: #0b0b0b;
+        }
+
+        .scrollable-phone-screen {
+            overflow-x: hidden;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scrollbar-width: none;
+            touch-action: pan-y;
+        }
+
+        .scrollable-phone-screen::-webkit-scrollbar { display: none; }
+
+        .scrollable-phone-screen:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, .88);
+            outline-offset: -4px;
+        }
+
+        .merch-page-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            user-select: none;
+        }
+
+        .phone-scroll-cue {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 5;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 9px;
+            border: 1px solid rgba(255, 255, 255, .58);
+            border-radius: 999px;
+            background: rgba(0, 0, 0, .84);
+            color: #fff;
+            font-size: clamp(.48rem, .55vw, .62rem);
             font-weight: 700;
-            letter-spacing: .12em;
+            letter-spacing: .1em;
             text-transform: uppercase;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: opacity 250ms ease, transform 250ms ease;
+        }
+
+        .phone-scroll-cue::after {
+            content: '↓';
+            font-size: .8rem;
+            animation: cp2-scroll-hint 1.25s ease-in-out infinite;
+        }
+
+        .scrollable-merch-phone.is-scrolled .phone-scroll-cue {
+            opacity: 0;
+            transform: translate(-50%, calc(-50% + 8px));
+        }
+
+        @keyframes cp2-scroll-hint {
+            0%, 100% { opacity: .55; transform: translateY(-2px); }
+            50% { opacity: 1; transform: translateY(3px); }
+        }
+
+        .tiktok-phone-link {
+            position: absolute;
+            inset: 0;
+            display: block;
+            color: #fff;
+        }
+
+        .tiktok-phone-cover {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(.78);
+            transition: transform 650ms cubic-bezier(.16, 1, .3, 1), filter 350ms ease;
+        }
+
+        .tiktok-phone-link:hover .tiktok-phone-cover {
+            filter: brightness(.94);
+            transform: scale(1.045);
+        }
+
+        .tiktok-phone-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: clamp(34px, 4vw, 54px);
+            aspect-ratio: 1;
+            border: 1px solid rgba(255, 255, 255, .82);
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .68);
+            transform: translate(-50%, -50%);
+        }
+
+        .tiktok-phone-play::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 54%;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 10px solid #fff;
+            transform: translate(-50%, -50%);
         }
 
         .merch-copy { max-width: 38ch; padding-top: 12px; }
@@ -183,6 +325,22 @@
             letter-spacing: -.03em;
             text-decoration: underline;
             text-underline-offset: 6px;
+            transition: opacity 250ms ease, transform 450ms cubic-bezier(.16, 1, .3, 1),
+                text-underline-offset 250ms ease;
+        }
+
+        .merch-cta > span {
+            transition: transform 450ms cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .merch-cta:hover {
+            opacity: .72;
+            text-underline-offset: 10px;
+            transform: translateX(6px);
+        }
+
+        .merch-cta:hover > span {
+            transform: translate(4px, -4px);
         }
 
         .operations-intro { max-width: 860px; }
@@ -192,12 +350,12 @@
             display: grid;
             grid-template-columns: .55fr 1.45fr 1.18fr;
             gap: 8px;
-            margin-top: 42px;
+            height: clamp(230px, 27vw, 340px);
+            margin-top: 32px;
             align-items: stretch;
         }
 
-        .operations-gallery .cp2-placeholder { aspect-ratio: 4 / 3; min-height: 0; }
-        .operations-gallery .cp2-placeholder:first-child { aspect-ratio: auto; }
+        .operations-gallery .cp2-placeholder { min-height: 0; }
 
         .day-header { max-width: 54ch; margin-left: 3%; }
         .day-header .cp2-copy { margin-top: 20px; max-width: 50ch; }
@@ -205,16 +363,23 @@
         .day-two-gallery {
             display: grid;
             grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
-            grid-template-rows: auto auto;
-            gap: clamp(28px, 4vw, 54px);
-            margin-top: 50px;
+            gap: clamp(22px, 3vw, 38px);
+            margin-top: 36px;
             align-items: start;
         }
 
-        .workshop-shot { grid-row: 1; aspect-ratio: 16 / 9; min-height: 0; }
-        .bus-shot { grid-column: 2; grid-row: 1; aspect-ratio: 16 / 8.5; min-height: 0; margin-top: -180px; }
-        .team-shot { grid-column: 1; grid-row: 2; width: 72%; aspect-ratio: 4 / 3; min-height: 0; margin-left: auto; }
-        .night-shot { grid-column: 2; grid-row: 2; aspect-ratio: 3 / 4.5; min-height: 0; }
+        .day-two-left,
+        .day-two-right {
+            display: grid;
+            gap: clamp(14px, 2vw, 26px);
+            align-content: start;
+        }
+
+        .day-two-right { margin-top: -140px; }
+        .workshop-shot { aspect-ratio: 16 / 9; min-height: 0; }
+        .bus-shot { aspect-ratio: 3 / 2; min-height: 0; }
+        .team-shot { width: 72%; aspect-ratio: 3 / 2; min-height: 0; margin-left: auto; }
+        .night-shot { aspect-ratio: 2 / 3; min-height: 0; }
 
         .day-three-grid {
             display: grid;
@@ -223,12 +388,12 @@
             margin-top: 34px;
         }
 
-        .day-three-left, .day-three-right { display: grid; gap: 28px; align-content: start; }
+        .day-three-left, .day-three-right { display: grid; gap: 20px; align-content: start; }
         .day-three-copy { max-width: 44ch; margin: 0 0 12px 8%; }
-        .vip-shot { aspect-ratio: 16 / 10; min-height: 0; }
-        .portrait-shot { aspect-ratio: 4 / 3; min-height: 0; }
-        .stage-shot { aspect-ratio: 16 / 10.5; min-height: 0; }
-        .group-shot { aspect-ratio: 16 / 10.5; min-height: 0; margin-top: 8px; }
+        .vip-shot { aspect-ratio: 16 / 9; min-height: 0; }
+        .portrait-shot { aspect-ratio: 4 / 3.15; min-height: 0; }
+        .stage-shot { aspect-ratio: 16 / 9.2; min-height: 0; }
+        .group-shot { aspect-ratio: 16 / 8.8; min-height: 0; margin-top: 8px; }
 
         .production-top {
             display: grid;
@@ -243,21 +408,24 @@
             position: relative;
             width: 100%;
             min-height: 320px;
-        }
-
-        .planning-sheet-placeholder,
-        .planning-lower-placeholder {
-            position: absolute;
-            left: 0;
-            width: 100%;
+            overflow: hidden;
             border: 1px solid rgba(255,255,255,.2);
-            background:
-                repeating-linear-gradient(0deg, transparent 0, transparent 17px, rgba(255,255,255,.08) 17px, rgba(255,255,255,.08) 18px),
-                repeating-linear-gradient(90deg, #111 0, #111 72px, rgba(255,255,255,.08) 72px, rgba(255,255,255,.08) 73px);
+            transition: transform 550ms cubic-bezier(.16, 1, .3, 1), filter 300ms ease;
+            will-change: transform;
         }
 
-        .planning-sheet-placeholder { top: 0; height: 42%; }
-        .planning-lower-placeholder { bottom: 0; height: 50%; }
+        .planning-showcase-img-wrap:hover {
+            filter: brightness(1.15);
+            transform: translateY(-6px);
+        }
+
+        .planning-showcase-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            object-fit: cover;
+        }
 
         .planning-showcase-bar {
             position: absolute;
@@ -283,17 +451,17 @@
             letter-spacing: -.035em;
         }
 
-        .production-phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 42px); margin-top: clamp(58px, 8vw, 110px); }
+        .production-phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 42px); margin-top: clamp(48px, 6vw, 72px); }
 
         .subproject-nav { display: flex; justify-content: space-between; gap: 16px; padding: 60px 0; }
 
         @media (max-width: 900px) {
             .core-grid, .merch-grid, .production-top, .day-three-grid { grid-template-columns: 1fr; }
-            .concept-stage { order: -1; }
+            .concept-stage { order: -1; aspect-ratio: 1.3 / 1; }
             .operations-gallery { grid-template-columns: 1fr 1fr; }
             .operations-gallery .cp2-placeholder:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 7; }
             .day-two-gallery { grid-template-columns: 1fr 1fr; }
-            .bus-shot { margin-top: 0; }
+            .day-two-right { margin-top: 0; }
             .team-shot { width: 100%; }
             .day-three-copy { margin-left: 0; }
         }
@@ -305,13 +473,33 @@
             .phone-pair { gap: 12px; }
             .operations-gallery, .day-two-gallery { grid-template-columns: 1fr; }
             .operations-gallery .cp2-placeholder:first-child,
-            .workshop-shot, .bus-shot, .team-shot, .night-shot { grid-column: auto; grid-row: auto; aspect-ratio: 4 / 3; margin: 0; width: 100%; }
+            .workshop-shot, .bus-shot, .team-shot { aspect-ratio: 4 / 3; margin: 0; width: 100%; }
+            .night-shot { aspect-ratio: 2 / 3; margin: 0; width: 100%; }
             .production-phones { gap: 10px; }
-            .phone-placeholder::before { border-width: 3px; border-radius: 20px; }
-            .phone-placeholder span { font-size: .48rem; }
+            .phone-chassis { border-width: 2px; padding: 7px; }
+            .phone-notch { top: 5px; height: 10px; }
             .planning-showcase-img-wrap { min-height: 245px; }
             .subproject-nav { align-items: stretch; flex-direction: column; }
             .subproject-nav .btn { justify-content: center; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cp2-placeholder,
+            .phone-chassis,
+            .merch-cta,
+            .merch-cta > span,
+            .planning-showcase-img-wrap {
+                transition: none !important;
+            }
+
+            .phone-scroll-cue::after { animation: none; }
+
+            .cp2-placeholder:hover,
+            .phone-card:hover .phone-chassis,
+            .merch-cta:hover,
+            .planning-showcase-img-wrap:hover {
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -335,7 +523,7 @@
 
     <main class="grid-container" id="main-content">
         <section class="cp2-section" data-section="core-concept">
-            <div class="core-grid">
+            <div class="core-grid reveal-fade-up">
                 <div>
                     <h1 class="cp2-title">Core Concept: “THE SPARK”</h1>
                     <div class="cp2-copy core-copy">
@@ -344,17 +532,47 @@
                             <li>The TikTok logo surrounded by a heart symbolizes the deep emotional connection between creators and fans.</li>
                         </ul>
                     </div>
-                    <div class="cp2-placeholder award-stage" role="img" aria-label="Award stage concept placeholder"><span>Award stage concept placeholder</span></div>
+                    <div class="cp2-placeholder award-stage has-media">
+                        <img class="cp2-media" src="assets/community-project-02-award-stage.png"
+                            alt="Community Fest award stage concept" width="1513" height="852" decoding="async">
+                    </div>
                 </div>
-                <div class="cp2-placeholder concept-stage" role="img" aria-label="The Spark key visual placeholder"><span>The Spark key visual placeholder</span></div>
+                <div class="cp2-placeholder concept-stage has-media">
+                    <img class="cp2-media" src="assets/community-project-02-the-spark.png"
+                        alt="The Spark key visual for Community Fest" width="1584" height="1633" decoding="async">
+                </div>
             </div>
 
-            <div class="merch-block">
+            <div class="merch-block reveal-fade-up">
                 <h2 class="cp2-subtitle">Offline Merchandise &amp; Event Assets</h2>
                 <div class="merch-grid">
-                    <div class="phone-pair" aria-label="Merchandise phone mockup placeholders">
-                        <div class="phone-placeholder"><span>Merchandise 01</span></div>
-                        <div class="phone-placeholder"><span>Merchandise 02</span></div>
+                    <div class="phone-pair" aria-label="Scrollable merchandise phone mockups">
+                        <div class="phone-card merch-phone scrollable-merch-phone" data-scrollable-merch-frame>
+                            <h3 class="merch-phone-title">3-Day Event Guidebook</h3>
+                            <div class="phone-chassis">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen scrollable-phone-screen" data-scrollable-merch-phone
+                                    tabindex="0" aria-label="Scrollable merchandise collection preview 01">
+                                    <img class="merch-page-image" src="assets/community-project-02-merchandise-01.png"
+                                        alt="Community Fest merchandise collection 01" width="811" height="4096"
+                                        decoding="async" draggable="false">
+                                </div>
+                                <span class="phone-scroll-cue" aria-hidden="true">Scroll inside</span>
+                            </div>
+                        </div>
+                        <div class="phone-card merch-phone scrollable-merch-phone" data-scrollable-merch-frame>
+                            <h3 class="merch-phone-title">Award Night VIP Invitation Card</h3>
+                            <div class="phone-chassis">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen scrollable-phone-screen" data-scrollable-merch-phone
+                                    tabindex="0" aria-label="Scrollable merchandise collection preview 02">
+                                    <img class="merch-page-image" src="assets/community-project-02-merchandise-02.png"
+                                        alt="Community Fest merchandise collection 02" width="960" height="4096"
+                                        decoding="async" draggable="false">
+                                </div>
+                                <span class="phone-scroll-cue" aria-hidden="true">Scroll inside</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="cp2-copy merch-copy">
                         <p>Helped plan the event gifts to bring a premium experience to creators. I managed the whole production process: wrote briefs for agencies to make the three-day event brochure and Award Gala invitations, and supported the operation of the official Welcome Kit.</p>
@@ -365,69 +583,145 @@
         </section>
 
         <section class="cp2-section" data-section="on-site-operations">
-            <div class="operations-intro">
+            <div class="operations-intro reveal-fade-up">
                 <h2 class="cp2-title">On-Site Event Operations (with Agency Inspike):</h2>
                 <p class="cp2-copy">Partnered with Inspike agency to execute the 3-day festival smoothly.</p>
             </div>
             <div class="operations-gallery" aria-label="On-site event image placeholders">
-                <div class="cp2-placeholder"><span>Arrival activation</span></div>
-                <div class="cp2-placeholder"><span>Main stage</span></div>
-                <div class="cp2-placeholder"><span>Outdoor activation</span></div>
+                <div class="cp2-placeholder has-media reveal-fade-up">
+                    <img class="cp2-media" src="assets/community-project-02-arrival-activation.png"
+                        alt="Arrival activation at Community Fest" width="540" height="810" loading="lazy">
+                </div>
+                <div class="cp2-placeholder has-media reveal-fade-up reveal-delay-1">
+                    <img class="cp2-media" src="assets/community-project-02-main-stage.png"
+                        alt="Community Fest main stage" width="1477" height="810" loading="lazy">
+                </div>
+                <div class="cp2-placeholder has-media reveal-fade-up reveal-delay-2">
+                    <img class="cp2-media" src="assets/community-project-02-outdoor-activation.png"
+                        alt="Outdoor activation at Community Fest" width="1201" height="801" loading="lazy">
+                </div>
             </div>
         </section>
 
         <section class="cp2-section" data-section="day-2">
-            <div class="day-header">
+            <div class="day-header reveal-fade-up">
                 <h2 class="cp2-title">Day 2</h2>
                 <p class="cp2-copy">On Day 2, I supervised the workshop room setup and supported local/international creators and AMs/CMs during the HCMC Bus Tour and cultural activities.</p>
             </div>
-            <div class="day-two-gallery" aria-label="Day 2 image placeholders">
-                <div class="cp2-placeholder workshop-shot"><span>Workshop room</span></div>
-                <div class="cp2-placeholder bus-shot"><span>HCMC bus tour</span></div>
-                <div class="cp2-placeholder team-shot"><span>Creator activity</span></div>
-                <div class="cp2-placeholder night-shot"><span>Evening event</span></div>
+            <div class="day-two-gallery" aria-label="Day 2 event gallery">
+                <div class="day-two-left">
+                    <div class="cp2-placeholder workshop-shot has-media reveal-fade-up">
+                        <img class="cp2-media" src="assets/community-project-02-workshop-room.png"
+                            alt="Community Fest workshop room" width="1488" height="841" loading="lazy">
+                    </div>
+                    <div class="cp2-placeholder team-shot has-media reveal-fade-up reveal-delay-1">
+                        <img class="cp2-media" src="assets/community-project-02-creator-activity.png"
+                            alt="Community Fest creator cultural activity" width="1263" height="842" loading="lazy">
+                    </div>
+                </div>
+                <div class="day-two-right">
+                    <div class="cp2-placeholder bus-shot has-media reveal-fade-up reveal-delay-1">
+                        <img class="cp2-media" src="assets/community-project-02-hcmc-bus-tour.png"
+                            alt="Community Fest HCMC bus tour" width="1200" height="800" loading="lazy">
+                    </div>
+                    <div class="cp2-placeholder night-shot has-media reveal-fade-up reveal-delay-2">
+                        <img class="cp2-media" src="assets/community-project-02-evening-event.png"
+                            alt="Community Fest evening event" width="999" height="1498" loading="lazy">
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="cp2-section" data-section="day-3">
             <div class="day-three-grid">
                 <div class="day-three-left">
-                    <div class="day-three-copy">
+                    <div class="day-three-copy reveal-fade-up">
                         <h2 class="cp2-title">Day 3</h2>
                         <p class="cp2-copy" style="margin-top:20px">On Day 3, I designed and sent invitations to TikTok teams and premium partners (MoMo, VTV, The Anh 28), while managing on-site logistics for the Award Night, which welcomed 350+ VIP guests and broadcasted nationwide.</p>
                     </div>
-                    <div class="cp2-placeholder vip-shot"><span>VIP guests</span></div>
-                    <div class="cp2-placeholder portrait-shot"><span>Award night portrait</span></div>
+                    <div class="cp2-placeholder vip-shot has-media reveal-fade-up">
+                        <img class="cp2-media" src="assets/community-project-02-vip-guests.png"
+                            alt="VIP guests at Community Fest Award Night" width="1514" height="997" loading="lazy">
+                    </div>
+                    <div class="cp2-placeholder portrait-shot has-media reveal-fade-up reveal-delay-1">
+                        <img class="cp2-media" src="assets/community-project-02-award-night-portrait.png"
+                            alt="Award Night portrait" width="1514" height="1098" loading="lazy">
+                    </div>
                 </div>
                 <div class="day-three-right">
-                    <div class="cp2-placeholder stage-shot"><span>Award night stage</span></div>
-                    <div class="cp2-placeholder group-shot"><span>Event team</span></div>
+                    <div class="cp2-placeholder stage-shot has-media reveal-fade-up reveal-delay-1">
+                        <img class="cp2-media" src="assets/community-project-02-award-night-stage.png"
+                            alt="Community Fest Award Night stage" width="1640" height="1093" loading="lazy">
+                    </div>
+                    <div class="cp2-placeholder group-shot has-media reveal-fade-up reveal-delay-2">
+                        <img class="cp2-media" src="assets/community-project-02-event-team.png"
+                            alt="Community Fest event team" width="1640" height="1101" loading="lazy">
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="cp2-section" data-section="post-event-production">
             <div class="production-top">
-                <div>
+                <div class="reveal-fade-up">
                     <h2 class="cp2-title">Post-Event Video Production</h2>
                     <p class="cp2-copy production-copy">Collaborated with Inspike agency to gather all event footage, then worked with Things To Do agency to produce 3 daily recap videos for the offline festival. Handled the process from content direction to final delivery to wrap up the campaign successfully.</p>
                 </div>
-                <div class="planning-showcase-img-wrap" aria-label="Crafting the Brief planning showcase placeholders">
-                    <div class="planning-sheet-placeholder"></div>
+                <div class="planning-showcase-img-wrap reveal-fade-up reveal-delay-1" aria-label="Crafting the Brief planning showcase">
+                    <img class="planning-showcase-image" src="assets/community-project-02-crafting-brief.png"
+                        alt="Crafting the Brief production document" width="1492" height="839" loading="lazy">
                     <div class="planning-showcase-bar"><span class="planning-showcase-bar-text">Crafting the Brief</span></div>
-                    <div class="planning-lower-placeholder"></div>
                 </div>
             </div>
-            <div class="production-phones" aria-label="Daily recap video placeholders">
-                <div class="phone-placeholder"><span>Daily recap 01</span></div>
-                <div class="phone-placeholder"><span>Daily recap 02</span></div>
-                <div class="phone-placeholder"><span>Daily recap 03</span></div>
+            <div class="production-phones" aria-label="Daily recap videos">
+                <div class="phone-card reveal-fade-up">
+                    <div class="phone-chassis">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                        <a class="tiktok-phone-link"
+                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7543960811744660754"
+                            target="_blank" rel="noopener noreferrer" aria-label="Watch Daily recap 01 on TikTok">
+                            <img class="tiktok-phone-cover" src="assets/community-project-01-video-01.jpg" alt=""
+                                width="1080" height="1920" loading="lazy">
+                            <span class="tiktok-phone-play" aria-hidden="true"></span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="phone-card reveal-fade-up reveal-delay-1">
+                    <div class="phone-chassis">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                        <a class="tiktok-phone-link"
+                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7540983489504529682?is_from_webapp=1&amp;sender_device=pc"
+                            target="_blank" rel="noopener noreferrer" aria-label="Watch Daily recap 02 on TikTok">
+                            <img class="tiktok-phone-cover" src="assets/community-project-01-video-02.jpg" alt=""
+                                width="1080" height="1920" loading="lazy">
+                            <span class="tiktok-phone-play" aria-hidden="true"></span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="phone-card reveal-fade-up reveal-delay-2">
+                    <div class="phone-chassis">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                        <a class="tiktok-phone-link"
+                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7550897423560756498?is_from_webapp=1&amp;sender_device=pc"
+                            target="_blank" rel="noopener noreferrer" aria-label="Watch Daily recap 03 on TikTok">
+                            <img class="tiktok-phone-cover" src="assets/community-project-01-video-03.jpg" alt=""
+                                width="1080" height="1920" loading="lazy">
+                            <span class="tiktok-phone-play" aria-hidden="true"></span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <nav class="subproject-nav" aria-label="Community project navigation">
             <a href="project-community-01.html" class="btn btn-outline">← COMMUNITY PROJECT 01</a>
-            <a href="project-ugc.html#community-subprojects-title" class="btn btn-filled">BACK TO COMMUNITY FEST →</a>
+            <a href="community-subprojects.html#community-subprojects-title" class="btn btn-filled">BACK TO COMMUNITY FEST →</a>
         </nav>
     </main>
 
@@ -435,7 +729,19 @@
         <div class="fb-container"><p class="fb-copy">© 2026 ElysLu. ALL RIGHTS RESERVED.</p><p class="fb-design">COMMUNITY FEST / SELECTED ACTIVATION 02</p></div>
     </footer>
 
-    <script src="app.js?v=20260618"></script>
+    <script>
+        (() => {
+            document.querySelectorAll('[data-scrollable-merch-phone]').forEach((screen) => {
+                const frame = screen.closest('[data-scrollable-merch-frame]');
+                if (!frame) return;
+
+                screen.addEventListener('scroll', () => {
+                    frame.classList.toggle('is-scrolled', screen.scrollTop > 16);
+                }, { passive: true });
+            });
+        })();
+    </script>
+    <script src="app.js?v=20260621"></script>
 </body>
 
 </html>

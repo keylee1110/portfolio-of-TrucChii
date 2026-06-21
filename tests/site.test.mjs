@@ -65,7 +65,7 @@ test('Certification contains exactly six accessible items', () => {
 const projects = [
   ['project-livefest.html', 'LIVE FEST 2025'],
   ['project-launch.html', 'Product Launch Campaign'],
-  ['project-ugc.html', 'Community Fest'],
+  ['community-subprojects.html', 'Community Fest'],
   ['project-placeholder-04.html', 'Project 04'],
   ['project-placeholder-05.html', 'Project 05'],
   ['project-placeholder-06.html', 'Project 06'],
@@ -151,7 +151,7 @@ test('LIVE FEST case study uses the approved editorial sections and artwork', ()
 });
 
 test('Community Fest uses the approved results, overview, and subproject layout', () => {
-  const html = read('project-ugc.html');
+  const html = read('community-subprojects.html');
   assert.match(html, /<h1[^>]*>Community Fest<\/h1>/);
   assert.equal((html.match(/class="detail-stat-card"/g) || []).length, 4);
   assert.match(html, /assets\/community-fest-poster\.png/);
@@ -163,7 +163,7 @@ test('Community Fest uses the approved results, overview, and subproject layout'
 
   for (const file of ['project-community-01.html', 'project-community-02.html']) {
     assert.ok(existsSync(join(root, file)), `Missing ${file}`);
-    assert.match(read(file), /href="project-ugc\.html#community-subprojects-title"/);
+    assert.match(read(file), /href="community-subprojects\.html#community-subprojects-title"/);
   }
 });
 
@@ -175,7 +175,7 @@ test('all project pages use the homepage pill button system', () => {
   ];
 
   for (const file of projectFiles) {
-    assert.match(read(file), /src="app\.js\?v=20260618"/, file);
+    assert.match(read(file), /src="app\.js\?v=20260621"/, file);
   }
 
   const appSource = read('app.src.js');
