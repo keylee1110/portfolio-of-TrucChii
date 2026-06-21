@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Fest - ElysLu</title>
+    <meta name="description"
+        content="Community Fest case study featuring creator-led social advocacy, campaign results, and selected community activations.">
+    <!-- Google Fonts: Inter for Body and fallback typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Community Fest - ElysLu">
+    <meta property="og:description"
+        content="Community Fest case study featuring creator-led social advocacy, campaign results, and selected community activations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elyslumarketing.com/community-subprojects.html">
+    <meta property="og:image" content="assets/community-fest-poster.png">
+    <style>
+        .detail-hero {
+            padding: 180px 0 64px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .detail-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+            border-top: 1px solid var(--border-color);
+            padding-top: var(--space-md);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-item .lbl {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .meta-item .val {
+            font-size: 1rem;
+            color: var(--color-text-primary);
+        }
+
+        .community-results {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+            gap: clamp(24px, 4vw, 64px);
+            align-items: stretch;
+            padding: var(--space-xl) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 8px;
+            left: 8px;
+            z-index: 10000;
+            padding: 10px 14px;
+            background: var(--color-text-primary);
+            color: var(--color-bg-primary);
+            font-weight: 700;
+            transform: translateY(-160%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        .detail-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-self: start;
+            gap: clamp(12px, 1.5vw, 24px);
+        }
+
+        .detail-stat-card {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: clamp(20px, 2.5vw, 36px);
+            border: 1px solid var(--border-color);
+            background: #080808;
+            transition: background-color 220ms ease, border-color 220ms ease;
+        }
+
+        .detail-stat-card:hover {
+            background: #111;
+            border-color: var(--color-text-secondary);
+        }
+
+        .detail-stat-num {
+            font-size: clamp(2.4rem, 5.4vw, 5.8rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 0.9;
+            color: var(--color-text-primary);
+        }
+
+        .detail-stat-lbl {
+            max-width: 16ch;
+            font-size: clamp(0.7rem, 0.9vw, 0.86rem);
+            font-weight: 700;
+            color: var(--color-text-muted);
+            letter-spacing: 0.08em;
+            line-height: 1.35;
+            text-transform: uppercase;
+        }
+
+        .community-poster {
+            min-height: 100%;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #080808;
+        }
+
+        .community-poster img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .community-overview {
+            padding: clamp(56px, 8vw, 112px) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cs-block {
+            display: grid;
+            grid-template-columns: minmax(180px, 0.55fr) minmax(0, 1.45fr);
+            gap: var(--space-xl);
+            align-items: start;
+        }
+
+        .cs-block-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-primary);
+        }
+
+        .cs-block-text {
+            color: var(--color-text-secondary);
+            font-size: clamp(1.15rem, 2vw, 1.7rem);
+            line-height: 1.5;
+            max-width: 50ch;
+        }
+
+        .community-subprojects {
+            padding: clamp(56px, 8vw, 112px) 0 var(--space-2xl);
+        }
+
+        .community-subprojects-heading {
+            margin-bottom: var(--space-xl);
+        }
+
+        .community-project-list {
+            display: grid;
+            gap: clamp(72px, 10vw, 144px);
+        }
+
+        .community-project-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 520px;
+            color: inherit;
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            background: #030303;
+        }
+
+        .community-card-visual {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: #0c0c0c;
+        }
+
+        .community-card-large-placeholder {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background:
+                linear-gradient(135deg, rgba(255,255,255,0.06), transparent 45%),
+                repeating-linear-gradient(90deg, #111 0, #111 1px, #060606 1px, #060606 13%);
+            transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 700ms cubic-bezier(0.22, 1, 0.36, 1);
+            overflow: hidden;
+        }
+
+        .community-card-large-placeholder img,
+        .community-card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .community-project-card:nth-child(2) .community-card-large-placeholder {
+            background:
+                linear-gradient(45deg, rgba(255,255,255,0.07), transparent 50%),
+                repeating-linear-gradient(0deg, #101010 0, #101010 1px, #050505 1px, #050505 12%);
+        }
+
+        .community-card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            height: 100%;
+            padding: 40px;
+        }
+
+        .community-card-thumb-stage {
+            position: relative;
+            width: 100%;
+            max-width: 240px;
+            margin: auto;
+            transform: translateY(-45px);
+        }
+
+        .community-card-thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 16px;
+            background:
+                radial-gradient(circle at 70% 25%, rgba(255,255,255,0.15), transparent 26%),
+                linear-gradient(145deg, #181818, #090909);
+            display: grid;
+            place-items: center;
+            transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 700ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .community-card-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            width: 165%;
+            margin: 0;
+            transform: translate(-50%, -50%);
+            color: var(--color-text-primary);
+            font-size: clamp(1.45rem, 2.8vw, 3rem);
+            line-height: 0.92;
+            letter-spacing: -0.04em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .community-card-meta-wrap {
+            position: absolute;
+            bottom: 40px;
+            left: 25px;
+            width: calc(100% - 65px);
+            max-width: 320px;
+        }
+
+        .community-card-index {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--color-text-primary);
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .community-card-meta {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .community-project-card:hover .community-card-large-placeholder,
+        .community-project-card:focus-visible .community-card-large-placeholder {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        .community-project-card:hover .community-card-thumb,
+        .community-project-card:focus-visible .community-card-thumb {
+            transform: scale(1.12);
+            filter: brightness(1.25);
+        }
+
+        .community-project-card:focus-visible {
+            outline: 2px solid var(--color-text-primary);
+            outline-offset: 6px;
+        }
+
+        .cs-nav-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding: var(--space-lg) 0;
+            margin-top: var(--space-2xl);
+        }
+
+        @media (max-width: 768px) {
+            .detail-meta-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-md);
+            }
+
+            .community-results,
+            .cs-block,
+            .community-project-card {
+                grid-template-columns: 1fr;
+            }
+
+            .community-poster {
+                min-height: auto;
+                aspect-ratio: 2 / 3;
+            }
+
+            .community-card-visual {
+                min-height: 0;
+            }
+
+            .community-card-content {
+                height: auto;
+                min-height: 430px;
+                justify-content: flex-start;
+                padding: 30px 24px 24px;
+            }
+
+            .community-card-thumb-stage {
+                max-width: 100%;
+                margin: 20px auto;
+                transform: none;
+            }
+
+            .community-card-title {
+                width: 92%;
+                font-size: clamp(2rem, 10vw, 3.4rem);
+            }
+
+            .community-card-meta-wrap {
+                position: relative;
+                inset: auto;
+                width: 100%;
+                max-width: 100%;
+                margin-top: 16px;
+            }
+
+            .community-project-card:hover .community-card-thumb,
+            .community-project-card:focus-visible .community-card-thumb {
+                transform: scale(1.06);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .detail-stats-grid {
+                gap: 8px;
+            }
+
+            .detail-stat-card {
+                padding: 16px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .detail-stat-card,
+            .community-card-large-placeholder,
+            .community-card-thumb {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white antialiased selection-accent">
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Page Wipe Overlay for Transitions -->
+    <div class="page-wipe wipe-initial-in" id="page-wipe"></div>
+
+    <!-- Header Navigation -->
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo" id="nav-logo">ElysLu®</a>
+            <div class="nav-center">
+                <span class="nav-header-label">Quick Links</span>
+                <nav class="nav-menu">
+                    <a href="index.html#projects" class="nav-link">Projects</a><span class="nav-comma">,</span>
+                    <a href="index.html#results" class="nav-link">Results</a><span class="nav-comma">,</span>
+                    <a href="index.html#case-study" class="nav-link">Case Study</a><span class="nav-comma">,</span>
+                    <a href="index.html#expertise" class="nav-link">Expertise</a><span class="nav-comma">,</span>
+                    <a href="index.html#reference" class="nav-link">Reference</a><span class="nav-comma">,</span>
+                    <a href="index.html#practice" class="nav-link">Practice</a><span class="nav-comma">,</span>
+                    <a href="index.html#contact" class="nav-link btn-contact-trigger">Contact</a>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <span class="nav-header-label">Based in SGN</span>
+                <span class="nav-header-sublabel">Digital Growth Specialist + Creative Lead</span>
+            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobile-drawer-menu">
+        <nav class="mobile-nav-links">
+            <a href="index.html#projects" class="mobile-nav-link">Projects</a>
+            <a href="index.html#results" class="mobile-nav-link">Results</a>
+            <a href="index.html#case-study" class="mobile-nav-link">Case Study</a>
+            <a href="index.html#expertise" class="mobile-nav-link">Expertise</a>
+            <a href="index.html#reference" class="mobile-nav-link">Reference</a>
+            <a href="index.html#practice" class="mobile-nav-link">Practice</a>
+            <a href="index.html#contact" class="mobile-nav-link btn-contact-trigger">Contact</a>
+        </nav>
+    </div>
+
+    <main class="grid-container" id="main-content">
+        <!-- Project Hero Header -->
+        <section class="detail-hero reveal-fade-up">
+            <div class="section-tag">PROJECT 02 / COMMUNITY ENGAGEMENT</div>
+            <h1 class="section-title font-display">Community Fest</h1>
+
+            <div class="detail-meta-grid">
+                <div class="meta-item">
+                    <span class="lbl">Client</span>
+                    <span class="val">Lifestyle Retail Brand</span>
+                </div>
+                <div class="meta-item">
+                    <span class="lbl">Platforms</span>
+                    <span class="val">TikTok, Instagram</span>
+                </div>
+                <div class="meta-item">
+                    <span class="lbl">Year</span>
+                    <span class="val">2024</span>
+                </div>
+                <div class="meta-item">
+                    <span class="lbl">Role</span>
+                    <span class="val">Influencer Manager</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campaign Results + Poster -->
+        <section class="community-results reveal-fade-up" aria-label="Campaign results">
+            <div class="detail-stats-grid">
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">35</div>
+                    <div class="detail-stat-lbl">Creators Briefed</div>
+                </div>
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">120</div>
+                    <div class="detail-stat-lbl">UGC Videos</div>
+                </div>
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">4.8M</div>
+                    <div class="detail-stat-lbl">Views</div>
+                </div>
+                <div class="detail-stat-card">
+                    <div class="detail-stat-num font-display">12%</div>
+                    <div class="detail-stat-lbl">Conversion Rate</div>
+                </div>
+            </div>
+            <figure class="community-poster">
+                <img src="assets/community-fest-poster.png" alt="Community Fest TikTok event installation">
+            </figure>
+        </section>
+
+        <!-- Campaign Overview -->
+        <section class="community-overview reveal-fade-up">
+            <div class="cs-block">
+                <h2 class="cs-block-title font-display">Campaign Overview</h2>
+                <p class="cs-block-text">
+                    An organic social advocacy program designed to partner a lifestyle brand with micro-creators. By
+                    utilizing a standardized creative briefing framework, we generated a large asset base of authentic
+                    content that drove conversions.
+                </p>
+            </div>
+        </section>
+
+        <!-- Community Fest Subprojects -->
+        <section class="community-subprojects" aria-labelledby="community-subprojects-title">
+            <div class="community-subprojects-heading">
+                <div class="section-tag">SELECTED ACTIVATIONS / 02</div>
+                <h2 class="section-title font-display" id="community-subprojects-title">Community Projects</h2>
+            </div>
+
+            <div class="community-project-list">
+                <a href="project-community-01.html" class="community-project-card">
+                    <div class="community-card-visual" aria-hidden="true">
+                        <div class="community-card-large-placeholder">
+                            <img src="assets/community-project-01-card-visual.png" alt="Community Project 01 visual">
+                        </div>
+                    </div>
+                    <div class="community-card-content">
+                        <div class="community-card-thumb-stage">
+                            <div class="community-card-thumb" aria-hidden="true">
+                                <img src="assets/community-projects-logo.png" alt="Community Projects Logo">
+                            </div>
+                            <h3 class="community-card-title font-display">Community Project 01</h3>
+                        </div>
+                        <div class="community-card-meta-wrap">
+                            <span class="community-card-index font-display">COMMUNITY PROJECT 01</span>
+                            <p class="community-card-meta">Activation case study / Content coming soon</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="project-community-02.html" class="community-project-card">
+                    <div class="community-card-visual" aria-hidden="true">
+                        <div class="community-card-large-placeholder">
+                            <img src="assets/community-project-02-card-visual.png" alt="Community Project 02 visual">
+                        </div>
+                    </div>
+                    <div class="community-card-content">
+                        <div class="community-card-thumb-stage">
+                            <div class="community-card-thumb" aria-hidden="true">
+                                <img src="assets/community-projects-logo.png" alt="Community Projects Logo">
+                            </div>
+                            <h3 class="community-card-title font-display">Community Project 02</h3>
+                        </div>
+                        <div class="community-card-meta-wrap">
+                            <span class="community-card-index font-display">COMMUNITY PROJECT 02</span>
+                            <p class="community-card-meta">Activation case study / Content coming soon</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="cs-nav-footer">
+                <a href="index.html#projects" class="btn btn-outline">← BACK TO PROJECTS</a>
+                <a href="project-launch.html" class="btn btn-filled">NEXT PROJECT →</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Copyright Info -->
+    <footer class="footer-bottom">
+        <div class="fb-container">
+            <p class="fb-copy">© 2026 ElysLu. ALL RIGHTS RESERVED.</p>
+            <p class="fb-design">SWISS PUNK PERFORMANCE SYSTEM V1.0</p>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Logic Script -->
+    <script src="app.js?v=20260618"></script>
+</body>
+
+</html>

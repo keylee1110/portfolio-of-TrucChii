@@ -10,7 +10,7 @@ def compress_images():
         'work.html',
         'project-awareness.html',
         'project-launch.html',
-        'project-ugc.html',
+        'community-subprojects.html',
         'project-placeholder-04.html',
         'project-placeholder-05.html',
         'project-placeholder-06.html',
