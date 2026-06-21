@@ -260,12 +260,27 @@
             width: 165%;
             margin: 0;
             transform: translate(-50%, -50%);
-            color: var(--color-text-primary);
             font-size: clamp(1.45rem, 2.8vw, 3rem);
             line-height: 0.92;
             letter-spacing: -0.04em;
             text-align: center;
             text-transform: uppercase;
+        }
+
+        .hero-gradient-text {
+            color: transparent;
+            background-image: linear-gradient(to right, #ff002d, #ffff00, #000, #ff002d);
+            background-position: 0% 50%;
+            background-repeat: repeat;
+            background-size: 300% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: community-title-gradient 2.5s linear infinite;
+        }
+
+        @keyframes community-title-gradient {
+            to { background-position: 100% 50%; }
         }
 
         .community-card-meta-wrap {
@@ -384,6 +399,10 @@
             .community-card-large-placeholder,
             .community-card-thumb {
                 transition: none;
+            }
+
+            .hero-gradient-text {
+                animation: none;
             }
         }
     </style>
@@ -519,7 +538,7 @@
                             <div class="community-card-thumb" aria-hidden="true">
                                 <img src="assets/community-projects-logo.png" alt="Community Projects Logo">
                             </div>
-                            <h3 class="community-card-title font-display">Community Project 01</h3>
+                            <h3 class="community-card-title font-display hero-gradient-text">Online</h3>
                         </div>
                         <div class="community-card-meta-wrap">
                             <span class="community-card-index font-display">COMMUNITY PROJECT 01</span>
@@ -539,7 +558,7 @@
                             <div class="community-card-thumb" aria-hidden="true">
                                 <img src="assets/community-projects-logo.png" alt="Community Projects Logo">
                             </div>
-                            <h3 class="community-card-title font-display">Community Project 02</h3>
+                            <h3 class="community-card-title font-display hero-gradient-text">Offline</h3>
                         </div>
                         <div class="community-card-meta-wrap">
                             <span class="community-card-index font-display">COMMUNITY PROJECT 02</span>

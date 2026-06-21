@@ -120,6 +120,7 @@ test('LIVE FEST case study uses the approved editorial sections and artwork', ()
     'assets/livefest-ui-ux.png',
     'assets/livefest-planning-sheet.png',
     'assets/livefest-planning-showcase-lower.png',
+    'assets/livefest-ooh-saigon-river-hero.png',
   ];
 
   for (const asset of assets) {
@@ -131,6 +132,10 @@ test('LIVE FEST case study uses the approved editorial sections and artwork', ()
   assert.doesNotMatch(html, /class="ui-card"/);
   assert.doesNotMatch(html, /Selected interface and interactive screen designs/);
   assert.doesNotMatch(html, /OOH planning and production sheet placeholder/);
+  assert.match(html, /<video class="ooh-video" controls playsinline preload="metadata">/);
+  assert.match(html, /assets\/livefest-ooh-video\.mp4/);
+  assert.ok(existsSync(join(root, 'assets/livefest-ooh-video.mp4')), 'Missing OOH campaign video');
+  assert.match(html, /\.ooh-video\s*\{[^}]*width:\s*100%[^}]*height:\s*auto[^}]*object-fit:\s*contain/s);
   assert.doesNotMatch(html, /class="phone-caption"/);
   assert.equal((html.match(/data-phone-slot=/g) || []).length, 10);
   assert.match(html, /class="phone-marquee-track"/);
@@ -158,6 +163,9 @@ test('Community Fest uses the approved results, overview, and subproject layout'
   assert.equal((html.match(/class="community-project-card"/g) || []).length, 2);
   assert.match(html, /href="project-community-01\.html"/);
   assert.match(html, /href="project-community-02\.html"/);
+  assert.equal((html.match(/community-card-title font-display hero-gradient-text/g) || []).length, 2);
+  assert.match(html, /linear-gradient\(to right, #ff002d, #ffff00, #000, #ff002d\)/);
+  assert.match(html, /animation: community-title-gradient 2\.5s linear infinite/);
   assert.doesNotMatch(html, />Objective</);
   assert.doesNotMatch(html, />Campaign Visuals</);
 
@@ -218,6 +226,7 @@ test('Community Project 01 follows the approved three-section campaign story', (
   assert.equal((html.match(/class="tiktok-phone-link"/g) || []).length, 4);
   assert.equal((html.match(/community-project-01-video-0[1-4]\.jpg/g) || []).length, 4);
   assert.match(html, /assets\/community-project-01-campaign-asset\.png/);
+  assert.match(html, /\.campaign-asset\s*\{[^}]*max-width:\s*440px/s);
   assert.match(html, /assets\/community-project-01-campaign-page\.png/);
   assert.match(html, /data-scrollable-phone/);
   assert.match(html, /overscroll-behavior:\s*contain/);
@@ -251,7 +260,14 @@ test('Community Project 02 follows the approved five-section event story', () =>
   assert.match(html, /planning-showcase-img-wrap/);
   assert.match(html, /https:\/\/drive\.google\.com\/drive\/folders\/1IHczm0DTxmpmijZK1PPtwYP87D0RTMm8/);
   assert.match(html, /View the team merchandise collection/);
-  assert.equal((html.match(/class="phone-placeholder"/g) || []).length, 5);
-  assert.equal((html.match(/<img\b/gi) || []).length, 0);
+  for (const id of ['7543960811744660754', '7540983489504529682', '7550897423560756498']) {
+    assert.match(html, new RegExp(`tiktoklive_vietnam/video/${id}`));
+  }
+  for (const asset of [
+    'community-project-02-video-01.jpg',
+    'community-project-02-video-02.jpg',
+    'community-project-02-video-03.jpg',
+  ]) assert.match(html, new RegExp(`assets/${asset.replaceAll('.', '\\.')}`));
+  assert.equal((html.match(/class="tiktok-phone-link"/g) || []).length, 3);
   assert.doesNotMatch(html, /Xem chi tiết|bộ merchandise|tại đây/i);
 });

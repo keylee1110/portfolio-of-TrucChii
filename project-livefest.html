@@ -943,8 +943,30 @@
         }
 
         .ooh-hero {
-            min-height: 360px;
+            display: block;
+            width: 100%;
+            height: auto;
+            min-height: 0;
             margin-top: 0;
+            border: 1px solid var(--border-color);
+            object-fit: contain;
+        }
+
+        .ooh-video-wrap {
+            width: 100%;
+            margin-top: clamp(40px, 6vw, 80px);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #000;
+        }
+
+        .ooh-video {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
+            background: #000;
         }
 
         .ooh-banner-grid {
@@ -1686,7 +1708,7 @@
         </section>
 
         <!-- ── SECTION 6: OOH CAMPAIGN ── -->
-        <section class="editorial-section ooh-section reveal-fade-up" data-section="ooh-campaign">
+        <section class="editorial-section ooh-section reveal-fade-up" id="ooh-campaign" data-section="ooh-campaign">
             <div class="ooh-header reveal-fade-up">
                 <h2 class="case-study-section-title ooh-title">OOH Campaign Execution (Saigon River)</h2>
             </div>
@@ -1698,7 +1720,9 @@
                     coordination, successfully generating an immediate 150K–300K views in a single day across major
                     traffic routes from District 1 to Thu Thiem.
                 </p>
-                <div class="editorial-placeholder ooh-hero">4,500m² Saigon River OOH hero placeholder</div>
+                <img class="ooh-hero" src="assets/livefest-ooh-saigon-river-hero.png"
+                    alt="4,500 square metre Saigon River OOH campaign planning and billboard execution"
+                    width="1920" height="1080" loading="lazy">
             </div>
 
             <div class="ooh-banner-grid reveal-fade-up reveal-delay-2" style="margin-top: var(--space-2xl);"
@@ -1715,6 +1739,13 @@
                     <img class="support-image ooh-banner ooh-banner-low" src="assets/banner-column-3.webp"
                         alt="Saigon Riverfront OOH billboard banner 3" loading="lazy">
                 </div>
+            </div>
+
+            <div class="ooh-video-wrap reveal-fade-up" aria-label="Saigon River OOH campaign video">
+                <video class="ooh-video" controls playsinline preload="metadata">
+                    <source src="assets/livefest-ooh-video.mp4" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
             </div>
         </section>
 
