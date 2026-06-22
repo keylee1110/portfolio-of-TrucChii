@@ -41,9 +41,6 @@ test('homepage has eight featured project links and no Results section', () => {
 
 test('homepage lower sections follow the approved order', () => {
   const markers = [
-    'case-study-section',
-    'expertise-section',
-    'archive-section',
     'testimonial-section',
     'practice-section',
     'certification-section',
@@ -64,7 +61,7 @@ test('Certification contains exactly six accessible items', () => {
 
 const projects = [
   ['project-livefest.html', 'LIVE FEST 2025'],
-  ['project-launch.html', 'Product Launch Campaign'],
+  ['project-live-pro.html', 'LIVE PRO CAMPAIGN'],
   ['community-subprojects.html', 'Community Fest'],
   ['project-placeholder-04.html', 'Project 04'],
   ['project-placeholder-05.html', 'Project 05'],
@@ -270,4 +267,28 @@ test('Community Project 02 follows the approved five-section event story', () =>
   ]) assert.match(html, new RegExp(`assets/${asset.replaceAll('.', '\\.')}`));
   assert.equal((html.match(/class="tiktok-phone-link"/g) || []).length, 3);
   assert.doesNotMatch(html, /Xem chi tiết|bộ merchandise|tại đây/i);
+});
+
+test('LIVE PRO CAMPAIGN follows the approved five-section story', () => {
+  const html = read('project-live-pro.html');
+  const orderedSections = [
+    'data-section="campaign-overview"',
+    'data-section="research-strategy"',
+    'data-section="campaign-results"',
+    'data-section="creator-rewards"',
+    'data-section="recognition-videos"',
+  ];
+  let previous = -1;
+  for (const marker of orderedSections) {
+    const current = html.indexOf(marker);
+    assert.ok(current > previous, `${marker} is missing or out of order`);
+    previous = current;
+  }
+  for (const id of ['7550218638649789714', '7575815911777635592', '7576529267064950036', '7587673281524780308']) {
+    assert.match(html, new RegExp(`tiktoklive_vietnam/video/${id}`));
+  }
+});
+
+test('Obsolete project-launch.html is deleted', () => {
+  assert.ok(!existsSync(join(root, 'project-launch.html')), 'Obsolete project-launch.html route should be removed');
 });

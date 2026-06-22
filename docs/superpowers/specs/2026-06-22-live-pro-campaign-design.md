@@ -47,7 +47,7 @@ All campaign imagery remains a visible neutral placeholder. No supplied referenc
 
 ## Implementation Boundaries
 
-- Primary page: `project-launch.html`.
+- Primary page: `project-live-pro.html` (Project 03).
 - Shared source styles are added only to `style.src.css` when reusable styles cannot satisfy the references.
 - Generated assets `style.css` and `app.js` are rebuilt through the existing minification command rather than edited directly.
 - Existing project pages and unrelated user changes remain untouched.
