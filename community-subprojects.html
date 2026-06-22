@@ -10,7 +10,8 @@
     <!-- Google Fonts: Inter for Body and fallback typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@300;400;500;600;700;900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@300;400;500;600;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <!-- Open Graph Meta Tags for Social Sharing -->
@@ -162,6 +163,18 @@
             max-width: 50ch;
         }
 
+        .cs-block-list {
+            list-style-type: disc;
+            padding-left: var(--space-md);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .cs-block-list li::marker {
+            color: var(--color-text-primary);
+        }
+
         .community-subprojects {
             padding: clamp(56px, 8vw, 112px) 0 var(--space-2xl);
         }
@@ -201,7 +214,7 @@
             display: grid;
             place-items: center;
             background:
-                linear-gradient(135deg, rgba(255,255,255,0.06), transparent 45%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 45%),
                 repeating-linear-gradient(90deg, #111 0, #111 1px, #060606 1px, #060606 13%);
             transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 700ms cubic-bezier(0.22, 1, 0.36, 1);
             overflow: hidden;
@@ -217,7 +230,7 @@
 
         .community-project-card:nth-child(2) .community-card-large-placeholder {
             background:
-                linear-gradient(45deg, rgba(255,255,255,0.07), transparent 50%),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.07), transparent 50%),
                 repeating-linear-gradient(0deg, #101010 0, #101010 1px, #050505 1px, #050505 12%);
         }
 
@@ -245,7 +258,7 @@
             overflow: hidden;
             border-radius: 16px;
             background:
-                radial-gradient(circle at 70% 25%, rgba(255,255,255,0.15), transparent 26%),
+                radial-gradient(circle at 70% 25%, rgba(255, 255, 255, 0.15), transparent 26%),
                 linear-gradient(145deg, #181818, #090909);
             display: grid;
             place-items: center;
@@ -257,7 +270,7 @@
             top: 50%;
             left: 50%;
             z-index: 2;
-            width: 165%;
+            width: max-content;
             margin: 0;
             transform: translate(-50%, -50%);
             font-size: clamp(1.45rem, 2.8vw, 3rem);
@@ -265,6 +278,7 @@
             letter-spacing: -0.04em;
             text-align: center;
             text-transform: uppercase;
+            white-space: nowrap;
         }
 
         .hero-gradient-text {
@@ -280,7 +294,9 @@
         }
 
         @keyframes community-title-gradient {
-            to { background-position: 100% 50%; }
+            to {
+                background-position: 100% 50%;
+            }
         }
 
         .community-card-meta-wrap {
@@ -288,7 +304,7 @@
             bottom: 40px;
             left: 25px;
             width: calc(100% - 65px);
-            max-width: 320px;
+            max-width: 450px;
         }
 
         .community-card-index {
@@ -395,6 +411,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
+
             .detail-stat-card,
             .community-card-large-placeholder,
             .community-card-thumb {
@@ -418,19 +435,15 @@
     <!-- Header Navigation -->
     <header class="sticky-nav">
         <div class="nav-container">
-            <a href="index.html" class="brand-logo" id="nav-logo">ElysLu®</a>
-            <div class="nav-center">
-                <span class="nav-header-label">Quick Links</span>
-                <nav class="nav-menu">
-                    <a href="index.html#projects" class="nav-link">Projects</a><span class="nav-comma">,</span>
-                    <a href="index.html#results" class="nav-link">Results</a><span class="nav-comma">,</span>
-                    <a href="index.html#case-study" class="nav-link">Case Study</a><span class="nav-comma">,</span>
-                    <a href="index.html#expertise" class="nav-link">Expertise</a><span class="nav-comma">,</span>
-                    <a href="index.html#reference" class="nav-link">Reference</a><span class="nav-comma">,</span>
-                    <a href="index.html#practice" class="nav-link">Practice</a><span class="nav-comma">,</span>
-                    <a href="index.html#contact" class="nav-link btn-contact-trigger">Contact</a>
-                </nav>
-            </div>
+            <!-- Left: Navigation Links -->
+            <nav class="nav-menu" id="main-nav">
+                <a href="index.html#about" class="nav-link">About</a><span class="nav-comma">,</span>
+                <a href="index.html#projects" class="nav-link">Work</a><span class="nav-comma">,</span>
+                <a href="index.html#contact" class="nav-link btn-contact-trigger">Contact</a>
+            </nav>
+            <!-- Center: Brand Name -->
+            <a href="index.html" class="brand-logo nav-brand-center" id="nav-logo">ElysLu</a>
+            <!-- Right: Location info -->
             <div class="nav-right">
                 <span class="nav-header-label">Based in SGN</span>
                 <span class="nav-header-sublabel">Digital Growth Specialist + Creative Lead</span>
@@ -446,12 +459,8 @@
     <!-- Mobile Drawer Menu -->
     <div class="mobile-drawer" id="mobile-drawer-menu">
         <nav class="mobile-nav-links">
-            <a href="index.html#projects" class="mobile-nav-link">Projects</a>
-            <a href="index.html#results" class="mobile-nav-link">Results</a>
-            <a href="index.html#case-study" class="mobile-nav-link">Case Study</a>
-            <a href="index.html#expertise" class="mobile-nav-link">Expertise</a>
-            <a href="index.html#reference" class="mobile-nav-link">Reference</a>
-            <a href="index.html#practice" class="mobile-nav-link">Practice</a>
+            <a href="index.html#about" class="mobile-nav-link">About</a>
+            <a href="index.html#projects" class="mobile-nav-link">Work</a>
             <a href="index.html#contact" class="mobile-nav-link btn-contact-trigger">Contact</a>
         </nav>
     </div>
@@ -464,20 +473,8 @@
 
             <div class="detail-meta-grid">
                 <div class="meta-item">
-                    <span class="lbl">Client</span>
-                    <span class="val">Lifestyle Retail Brand</span>
-                </div>
-                <div class="meta-item">
-                    <span class="lbl">Platforms</span>
-                    <span class="val">TikTok, Instagram</span>
-                </div>
-                <div class="meta-item">
-                    <span class="lbl">Year</span>
-                    <span class="val">2024</span>
-                </div>
-                <div class="meta-item">
                     <span class="lbl">Role</span>
-                    <span class="val">Influencer Manager</span>
+                    <span class="val">Regional Campaign Manager</span>
                 </div>
             </div>
         </section>
@@ -510,12 +507,26 @@
         <!-- Campaign Overview -->
         <section class="community-overview reveal-fade-up">
             <div class="cs-block">
-                <h2 class="cs-block-title font-display">Campaign Overview</h2>
-                <p class="cs-block-text">
-                    An organic social advocacy program designed to partner a lifestyle brand with micro-creators. By
-                    utilizing a standardized creative briefing framework, we generated a large asset base of authentic
-                    content that drove conversions.
-                </p>
+                <h2 class="cs-block-title font-display">What is Community FEST?</h2>
+                <div class="cs-block-content">
+                    <ul class="cs-block-list">
+                        <li class="cs-block-text">
+                            TikTok Community FEST successfully drove an incremental revenue of +$1,407,301 (118.5%
+                            completion rate) and topped SEA with a consume DAU penetration growth reaching 148% of its
+                            target.
+                        </li>
+                        <li class="cs-block-text">
+                            The campaign generated massive media impact with over 158.6 million impressions from
+                            ambassador promotional videos and strongly elevated brand presence via large-scale OOH
+                            displays.
+                        </li>
+                        <li class="cs-block-text">
+                            The milestone marked the first time the event was hosted at a regional level in Vietnam,
+                            concluded with a premium 4D3N offline event in HCMC gathering creators from 7 regions,
+                            culminating in a grand Gala night broadcasted nationwide on national TV (HTV).
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -538,11 +549,11 @@
                             <div class="community-card-thumb" aria-hidden="true">
                                 <img src="assets/community-projects-logo.png" alt="Community Projects Logo">
                             </div>
-                            <h3 class="community-card-title font-display hero-gradient-text">Online</h3>
+                            <h3 class="community-card-title font-display hero-gradient-text">Online activations</h3>
                         </div>
                         <div class="community-card-meta-wrap">
                             <span class="community-card-index font-display">COMMUNITY PROJECT 01</span>
-                            <p class="community-card-meta">Activation case study / Content coming soon</p>
+                            <p class="community-card-meta">Launch the MKT project for Community Fest 2025: VN - 2025 MOY AMBASSADOR CAMPAIGN (Approved) with 2 main concepts: Hashtag Icon for Warm-up phase and Community Fest Ambassador during the Online tournament. Release 20 promotional videos with a total of 158,667,400 impressions, a series of daily education livestreaming on OA to train UGC creators.</p>
                         </div>
                     </div>
                 </a>
@@ -558,11 +569,11 @@
                             <div class="community-card-thumb" aria-hidden="true">
                                 <img src="assets/community-projects-logo.png" alt="Community Projects Logo">
                             </div>
-                            <h3 class="community-card-title font-display hero-gradient-text">Offline</h3>
+                            <h3 class="community-card-title font-display hero-gradient-text">Offline event</h3>
                         </div>
                         <div class="community-card-meta-wrap">
                             <span class="community-card-index font-display">COMMUNITY PROJECT 02</span>
-                            <p class="community-card-meta">Activation case study / Content coming soon</p>
+                            <p class="community-card-meta">For the very first time, we hosted Community Fest for SEA & CCA, bringing together 7 regions, 150 creators, and 150 guests. The event featured an unforgettable 4D3N journey to Vietnam, highlighted by a full day of immersive activities and a grand celebration and awards night.</p>
                         </div>
                     </div>
                 </a>

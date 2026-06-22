@@ -213,6 +213,29 @@
             color: rgba(255, 255, 255, .38);
         }
 
+        .live-pro-video-wrapper {
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 1 / 1;
+            margin-inline: auto;
+            border: 1px solid var(--live-pro-border);
+            border-radius: 16px;
+            background: #000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .live-pro-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+            display: block;
+        }
+
         .live-pro-media-frame {
             width: 100%;
             margin: 0;
@@ -607,9 +630,11 @@
                             Monthly research, gameplay mechanics, revenue targets, premium rewards, and recognition
                             content worked as one system to sustain motivation and commercial performance.</p>
                     </div>
-                    <div class="live-pro-placeholder" data-media-placeholder role="img"
-                        aria-label="Campaign overview image placeholder">
-                        <span class="live-pro-placeholder-label">CAMPAIGN VISUAL PLACEHOLDER</span>
+                    <div class="live-pro-video-wrapper">
+                        <video class="live-pro-video" controls autoplay loop muted playsinline>
+                            <source src="ref/project 3/CAMPAIGN VISUAL PLACEHOLDER.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
             </div>
