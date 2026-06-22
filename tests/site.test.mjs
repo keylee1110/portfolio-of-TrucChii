@@ -32,10 +32,9 @@ test('locked homepage sections retain their approved markup', () => {
   }
 });
 
-test('homepage has eight featured project links and no Results section', () => {
+test('homepage has three featured project links and no Results section', () => {
   const projects = sectionMarkup(home, 'campaigns-section');
-  assert.equal((projects.match(/data-project-card/g) || []).length, 8);
-  assert.match(projects, /href="work\.html"/);
+  assert.equal((projects.match(/data-project-card/g) || []).length, 3);
   assert.doesNotMatch(home, /class="results-section"|id="results"/);
 });
 
@@ -54,25 +53,20 @@ test('homepage lower sections follow the approved order', () => {
   }
 });
 
-test('Certification contains exactly six accessible items', () => {
+test('Certification contains exactly five accessible items', () => {
   const certification = sectionMarkup(home, 'certification-section');
-  assert.equal((certification.match(/class="cert-row/g) || []).length, 6);
+  assert.equal((certification.match(/class="cert-row/g) || []).length, 5);
 });
 
 const projects = [
   ['project-livefest.html', 'LIVE FEST 2025'],
   ['project-live-pro.html', 'LIVE PRO CAMPAIGN'],
   ['community-subprojects.html', 'Community Fest'],
-  ['project-placeholder-04.html', 'Project 04'],
-  ['project-placeholder-05.html', 'Project 05'],
-  ['project-placeholder-06.html', 'Project 06'],
-  ['project-placeholder-07.html', 'Project 07'],
-  ['project-placeholder-08.html', 'Project 08'],
 ];
 
-test('Work page lists the same eight projects', () => {
+test('Work page lists the same three projects', () => {
   const work = read('work.html');
-  assert.equal((work.match(/data-work-item/g) || []).length, 8);
+  assert.equal((work.match(/data-work-item/g) || []).length, 3);
   assert.match(work, /class="work-intro-sticky"/);
   for (const [file] of projects) assert.match(work, new RegExp(`href="${file}"`));
 });

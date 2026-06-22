@@ -130,6 +130,40 @@
             margin-top: 11px;
         }
 
+        .live-pro-highlight-container {
+            margin-top: clamp(36px, 4vw, 58px);
+            padding: clamp(40px, 6vw, 80px) clamp(24px, 4vw, 48px);
+            border: 1px solid var(--live-pro-border);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .live-pro-highlight-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #ffffff;
+        }
+
+        .live-pro-highlight-text {
+            font-family: Inter, sans-serif;
+            font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+            font-weight: 300;
+            line-height: 1.35;
+            letter-spacing: -.02em;
+            color: var(--live-pro-muted);
+        }
+
+        .live-pro-highlight-text strong {
+            color: #ffffff;
+            font-weight: 800;
+        }
+
         .live-pro-overview {
             display: grid;
             grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr);
@@ -493,8 +527,9 @@
                 padding-inline: 14px;
                 text-align: center;
             }
+        }
 
-            /* Scroll Reveal Delays */
+        /* Scroll Reveal Delays */
             .reveal-delay-1 {
                 transition-delay: 0.1s;
             }
@@ -559,24 +594,10 @@
                 <p class="live-pro-kicker">PROJECT 03 / CREATOR GROWTH</p>
                 <h1 class="live-pro-title">LIVE PRO CAMPAIGN</h1>
 
-                <div class="live-pro-meta">
-                    <div class="live-pro-meta-item"><span class="live-pro-meta-label">Client</span><span
-                            class="live-pro-meta-value">TikTok LIVE Vietnam</span></div>
-                    <div class="live-pro-meta-item"><span class="live-pro-meta-label">Year</span><span
-                            class="live-pro-meta-value">2025</span></div>
-                    <div class="live-pro-meta-item"><span class="live-pro-meta-label">Role</span><span
-                            class="live-pro-meta-value">Campaign Strategy &amp; Operations</span></div>
-                </div>
-
-                <div class="live-pro-metrics" aria-label="Campaign scale metrics">
-                    <div class="live-pro-metric"><strong class="live-pro-metric-value">100+</strong><span
-                            class="live-pro-metric-label">Regions covered since 2023</span></div>
-                    <div class="live-pro-metric"><strong class="live-pro-metric-value">1.3M+</strong><span
-                            class="live-pro-metric-label">Creators active since 2023</span></div>
-                    <div class="live-pro-metric"><strong class="live-pro-metric-value">2.3M+</strong><span
-                            class="live-pro-metric-label">LIVE broadcasts annually</span></div>
-                    <div class="live-pro-metric"><strong class="live-pro-metric-value">185M+</strong><span
-                            class="live-pro-metric-label">Viewers engaged</span></div>
+                <div class="live-pro-highlight-container reveal-fade-up">
+                    <p class="live-pro-highlight-text">
+                        Achieves a <strong>~60% participation rate</strong>, compared to just <strong>10–15%</strong> for typical campaigns.
+                    </p>
                 </div>
 
                 <div class="live-pro-overview">
@@ -743,7 +764,7 @@
 
         <div class="grid-container live-pro-nav reveal-fade-up">
             <a href="community-subprojects.html" class="btn btn-outline">← PROJECT 02</a>
-            <a href="project-placeholder-04.html" class="btn btn-filled">NEXT PROJECT →</a>
+            <a href="project-livefest.html" class="btn btn-filled">NEXT PROJECT →</a>
         </div>
     </main>
 

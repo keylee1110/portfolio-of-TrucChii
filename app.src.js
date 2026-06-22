@@ -16,6 +16,38 @@ function init() {
     initScrollRevealText();
     initPillAnimations();
     initTestimonialParallax();
+    initCertificateCursorPreview();
+}
+
+function initCertificateCursorPreview() {
+    const rows = document.querySelectorAll('[data-certificate-image]');
+    const preview = document.querySelector('.certificate-cursor-preview');
+    const previewImage = preview?.querySelector('img');
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    if (!rows.length || !preview || !previewImage || !finePointer.matches) return;
+
+    const offset = 24;
+    const positionPreview = (event) => {
+        const width = preview.offsetWidth || 320;
+        const height = preview.offsetHeight || 230;
+        const x = Math.min(event.clientX + offset, window.innerWidth - width - 16);
+        const y = Math.min(event.clientY + offset, window.innerHeight - height - 16);
+        preview.style.setProperty('--preview-x', `${Math.max(16, x)}px`);
+        preview.style.setProperty('--preview-y', `${Math.max(16, y)}px`);
+    };
+
+    rows.forEach((row) => {
+        row.addEventListener('mouseenter', (event) => {
+            const image = row.dataset.certificateImage;
+            if (!image) return;
+            previewImage.src = image;
+            preview.classList.add('is-visible');
+            positionPreview(event);
+        });
+        row.addEventListener('mousemove', positionPreview);
+        row.addEventListener('mouseleave', () => preview.classList.remove('is-visible'));
+    });
 }
 
 if (document.readyState === 'loading') {
