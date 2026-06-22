@@ -116,6 +116,8 @@
         /* Section 01 */
         .master-copy {
             margin-top: 0;
+            font-size: clamp(1.2rem, 1.6vw, 1.35rem);
+            line-height: 1.5;
         }
 
         .master-production-grid {
@@ -483,16 +485,33 @@
         }
 
         /* Section 03 */
-        .revenue-header {
+        .revenue-header-body {
             display: grid;
-            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
             gap: var(--space-xl);
-            align-items: end;
+            align-items: start;
             margin-bottom: var(--space-xl);
         }
 
-        .revenue-header .community-section-title {
-            max-width: 13ch;
+        .revenue-header-left .community-section-title {
+            max-width: none;
+            font-size: clamp(1.8rem, 3vw, 2.9rem);
+            white-space: nowrap;
+            margin-bottom: var(--space-md);
+        }
+
+        .revenue-header-right .campaign-asset {
+            max-width: 100%;
+            background: none !important;
+            border: none !important;
+        }
+
+        .revenue-header-right .campaign-asset::before {
+            display: none !important;
+        }
+
+        .revenue-header-right .campaign-asset:hover {
+            filter: none !important;
         }
 
         .revenue-layout {
@@ -505,6 +524,15 @@
         .revenue-phone {
             width: 100%;
             max-width: 390px;
+        }
+
+        @media (min-width: 901px) {
+            .revenue-phone {
+                margin-top: -140px;
+            }
+            .revenue-right-column {
+                margin-top: -70px;
+            }
         }
 
         .revenue-phone .phone-chassis {
@@ -596,7 +624,9 @@
         }
 
         @keyframes phone-scroll-hint {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0.55;
                 transform: translateY(-2px);
             }
@@ -609,8 +639,10 @@
 
         .dashboard-title {
             margin: clamp(28px, 4vw, 44px) 0 var(--space-md);
-            font-size: clamp(2rem, 4vw, 4rem);
+            font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+            white-space: nowrap;
             letter-spacing: -0.05em;
+            text-align: center;
         }
 
         .dashboard-stack {
@@ -637,9 +669,10 @@
         }
 
         @media (max-width: 900px) {
+
             .master-production-grid,
             .promo-header,
-            .revenue-header,
+            .revenue-header-body,
             .revenue-layout {
                 grid-template-columns: 1fr;
             }
@@ -721,6 +754,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
+
             .media-placeholder,
             .phone-chassis {
                 transition: none;
@@ -754,8 +788,10 @@
             <div class="master-production-grid">
                 <div class="master-left-column">
                     <p class="community-section-copy master-copy">
-                        Assisted in the on-site shooting and production execution for the campaign's official Master Video.
-                        Delivered high-impact visual content that went viral on the platform, capturing 89M+ views and 92K+
+                        Assisted in the on-site shooting and production execution for the campaign's official Master
+                        Video.
+                        Delivered high-impact visual content that went viral on the platform, capturing 89M+ views and
+                        92K+
                         likes to drive massive event awareness.
                     </p>
                     <div class="shooting-placeholder-grid" aria-label="Behind-the-scenes image placeholders">
@@ -766,8 +802,7 @@
                         </div>
                         <div class="media-placeholder shooting-placeholder has-media">
                             <img class="media-image" src="assets/community-project-01-shooting-02.png"
-                                alt="Community Fest creator filming session" width="828" height="1458"
-                                decoding="async">
+                                alt="Community Fest creator filming session" width="828" height="1458" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -895,18 +930,26 @@
             </div>
         </section>
 
-        <section class="community-detail-section revenue-section" id="revenue-acceleration" data-section="revenue-acceleration">
-            <div class="revenue-header">
-                <div>
+        <section class="community-detail-section revenue-section" id="revenue-acceleration"
+            data-section="revenue-acceleration">
+            <div class="revenue-header-body">
+                <div class="revenue-header-left">
                     <div class="project-kicker">Community Fest / Project 01 / Section 03</div>
                     <h2 class="community-section-title font-display">MOY Campaign Revenue Acceleration</h2>
+                    <p class="community-section-copy">
+                        Launched multiple online campaign pages during the MOY event to boost creator activation,
+                        participation, and revenue. The campaign generated $1.03M in cumulative revenue, delivering a
+                        +$841.7K revenue uplift and 451.91% growth vs baseline. It also activated 675 GO LIVE creators
+                        from
+                        689 target users, achieving a 97.97% GO LIVE rate and 67.92% participation rate.
+                    </p>
                 </div>
-                <p class="community-section-copy">
-                    Launched multiple online campaign pages during the MOY event to boost creator activation,
-                    participation, and revenue. The campaign generated $1.03M in cumulative revenue, delivering a
-                    +$841.7K revenue uplift and 451.91% growth vs baseline. It also activated 675 GO LIVE creators from
-                    689 target users, achieving a 97.97% GO LIVE rate and 67.92% participation rate.
-                </p>
+                <div class="revenue-header-right">
+                    <div class="media-placeholder campaign-asset has-media">
+                        <img class="media-image" src="assets/community-project-01-campaign-asset.png"
+                            alt="Community Fest campaign creative assets" width="1660" height="1353" decoding="async">
+                    </div>
+                </div>
             </div>
 
             <div class="revenue-layout">
@@ -924,14 +967,6 @@
                 </div>
 
                 <div class="revenue-right-column">
-                    <div class="campaign-assets">
-                        <div class="media-placeholder campaign-asset has-media">
-                            <img class="media-image" src="assets/community-project-01-campaign-asset.png"
-                                alt="Community Fest campaign creative assets" width="1660" height="1353"
-                                decoding="async">
-                        </div>
-                    </div>
-
                     <h3 class="dashboard-title font-display">Campaign Metrics Dashboard</h3>
                     <div class="dashboard-stack" aria-label="Campaign dashboard placeholders">
                         <div class="media-placeholder dashboard-placeholder has-media">
@@ -950,7 +985,8 @@
         </section>
 
         <nav class="subproject-nav" aria-label="Community project navigation">
-            <a href="community-subprojects.html#community-subprojects-title" class="btn btn-outline">← BACK TO COMMUNITY FEST</a>
+            <a href="community-subprojects.html#community-subprojects-title" class="btn btn-outline">← BACK TO COMMUNITY
+                FEST</a>
             <a href="project-community-02.html" class="btn btn-filled">COMMUNITY PROJECT 02 →</a>
         </nav>
     </main>
