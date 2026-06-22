@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVE PRO CAMPAIGN - ElysLu</title>
+    <meta name="description"
+        content="LIVE PRO CAMPAIGN case study: creator research, campaign gameplay, performance optimization, rewards, and recognition content for TikTok LIVE Vietnam.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="LIVE PRO CAMPAIGN - ElysLu">
+    <meta property="og:description"
+        content="A recurring TikTok LIVE creator growth campaign built through research, gameplay design, performance optimization, rewards, and recognition content.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elyslumarketing.com/project-live-pro.html">
+    <style>
+        :root {
+            --live-pro-border: rgba(255, 255, 255, .15);
+            --live-pro-muted: rgba(255, 255, 255, .62);
+            --live-pro-wash: rgba(91, 0, 54, .2);
+        }
+
+        .live-pro-page {
+            overflow-x: clip;
+            background: #050505;
+        }
+
+        .live-pro-page .grid-container {
+            width: min(100% - 40px, 1440px);
+            max-width: 1440px;
+            margin-inline: auto;
+        }
+
+        .live-pro-section {
+            position: relative;
+            padding-block: clamp(72px, 9vw, 138px);
+            border-bottom: 1px solid var(--live-pro-border);
+        }
+
+        .live-pro-hero {
+            padding-top: clamp(118px, 10vw, 168px);
+            padding-bottom: clamp(72px, 9vw, 128px);
+        }
+
+        .live-pro-kicker,
+        .live-pro-meta-label,
+        .live-pro-metric-label,
+        .live-pro-placeholder-label,
+        .live-pro-result-label {
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+
+        .live-pro-kicker {
+            margin-bottom: 18px;
+            color: var(--live-pro-muted);
+        }
+
+        .live-pro-title {
+            max-width: none;
+            font-family: Inter, sans-serif;
+            font-size: clamp(3.4rem, 7vw, 8rem);
+            font-weight: 900;
+            line-height: .86;
+            letter-spacing: -.075em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .live-pro-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            margin-top: clamp(32px, 3vw, 48px);
+            padding-block: 24px 36px;
+            border-top: 1px solid var(--live-pro-border);
+            border-bottom: 1px solid var(--live-pro-border);
+        }
+
+        .live-pro-meta-item {
+            display: grid;
+            gap: 10px;
+        }
+
+        .live-pro-meta-label,
+        .live-pro-metric-label,
+        .live-pro-result-label {
+            color: var(--live-pro-muted);
+        }
+
+        .live-pro-meta-value {
+            font-size: clamp(.9rem, 1.25vw, 1.05rem);
+        }
+
+        .live-pro-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: clamp(36px, 4vw, 58px);
+            border: 1px solid var(--live-pro-border);
+        }
+
+        .live-pro-metric {
+            min-height: 144px;
+            display: grid;
+            place-content: center;
+            text-align: center;
+            padding: 24px;
+            border-right: 1px solid var(--live-pro-border);
+        }
+
+        .live-pro-metric:last-child {
+            border-right: 0;
+        }
+
+        .live-pro-metric-value {
+            font-size: clamp(2.2rem, 5vw, 4.2rem);
+            font-weight: 900;
+            line-height: .9;
+            letter-spacing: -.055em;
+        }
+
+        .live-pro-metric-label {
+            margin-top: 11px;
+        }
+
+        .live-pro-overview {
+            display: grid;
+            grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr);
+            gap: clamp(44px, 7vw, 110px);
+            align-items: center;
+            margin-top: clamp(74px, 10vw, 142px);
+        }
+
+        .live-pro-copy-title {
+            margin-bottom: 20px;
+            font-size: clamp(1.55rem, 2.8vw, 2.45rem);
+            font-weight: 800;
+            letter-spacing: -.04em;
+            text-transform: uppercase;
+        }
+
+        .live-pro-copy,
+        .live-pro-lede {
+            color: var(--live-pro-muted);
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            line-height: 1.6;
+        }
+
+        .live-pro-placeholder {
+            position: relative;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            min-height: 420px;
+            border: 1px solid var(--live-pro-border);
+            background:
+                linear-gradient(135deg, transparent 49.85%, rgba(255, 255, 255, .11) 50%, transparent 50.15%),
+                linear-gradient(45deg, transparent 49.85%, rgba(255, 255, 255, .11) 50%, transparent 50.15%),
+                #0b0b0b;
+        }
+
+        .live-pro-placeholder::after {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(255, 255, 255, .07);
+        }
+
+        .live-pro-placeholder-label {
+            position: relative;
+            z-index: 1;
+            color: rgba(255, 255, 255, .38);
+        }
+
+        .live-pro-media-frame {
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+            border: 1px solid var(--live-pro-border);
+            background: #fff;
+        }
+
+        .live-pro-media-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .live-pro-editorial-title {
+            font-family: "DM Serif Display", Georgia, serif;
+            font-size: clamp(2.8rem, 6.8vw, 7.2rem);
+            line-height: .93;
+            letter-spacing: -.035em;
+        }
+
+        .live-pro-research {
+            background: radial-gradient(circle at 0 10%, var(--live-pro-wash), transparent 42%), #050505;
+        }
+
+        .live-pro-research-grid {
+            display: grid;
+            grid-template-columns: minmax(0, .82fr) minmax(480px, 1.18fr);
+            gap: clamp(46px, 6vw, 92px);
+            align-items: start;
+        }
+
+        .live-pro-research-copy {
+            font-size: clamp(1.15rem, 1.85vw, 1.8rem);
+            font-weight: 300;
+            line-height: 1.42;
+            letter-spacing: -.025em;
+        }
+
+        .live-pro-research-copy strong {
+            font-weight: 800;
+        }
+
+        .live-pro-research-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 18px;
+            padding-left: 1.2em;
+        }
+
+        .live-pro-research .live-pro-media-frame {
+            align-self: center;
+        }
+
+        .live-pro-results {
+            background: linear-gradient(110deg, rgba(71, 0, 48, .25), transparent 45%), #050505;
+        }
+
+        .live-pro-results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(30px, 4vw, 60px) 18px;
+            margin-top: clamp(48px, 6vw, 84px);
+        }
+
+        .live-pro-result-card:nth-child(2),
+        .live-pro-result-card:nth-child(4) {
+            transform: translateY(48px);
+        }
+
+        .live-pro-result-label {
+            display: block;
+            margin-bottom: 13px;
+            color: #fff;
+            font-size: clamp(.8rem, 1.3vw, 1rem);
+            letter-spacing: -.01em;
+            text-transform: none;
+        }
+
+        .live-pro-result-card .live-pro-media-frame {
+            background: #fff;
+        }
+
+        .live-pro-rewards {
+            background: radial-gradient(circle at 0 30%, var(--live-pro-wash), transparent 35%), #050505;
+        }
+
+        .live-pro-lede {
+            max-width: 1120px;
+            margin-top: 18px;
+            color: #fff;
+            font-weight: 650;
+            line-height: 1.25;
+        }
+
+        .live-pro-rewards .live-pro-media-frame {
+            width: min(72%, 900px);
+            margin-top: clamp(48px, 6vw, 80px);
+            background: #e4b6c1;
+        }
+
+        .live-pro-recognition {
+            background: linear-gradient(105deg, rgba(81, 0, 57, .24), transparent 45%), #050505;
+        }
+
+        .live-pro-phones {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: clamp(18px, 3.8vw, 54px);
+            margin-top: clamp(58px, 7vw, 100px);
+        }
+
+        .phone-card {
+            width: 100%;
+            max-width: 220px;
+            margin-inline: auto;
+            min-width: 0;
+        }
+
+        .phone-chassis {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 17.2;
+            padding: 11px;
+            border: 3px solid #242424;
+            border-radius: clamp(24px, 3vw, 38px);
+            background: #070707;
+            box-shadow: 0 18px 38px rgba(0, 0, 0, .5);
+            transition: transform 500ms cubic-bezier(.16, 1, .3, 1), border-color 500ms ease;
+        }
+
+        .phone-card:hover .phone-chassis {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(255, 255, 255, .48);
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            z-index: 2;
+            width: 35%;
+            height: 14px;
+            border-radius: 999px;
+            background: #202020;
+            transform: translateX(-50%);
+        }
+
+        .phone-screen {
+            position: relative;
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border: 1px dashed rgba(255, 255, 255, .08);
+            border-radius: clamp(17px, 2.3vw, 28px);
+            background: #0b0b0b;
+        }
+
+        .tiktok-phone-link {
+            position: absolute;
+            inset: 0;
+            display: block;
+            overflow: hidden;
+            border-radius: inherit;
+        }
+
+        .tiktok-phone-cover {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 500ms cubic-bezier(.16, 1, .3, 1), filter 300ms ease;
+        }
+
+        .tiktok-phone-link:hover .tiktok-phone-cover,
+        .tiktok-phone-link:focus-visible .tiktok-phone-cover {
+            transform: scale(1.035);
+            filter: brightness(.82);
+        }
+
+        .tiktok-phone-link:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: -5px;
+        }
+
+        .tiktok-phone-play {
+            position: relative;
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(255, 255, 255, .7);
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .72);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
+            transform: translate(-50%, -50%);
+            transition: transform 250ms ease, background-color 250ms ease;
+        }
+
+        .tiktok-phone-link:hover .tiktok-phone-play,
+        .tiktok-phone-link:focus-visible .tiktok-phone-play {
+            background: #000;
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        .tiktok-phone-play::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 53%;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 11px solid #fff;
+            transform: translate(-35%, -50%);
+        }
+
+        .live-pro-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-block: clamp(48px, 6vw, 80px);
+        }
+
+        @media (max-width: 900px) {
+
+            .live-pro-meta,
+            .live-pro-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .live-pro-metric:nth-child(2) {
+                border-right: 0;
+            }
+
+            .live-pro-metric:nth-child(-n + 2) {
+                border-bottom: 1px solid var(--live-pro-border);
+            }
+
+            .live-pro-overview,
+            .live-pro-research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .live-pro-phones {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .live-pro-page .grid-container {
+                width: min(100% - 28px, 1440px);
+            }
+
+            .live-pro-title {
+                font-size: clamp(3rem, 16vw, 5.2rem);
+                white-space: normal;
+            }
+
+            .live-pro-meta {
+                gap: 22px 14px;
+            }
+
+            .live-pro-metric {
+                min-height: 116px;
+                padding: 16px 8px;
+            }
+
+            .live-pro-placeholder {
+                min-height: 290px;
+            }
+
+            .live-pro-results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .live-pro-result-card:nth-child(2),
+            .live-pro-result-card:nth-child(4) {
+                transform: none;
+            }
+
+            .live-pro-rewards .live-pro-media-frame {
+                width: 100%;
+            }
+
+            .live-pro-phones {
+                display: flex;
+                gap: 18px;
+                margin-inline: -14px;
+                padding: 8px 14px 28px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                overscroll-behavior-inline: contain;
+                scrollbar-width: thin;
+            }
+
+            .phone-card {
+                flex: 0 0 min(72vw, 220px);
+                scroll-snap-align: center;
+            }
+
+            .live-pro-nav {
+                align-items: stretch;
+            }
+
+            .live-pro-nav .btn {
+                flex: 1;
+                padding-inline: 14px;
+                text-align: center;
+            }
+
+            /* Scroll Reveal Delays */
+            .reveal-delay-1 {
+                transition-delay: 0.1s;
+            }
+
+            .reveal-delay-2 {
+                transition-delay: 0.2s;
+            }
+
+            .reveal-delay-3 {
+                transition-delay: 0.3s;
+            }
+
+            .reveal-delay-4 {
+                transition-delay: 0.4s;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+
+                .phone-chassis,
+                .tiktok-phone-cover,
+                .tiktok-phone-play {
+                    transition: none;
+                }
+            }
+    </style>
+</head>
+
+<body class="live-pro-page bg-black text-white antialiased selection-accent">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="page-wipe wipe-initial-in" id="page-wipe"></div>
+
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <nav class="nav-menu" id="main-nav">
+                <a href="index.html#about" class="nav-link">About</a><span class="nav-comma">,</span>
+                <a href="index.html#projects" class="nav-link">Work</a><span class="nav-comma">,</span>
+                <a href="index.html#contact" class="nav-link btn-contact-trigger">Contact</a>
+            </nav>
+            <a href="index.html" class="brand-logo nav-brand-center" id="nav-logo">ElysLu</a>
+            <div class="nav-right">
+                <span class="nav-header-label">Based in SGN</span>
+                <span class="nav-header-sublabel">Digital Growth Specialist + Creative Lead</span>
+            </div>
+            <button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer-menu">
+        <nav class="mobile-nav-links">
+            <a href="index.html#about" class="mobile-nav-link">About</a>
+            <a href="index.html#projects" class="mobile-nav-link">Work</a>
+            <a href="index.html#contact" class="mobile-nav-link btn-contact-trigger">Contact</a>
+        </nav>
+    </div>
+
+    <main id="main-content">
+        <section class="live-pro-hero live-pro-section reveal-fade-up" data-section="campaign-overview">
+            <div class="grid-container">
+                <p class="live-pro-kicker">PROJECT 03 / CREATOR GROWTH</p>
+                <h1 class="live-pro-title">LIVE PRO CAMPAIGN</h1>
+
+                <div class="live-pro-meta">
+                    <div class="live-pro-meta-item"><span class="live-pro-meta-label">Client</span><span
+                            class="live-pro-meta-value">TikTok LIVE Vietnam</span></div>
+                    <div class="live-pro-meta-item"><span class="live-pro-meta-label">Year</span><span
+                            class="live-pro-meta-value">2025</span></div>
+                    <div class="live-pro-meta-item"><span class="live-pro-meta-label">Role</span><span
+                            class="live-pro-meta-value">Campaign Strategy &amp; Operations</span></div>
+                </div>
+
+                <div class="live-pro-metrics" aria-label="Campaign scale metrics">
+                    <div class="live-pro-metric"><strong class="live-pro-metric-value">100+</strong><span
+                            class="live-pro-metric-label">Regions covered since 2023</span></div>
+                    <div class="live-pro-metric"><strong class="live-pro-metric-value">1.3M+</strong><span
+                            class="live-pro-metric-label">Creators active since 2023</span></div>
+                    <div class="live-pro-metric"><strong class="live-pro-metric-value">2.3M+</strong><span
+                            class="live-pro-metric-label">LIVE broadcasts annually</span></div>
+                    <div class="live-pro-metric"><strong class="live-pro-metric-value">185M+</strong><span
+                            class="live-pro-metric-label">Viewers engaged</span></div>
+                </div>
+
+                <div class="live-pro-overview">
+                    <div>
+                        <h2 class="live-pro-copy-title">Campaign Overview</h2>
+                        <p class="live-pro-copy">A recurring growth campaign designed for Vietnam's top LIVE creators.
+                            Monthly research, gameplay mechanics, revenue targets, premium rewards, and recognition
+                            content worked as one system to sustain motivation and commercial performance.</p>
+                    </div>
+                    <div class="live-pro-placeholder" data-media-placeholder role="img"
+                        aria-label="Campaign overview image placeholder">
+                        <span class="live-pro-placeholder-label">CAMPAIGN VISUAL PLACEHOLDER</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="live-pro-section live-pro-research" data-section="research-strategy">
+            <div class="grid-container live-pro-research-grid">
+                <div class="live-pro-research-copy reveal-fade-up">
+                    <p><strong>Data-Driven Research:</strong> Analyzed monthly recap data, revenue trends, and
+                        behavioral patterns of top-tier creators in Vietnam to identify growth opportunities and
+                        optimization points.</p>
+                    <ul class="live-pro-research-list">
+                        <li><strong>Behavioral Analysis:</strong> Evaluated creator task completion rates, reward
+                            attractiveness, and psychological drivers to understand what motivates creators to push for
+                            higher targets.</li>
+                        <li><strong>Strategy &amp; Gameplay Design:</strong> Developed monthly campaign strategies and
+                            task mechanics based on these insights to strengthen motivation, user desire, and monthly
+                            revenue.</li>
+                    </ul>
+                </div>
+                <figure class="live-pro-media-frame reveal-fade-up reveal-delay-1">
+                    <img class="live-pro-media-image" src="assets/live-pro-research-dashboard.png"
+                        alt="LIVE PRO monthly research dashboard with creator behavior, revenue, and campaign participation analysis"
+                        loading="lazy" decoding="async">
+                </figure>
+            </div>
+        </section>
+
+        <section class="live-pro-section live-pro-results" data-section="campaign-results">
+            <div class="grid-container">
+                <h2 class="live-pro-editorial-title reveal-fade-up">Result</h2>
+                <div class="live-pro-results-grid">
+                    <article class="live-pro-result-card reveal-fade-up">
+                        <span class="live-pro-result-label">Result of LIVE PRO August</span>
+                        <figure class="live-pro-media-frame"><img class="live-pro-media-image"
+                                src="assets/live-pro-result-august.png" alt="LIVE PRO August campaign result dashboard"
+                                loading="lazy" decoding="async"></figure>
+                    </article>
+                    <article class="live-pro-result-card reveal-fade-up reveal-delay-1">
+                        <span class="live-pro-result-label">Result of LIVE PRO September</span>
+                        <figure class="live-pro-media-frame"><img class="live-pro-media-image"
+                                src="assets/live-pro-result-september.png"
+                                alt="LIVE PRO September campaign result dashboard" loading="lazy" decoding="async">
+                        </figure>
+                    </article>
+                    <article class="live-pro-result-card reveal-fade-up reveal-delay-2">
+                        <span class="live-pro-result-label">Result of LIVE PRO October</span>
+                        <figure class="live-pro-media-frame"><img class="live-pro-media-image"
+                                src="assets/live-pro-result-october.png"
+                                alt="LIVE PRO October campaign result dashboard" loading="lazy" decoding="async">
+                        </figure>
+                    </article>
+                    <article class="live-pro-result-card reveal-fade-up reveal-delay-3">
+                        <span class="live-pro-result-label">Result of LIVE PRO November</span>
+                        <figure class="live-pro-media-frame"><img class="live-pro-media-image"
+                                src="assets/live-pro-result-november.png"
+                                alt="LIVE PRO November campaign result dashboard" loading="lazy" decoding="async">
+                        </figure>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="live-pro-section live-pro-rewards" data-section="creator-rewards">
+            <div class="grid-container">
+                <h2 class="live-pro-editorial-title reveal-fade-up">Exclusive Creator Rewards</h2>
+                <p class="live-pro-lede reveal-fade-up reveal-delay-1">Managed monthly vendor coordination to deliver custom-made merchandise for LIVE
+                    Pro winners. Each reward reflected the branding and personality of Vietnam's top creators, elevating
+                    the premium winner experience.</p>
+                <figure class="live-pro-media-frame reveal-fade-up reveal-delay-2">
+                    <img class="live-pro-media-image" src="assets/live-pro-creator-rewards.png"
+                        alt="Custom LIVE PRO creator reward kit and winner plaque" loading="lazy" decoding="async">
+                </figure>
+            </div>
+        </section>
+
+        <section class="live-pro-section live-pro-recognition" data-section="recognition-videos">
+            <div class="grid-container">
+                <h2 class="live-pro-editorial-title reveal-fade-up">Creator Recognition Content Video</h2>
+                <p class="live-pro-lede reveal-fade-up reveal-delay-1">Worked with Things To Do agency to produce high-quality marketing and
+                    congratulatory videos for LIVE Pro winners. These assets served as powerful self-PR tools for top
+                    creators while motivating other creators and expanding campaign awareness.</p>
+
+                <div class="live-pro-phones" aria-label="Creator recognition TikTok videos">
+                    <article class="phone-card reveal-fade-up">
+                        <div class="phone-chassis">
+                            <div class="phone-notch" aria-hidden="true"></div>
+                            <div class="phone-screen">
+                                <a class="tiktok-phone-link"
+                                    href="https://www.tiktok.com/@tiktoklive_vietnam/video/7550218638649789714?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7625483623424378385"
+                                    target="_blank" rel="noopener noreferrer"
+                                    aria-label="Watch creator recognition video 1 on TikTok">
+                                    <img class="tiktok-phone-cover" src="assets/live-pro-tiktok-7550218638649789714.jpg"
+                                        alt="TikTok LIVE honors the LIVE PRO top 10 creators" width="720" height="1280"
+                                        loading="lazy" decoding="async">
+                                    <span class="tiktok-phone-play" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="phone-card reveal-fade-up reveal-delay-1">
+                        <div class="phone-chassis">
+                            <div class="phone-notch" aria-hidden="true"></div>
+                            <div class="phone-screen">
+                                <a class="tiktok-phone-link"
+                                    href="https://www.tiktok.com/@tiktoklive_vietnam/video/7575815911777635592?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7625483623424378385"
+                                    target="_blank" rel="noopener noreferrer"
+                                    aria-label="Watch creator recognition video 2 on TikTok">
+                                    <img class="tiktok-phone-cover" src="assets/live-pro-tiktok-7575815911777635592.jpg"
+                                        alt="LIVE PRO September creator recognition video thumbnail" width="720"
+                                        height="1280" loading="lazy" decoding="async">
+                                    <span class="tiktok-phone-play" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="phone-card reveal-fade-up reveal-delay-2">
+                        <div class="phone-chassis">
+                            <div class="phone-notch" aria-hidden="true"></div>
+                            <div class="phone-screen">
+                                <a class="tiktok-phone-link"
+                                    href="https://www.tiktok.com/@tiktoklive_vietnam/video/7576529267064950036?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7625483623424378385"
+                                    target="_blank" rel="noopener noreferrer"
+                                    aria-label="Watch creator recognition video 3 on TikTok">
+                                    <img class="tiktok-phone-cover" src="assets/live-pro-tiktok-7576529267064950036.jpg"
+                                        alt="LIVE PRO October creator recognition video thumbnail" width="720"
+                                        height="1280" loading="lazy" decoding="async">
+                                    <span class="tiktok-phone-play" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="phone-card reveal-fade-up reveal-delay-3">
+                        <div class="phone-chassis">
+                            <div class="phone-notch" aria-hidden="true"></div>
+                            <div class="phone-screen">
+                                <a class="tiktok-phone-link"
+                                    href="https://www.tiktok.com/@tiktoklive_vietnam/video/7587673281524780308?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7625483623424378385"
+                                    target="_blank" rel="noopener noreferrer"
+                                    aria-label="Watch creator recognition video 4 on TikTok">
+                                    <img class="tiktok-phone-cover" src="assets/live-pro-tiktok-7587673281524780308.jpg"
+                                        alt="LIVE PRO November creator recognition video thumbnail" width="720"
+                                        height="1280" loading="lazy" decoding="async">
+                                    <span class="tiktok-phone-play" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid-container live-pro-nav reveal-fade-up">
+            <a href="community-subprojects.html" class="btn btn-outline">← PROJECT 02</a>
+            <a href="project-placeholder-04.html" class="btn btn-filled">NEXT PROJECT →</a>
+        </div>
+    </main>
+
+    <footer class="footer-bottom">
+        <div class="fb-container">
+            <p class="fb-copy">© 2026 ElysLu. ALL RIGHTS RESERVED.</p>
+            <p class="fb-design">SWISS PUNK PERFORMANCE SYSTEM V1.0</p>
+        </div>
+    </footer>
+
+    <script src="app.js?v=20260621"></script>
+</body>
+
+</html>

@@ -8,8 +8,10 @@ def compress_images():
     html_files = [
         'index.html',
         'work.html',
-        'project-awareness.html',
-        'project-launch.html',
+        'project-livefest.html',
+        'project-live-pro.html',
+        'project-community-01.html',
+        'project-community-02.html',
         'community-subprojects.html',
         'project-placeholder-04.html',
         'project-placeholder-05.html',
