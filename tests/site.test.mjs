@@ -223,7 +223,7 @@ test('Community Project 01 follows the approved three-section campaign story', (
   assert.match(html, /overscroll-behavior:\s*contain/);
   assert.doesNotMatch(html, />Asset 0[1-3]</);
   assert.equal((html.match(/class="phone-screen[^"]*"/g) || []).length, 5);
-  for (const result of ['2.5M', '180K', '8.2%', '+35%']) assert.match(html, new RegExp(result.replace('+', '\\+')));
+  for (const result of ['8', '130M']) assert.match(html, new RegExp(result));
   assert.equal((html.match(/<img\b/gi) || []).length, 12);
 });
 

@@ -121,6 +121,15 @@
             text-transform: uppercase;
         }
 
+        .detail-stat-caption {
+            font-size: clamp(0.62rem, 0.78vw, 0.75rem);
+            color: var(--color-text-muted);
+            margin-top: 6px;
+            line-height: 1.35;
+            text-transform: none;
+            font-weight: 400;
+        }
+
         .community-poster {
             min-height: 100%;
             overflow: hidden;
@@ -407,6 +416,8 @@
 
             .detail-stat-card {
                 padding: 16px;
+                aspect-ratio: auto;
+                min-height: 140px;
             }
         }
 
@@ -483,20 +494,30 @@
         <section class="community-results reveal-fade-up" aria-label="Campaign results">
             <div class="detail-stats-grid">
                 <div class="detail-stat-card">
-                    <div class="detail-stat-num font-display">35</div>
-                    <div class="detail-stat-lbl">Creators Briefed</div>
+                    <div class="detail-stat-num font-display">158.6M+</div>
+                    <div>
+                        <div class="detail-stat-lbl">TOTAL IMPRESSIONS</div>
+                    </div>
                 </div>
                 <div class="detail-stat-card">
-                    <div class="detail-stat-num font-display">120</div>
-                    <div class="detail-stat-lbl">UGC Videos</div>
+                    <div class="detail-stat-num font-display">148%</div>
+                    <div>
+                        <div class="detail-stat-lbl">TARGET COMPLETION RATE</div>
+                        <div class="detail-stat-caption">Top 3 Global | Top 1 SEA (Consume DAU Penetration).</div>
+                    </div>
                 </div>
                 <div class="detail-stat-card">
-                    <div class="detail-stat-num font-display">4.8M</div>
-                    <div class="detail-stat-lbl">Views</div>
+                    <div class="detail-stat-num font-display">4.45%</div>
+                    <div>
+                        <div class="detail-stat-lbl">DAU PENETRATION INCREMENT</div>
+                    </div>
                 </div>
                 <div class="detail-stat-card">
-                    <div class="detail-stat-num font-display">12%</div>
-                    <div class="detail-stat-lbl">Conversion Rate</div>
+                    <div class="detail-stat-num font-display">+$1.4M</div>
+                    <div>
+                        <div class="detail-stat-lbl">DAILY ACTUAL INCREMENT</div>
+                        <div class="detail-stat-caption">118.5% Completion Rate | Top 2 SEA by incremental.</div>
+                    </div>
                 </div>
             </div>
             <figure class="community-poster">
