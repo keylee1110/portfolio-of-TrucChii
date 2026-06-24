@@ -32,9 +32,9 @@ test('locked homepage sections retain their approved markup', () => {
   }
 });
 
-test('homepage has three featured project links and no Results section', () => {
+test('homepage has four featured project links and no Results section', () => {
   const projects = sectionMarkup(home, 'campaigns-section');
-  assert.equal((projects.match(/data-project-card/g) || []).length, 3);
+  assert.equal((projects.match(/data-project-card/g) || []).length, 4);
   assert.doesNotMatch(home, /class="results-section"|id="results"/);
 });
 
@@ -62,16 +62,18 @@ const projects = [
   ['project-livefest.html', 'LIVE FEST 2025'],
   ['project-live-pro.html', 'LIVE PRO CAMPAIGN'],
   ['community-subprojects.html', 'Community Fest'],
+  ['project-live-legend.html', 'LIVE LEGEND'],
 ];
+const workProjects = projects.filter(([file]) => file !== 'project-live-legend.html');
 
 test('Work page lists the same three projects', () => {
   const work = read('work.html');
   assert.equal((work.match(/data-work-item/g) || []).length, 3);
   assert.match(work, /class="work-intro-sticky"/);
-  for (const [file] of projects) assert.match(work, new RegExp(`href="${file}"`));
+  for (const [file] of workProjects) assert.match(work, new RegExp(`href="${file}"`));
 });
 
-test('all eight project pages exist and placeholders are explicit', () => {
+test('all project pages exist and placeholders are explicit', () => {
   for (const [file, title] of projects) {
     assert.ok(existsSync(join(root, file)), `Missing ${file}`);
     const html = read(file);
