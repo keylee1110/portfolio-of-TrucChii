@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIVE PRO CAMPAIGN - ElysLu</title>
+    <title>LIVE LEGEND - ElysLu</title>
     <meta name="description"
-        content="LIVE PRO CAMPAIGN case study: creator research, campaign gameplay, performance optimization, rewards, and recognition content for TikTok LIVE Vietnam.">
+        content="LIVE LEGEND case study: monthly campaign strategy, creator ranking mechanics, GTM materials, and TikTok LIVE engagement systems.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <meta property="og:title" content="LIVE PRO CAMPAIGN - ElysLu">
+    <meta property="og:title" content="LIVE LEGEND - ElysLu">
     <meta property="og:description"
-        content="A recurring TikTok LIVE creator growth campaign built through research, gameplay design, performance optimization, rewards, and recognition content.">
+        content="A TikTok LIVE campaign system built around creator motivation, ranking mechanics, monthly management, and GTM communication.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://elyslumarketing.com/project-live-pro.html">
+    <meta property="og:url" content="https://elyslumarketing.com/project-live-legend.html">
     <style>
         :root {
             --live-pro-border: rgba(255, 255, 255, .15);
@@ -28,6 +28,12 @@
         .live-pro-page {
             overflow-x: clip;
             background: #050505;
+        }
+
+        .live-legend-page {
+            --live-pro-border: rgba(255, 255, 255, .16);
+            --live-pro-muted: rgba(255, 255, 255, .64);
+            --live-pro-wash: rgba(126, 78, 0, .24);
         }
 
         .live-pro-page .grid-container {
@@ -213,6 +219,96 @@
             color: rgba(255, 255, 255, .38);
         }
 
+        .live-legend-placeholder {
+            min-height: 100%;
+            aspect-ratio: 16 / 10;
+        }
+
+        .live-legend-hero-media {
+            align-self: stretch;
+            min-height: 360px;
+        }
+
+        .live-legend-management-container {
+            display: block !important;
+        }
+
+        .live-legend-management-title {
+            margin-bottom: clamp(30px, 4vw, 56px);
+            max-width: none;
+            white-space: nowrap;
+        }
+
+        .live-legend-management-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(18px, 2vw, 28px);
+            align-items: stretch;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .live-legend-management-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            min-width: 0;
+            min-height: clamp(220px, 20vw, 320px);
+            padding: clamp(20px, 2.6vw, 36px);
+            border: 0;
+            background: transparent;
+        }
+
+        .live-legend-management-copy p {
+            max-width: 34ch;
+            font-size: clamp(1.05rem, 1.45vw, 1.45rem);
+            font-weight: 300;
+            line-height: 1.32;
+            letter-spacing: -.025em;
+            overflow-wrap: break-word;
+        }
+
+        .live-legend-management-grid .live-pro-placeholder {
+            width: 100%;
+            min-width: 0;
+            min-height: clamp(220px, 20vw, 320px);
+        }
+
+        .live-legend-page .live-pro-research,
+        .live-legend-page .live-pro-results {
+            background: #050505;
+        }
+
+        .live-legend-asset-frame {
+            width: 100%;
+            min-width: 0;
+            margin: 0;
+            overflow: visible;
+            border: 0;
+            background: transparent;
+        }
+
+        .live-legend-asset-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .live-legend-gtm-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .82fr .95fr;
+            gap: clamp(18px, 2.5vw, 32px);
+            align-items: stretch;
+            margin-top: clamp(42px, 5vw, 74px);
+        }
+
+        .live-legend-gtm-grid .live-legend-asset-frame {
+            align-self: start;
+        }
+
         .live-pro-video-wrapper {
             width: 100%;
             max-width: 480px;
@@ -257,6 +353,12 @@
             font-weight: 700;
             line-height: .88;
             letter-spacing: -.055em;
+        }
+
+        .live-pro-editorial-title.live-legend-management-title {
+            font-size: clamp(2.25rem, 2.55vw, 3rem);
+            line-height: .92;
+            letter-spacing: -.045em;
         }
 
         .live-pro-research {
@@ -485,6 +587,15 @@
                 grid-template-columns: 1fr;
             }
 
+            .live-legend-management-grid,
+            .live-legend-gtm-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .live-legend-management-title {
+                white-space: normal;
+            }
+
             .live-pro-phones {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -581,7 +692,7 @@
     </style>
 </head>
 
-<body class="live-pro-page bg-black text-white antialiased selection-accent">
+<body class="live-pro-page live-legend-page bg-black text-white antialiased selection-accent">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="page-wipe wipe-initial-in" id="page-wipe"></div>
 
@@ -614,183 +725,115 @@
 
     <main id="main-content">
         <section class="live-pro-hero live-pro-section reveal-fade-up" data-section="campaign-overview">
-            <div class="grid-container">
-                <p class="live-pro-kicker">PROJECT 03 / CREATOR GROWTH</p>
-                <h1 class="live-pro-title">LIVE PRO CAMPAIGN</h1>
+            <div class="grid-container live-legend-management-container">
+                <p class="live-pro-kicker">PROJECT 04 / CREATOR ENGAGEMENT</p>
+                <h1 class="live-pro-title">LIVE LEGEND</h1>
 
-                <div class="live-pro-highlight-container reveal-fade-up">
-                    <p class="live-pro-highlight-text">
-                        Achieves a <strong>~60% participation rate</strong>, compared to just <strong>10–15%</strong> for typical campaigns.
-                    </p>
+                <div class="live-pro-meta">
+                    <div class="live-pro-meta-item">
+                        <span class="live-pro-meta-label">Client</span>
+                        <span class="live-pro-meta-value">TikTok LIVE Vietnam</span>
+                    </div>
+                    <div class="live-pro-meta-item">
+                        <span class="live-pro-meta-label">Platforms</span>
+                        <span class="live-pro-meta-value">TikTok LIVE</span>
+                    </div>
+                    <div class="live-pro-meta-item">
+                        <span class="live-pro-meta-label">Year</span>
+                        <span class="live-pro-meta-value">2025</span>
+                    </div>
+                    <div class="live-pro-meta-item">
+                        <span class="live-pro-meta-label">Role</span>
+                        <span class="live-pro-meta-value">Campaign Strategy Lead</span>
+                    </div>
+                </div>
+
+                <div class="live-pro-metrics">
+                    <div class="live-pro-metric">
+                        <div class="live-pro-metric-value">4</div>
+                        <div class="live-pro-metric-label">Creator Tiers</div>
+                    </div>
+                    <div class="live-pro-metric">
+                        <div class="live-pro-metric-value">30D</div>
+                        <div class="live-pro-metric-label">Monthly Cycle</div>
+                    </div>
+                    <div class="live-pro-metric">
+                        <div class="live-pro-metric-value">Top 20</div>
+                        <div class="live-pro-metric-label">Target Segment</div>
+                    </div>
+                    <div class="live-pro-metric">
+                        <div class="live-pro-metric-value">GTM</div>
+                        <div class="live-pro-metric-label">Campaign Kit</div>
+                    </div>
                 </div>
 
                 <div class="live-pro-overview">
                     <div>
                         <h2 class="live-pro-copy-title">Campaign Overview</h2>
-                        <p class="live-pro-copy">A recurring growth campaign designed for Vietnam's top LIVE creators.
-                            Monthly research, gameplay mechanics, revenue targets, premium rewards, and recognition
-                            content worked as one system to sustain motivation and commercial performance.</p>
+                        <p class="live-pro-copy">LIVE LEGEND was structured as a support program for highly exclusive LIVE Pro event participants. The campaign created customized reward mechanics and clear ranking goals to help high-potential creators recover momentum, stay engaged, and build stronger live-streaming habits.</p>
                     </div>
-                    <div class="live-pro-video-wrapper">
-                        <video class="live-pro-video" controls autoplay loop muted playsinline>
-                            <source src="ref/project 3/CAMPAIGN VISUAL PLACEHOLDER.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                    <div class="live-pro-placeholder live-legend-placeholder live-legend-hero-media">
+                        <span class="live-pro-placeholder-label">CAMPAIGN VISUAL PLACEHOLDER</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="live-pro-section live-pro-research" data-section="research-strategy">
-            <div class="grid-container live-pro-research-grid">
-                <div class="live-pro-research-copy reveal-fade-up">
-                    <p><strong>Data-Driven Research:</strong> Analyzed monthly recap data, revenue trends, and
-                        behavioral patterns of top-tier creators in Vietnam to identify growth opportunities and
-                        optimization points.</p>
-                    <ul class="live-pro-research-list">
-                        <li><strong>Behavioral Analysis:</strong> Evaluated creator task completion rates, reward
-                            attractiveness, and psychological drivers to understand what motivates creators to push for
-                            higher targets.</li>
-                        <li><strong>Strategy &amp; Gameplay Design:</strong> Developed monthly campaign strategies and
-                            task mechanics based on these insights to strengthen motivation, user desire, and monthly
-                            revenue.</li>
-                    </ul>
-                </div>
-                <figure class="live-pro-media-frame reveal-fade-up reveal-delay-1">
-                    <img class="live-pro-media-image" src="assets/live-pro-research-dashboard.png"
-                        alt="LIVE PRO monthly research dashboard with creator behavior, revenue, and campaign participation analysis"
-                        loading="lazy" decoding="async">
-                </figure>
-            </div>
-        </section>
-
-        <section class="live-pro-section live-pro-results" data-section="campaign-results">
+        <section class="live-pro-section live-pro-research" id="research-strategy" data-section="research-strategy">
             <div class="grid-container">
-                <h2 class="live-pro-editorial-title reveal-fade-up">Result</h2>
-                <div class="live-pro-results-grid">
-                    <article class="live-pro-result-card reveal-fade-up">
-                        <span class="live-pro-result-label">Result of LIVE PRO August</span>
-                        <figure class="live-pro-media-frame"><img class="live-pro-media-image"
-                                src="assets/live-pro-result-august.png" alt="LIVE PRO August campaign result dashboard"
-                                loading="lazy" decoding="async"></figure>
-                    </article>
-                    <article class="live-pro-result-card reveal-fade-up reveal-delay-1">
-                        <span class="live-pro-result-label">Result of LIVE PRO September</span>
-                        <figure class="live-pro-media-frame"><img class="live-pro-media-image"
-                                src="assets/live-pro-result-september.png"
-                                alt="LIVE PRO September campaign result dashboard" loading="lazy" decoding="async">
-                        </figure>
-                    </article>
-                    <article class="live-pro-result-card reveal-fade-up reveal-delay-2">
-                        <span class="live-pro-result-label">Result of LIVE PRO October</span>
-                        <figure class="live-pro-media-frame"><img class="live-pro-media-image"
-                                src="assets/live-pro-result-october.png"
-                                alt="LIVE PRO October campaign result dashboard" loading="lazy" decoding="async">
-                        </figure>
-                    </article>
-                    <article class="live-pro-result-card reveal-fade-up reveal-delay-3">
-                        <span class="live-pro-result-label">Result of LIVE PRO November</span>
-                        <figure class="live-pro-media-frame"><img class="live-pro-media-image"
-                                src="assets/live-pro-result-november.png"
-                                alt="LIVE PRO November campaign result dashboard" loading="lazy" decoding="async">
-                        </figure>
-                    </article>
+                <h2 class="live-pro-editorial-title live-legend-management-title reveal-fade-up">Monthly Campaign Management &amp; Strategy Lead</h2>
+                <div class="live-legend-management-grid">
+                    <div class="live-legend-management-copy reveal-fade-up">
+                        <p><strong>Positioned as a supporting program</strong> to the highly exclusive LIVE Pro event, this campaign aimed to motivate and retain high-potential creators who missed the top-20 threshold, providing them with customized reward mechanics to boost live-streaming engagement.</p>
+                    </div>
+                    <figure class="live-legend-asset-frame reveal-fade-up reveal-delay-1">
+                        <img class="live-legend-asset-img" src="ref/projects 4/RANKING DIMENSION PLACEHOLDER.png"
+                            alt="LIVE LEGEND ranking dimension dashboard" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="live-legend-asset-frame reveal-fade-up">
+                        <img class="live-legend-asset-img" src="ref/projects 4/MONTHLY PERFORMANCE 01.png"
+                            alt="LIVE LEGEND monthly performance dashboard 1" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="live-legend-asset-frame reveal-fade-up reveal-delay-1">
+                        <img class="live-legend-asset-img" src="ref/projects 4/MONTHLY PERFORMANCE 02.png"
+                            alt="LIVE LEGEND monthly performance dashboard 2" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="live-legend-asset-frame reveal-fade-up reveal-delay-2">
+                        <img class="live-legend-asset-img" src="ref/projects 4/CONVERSION FUNNEL 01.png"
+                            alt="LIVE LEGEND conversion funnel dashboard 1" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="live-legend-asset-frame reveal-fade-up reveal-delay-3">
+                        <img class="live-legend-asset-img" src="ref/projects 4/CONVERSION FUNNEL 02.png"
+                            alt="LIVE LEGEND conversion funnel dashboard 2" loading="lazy" decoding="async">
+                    </figure>
                 </div>
             </div>
         </section>
 
-        <section class="live-pro-section live-pro-rewards" data-section="creator-rewards">
+        <section class="live-pro-section live-pro-results" data-section="gtm-materials">
             <div class="grid-container">
-                <h2 class="live-pro-editorial-title reveal-fade-up">Exclusive Creator Rewards</h2>
-                <p class="live-pro-lede reveal-fade-up reveal-delay-1">Managed monthly vendor coordination to deliver custom-made merchandise for LIVE
-                    Pro winners. Each reward reflected the branding and personality of Vietnam's top creators, elevating
-                    the premium winner experience.</p>
-                <figure class="live-pro-media-frame reveal-fade-up reveal-delay-2">
-                    <img class="live-pro-media-image" src="assets/live-pro-creator-rewards.png"
-                        alt="Custom LIVE PRO creator reward kit and winner plaque" loading="lazy" decoding="async">
-                </figure>
-            </div>
-        </section>
-
-        <section class="live-pro-section live-pro-recognition" data-section="recognition-videos">
-            <div class="grid-container">
-                <h2 class="live-pro-editorial-title reveal-fade-up">Creator Recognition Content Video</h2>
-                <p class="live-pro-lede reveal-fade-up reveal-delay-1">Worked with Things To Do agency to produce high-quality marketing and
-                    congratulatory videos for LIVE Pro winners. These assets served as powerful self-PR tools for top
-                    creators while motivating other creators and expanding campaign awareness.</p>
-
-                <div class="live-pro-phones" aria-label="Creator recognition TikTok videos">
-                    <article class="phone-card reveal-fade-up">
-                        <div class="phone-chassis">
-                            <div class="phone-notch" aria-hidden="true"></div>
-                            <div class="phone-screen">
-                                <a class="tiktok-phone-link"
-                                    href="https://www.tiktok.com/@tiktoklive_vietnam/video/7550218638649789714?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7625483623424378385"
-                                    target="_blank" rel="noopener noreferrer"
-                                    aria-label="Watch creator recognition video 1 on TikTok">
-                                    <img class="tiktok-phone-cover" src="assets/live-pro-tiktok-7550218638649789714.jpg"
-                                        alt="TikTok LIVE honors the LIVE PRO top 10 creators" width="720" height="1280"
-                                        loading="lazy" decoding="async">
-                                    <span class="tiktok-phone-play" aria-hidden="true"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="phone-card reveal-fade-up reveal-delay-1">
-                        <div class="phone-chassis">
-                            <div class="phone-notch" aria-hidden="true"></div>
-                            <div class="phone-screen">
-                                <a class="tiktok-phone-link"
-                                    href="https://www.tiktok.com/@tiktoklive_vietnam/video/7575815911777635592?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7625483623424378385"
-                                    target="_blank" rel="noopener noreferrer"
-                                    aria-label="Watch creator recognition video 2 on TikTok">
-                                    <img class="tiktok-phone-cover" src="assets/live-pro-tiktok-7575815911777635592.jpg"
-                                        alt="LIVE PRO September creator recognition video thumbnail" width="720"
-                                        height="1280" loading="lazy" decoding="async">
-                                    <span class="tiktok-phone-play" aria-hidden="true"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="phone-card reveal-fade-up reveal-delay-2">
-                        <div class="phone-chassis">
-                            <div class="phone-notch" aria-hidden="true"></div>
-                            <div class="phone-screen">
-                                <a class="tiktok-phone-link"
-                                    href="https://www.tiktok.com/@tiktoklive_vietnam/video/7576529267064950036?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7625483623424378385"
-                                    target="_blank" rel="noopener noreferrer"
-                                    aria-label="Watch creator recognition video 3 on TikTok">
-                                    <img class="tiktok-phone-cover" src="assets/live-pro-tiktok-7576529267064950036.jpg"
-                                        alt="LIVE PRO October creator recognition video thumbnail" width="720"
-                                        height="1280" loading="lazy" decoding="async">
-                                    <span class="tiktok-phone-play" aria-hidden="true"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="phone-card reveal-fade-up reveal-delay-3">
-                        <div class="phone-chassis">
-                            <div class="phone-notch" aria-hidden="true"></div>
-                            <div class="phone-screen">
-                                <a class="tiktok-phone-link"
-                                    href="https://www.tiktok.com/@tiktoklive_vietnam/video/7587673281524780308?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7625483623424378385"
-                                    target="_blank" rel="noopener noreferrer"
-                                    aria-label="Watch creator recognition video 4 on TikTok">
-                                    <img class="tiktok-phone-cover" src="assets/live-pro-tiktok-7587673281524780308.jpg"
-                                        alt="LIVE PRO November creator recognition video thumbnail" width="720"
-                                        height="1280" loading="lazy" decoding="async">
-                                    <span class="tiktok-phone-play" aria-hidden="true"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
+                <h2 class="live-pro-editorial-title reveal-fade-up">Campaign Poster / GTM</h2>
+                <p class="live-pro-lede reveal-fade-up reveal-delay-1">Translated the campaign mechanic into creator-facing communication assets, including event introduction, weekly missions, daily missions, ranking explanation, reward calculation, and QR-led participation flow.</p>
+                <div class="live-legend-gtm-grid">
+                    <figure class="live-legend-asset-frame reveal-fade-up">
+                        <img class="live-legend-asset-img" src="ref/projects 4/DARK POSTER PLACEHOLDER.png"
+                            alt="LIVE LEGEND dark campaign poster" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="live-legend-asset-frame reveal-fade-up reveal-delay-1">
+                        <img class="live-legend-asset-img" src="ref/projects 4/CREATOR GUIDE PLACEHOLDER.png"
+                            alt="LIVE LEGEND creator guide poster" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="live-legend-asset-frame reveal-fade-up reveal-delay-2">
+                        <img class="live-legend-asset-img" src="ref/projects 4/LIGHT GTM POSTER PLACEHOLDER.png"
+                            alt="LIVE LEGEND light GTM poster" loading="lazy" decoding="async">
+                    </figure>
                 </div>
             </div>
         </section>
 
         <div class="grid-container live-pro-nav reveal-fade-up">
-            <a href="community-subprojects.html" class="btn btn-outline">← PROJECT 02</a>
-            <a href="project-livefest.html" class="btn btn-filled">NEXT PROJECT →</a>
+            <a href="project-live-pro.html" class="btn btn-outline">← PROJECT 03</a>
+            <a href="project-livefest.html" class="btn btn-filled">PROJECT 01 →</a>
         </div>
     </main>
 
