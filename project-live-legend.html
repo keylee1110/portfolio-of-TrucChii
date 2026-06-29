@@ -107,7 +107,9 @@
 
         .live-pro-metrics {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 720px;
+            margin-inline: auto;
             margin-top: clamp(36px, 4vw, 58px);
             border: 1px solid var(--live-pro-border);
         }
@@ -225,8 +227,7 @@
         }
 
         .live-legend-hero-media {
-            align-self: stretch;
-            min-height: 360px;
+            align-self: center;
         }
 
         .live-legend-management-container {
@@ -297,12 +298,24 @@
             object-fit: contain;
         }
 
+        .live-legend-asset-label {
+            font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+            font-weight: 600;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
         .live-legend-gtm-grid {
             display: grid;
             grid-template-columns: 1.1fr .82fr .95fr;
             gap: clamp(18px, 2.5vw, 32px);
             align-items: stretch;
             margin-top: clamp(42px, 5vw, 74px);
+            max-width: 900px;
+            margin-inline: auto;
         }
 
         .live-legend-gtm-grid .live-legend-asset-frame {
@@ -569,17 +582,17 @@
 
         @media (max-width: 900px) {
 
-            .live-pro-meta,
+            .live-pro-meta {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .live-pro-metrics {
                 grid-template-columns: repeat(2, 1fr);
+                max-width: 100%;
             }
 
             .live-pro-metric:nth-child(2) {
                 border-right: 0;
-            }
-
-            .live-pro-metric:nth-child(-n + 2) {
-                border-bottom: 1px solid var(--live-pro-border);
             }
 
             .live-pro-overview,
@@ -665,30 +678,30 @@
         }
 
         /* Scroll Reveal Delays */
-            .reveal-delay-1 {
-                transition-delay: 0.1s;
-            }
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
 
-            .reveal-delay-2 {
-                transition-delay: 0.2s;
-            }
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
 
-            .reveal-delay-3 {
-                transition-delay: 0.3s;
-            }
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
 
-            .reveal-delay-4 {
-                transition-delay: 0.4s;
-            }
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
 
-            @media (prefers-reduced-motion: reduce) {
+        @media (prefers-reduced-motion: reduce) {
 
-                .phone-chassis,
-                .tiktok-phone-cover,
-                .tiktok-phone-play {
-                    transition: none;
-                }
+            .phone-chassis,
+            .tiktok-phone-cover,
+            .tiktok-phone-play {
+                transition: none;
             }
+        }
     </style>
 </head>
 
@@ -729,72 +742,53 @@
                 <p class="live-pro-kicker">PROJECT 04 / CREATOR ENGAGEMENT</p>
                 <h1 class="live-pro-title">LIVE LEGEND</h1>
 
-                <div class="live-pro-meta">
-                    <div class="live-pro-meta-item">
-                        <span class="live-pro-meta-label">Client</span>
-                        <span class="live-pro-meta-value">TikTok LIVE Vietnam</span>
-                    </div>
-                    <div class="live-pro-meta-item">
-                        <span class="live-pro-meta-label">Platforms</span>
-                        <span class="live-pro-meta-value">TikTok LIVE</span>
-                    </div>
-                    <div class="live-pro-meta-item">
-                        <span class="live-pro-meta-label">Year</span>
-                        <span class="live-pro-meta-value">2025</span>
-                    </div>
-                    <div class="live-pro-meta-item">
-                        <span class="live-pro-meta-label">Role</span>
-                        <span class="live-pro-meta-value">Campaign Strategy Lead</span>
-                    </div>
-                </div>
-
                 <div class="live-pro-metrics">
                     <div class="live-pro-metric">
-                        <div class="live-pro-metric-value">4</div>
-                        <div class="live-pro-metric-label">Creator Tiers</div>
+                        <div class="live-pro-metric-value">10M $</div>
+                        <div class="live-pro-metric-label">total revenue for 3 months</div>
                     </div>
                     <div class="live-pro-metric">
-                        <div class="live-pro-metric-value">30D</div>
-                        <div class="live-pro-metric-label">Monthly Cycle</div>
-                    </div>
-                    <div class="live-pro-metric">
-                        <div class="live-pro-metric-value">Top 20</div>
-                        <div class="live-pro-metric-label">Target Segment</div>
-                    </div>
-                    <div class="live-pro-metric">
-                        <div class="live-pro-metric-value">GTM</div>
-                        <div class="live-pro-metric-label">Campaign Kit</div>
+                        <div class="live-pro-metric-value">35%</div>
+                        <div class="live-pro-metric-label">average participation rate</div>
                     </div>
                 </div>
 
                 <div class="live-pro-overview">
                     <div>
                         <h2 class="live-pro-copy-title">Campaign Overview</h2>
-                        <p class="live-pro-copy">A strategic campaign designed specifically for pre-top creators (monthly revenue of 500K–1.6M Diamonds / ~$5,000+).</p>
+                        <p class="live-pro-copy">A strategic campaign designed specifically for pre-top creators
+                            (monthly revenue of 500K–1.6M Diamonds / ~$5,000+).</p>
                     </div>
-                    <div class="live-pro-placeholder live-legend-placeholder live-legend-hero-media">
-                        <span class="live-pro-placeholder-label">CAMPAIGN VISUAL PLACEHOLDER</span>
-                    </div>
+                    <figure class="live-legend-asset-frame live-legend-hero-media">
+                        <img class="live-legend-asset-img" src="assets/live-legend/CAMPAIGN VISUAL PLACEHOLDER.png"
+                            alt="LIVE LEGEND campaign overview visual" loading="lazy" decoding="async">
+                    </figure>
                 </div>
             </div>
         </section>
 
         <section class="live-pro-section live-pro-research" id="research-strategy" data-section="research-strategy">
             <div class="grid-container">
-                <h2 class="live-pro-editorial-title live-legend-management-title reveal-fade-up">Monthly Campaign Management &amp; Strategy Lead</h2>
+                <h2 class="live-pro-editorial-title live-legend-management-title reveal-fade-up">Monthly Campaign
+                    Management &amp; Strategy Lead</h2>
                 <div class="live-legend-management-grid">
                     <div class="live-legend-management-copy reveal-fade-up">
-                        <p><strong>Positioned as a supporting program</strong> to the highly exclusive LIVE Pro event, this campaign aimed to motivate and retain high-potential creators who missed the top-20 threshold, providing them with customized reward mechanics to boost live-streaming engagement.</p>
+                        <p><strong>Positioned as a supporting program</strong> to the highly exclusive LIVE Pro event,
+                            this campaign aimed to motivate and retain high-potential creators who missed the top-20
+                            threshold, providing them with customized reward mechanics to boost live-streaming
+                            engagement.</p>
                     </div>
                     <figure class="live-legend-asset-frame reveal-fade-up reveal-delay-1">
                         <img class="live-legend-asset-img" src="assets/live-legend/RANKING DIMENSION PLACEHOLDER.png"
                             alt="LIVE LEGEND ranking dimension dashboard" loading="lazy" decoding="async">
                     </figure>
                     <figure class="live-legend-asset-frame reveal-fade-up">
+                        <div class="live-legend-asset-label">JULY</div>
                         <img class="live-legend-asset-img" src="assets/live-legend/MONTHLY PERFORMANCE 01.png"
                             alt="LIVE LEGEND monthly performance dashboard 1" loading="lazy" decoding="async">
                     </figure>
                     <figure class="live-legend-asset-frame reveal-fade-up reveal-delay-1">
+                        <div class="live-legend-asset-label">SEP</div>
                         <img class="live-legend-asset-img" src="assets/live-legend/MONTHLY PERFORMANCE 02.png"
                             alt="LIVE LEGEND monthly performance dashboard 2" loading="lazy" decoding="async">
                     </figure>
@@ -813,7 +807,9 @@
         <section class="live-pro-section live-pro-results" data-section="gtm-materials">
             <div class="grid-container">
                 <h2 class="live-pro-editorial-title reveal-fade-up">Campaign Poster / GTM</h2>
-                <p class="live-pro-lede reveal-fade-up reveal-delay-1">Translated the campaign mechanic into creator-facing communication assets, including event introduction, weekly missions, daily missions, ranking explanation, reward calculation, and QR-led participation flow.</p>
+                <p class="live-pro-lede reveal-fade-up reveal-delay-1">Translated the campaign mechanic into
+                    creator-facing communication assets, including event introduction, weekly missions, daily missions,
+                    ranking explanation, reward calculation, and QR-led participation flow.</p>
                 <div class="live-legend-gtm-grid">
                     <figure class="live-legend-asset-frame reveal-fade-up">
                         <img class="live-legend-asset-img" src="assets/live-legend/DARK POSTER PLACEHOLDER.png"
