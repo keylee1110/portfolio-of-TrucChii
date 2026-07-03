@@ -32,9 +32,9 @@ test('locked homepage sections retain their approved markup', () => {
   }
 });
 
-test('homepage has four featured project links and no Results section', () => {
+test('homepage has five featured project links and no Results section', () => {
   const projects = sectionMarkup(home, 'campaigns-section');
-  assert.equal((projects.match(/data-project-card/g) || []).length, 4);
+  assert.equal((projects.match(/data-project-card/g) || []).length, 5);
   assert.doesNotMatch(home, /class="results-section"|id="results"/);
 });
 
@@ -63,14 +63,14 @@ const projects = [
   ['project-live-pro.html', 'LIVE PRO CAMPAIGN'],
   ['community-subprojects.html', 'Community Fest'],
   ['project-live-legend.html', 'LIVE LEGEND'],
+  ['project-placeholder-05.html', "Santa's Wish List"],
 ];
-const workProjects = projects.filter(([file]) => file !== 'project-live-legend.html');
 
-test('Work page lists the same three projects', () => {
+test('Work page lists the same five projects', () => {
   const work = read('work.html');
-  assert.equal((work.match(/data-work-item/g) || []).length, 3);
+  assert.equal((work.match(/data-work-item/g) || []).length, 5);
   assert.match(work, /class="work-intro-sticky"/);
-  for (const [file] of workProjects) assert.match(work, new RegExp(`href="${file}"`));
+  for (const [file] of projects) assert.match(work, new RegExp(`href="${file}"`));
 });
 
 test('all project pages exist and placeholders are explicit', () => {
@@ -79,7 +79,7 @@ test('all project pages exist and placeholders are explicit', () => {
     const html = read(file);
     assert.match(html, new RegExp(title));
     assert.match(html, /ElysLu/);
-    if (file.includes('placeholder')) {
+    if (/project-placeholder-0[6-8]\.html/.test(file)) {
       assert.match(html, /data-editable-placeholder/);
       assert.match(html, /Replace with/i);
     }

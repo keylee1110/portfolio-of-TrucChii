@@ -1,13 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 05 - ElysLu</title><meta name="description" content="Editable placeholder for ElysLu Project 05.">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300;1,700&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa's Wish List - ElysLu</title>
+    <meta name="description"
+        content="Santa's Wish List case study: Christmas campaign management, creator data planning, in-app event pages, and holiday swag production.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --santa-border: rgba(255, 255, 255, .16);
+            --santa-muted: rgba(255, 255, 255, .62);
+            --santa-pink: #c90042;
+            --santa-wine: #75001f;
+            --santa-green: #153c36;
+        }
+
+        .santa-page {
+            overflow-x: clip;
+            background:
+                radial-gradient(circle at 18% 18%, rgba(201, 0, 66, .18), transparent 28vw),
+                radial-gradient(circle at 92% 28%, rgba(21, 60, 54, .2), transparent 24vw),
+                linear-gradient(180deg, #050505 0%, #080407 48%, #050505 100%);
+        }
+
+        .santa-page .grid-container {
+            width: min(100% - 40px, 1440px);
+            max-width: 1440px;
+            margin-inline: auto;
+            padding-inline: 0;
+        }
+
+        .santa-page .grid-container > *,
+        .santa-hero-grid > *,
+        .santa-data-grid > *,
+        .santa-swag-grid > * {
+            min-width: 0;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 8px;
+            left: 8px;
+            z-index: 10000;
+            padding: 10px 14px;
+            background: #fff;
+            color: #050505;
+            font-weight: 800;
+            transform: translateY(-160%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        .santa-section {
+            position: relative;
+            padding-block: clamp(64px, 7.6vw, 112px);
+            border-bottom: 1px solid var(--santa-border);
+        }
+
+        .santa-kicker,
+        .santa-frame-label {
+            color: var(--santa-muted);
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .santa-copy {
+            color: var(--santa-muted);
+            font-size: clamp(.98rem, 1.35vw, 1.12rem);
+            line-height: 1.55;
+        }
+
+        .santa-serif {
+            font-family: var(--font-display);
+            font-weight: 900;
+            letter-spacing: -.06em;
+            text-wrap: balance;
+        }
+
+        .santa-hero {
+            padding-top: clamp(104px, 8vw, 138px);
+        }
+
+        .santa-overview-card {
+            position: relative;
+            z-index: 2;
+            width: min(100%, 1120px);
+            padding: clamp(24px, 3vw, 34px);
+            border: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(0, 0, 0, .74);
+            box-shadow: 0 28px 90px rgba(0, 0, 0, .42);
+        }
+
+        .santa-overview-card::after {
+            content: '';
+            position: absolute;
+            right: -80px;
+            bottom: -32px;
+            width: 140px;
+            height: 44px;
+            border-right: 1px solid var(--santa-border);
+            border-bottom: 1px solid var(--santa-border);
+            pointer-events: none;
+        }
+
+        .santa-overview-title {
+            margin-bottom: 12px;
+            color: #fff;
+            font-size: clamp(1rem, 1.5vw, 1.35rem);
+            font-weight: 900;
+            letter-spacing: -.03em;
+            text-transform: uppercase;
+        }
+
+        .santa-overview-copy {
+            max-width: 58ch;
+        }
+
+        .santa-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(340px, .8fr) minmax(0, 1.2fr);
+            gap: clamp(34px, 5vw, 72px);
+            align-items: end;
+            margin-top: clamp(18px, 3vw, 42px);
+        }
+
+        .santa-poster-frame {
+            position: relative;
+            width: min(100%, 530px);
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .16);
+            background: #070707;
+            box-shadow: 0 36px 90px rgba(0, 0, 0, .55);
+        }
+
+        .santa-poster-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transform: none;
+            filter: saturate(1.08) contrast(1.03);
+        }
+
+        .santa-hero-copy {
+            align-self: center;
+            padding-bottom: clamp(24px, 5vw, 78px);
+        }
+
+        .santa-title {
+            max-width: 880px;
+            color: #fff;
+            font-size: clamp(2.9rem, 4.25vw, 5rem);
+            line-height: .88;
+            text-transform: uppercase;
+        }
+
+        .santa-role {
+            max-width: 620px;
+            margin-top: clamp(28px, 3.5vw, 48px);
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 1.72vw, 1.9rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -.045em;
+        }
+
+        .santa-data-section {
+            padding-top: clamp(70px, 7.4vw, 106px);
+        }
+
+        .santa-data-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.18fr) minmax(330px, .82fr);
+            gap: clamp(26px, 3.8vw, 58px);
+            align-items: start;
+        }
+
+        .santa-lede {
+            max-width: 760px;
+            color: #fff;
+            font-size: clamp(1.55rem, 2.35vw, 2.45rem);
+            line-height: .94;
+            text-transform: none;
+        }
+
+        .santa-sheet-frame {
+            position: relative;
+            margin-top: clamp(24px, 3.2vw, 42px);
+            aspect-ratio: 16 / 9.4;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: #0b0b0b;
+        }
+
+        .santa-sheet-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transform: none;
+        }
+
+        .santa-frame-label {
+            position: absolute;
+            left: 18px;
+            bottom: 16px;
+            z-index: 2;
+            padding: 8px 10px;
+            background: rgba(0, 0, 0, .74);
+        }
+
+        .santa-phone-column {
+            display: grid;
+            justify-items: center;
+        }
+
+        .santa-phone-card {
+            width: min(100%, 390px);
+            margin-inline: auto;
+        }
+
+        .santa-phone-card .phone-chassis {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 18.15;
+            padding: clamp(9px, 1vw, 12px);
+            border: 3px solid #242424;
+            border-radius: clamp(30px, 3vw, 46px);
+            background: #070707;
+            box-shadow: 0 28px 70px rgba(0, 0, 0, .62);
+            transition: transform 500ms cubic-bezier(.16, 1, .3, 1),
+                border-color 500ms ease, box-shadow 500ms cubic-bezier(.16, 1, .3, 1);
+            will-change: transform;
+        }
+
+        .santa-phone-card:hover .phone-chassis {
+            border-color: rgba(255, 255, 255, .52);
+            box-shadow: 0 34px 86px rgba(0, 0, 0, .78);
+            transform: translateY(-8px) scale(1.018);
+        }
+
+        .santa-phone-card .phone-notch {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            z-index: 5;
+            width: 35%;
+            height: 15px;
+            border-radius: 999px;
+            background: #0c0c0c;
+            box-shadow: inset -18px 0 0 rgba(31, 76, 112, .38);
+            transform: translateX(-50%);
+        }
+
+        .santa-phone-card .phone-screen {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: clamp(22px, 2.35vw, 34px);
+            background: #b9003d;
+            scrollbar-width: none;
+            touch-action: pan-y;
+        }
+
+        .santa-phone-card .phone-screen::-webkit-scrollbar {
+            display: none;
+        }
+
+        .santa-phone-card .phone-screen:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, .9);
+            outline-offset: -4px;
+        }
+
+        .santa-phone-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            user-select: none;
+        }
+
+        .phone-scroll-cue {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 6;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 10px;
+            border: 1px solid rgba(255, 255, 255, .62);
+            border-radius: 999px;
+            background: rgba(0, 0, 0, .84);
+            color: #fff;
+            font-size: clamp(.5rem, .58vw, .64rem);
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: opacity 250ms ease, transform 250ms ease;
+        }
+
+        .phone-scroll-cue::after {
+            content: '↓';
+            font-size: .85rem;
+            animation: santa-scroll-hint 1.25s ease-in-out infinite;
+        }
+
+        .santa-phone-card.is-scrolled .phone-scroll-cue {
+            opacity: 0;
+            transform: translate(-50%, calc(-50% + 8px));
+        }
+
+        @keyframes santa-scroll-hint {
+
+            0%,
+            100% {
+                opacity: .55;
+                transform: translateY(-2px);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(3px);
+            }
+        }
+
+        .santa-swag-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+            gap: clamp(38px, 6.5vw, 96px);
+            align-items: start;
+        }
+
+        .santa-swag-frame {
+            position: relative;
+            min-height: clamp(360px, 41vw, 580px);
+            overflow: hidden;
+            border: 0;
+            background: transparent;
+        }
+
+        .santa-swag-frame img {
+            width: 100%;
+            height: 100%;
+            min-height: inherit;
+            object-fit: contain;
+            object-position: center top;
+            transform: none;
+            filter: contrast(1.05) saturate(1.05);
+        }
+
+        .santa-swag-copy {
+            max-width: 640px;
+            color: #fff;
+            font-size: clamp(1.95rem, 2.85vw, 3.05rem);
+            line-height: .94;
+        }
+
+        .santa-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-block: clamp(48px, 6vw, 80px);
+        }
+
+        @media (max-width: 960px) {
+
+            .santa-hero-grid,
+            .santa-data-grid,
+            .santa-swag-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .santa-hero-grid {
+                margin-top: 28px;
+            }
+
+            .santa-hero-copy {
+                padding-bottom: 0;
+            }
+
+            .santa-phone-card {
+                width: min(100%, 360px);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .santa-page .grid-container {
+                width: min(100% - 28px, 1440px);
+            }
+
+            .santa-section {
+                padding-block: 64px;
+            }
+
+            .santa-hero {
+                padding-top: 106px;
+            }
+
+            .santa-overview-card::after {
+                display: none;
+            }
+
+            .santa-title {
+                font-size: clamp(2.35rem, 11.5vw, 3.45rem);
+                line-height: .9;
+                overflow-wrap: anywhere;
+            }
+
+            .santa-swag-copy,
+            .santa-lede {
+                max-width: 100%;
+            }
+
+            .santa-nav {
+                align-items: stretch;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .santa-phone-card .phone-chassis,
+            .phone-scroll-cue::after {
+                animation: none;
+                transition: none;
+            }
+        }
+    </style>
 </head>
-<body class="bg-black text-white antialiased selection-accent"><div class="page-wipe wipe-initial-in" id="page-wipe"></div>
-    <header class="sticky-nav"><div class="nav-container"><nav class="nav-menu"><a href="index.html#about" class="nav-link">About</a><span class="nav-comma">,</span><a href="work.html" class="nav-link">Work</a><span class="nav-comma">,</span><a href="index.html#contact" class="nav-link">Contact</a></nav><a href="index.html" class="brand-logo nav-brand-center">ElysLu</a><div class="nav-right"><span class="nav-header-label">Project 05 / 08</span><span class="nav-header-sublabel">Editable Case Study</span></div></div></header>
-    <main class="grid-container" data-editable-placeholder><section class="detail-hero reveal-fade-up"><div class="section-tag">PROJECT 05 / REPLACE CATEGORY</div><h1 class="section-title font-display">Replace with Project Title</h1><div class="detail-meta-grid"><div class="meta-item"><span class="lbl">Client</span><span class="val">Replace with client or industry</span></div><div class="meta-item"><span class="lbl">Platform</span><span class="val">Replace with channels</span></div><div class="meta-item"><span class="lbl">Year</span><span class="val">Replace with year</span></div><div class="meta-item"><span class="lbl">Role</span><span class="val">Replace with your role</span></div></div></section>
-    <section class="placeholder-case reveal-fade-up"><div class="case-study-grid"><div><div class="cs-block"><h2 class="cs-block-title font-display">Replace with Challenge</h2><p class="cs-block-text">Describe the context, audience problem, and objective.</p></div><div class="cs-block"><h2 class="cs-block-title font-display">Replace with Approach</h2><p class="cs-block-text">Explain the strategy, execution, and your contribution.</p></div><div class="cs-block"><h2 class="cs-block-title font-display">Replace with Outcome</h2><p class="cs-block-text">Add only verified outcomes and learning.</p></div></div><div class="cs-visuals-col"><div class="cs-visual-box"><img src="assets/brand-photoshoot.webp" alt="Temporary Project 05 visual to replace"></div></div></div><nav class="cs-nav-footer" aria-label="Project navigation"><a href="project-placeholder-04.html" class="btn btn-outline">← PROJECT 04</a><a href="project-placeholder-06.html" class="btn btn-filled">PROJECT 06 →</a></nav></section></main>
-    <footer class="footer-bottom"><div class="fb-container"><p class="fb-copy">© 2026 ElysLu.</p><a href="work.html" class="fb-design">ALL WORKS</a></div></footer><script src="app.js?v=20260621"></script>
-</body></html>
+
+<body class="santa-page bg-black text-white antialiased selection-accent">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="page-wipe wipe-initial-in" id="page-wipe"></div>
+
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <nav class="nav-menu" id="main-nav">
+                <a href="index.html#about" class="nav-link">About</a><span class="nav-comma">,</span>
+                <a href="index.html#projects" class="nav-link">Work</a><span class="nav-comma">,</span>
+                <a href="index.html#contact" class="nav-link btn-contact-trigger">Contact</a>
+            </nav>
+            <a href="index.html" class="brand-logo nav-brand-center" id="nav-logo">ElysLu</a>
+            <div class="nav-right">
+                <span class="nav-header-label">Santa's Wish List</span>
+                <span class="nav-header-sublabel">Selected Campaign 05</span>
+            </div>
+            <button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer-menu">
+        <nav class="mobile-nav-links">
+            <a href="index.html#about" class="mobile-nav-link">About</a>
+            <a href="index.html#projects" class="mobile-nav-link">Work</a>
+            <a href="index.html#contact" class="mobile-nav-link btn-contact-trigger">Contact</a>
+        </nav>
+    </div>
+
+    <main id="main-content">
+        <section class="santa-section santa-hero reveal-fade-up" data-section="campaign-overview">
+            <div class="grid-container">
+                <div class="santa-overview-card">
+                    <p class="santa-overview-title">Campaign Overview</p>
+                    <p class="santa-copy santa-overview-copy">A multi-layered acquisition campaign built to launch a
+                        premium organic skincare product line. By aligning macro lifestyle associations with tight
+                        targeting and customer purchase incentives, we managed to scale sales swiftly.</p>
+                </div>
+
+                <div class="santa-hero-grid">
+                    <figure class="santa-poster-frame" aria-label="Santa's Wish List campaign visual placeholder">
+                        <img src="assets/santa-wishlist/campaign-overview-placeholder.png"
+                            alt="Santa's Wish List campaign placeholder" width="1396" height="1396" decoding="async"
+                            fetchpriority="high">
+                    </figure>
+                    <div class="santa-hero-copy">
+                        <p class="santa-kicker">PROJECT 05 / HOLIDAY CAMPAIGN</p>
+                        <h1 class="santa-title santa-serif">Christmas Campaign<br>Management &amp; Strategy<br>Lead</h1>
+                        <p class="santa-role santa-serif">Worked with TikTok's Global Design Team to build custom
+                            in-app event pages and official Key Visuals (KV) for the holiday season.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="santa-section santa-data-section" data-section="creator-data-planning">
+            <div class="grid-container santa-data-grid">
+                <div class="reveal-fade-up">
+                    <h2 class="santa-lede santa-serif">Analyzed daily creator data (streaming habits, event history,
+                        and peak hours) to guide AMs/CMs on tailored plans for specific creators.</h2>
+                    <figure class="santa-sheet-frame">
+                        <img src="assets/santa-wishlist/planning-dashboard-placeholder.png"
+                            alt="Creator planning spreadsheet placeholder for Santa's Wish List" width="1080"
+                            height="679" loading="lazy" decoding="async">
+                        <figcaption class="santa-frame-label">Planning dashboard placeholder</figcaption>
+                    </figure>
+                </div>
+
+                <div class="santa-phone-column reveal-fade-up reveal-delay-1">
+                    <div class="santa-phone-card" data-santa-scroll-frame>
+                        <div class="phone-chassis">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen" data-santa-scroll-phone tabindex="0"
+                                aria-label="Scrollable Santa's Wish List ranking UI">
+                                <img class="santa-phone-image"
+                                    src="assets/santa-wishlist/phone-scroll-content-ranking-ui.png"
+                                    alt="Santa's Wish List in-app ranking UI placeholder" width="729" height="2048"
+                                    loading="lazy" decoding="async" draggable="false">
+                            </div>
+                            <span class="phone-scroll-cue" aria-hidden="true">Scroll inside</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="santa-section" data-section="christmas-swag">
+            <div class="grid-container santa-swag-grid">
+                <figure class="santa-swag-frame reveal-fade-up">
+                    <img src="assets/santa-wishlist/swag-kit-placeholder.png"
+                        alt="Christmas swag kit placeholder for Santa's Wish List" width="1536" height="1024"
+                        loading="lazy" decoding="async">
+                </figure>
+                <div class="reveal-fade-up reveal-delay-1">
+                    <h2 class="santa-swag-copy santa-serif">Conceptualized and managed the end-to-end production of
+                        over 200 custom Christmas swag kits for creators. Partnered directly with vendors to design and
+                        execute high-quality, theme-specific merchandise tailored for the holiday season.</h2>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid-container santa-nav reveal-fade-up">
+            <a href="project-live-legend.html" class="btn btn-outline">← PROJECT 04</a>
+            <a href="project-placeholder-06.html" class="btn btn-filled">PROJECT 06 →</a>
+        </div>
+    </main>
+
+    <footer class="footer-bottom">
+        <div class="fb-container">
+            <p class="fb-copy">© 2026 ElysLu. ALL RIGHTS RESERVED.</p>
+            <p class="fb-design">HOLIDAY CREATOR GROWTH SYSTEM V1.0</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('[data-santa-scroll-phone]').forEach((screen) => {
+            const frame = screen.closest('[data-santa-scroll-frame]');
+            const sync = () => frame?.classList.toggle('is-scrolled', screen.scrollTop > 8);
+            screen.addEventListener('scroll', sync, { passive: true });
+            sync();
+        });
+    </script>
+    <script src="app.js?v=20260621"></script>
+</body>
+
+</html>
