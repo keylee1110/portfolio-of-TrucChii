@@ -63,7 +63,7 @@ const projects = [
   ['project-live-pro.html', 'LIVE PRO CAMPAIGN'],
   ['community-subprojects.html', 'Community Fest'],
   ['project-live-legend.html', 'LIVE LEGEND'],
-  ['project-placeholder-05.html', "Santa's Wish List"],
+  ['project-santas-wish-list.html', "Santa's Wish List"],
 ];
 
 test('Work page lists the same five projects', () => {

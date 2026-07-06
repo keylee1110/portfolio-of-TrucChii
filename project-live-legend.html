@@ -174,8 +174,8 @@
 
         .live-pro-overview {
             display: grid;
-            grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr);
-            gap: clamp(44px, 7vw, 110px);
+            grid-template-columns: minmax(320px, 1.05fr) minmax(0, .95fr);
+            gap: clamp(36px, 5vw, 76px);
             align-items: center;
             margin-top: clamp(74px, 10vw, 142px);
         }
@@ -193,6 +193,14 @@
             color: var(--live-pro-muted);
             font-size: clamp(1rem, 1.5vw, 1.2rem);
             line-height: 1.6;
+        }
+
+        .live-legend-page .live-pro-overview .live-pro-copy {
+            max-width: 42ch;
+            color: #ffffff;
+            font-size: clamp(1.25rem, 2vw, 1.85rem);
+            line-height: 1.35;
+            letter-spacing: -.025em;
         }
 
         .live-pro-placeholder {
@@ -228,6 +236,8 @@
 
         .live-legend-hero-media {
             align-self: center;
+            justify-self: end;
+            width: min(100%, 560px);
         }
 
         .live-legend-management-container {
@@ -263,10 +273,10 @@
         }
 
         .live-legend-management-copy p {
-            max-width: 34ch;
-            font-size: clamp(1.05rem, 1.45vw, 1.45rem);
+            max-width: 54ch;
+            font-size: clamp(1.22rem, 1.8vw, 1.75rem);
             font-weight: 300;
-            line-height: 1.32;
+            line-height: 1.38;
             letter-spacing: -.025em;
             overflow-wrap: break-word;
         }
@@ -372,6 +382,14 @@
             font-size: clamp(2.25rem, 2.55vw, 3rem);
             line-height: .92;
             letter-spacing: -.045em;
+        }
+
+        .live-legend-gtm-title {
+            font-size: clamp(1.25rem, 1.65vw, 1.65rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .live-pro-research {
@@ -806,10 +824,7 @@
 
         <section class="live-pro-section live-pro-results" data-section="gtm-materials">
             <div class="grid-container">
-                <h2 class="live-pro-editorial-title reveal-fade-up">Campaign Poster / GTM</h2>
-                <p class="live-pro-lede reveal-fade-up reveal-delay-1">Translated the campaign mechanic into
-                    creator-facing communication assets, including event introduction, weekly missions, daily missions,
-                    ranking explanation, reward calculation, and QR-led participation flow.</p>
+                <h2 class="live-legend-asset-label live-legend-gtm-title reveal-fade-up">Campaign Poster / GTM</h2>
                 <div class="live-legend-gtm-grid">
                     <figure class="live-legend-asset-frame reveal-fade-up">
                         <img class="live-legend-asset-img" src="assets/live-legend/DARK POSTER PLACEHOLDER.png"
@@ -829,7 +844,7 @@
 
         <div class="grid-container live-pro-nav reveal-fade-up">
             <a href="project-live-pro.html" class="btn btn-outline">← PROJECT 03</a>
-            <a href="project-livefest.html" class="btn btn-filled">PROJECT 01 →</a>
+            <a href="project-santas-wish-list.html" class="btn btn-filled">PROJECT 05 →</a>
         </div>
     </main>
 
