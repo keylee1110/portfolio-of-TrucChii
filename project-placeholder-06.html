@@ -811,6 +811,58 @@
             margin-top: 12px !important;
         }
 
+        .edtronaut-page .ed-course-visual {
+            min-width: 0;
+            margin: 0;
+        }
+
+        .edtronaut-page .ed-course-visual img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 0;
+            object-fit: contain;
+        }
+
+        .edtronaut-page .ed-course-caption {
+            display: block;
+            margin-top: 12px;
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2.2vw, 2.2rem);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .edtronaut-page .ed-course-combined {
+            grid-column: 1 / -1;
+        }
+
+        .edtronaut-page .ed-course-dual-caption {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .edtronaut-page .ed-course-dual-caption .ed-course-caption:last-child {
+            text-align: right;
+        }
+
+        .edtronaut-page .ed-course-stack {
+            display: grid;
+            gap: 18px;
+            align-content: start;
+        }
+
+        .edtronaut-page .ed-linkedin-snapshot {
+            width: min(100%, 520px);
+            margin-top: 28px;
+        }
+
+        .edtronaut-page .ed-image-panel.ed-outcome-wide {
+            aspect-ratio: auto;
+        }
+
         @media (max-width: 960px) {
             .edtronaut-page .ed-tiktok .ed-grid,
             .edtronaut-page .ed-linkedin-layout,
@@ -853,6 +905,10 @@
                 min-height: 44px;
                 padding: 10px 14px;
                 background: rgba(0, 0, 0, .8);
+            }
+
+            .edtronaut-page .ed-course-dual-caption {
+                gap: 12px;
             }
 
             .edtronaut-page .ed-hero-visual,
@@ -1040,20 +1096,16 @@
                     <h2 class="ed-section-title">LinkedIn</h2>
                     <p class="ed-display-copy">Grew the company's LinkedIn channel organically, attaining 25,118
                         impressions, 430 reactions, 19 comments, and 3 reposts within three months.</p>
-                    <div class="ed-placeholder" aria-label="LinkedIn analytics placeholder">
-                        <div class="ed-placeholder-card">
-                            <span class="ed-placeholder-eyebrow">Placeholder</span>
-                            <span class="ed-placeholder-title">LinkedIn analytics snapshot</span>
-                        </div>
-                    </div>
+                    <figure class="ed-image-panel ed-linkedin-snapshot">
+                        <img class="ed-image" src="assets/edtronaut/linkedin-analytics-snapshot.png"
+                            alt="LinkedIn analytics snapshot">
+                    </figure>
                 </div>
 
-                <div class="ed-placeholder reveal-fade-up reveal-delay-1" aria-label="LinkedIn metrics placeholder">
-                    <div class="ed-placeholder-card">
-                        <span class="ed-placeholder-eyebrow">Placeholder</span>
-                        <span class="ed-placeholder-title">Organic impressions chart</span>
-                    </div>
-                </div>
+                <figure class="ed-image-panel reveal-fade-up reveal-delay-1">
+                    <img class="ed-image" src="assets/edtronaut/organic-impressions-chart.png"
+                        alt="Organic impressions chart">
+                </figure>
             </div>
         </section>
 
@@ -1065,27 +1117,18 @@
                         <p class="ed-display-copy">Created 20+ SEO-optimized blog posts, using copywriting skills and
                             Google Keyword Planner to craft content tailored to high-ranking keywords, resulting in 15
                             articles appearing in page 1 search results.</p>
-                        <div class="ed-placeholder" aria-label="SEO blog article placeholder">
-                            <div class="ed-placeholder-card">
-                                <span class="ed-placeholder-eyebrow">Placeholder</span>
-                                <span class="ed-placeholder-title">SEO blog article</span>
-                            </div>
-                        </div>
+                        <figure class="ed-image-panel" style="margin-top: 28px;">
+                            <img class="ed-image" src="assets/edtronaut/seo-blog-article.png" alt="SEO blog article">
+                        </figure>
                     </div>
 
                     <div class="ed-seo-side reveal-fade-up reveal-delay-1">
-                        <div class="ed-placeholder" aria-label="Google search result placeholder">
-                            <div class="ed-placeholder-card">
-                                <span class="ed-placeholder-eyebrow">Placeholder</span>
-                                <span class="ed-placeholder-title">Page 1 search result</span>
-                            </div>
-                        </div>
-                        <div class="ed-placeholder" aria-label="Keyword planner placeholder">
-                            <div class="ed-placeholder-card">
-                                <span class="ed-placeholder-eyebrow">Placeholder</span>
-                                <span class="ed-placeholder-title">Keyword planner sheet</span>
-                            </div>
-                        </div>
+                        <figure class="ed-image-panel">
+                            <img class="ed-image" src="assets/edtronaut/page-1-search-result.png" alt="Page 1 search result">
+                        </figure>
+                        <figure class="ed-image-panel">
+                            <img class="ed-image" src="assets/edtronaut/keyword-planner-sheet.png" alt="Keyword planner sheet">
+                        </figure>
                     </div>
                 </div>
             </div>
@@ -1100,20 +1143,15 @@
                             including 936 product activations, 975 job search link clicks, and 14K website visits within
                             the first month.</p>
                     </div>
-                    <div class="ed-placeholder reveal-fade-up reveal-delay-1" aria-label="Product activation sheet placeholder">
-                        <div class="ed-placeholder-card">
-                            <span class="ed-placeholder-eyebrow">Placeholder</span>
-                            <span class="ed-placeholder-title">CV PowerUp activation sheet</span>
-                        </div>
-                    </div>
+                    <figure class="ed-image-panel reveal-fade-up reveal-delay-1">
+                        <img class="ed-image" src="assets/edtronaut/cv-powerup-activation-sheet.png"
+                            alt="CV PowerUp activation sheet">
+                    </figure>
                 </div>
 
-                <div class="ed-placeholder ed-outcome-wide reveal-fade-up" aria-label="Analytics report placeholder">
-                    <div class="ed-placeholder-card">
-                        <span class="ed-placeholder-eyebrow">Placeholder</span>
-                        <span class="ed-placeholder-title">Analytics report snapshot</span>
-                    </div>
-                </div>
+                <figure class="ed-image-panel ed-outcome-wide reveal-fade-up">
+                    <img class="ed-image" src="assets/edtronaut/analytics-report-snapshot.png" alt="Analytics report snapshot">
+                </figure>
             </div>
         </section>
 
@@ -1124,71 +1162,58 @@
                 <div class="reveal-fade-up">
                     <h3 class="ed-course-kicker">"Million-dollar livestream selling secrets"</h3>
                     <div class="ed-course-grid">
-                        <div class="ed-placeholder" aria-label="Course communications materials placeholder">
-                            <div class="ed-placeholder-card">
-                                <span class="ed-placeholder-eyebrow">Placeholder</span>
-                            <span class="ed-placeholder-title">Communications materials</span>
-                            </div>
-                        </div>
-                        <div class="ed-placeholder" aria-label="Course target audience analyzing placeholder">
-                            <div class="ed-placeholder-card">
-                                <span class="ed-placeholder-eyebrow">Placeholder</span>
-                            <span class="ed-placeholder-title">Target audience analyzing</span>
-                            </div>
-                        </div>
+                        <figure class="ed-course-visual">
+                            <img src="assets/edtronaut/million-communications-materials.png"
+                                alt="Million-dollar course communications materials">
+                            <figcaption class="ed-course-caption">Communications materials</figcaption>
+                        </figure>
+                        <figure class="ed-course-visual">
+                            <img src="assets/edtronaut/million-target-audience-analyzing.png"
+                                alt="Million-dollar course target audience analyzing">
+                            <figcaption class="ed-course-caption">Target audience analyzing</figcaption>
+                        </figure>
                     </div>
                     <div class="ed-course-grid bottom">
-                        <div class="ed-placeholder" aria-label="Course competitor benchmarking placeholder">
-                            <div class="ed-placeholder-card">
-                                <span class="ed-placeholder-eyebrow">Placeholder</span>
-                            <span class="ed-placeholder-title">Competitor benchmarking</span>
-                            </div>
-                        </div>
-                        <div class="ed-placeholder" aria-label="Course communications strategy placeholder">
-                            <div class="ed-placeholder-card">
-                                <span class="ed-placeholder-eyebrow">Placeholder</span>
-                            <span class="ed-placeholder-title">Comms strategy</span>
-                            </div>
-                        </div>
+                        <figure class="ed-course-visual ed-course-combined">
+                            <img src="assets/edtronaut/million-competitor-and-comms-strategy.png"
+                                alt="Million-dollar course competitor benchmarking and communications strategy">
+                            <figcaption class="ed-course-dual-caption">
+                                <span class="ed-course-caption">Competitor benchmarking</span>
+                                <span class="ed-course-caption">Comms strategy</span>
+                            </figcaption>
+                        </figure>
                     </div>
                 </div>
 
                 <div class="reveal-fade-up reveal-delay-1" style="margin-top: clamp(48px, 7vw, 96px);">
                     <h3 class="ed-course-kicker">"Winning the Affiliate Marketing with AI"</h3>
                     <div class="ed-course-grid">
-                        <div class="ed-placeholder" aria-label="Affiliate communications materials placeholder">
-                            <div class="ed-placeholder-card">
-                                <span class="ed-placeholder-eyebrow">Placeholder</span>
-                                <span class="ed-placeholder-title">Communications materials</span>
-                            </div>
-                        </div>
-                        <div class="ed-placeholder" aria-label="Affiliate target audience analyzing placeholder">
-                            <div class="ed-placeholder-card">
-                                <span class="ed-placeholder-eyebrow">Placeholder</span>
-                                <span class="ed-placeholder-title">Target audience analyzing</span>
-                            </div>
-                        </div>
+                        <figure class="ed-course-visual">
+                            <img src="assets/edtronaut/affiliate-communications-materials.png"
+                                alt="Affiliate course communications materials">
+                            <figcaption class="ed-course-caption">Communications materials</figcaption>
+                        </figure>
+                        <figure class="ed-course-visual">
+                            <img src="assets/edtronaut/affiliate-target-audience-analyzing.png"
+                                alt="Affiliate course target audience analyzing">
+                            <figcaption class="ed-course-caption">Target audience analyzing</figcaption>
+                        </figure>
                     </div>
                     <div class="ed-course-grid bottom">
-                        <div class="ed-placeholder" aria-label="Affiliate competitor benchmarking placeholder">
-                            <div class="ed-placeholder-card">
-                                <span class="ed-placeholder-eyebrow">Placeholder</span>
-                                <span class="ed-placeholder-title">Competitor benchmarking</span>
-                            </div>
-                        </div>
-                        <div class="ed-visual-grid">
-                            <div class="ed-placeholder" aria-label="Affiliate USP placeholder">
-                                <div class="ed-placeholder-card">
-                                    <span class="ed-placeholder-eyebrow">Placeholder</span>
-                                    <span class="ed-placeholder-title">Define USP</span>
-                                </div>
-                            </div>
-                            <div class="ed-placeholder" aria-label="Affiliate info hub placeholder" style="margin-top: 18px;">
-                                <div class="ed-placeholder-card">
-                                    <span class="ed-placeholder-eyebrow">Placeholder</span>
-                                    <span class="ed-placeholder-title">Info hub</span>
-                                </div>
-                            </div>
+                        <figure class="ed-course-visual">
+                            <img src="assets/edtronaut/affiliate-competitor-benchmarking.png"
+                                alt="Affiliate course competitor benchmarking">
+                            <figcaption class="ed-course-caption">Competitor benchmarking</figcaption>
+                        </figure>
+                        <div class="ed-course-stack">
+                            <figure class="ed-course-visual">
+                                <img src="assets/edtronaut/affiliate-define-usp.png" alt="Affiliate course define USP">
+                                <figcaption class="ed-course-caption">Define USP</figcaption>
+                            </figure>
+                            <figure class="ed-course-visual">
+                                <img src="assets/edtronaut/affiliate-info-hub.png" alt="Affiliate course info hub">
+                                <figcaption class="ed-course-caption">Info hub</figcaption>
+                            </figure>
                         </div>
                     </div>
                     <p class="ed-display-copy ed-course-copy">Worked with the CEO to develop the course outline,

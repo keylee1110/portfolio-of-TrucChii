@@ -32,9 +32,12 @@ test('locked homepage sections retain their approved markup', () => {
   }
 });
 
-test('homepage has five featured project links and no Results section', () => {
+test('homepage has six featured project links and no Results section', () => {
   const projects = sectionMarkup(home, 'campaigns-section');
-  assert.equal((projects.match(/data-project-card/g) || []).length, 5);
+  assert.equal((projects.match(/data-project-card/g) || []).length, 6);
+  assert.match(projects, /href="project-placeholder-06\.html"/);
+  assert.match(projects, /public\/Projects thumbnails\/06_behind\.png/);
+  assert.match(projects, /public\/Projects thumbnails\/06_Front\.png/);
   assert.doesNotMatch(home, /class="results-section"|id="results"/);
 });
 
@@ -217,6 +220,21 @@ test('Edtronaut follows the approved seven-section growth story', () => {
     'section-7-2.png',
     'placeholder-reach-dashboard.png',
     'competitor-benchmarking-sheet.png',
+    'linkedin-analytics-snapshot.png',
+    'organic-impressions-chart.png',
+    'seo-blog-article.png',
+    'page-1-search-result.png',
+    'keyword-planner-sheet.png',
+    'cv-powerup-activation-sheet.png',
+    'analytics-report-snapshot.png',
+    'million-communications-materials.png',
+    'million-target-audience-analyzing.png',
+    'million-competitor-and-comms-strategy.png',
+    'affiliate-communications-materials.png',
+    'affiliate-target-audience-analyzing.png',
+    'affiliate-competitor-benchmarking.png',
+    'affiliate-define-usp.png',
+    'affiliate-info-hub.png',
   ]) {
     assert.ok(existsSync(join(root, 'assets/edtronaut', asset)), `Missing assets/edtronaut/${asset}`);
   }
