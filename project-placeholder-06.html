@@ -1,12 +1,1217 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Project 06 - ElysLu</title><meta name="description" content="Editable placeholder for ElysLu Project 06.">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300;1,700&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edtronaut - ElysLu</title>
+    <meta name="description"
+        content="Edtronaut case study: social channel management, TikTok revival, LinkedIn growth, SEO content, measurable outcomes, and product course development.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="Edtronaut - ElysLu">
+    <meta property="og:description"
+        content="A product and marketing internship case study for an AI-powered adaptive learning platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elyslumarketing.com/project-placeholder-06.html">
+    <style>
+        :root {
+            --ed-bg: #050505;
+            --ed-line: rgba(255, 255, 255, .16);
+            --ed-soft-line: rgba(255, 255, 255, .09);
+            --ed-muted: rgba(255, 255, 255, .68);
+            --ed-dim: rgba(255, 255, 255, .42);
+            --ed-wash: rgba(95, 0, 76, .2);
+        }
+
+        .edtronaut-page {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: clip;
+            background:
+                radial-gradient(circle at 0 12%, var(--ed-wash), transparent 34%),
+                radial-gradient(circle at 100% 44%, rgba(0, 23, 98, .12), transparent 38%),
+                var(--ed-bg);
+        }
+
+        .edtronaut-page main {
+            max-width: 100%;
+            overflow-x: clip;
+        }
+
+        .ed-container {
+            width: min(100% - 40px, 1440px);
+            max-width: 1440px;
+            margin-inline: auto;
+        }
+
+        .ed-container > *,
+        .ed-grid > *,
+        .ed-visual-grid > *,
+        .ed-course-grid > * {
+            min-width: 0;
+        }
+
+        .ed-section {
+            position: relative;
+            padding-block: clamp(72px, 9vw, 132px);
+            border-bottom: 1px solid var(--ed-line);
+        }
+
+        .ed-kicker,
+        .ed-label,
+        .ed-placeholder-eyebrow,
+        .ed-stat-label {
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+
+        .ed-kicker,
+        .ed-label,
+        .ed-stat-label {
+            color: var(--ed-muted);
+        }
+
+        .ed-title,
+        .ed-section-title,
+        .ed-display-copy,
+        .ed-placeholder-title {
+            font-family: var(--font-display);
+        }
+
+        .ed-title,
+        .ed-section-title {
+            font-weight: 900;
+            line-height: .86;
+            letter-spacing: -.075em;
+            text-transform: uppercase;
+        }
+
+        .ed-title {
+            margin-top: 18px;
+            font-size: clamp(4.8rem, 10.7vw, 11rem);
+            white-space: nowrap;
+            max-width: 100%;
+        }
+
+        .ed-section-title {
+            font-size: clamp(3.2rem, 8vw, 8.5rem);
+            overflow-wrap: break-word;
+        }
+
+        .ed-copy {
+            color: var(--ed-muted);
+            font-size: clamp(1rem, 1.42vw, 1.18rem);
+            line-height: 1.56;
+        }
+
+        .ed-display-copy {
+            color: #fff;
+            font-size: clamp(1.28rem, 2.15vw, 2.05rem);
+            font-weight: 800;
+            line-height: 1.04;
+            letter-spacing: -.052em;
+        }
+
+        .ed-hero {
+            padding-top: clamp(118px, 10vw, 168px);
+        }
+
+        .ed-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, .94fr) minmax(420px, 1.06fr);
+            gap: clamp(36px, 5vw, 86px);
+            align-items: center;
+        }
+
+        .ed-hero-copy {
+            max-width: 50ch;
+            margin-top: 24px;
+            font-size: clamp(1.22rem, 2.05vw, 1.86rem);
+            line-height: 1.08;
+            letter-spacing: -.045em;
+        }
+
+        .ed-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            max-width: 720px;
+            margin-top: clamp(32px, 4vw, 56px);
+            border: 1px solid var(--ed-line);
+            background: var(--ed-line);
+        }
+
+        .ed-meta-item {
+            display: grid;
+            gap: 8px;
+            min-height: 112px;
+            align-content: center;
+            padding: 20px;
+            background: #050505;
+        }
+
+        .ed-meta-value {
+            color: #fff;
+            font-size: clamp(.92rem, 1.18vw, 1.05rem);
+        }
+
+        .ed-placeholder {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 220px;
+            padding: clamp(18px, 3vw, 34px);
+            overflow: hidden;
+            border: 1px solid var(--ed-line);
+            background:
+                linear-gradient(135deg, transparent 49.75%, rgba(255, 255, 255, .1) 50%, transparent 50.25%),
+                linear-gradient(45deg, transparent 49.75%, rgba(255, 255, 255, .07) 50%, transparent 50.25%),
+                #080808;
+        }
+
+        .ed-placeholder::after {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border: 1px dashed var(--ed-soft-line);
+            pointer-events: none;
+        }
+
+        .ed-placeholder-card {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: 8px;
+            max-width: 26ch;
+            text-align: center;
+        }
+
+        .ed-placeholder-eyebrow {
+            color: var(--ed-dim);
+        }
+
+        .ed-placeholder-title {
+            color: #fff;
+            font-size: clamp(1.15rem, 2.4vw, 2.4rem);
+            font-weight: 900;
+            line-height: .92;
+            letter-spacing: -.055em;
+            text-transform: uppercase;
+        }
+
+        .ed-placeholder-note {
+            color: var(--ed-muted);
+            font-size: .84rem;
+            line-height: 1.42;
+        }
+
+        .ed-hero-visual {
+            min-height: clamp(270px, 26vw, 410px);
+            border-radius: 42px;
+        }
+
+        .ed-white-title {
+            margin-top: calc(clamp(72px, 9vw, 132px) * -1);
+            margin-inline: calc((100vw - min(100vw - 40px, 1440px)) / -2);
+            padding: 18px max(20px, calc((100vw - 1440px) / 2)) 10px;
+            background: #fff;
+            color: #050505;
+            text-align: center;
+        }
+
+        .ed-white-title + * {
+            margin-top: clamp(34px, 5vw, 68px);
+        }
+
+        .ed-management-top {
+            display: grid;
+            grid-template-columns: minmax(0, .76fr) minmax(360px, .58fr);
+            gap: clamp(28px, 5vw, 76px);
+            align-items: start;
+        }
+
+        .ed-stat-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-block: clamp(28px, 4vw, 48px);
+            border: 1px solid var(--ed-line);
+        }
+
+        .ed-stat {
+            min-height: 118px;
+            display: grid;
+            place-content: center;
+            text-align: center;
+            padding: 18px;
+            border-right: 1px solid var(--ed-line);
+        }
+
+        .ed-stat:last-child {
+            border-right: 0;
+        }
+
+        .ed-stat-value {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4.6vw, 4rem);
+            font-weight: 900;
+            line-height: .86;
+            letter-spacing: -.06em;
+        }
+
+        .ed-stat-label {
+            margin-top: 8px;
+        }
+
+        .ed-dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .ed-post-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .ed-grid {
+            display: grid;
+            gap: clamp(34px, 5vw, 78px);
+            align-items: start;
+        }
+
+        .ed-grid.two-col {
+            grid-template-columns: minmax(0, .76fr) minmax(420px, 1fr);
+        }
+
+        .ed-grid.reverse {
+            grid-template-columns: minmax(420px, 1fr) minmax(0, .76fr);
+        }
+
+        .ed-grid.reverse .ed-text-block {
+            order: 2;
+        }
+
+        .ed-visual-stack {
+            display: grid;
+            gap: 18px;
+        }
+
+        .ed-benchmark-title {
+            margin-block: -8px 0;
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 5.8vw, 6.1rem);
+            font-weight: 900;
+            line-height: .86;
+            letter-spacing: -.07em;
+            text-align: center;
+            text-transform: lowercase;
+        }
+
+        .ed-linkedin-layout {
+            display: grid;
+            grid-template-columns: minmax(0, .88fr) minmax(420px, 1.12fr);
+            gap: clamp(28px, 5vw, 76px);
+            align-items: end;
+        }
+
+        .ed-seo-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr);
+            gap: clamp(22px, 4vw, 54px);
+            align-items: end;
+        }
+
+        .ed-seo-side {
+            display: grid;
+            gap: 18px;
+        }
+
+        .ed-outcome-layout {
+            display: grid;
+            grid-template-columns: minmax(0, .9fr) minmax(360px, .8fr);
+            gap: clamp(26px, 4vw, 64px);
+            align-items: start;
+        }
+
+        .ed-outcome-wide {
+            margin-top: clamp(26px, 4vw, 52px);
+            min-height: clamp(240px, 30vw, 430px);
+        }
+
+        .ed-course-kicker {
+            margin-bottom: 24px;
+            font-family: var(--font-display);
+            font-size: clamp(1.7rem, 4vw, 4rem);
+            font-weight: 900;
+            line-height: .9;
+            letter-spacing: -.06em;
+            text-align: center;
+        }
+
+        .ed-course-grid {
+            display: grid;
+            grid-template-columns: minmax(0, .95fr) minmax(0, .95fr);
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .ed-course-grid.bottom {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            margin-top: 18px;
+        }
+
+        .ed-course-copy {
+            max-width: 68ch;
+            margin-top: clamp(34px, 5vw, 72px);
+        }
+
+        .ed-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-block: clamp(48px, 6vw, 80px);
+        }
+
+        @media (max-width: 960px) {
+
+            .ed-hero-grid,
+            .ed-management-top,
+            .ed-grid.two-col,
+            .ed-grid.reverse,
+            .ed-linkedin-layout,
+            .ed-seo-layout,
+            .ed-outcome-layout {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .ed-grid.reverse .ed-text-block {
+                order: 0;
+            }
+
+            .ed-meta,
+            .ed-stat-strip {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ed-stat:nth-child(2) {
+                border-right: 0;
+            }
+
+            .ed-stat:nth-child(-n + 2) {
+                border-bottom: 1px solid var(--ed-line);
+            }
+
+            .ed-dashboard-grid,
+            .ed-post-grid,
+            .ed-course-grid,
+            .ed-course-grid.bottom {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .ed-container {
+                width: calc(100% - 32px);
+            }
+
+            .ed-title {
+                font-size: clamp(3rem, 15vw, 5.2rem);
+                white-space: normal;
+                overflow-wrap: anywhere;
+            }
+
+            .ed-section-title {
+                font-size: clamp(2.4rem, 14vw, 4.8rem);
+            }
+
+            .ed-white-title {
+                margin-inline: -14px;
+                padding-inline: 14px;
+                text-align: left;
+            }
+
+            .ed-meta {
+                gap: 0;
+            }
+
+            .ed-meta-item {
+                min-height: 96px;
+                padding: 16px;
+            }
+
+            .ed-placeholder {
+                min-height: 180px;
+            }
+
+            .ed-hero-visual {
+                min-height: 220px;
+                border-radius: 24px;
+            }
+
+            .ed-nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        /* Project 06 follows the reference's editorial, image-led rhythm. */
+        .edtronaut-page .ed-kicker,
+        .edtronaut-page .ed-label,
+        .edtronaut-page .ed-placeholder-eyebrow,
+        .edtronaut-page .ed-stat-label,
+        .edtronaut-page .ed-title,
+        .edtronaut-page .ed-section-title,
+        .edtronaut-page .ed-placeholder-title {
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        .edtronaut-page .ed-kicker,
+        .edtronaut-page .ed-label,
+        .edtronaut-page .ed-placeholder-eyebrow,
+        .edtronaut-page .ed-stat-label {
+            font-weight: 600;
+        }
+
+        .edtronaut-page .ed-section {
+            padding-block: clamp(56px, 7vw, 96px);
+        }
+
+        .edtronaut-page .ed-title,
+        .edtronaut-page .ed-section-title {
+            line-height: .9;
+            letter-spacing: -.06em;
+        }
+
+        .edtronaut-page .ed-title {
+            margin-top: 0;
+            max-width: 100%;
+            font-size: clamp(3.2rem, 4.1vw, 4.2rem);
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+
+        .edtronaut-page .ed-section-title {
+            font-size: clamp(2.8rem, 6vw, 6.4rem);
+        }
+
+        .edtronaut-page .ed-display-copy {
+            font-size: clamp(1.16rem, 1.84vw, 1.72rem);
+            font-weight: 800;
+            line-height: 1.01;
+        }
+
+        .edtronaut-page .ed-hero {
+            padding-top: clamp(104px, 9vw, 140px);
+        }
+
+        .edtronaut-page .ed-hero-grid {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: clamp(32px, 5vw, 72px);
+            align-items: center;
+        }
+
+        .edtronaut-page .ed-hero-copy {
+            max-width: 29ch;
+            margin-top: 14px;
+        }
+
+        .edtronaut-page .ed-meta {
+            display: none;
+        }
+
+        .edtronaut-page .ed-placeholder {
+            min-height: 0;
+            aspect-ratio: 1.68 / 1;
+            padding: 18px;
+            background: #0b0b0b;
+        }
+
+        .edtronaut-page .ed-placeholder::after {
+            inset: 10px;
+        }
+
+        .edtronaut-page .ed-placeholder-title {
+            font-size: clamp(1.05rem, 1.8vw, 1.7rem);
+            line-height: 1;
+        }
+
+        .edtronaut-page .ed-hero-visual {
+            min-height: 0;
+            aspect-ratio: 1.48 / 1;
+            border-radius: 36px;
+        }
+
+        .edtronaut-page .ed-image-panel {
+            margin: 0;
+            min-width: 0;
+        }
+
+        .edtronaut-page .ed-image-caption,
+        .edtronaut-page .ed-post-heading {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: clamp(1.35rem, 2.25vw, 2.15rem);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .edtronaut-page .ed-image,
+        .edtronaut-page .ed-post-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--ed-line);
+            object-fit: contain;
+        }
+
+        .edtronaut-page .ed-hero-visual .ed-image {
+            height: 100%;
+            border: 0;
+            border-radius: inherit;
+        }
+
+        .edtronaut-page .ed-white-title {
+            margin-top: calc(clamp(56px, 7vw, 96px) * -1);
+            padding: 12px max(20px, calc((100vw - 1440px) / 2));
+            line-height: .92;
+            text-align: center;
+        }
+
+        .edtronaut-page .ed-management-top {
+            grid-template-columns: minmax(0, 1.45fr) minmax(320px, .8fr);
+            gap: clamp(26px, 4vw, 58px);
+        }
+
+        .edtronaut-page .ed-management-top .ed-display-copy {
+            max-width: 36ch;
+        }
+
+        .edtronaut-page .ed-stat-strip {
+            margin-block: clamp(26px, 3vw, 38px);
+        }
+
+        .edtronaut-page .ed-stat {
+            min-height: 96px;
+        }
+
+        .edtronaut-page .ed-dashboard-grid {
+            gap: 14px;
+            align-items: start;
+        }
+
+        .edtronaut-page .ed-post-grid {
+            gap: 14px;
+            margin-top: 14px;
+            align-items: start;
+        }
+
+        .edtronaut-page .ed-post-section {
+            margin-top: clamp(42px, 6vw, 80px);
+        }
+
+        .edtronaut-page .ed-dashboard-grid .ed-placeholder {
+            aspect-ratio: .92 / 1;
+        }
+
+        .edtronaut-page .ed-dashboard-grid .ed-image-panel:nth-child(1),
+        .edtronaut-page .ed-dashboard-grid .ed-image-panel:nth-child(2),
+        .edtronaut-page .ed-dashboard-grid .ed-image-panel:nth-child(3) {
+            aspect-ratio: auto;
+        }
+
+        .edtronaut-page .ed-post-grid .ed-placeholder {
+            aspect-ratio: 1.32 / 1;
+        }
+
+        .edtronaut-page .ed-post-link {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .edtronaut-page .ed-post-overlay {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, .72);
+            color: #fff;
+            font-size: .9rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+            opacity: 0;
+            transition: opacity .18s ease;
+        }
+
+        .edtronaut-page .ed-post-link:hover .ed-post-overlay,
+        .edtronaut-page .ed-post-link:focus-visible .ed-post-overlay {
+            opacity: 1;
+        }
+
+        .edtronaut-page .ed-post-link:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 3px;
+        }
+
+        .edtronaut-page .ed-tiktok .ed-grid {
+            grid-template-columns: minmax(0, .76fr) minmax(0, 1fr);
+            gap: clamp(28px, 4vw, 64px);
+        }
+
+        .edtronaut-page .ed-tiktok .ed-visual-stack {
+            display: contents;
+        }
+
+        .edtronaut-page .ed-tiktok .ed-benchmark-title,
+        .edtronaut-page .ed-tiktok .ed-visual-stack > .ed-placeholder:last-child {
+            grid-column: 1 / -1;
+        }
+
+        .edtronaut-page .ed-tiktok .ed-benchmark-title {
+            margin: 18px 0 -10px;
+            font-size: clamp(2.2rem, 5vw, 5.4rem);
+            text-transform: none;
+        }
+
+        .edtronaut-page .ed-tiktok .ed-benchmark-showcase {
+            position: relative;
+            grid-column: 1 / -1;
+            min-height: clamp(300px, 31vw, 470px);
+            margin-top: 22px;
+        }
+
+        .edtronaut-page .ed-benchmark-sheet {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            border: 0;
+            object-fit: cover;
+        }
+
+        .edtronaut-page .ed-benchmark-sheet-top {
+            top: 0;
+            height: 42%;
+            object-position: top center;
+        }
+
+        .edtronaut-page .ed-benchmark-sheet-bottom {
+            bottom: 0;
+            height: 50%;
+            object-position: bottom center;
+        }
+
+        .edtronaut-page .ed-planning-bar {
+            position: absolute;
+            z-index: 1;
+            top: 45%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 18px 7px;
+            background: #050505;
+        }
+
+        .edtronaut-page .ed-planning-bar span {
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.3vw, 3.3rem);
+            font-weight: 800;
+            line-height: .9;
+        }
+
+        .edtronaut-page .ed-linkedin-layout {
+            grid-template-columns: minmax(0, .82fr) minmax(0, 1fr);
+            gap: clamp(28px, 5vw, 72px);
+        }
+
+        .edtronaut-page .ed-linkedin .ed-text-block .ed-placeholder {
+            width: min(100%, 520px);
+            margin-top: 28px;
+            aspect-ratio: 2.3 / 1;
+        }
+
+        .edtronaut-page .ed-linkedin > .ed-container > .ed-placeholder {
+            aspect-ratio: 1.7 / 1;
+        }
+
+        .edtronaut-page .ed-seo-layout {
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+            gap: clamp(22px, 4vw, 54px);
+        }
+
+        .edtronaut-page .ed-seo-layout > div:first-child .ed-placeholder {
+            margin-top: 28px;
+            aspect-ratio: 1.35 / 1;
+        }
+
+        .edtronaut-page .ed-seo-side .ed-placeholder:first-child {
+            aspect-ratio: 1.55 / 1;
+        }
+
+        .edtronaut-page .ed-seo-side .ed-placeholder:last-child {
+            aspect-ratio: 1.62 / 1;
+        }
+
+        .edtronaut-page .ed-outcome-layout {
+            grid-template-columns: minmax(0, 1fr) minmax(360px, .92fr);
+        }
+
+        .edtronaut-page .ed-outcome-wide {
+            min-height: 0;
+            aspect-ratio: 2.25 / 1;
+        }
+
+        .edtronaut-page .ed-course-kicker {
+            margin-bottom: 18px;
+            font-size: clamp(1.6rem, 3.4vw, 3.6rem);
+            text-align: center;
+        }
+
+        .edtronaut-page .ed-course-grid {
+            gap: 12px;
+        }
+
+        .edtronaut-page .ed-course-grid.bottom {
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .edtronaut-page .ed-course-grid .ed-placeholder {
+            aspect-ratio: 1.48 / 1;
+        }
+
+        .edtronaut-page .ed-course-grid.bottom .ed-placeholder {
+            aspect-ratio: 1.48 / 1;
+        }
+
+        .edtronaut-page .ed-course-grid.bottom .ed-visual-grid .ed-placeholder {
+            aspect-ratio: 2.5 / 1;
+        }
+
+        .edtronaut-page .ed-course-grid.bottom .ed-visual-grid .ed-placeholder + .ed-placeholder {
+            margin-top: 12px !important;
+        }
+
+        @media (max-width: 960px) {
+            .edtronaut-page .ed-tiktok .ed-grid,
+            .edtronaut-page .ed-linkedin-layout,
+            .edtronaut-page .ed-outcome-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .edtronaut-page .ed-tiktok .ed-visual-stack {
+                display: grid;
+            }
+
+            .edtronaut-page .ed-tiktok .ed-benchmark-showcase {
+                min-height: clamp(250px, 66vw, 360px);
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .edtronaut-page .ed-title,
+            .edtronaut-page .ed-section-title {
+                font-size: clamp(2.7rem, 13vw, 4.6rem);
+            }
+
+            .edtronaut-page .ed-white-title {
+                margin-inline: -16px;
+                padding: 12px 16px;
+                text-align: center;
+            }
+
+            .edtronaut-page .ed-placeholder,
+            .edtronaut-page .ed-dashboard-grid .ed-placeholder,
+            .edtronaut-page .ed-post-grid .ed-placeholder,
+            .edtronaut-page .ed-course-grid .ed-placeholder {
+                aspect-ratio: 1.35 / 1;
+            }
+
+            .edtronaut-page .ed-post-overlay {
+                opacity: 1;
+                inset: auto 0 0;
+                min-height: 44px;
+                padding: 10px 14px;
+                background: rgba(0, 0, 0, .8);
+            }
+
+            .edtronaut-page .ed-hero-visual,
+            .edtronaut-page .ed-outcome-wide {
+                aspect-ratio: 1.5 / 1;
+            }
+        }
+    </style>
 </head>
-<body class="bg-black text-white antialiased selection-accent"><div class="page-wipe wipe-initial-in" id="page-wipe"></div>
-    <header class="sticky-nav"><div class="nav-container"><nav class="nav-menu"><a href="index.html#about" class="nav-link">About</a><span class="nav-comma">,</span><a href="work.html" class="nav-link">Work</a><span class="nav-comma">,</span><a href="index.html#contact" class="nav-link">Contact</a></nav><a href="index.html" class="brand-logo nav-brand-center">ElysLu</a><div class="nav-right"><span class="nav-header-label">Project 06 / 08</span><span class="nav-header-sublabel">Editable Case Study</span></div></div></header>
-    <main class="grid-container" data-editable-placeholder><section class="detail-hero reveal-fade-up"><div class="section-tag">PROJECT 06 / REPLACE CATEGORY</div><h1 class="section-title font-display">Replace with Project Title</h1><div class="detail-meta-grid"><div class="meta-item"><span class="lbl">Client</span><span class="val">Replace with client or industry</span></div><div class="meta-item"><span class="lbl">Platform</span><span class="val">Replace with channels</span></div><div class="meta-item"><span class="lbl">Year</span><span class="val">Replace with year</span></div><div class="meta-item"><span class="lbl">Role</span><span class="val">Replace with your role</span></div></div></section>
-    <section class="placeholder-case reveal-fade-up"><div class="case-study-grid"><div><div class="cs-block"><h2 class="cs-block-title font-display">Replace with Challenge</h2><p class="cs-block-text">Describe the context, audience problem, and objective.</p></div><div class="cs-block"><h2 class="cs-block-title font-display">Replace with Approach</h2><p class="cs-block-text">Explain the strategy, execution, and your contribution.</p></div><div class="cs-block"><h2 class="cs-block-title font-display">Replace with Outcome</h2><p class="cs-block-text">Add only verified outcomes and learning.</p></div></div><div class="cs-visuals-col"><div class="cs-visual-box"><img src="assets/campaign-launch.webp" alt="Temporary Project 06 visual to replace"></div></div></div><nav class="cs-nav-footer" aria-label="Project navigation"><a href="project-santas-wish-list.html" class="btn btn-outline">← PROJECT 05</a><a href="project-placeholder-07.html" class="btn btn-filled">PROJECT 07 →</a></nav></section></main>
-    <footer class="footer-bottom"><div class="fb-container"><p class="fb-copy">© 2026 ElysLu.</p><a href="work.html" class="fb-design">ALL WORKS</a></div></footer><script src="app.js?v=20260621"></script>
-</body></html>
+
+<body class="edtronaut-page bg-black text-white antialiased selection-accent">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="page-wipe wipe-initial-in" id="page-wipe"></div>
+
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <nav class="nav-menu" id="main-nav">
+                <a href="index.html#about" class="nav-link">About</a><span class="nav-comma">,</span>
+                <a href="work.html" class="nav-link">Work</a><span class="nav-comma">,</span>
+                <a href="index.html#contact" class="nav-link btn-contact-trigger">Contact</a>
+            </nav>
+            <a href="index.html" class="brand-logo nav-brand-center" id="nav-logo">ElysLu</a>
+            <div class="nav-right">
+                <span class="nav-header-label">Project 06 / 08</span>
+                <span class="nav-header-sublabel">Product &amp; Marketing Internship</span>
+            </div>
+            <button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer-menu">
+        <nav class="mobile-nav-links">
+            <a href="index.html#about" class="mobile-nav-link">About</a>
+            <a href="work.html" class="mobile-nav-link">Work</a>
+            <a href="index.html#contact" class="mobile-nav-link btn-contact-trigger">Contact</a>
+        </nav>
+    </div>
+
+    <main id="main-content">
+        <section class="ed-section ed-hero reveal-fade-up" data-section="edtronaut-overview">
+            <div class="ed-container">
+                <div class="ed-hero-grid">
+                    <div class="ed-text-block">
+                        <p class="ed-kicker">Project 06 / Edtech growth</p>
+                        <h1 class="ed-title">Edtronaut overview</h1>
+                        <p class="ed-display-copy ed-hero-copy">AI-powered adaptive learning platform transforming
+                            upskilling through personalized journeys in tech, business &amp; marketing. We empower
+                            learners to unlock their full potential leading by founder Tram Le who is a former Regional
+                            Vice President of Marketing for Singapore at Lazada.</p>
+
+                        <div class="ed-meta" aria-label="Project metadata">
+                            <div class="ed-meta-item">
+                                <span class="ed-label">Role</span>
+                                <span class="ed-meta-value">Product &amp; Marketing Intern</span>
+                            </div>
+                            <div class="ed-meta-item">
+                                <span class="ed-label">Market</span>
+                                <span class="ed-meta-value">Vietnam</span>
+                            </div>
+                            <div class="ed-meta-item">
+                                <span class="ed-label">Period</span>
+                                <span class="ed-meta-value">Sep 2024 - Apr 2025</span>
+                            </div>
+                            <div class="ed-meta-item">
+                                <span class="ed-label">Focus</span>
+                                <span class="ed-meta-value">Social, SEO, Course GTM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <figure class="ed-image-panel ed-hero-visual">
+                        <img class="ed-image" src="assets/edtronaut/placeholder-edtronaut-overview.png"
+                            alt="Edtronaut mentor-mentee platform overview">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="ed-section" data-section="managing-channels">
+            <div class="ed-container">
+                <h2 class="ed-section-title ed-white-title reveal-fade-up">Managing channels</h2>
+
+                <div class="ed-management-top">
+                    <div class="reveal-fade-up">
+                        <h3 class="ed-display-copy">Threads</h3>
+                        <p class="ed-display-copy">Collaborated with the marketing executive to publish 70+ Threads,
+                            achieving 348K weekly views in the first month and ranking second in engagement after
+                            BrandVietnam's top marketing and branding community.</p>
+                    </div>
+                    <figure class="ed-image-panel reveal-fade-up reveal-delay-1">
+                        <figcaption class="ed-image-caption">Weekly report</figcaption>
+                        <img class="ed-image" src="assets/edtronaut/placeholder-weekly-report.png"
+                            alt="Weekly Threads channel report">
+                    </figure>
+                </div>
+
+                <div class="ed-stat-strip reveal-fade-up" aria-label="Threads performance metrics">
+                    <div class="ed-stat">
+                        <div class="ed-stat-value">928k</div>
+                        <div class="ed-stat-label">Views</div>
+                    </div>
+                    <div class="ed-stat">
+                        <div class="ed-stat-value">9.2k</div>
+                        <div class="ed-stat-label">Interactions</div>
+                    </div>
+                    <div class="ed-stat">
+                        <div class="ed-stat-value">1,995</div>
+                        <div class="ed-stat-label">New followers</div>
+                    </div>
+                    <div class="ed-stat">
+                        <div class="ed-stat-value">100%</div>
+                        <div class="ed-stat-label">Organic</div>
+                    </div>
+                </div>
+
+                <div class="ed-dashboard-grid reveal-fade-up" aria-label="Threads dashboards">
+                    <figure class="ed-image-panel">
+                        <img class="ed-image" src="assets/edtronaut/views-dashboard.png" alt="Threads views dashboard">
+                    </figure>
+                    <figure class="ed-image-panel">
+                        <img class="ed-image" src="assets/edtronaut/interactions-dashboard.png" alt="Threads interactions dashboard">
+                    </figure>
+                    <figure class="ed-image-panel">
+                        <img class="ed-image" src="assets/edtronaut/followers-dashboard.png" alt="Threads followers dashboard">
+                    </figure>
+                </div>
+
+                <div class="ed-post-section reveal-fade-up">
+                    <h3 class="ed-post-heading">What I post</h3>
+                    <div class="ed-post-grid" aria-label="Threads post examples">
+                        <a class="ed-post-link" href="https://www.threads.com/@edtronaut_ai/post/DGzb_2nzmcg?xmt=AQG0YAeqsEkGrQpgH0jTIo0q53bvxa3ItXr5qBcMX_dsAA" target="_blank" rel="noopener noreferrer">
+                            <img class="ed-post-image" src="assets/edtronaut/sensory-marketing.png" alt="Sensory marketing Threads post">
+                            <span class="ed-post-overlay">More detail</span>
+                        </a>
+                        <a class="ed-post-link" href="https://www.threads.com/@edtronaut_ai/post/DIvIE-ENUHm?xmt=AQG0p-z6cD1kllKNRIq6j0uIdnG0njRmSx9zgfZjfytapA" target="_blank" rel="noopener noreferrer">
+                            <img class="ed-post-image" src="assets/edtronaut/brand-story.png" alt="Brand story Threads post">
+                            <span class="ed-post-overlay">More detail</span>
+                        </a>
+                        <a class="ed-post-link" href="https://www.threads.com/@edtronaut_ai/post/DF9Y3IyzpAf?xmt=AQG0XCj1LElOXmNLut9DvdTNSGsiuHuFgjm4xD1O-Ct_hQ" target="_blank" rel="noopener noreferrer">
+                            <img class="ed-post-image" src="assets/edtronaut/branding-thread.png" alt="Branding thread post">
+                            <span class="ed-post-overlay">More detail</span>
+                        </a>
+                        <a class="ed-post-link" href="https://www.threads.com/@edtronaut_ai/post/DFWy8xivt-P?xmt=AQGz3x3opEjS8z3Nu64k95C6z2vGAw19O-eGNwjwuhwp2w" target="_blank" rel="noopener noreferrer">
+                            <img class="ed-post-image" src="assets/edtronaut/marketing-q-and-a.png" alt="Marketing Q and A Threads post">
+                            <span class="ed-post-overlay">More detail</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ed-section ed-tiktok" data-section="tiktok-revival">
+            <div class="ed-container ed-grid two-col">
+                <div class="ed-text-block reveal-fade-up">
+                    <h2 class="ed-section-title">TikTok</h2>
+                    <p class="ed-display-copy">Revived the company’s TikTok channel after a 3-month hiatus by producing
+                        50+ videos, handling the entire process from conceptualizing and scripting to filming and
+                        editing. These efforts achieved 9.8k views and 9.1k reach in the first week.</p>
+                </div>
+
+                <div class="ed-visual-stack reveal-fade-up reveal-delay-1">
+                    <figure class="ed-image-panel ed-tiktok-reach">
+                        <img class="ed-image" src="assets/edtronaut/placeholder-reach-dashboard.png"
+                            alt="TikTok reach dashboard">
+                    </figure>
+                    <div class="ed-benchmark-showcase">
+                        <div class="ed-planning-bar"><span>Competitor benchmarking</span></div>
+                        <img class="ed-benchmark-sheet ed-benchmark-sheet-top"
+                            src="assets/edtronaut/competitor-benchmarking-sheet.png"
+                            alt="TikTok competitor benchmarking sheet overview">
+                        <img class="ed-benchmark-sheet ed-benchmark-sheet-bottom"
+                            src="assets/edtronaut/competitor-benchmarking-sheet.png"
+                            alt="TikTok competitor benchmarking sheet details">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ed-section ed-linkedin" data-section="linkedin-growth">
+            <div class="ed-container ed-linkedin-layout">
+                <div class="ed-text-block reveal-fade-up">
+                    <h2 class="ed-section-title">LinkedIn</h2>
+                    <p class="ed-display-copy">Grew the company's LinkedIn channel organically, attaining 25,118
+                        impressions, 430 reactions, 19 comments, and 3 reposts within three months.</p>
+                    <div class="ed-placeholder" aria-label="LinkedIn analytics placeholder">
+                        <div class="ed-placeholder-card">
+                            <span class="ed-placeholder-eyebrow">Placeholder</span>
+                            <span class="ed-placeholder-title">LinkedIn analytics snapshot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-placeholder reveal-fade-up reveal-delay-1" aria-label="LinkedIn metrics placeholder">
+                    <div class="ed-placeholder-card">
+                        <span class="ed-placeholder-eyebrow">Placeholder</span>
+                        <span class="ed-placeholder-title">Organic impressions chart</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ed-section" data-section="seo-articles">
+            <div class="ed-container">
+                <h2 class="ed-section-title ed-white-title reveal-fade-up">SEO-optimized article</h2>
+                <div class="ed-seo-layout">
+                    <div class="reveal-fade-up">
+                        <p class="ed-display-copy">Created 20+ SEO-optimized blog posts, using copywriting skills and
+                            Google Keyword Planner to craft content tailored to high-ranking keywords, resulting in 15
+                            articles appearing in page 1 search results.</p>
+                        <div class="ed-placeholder" aria-label="SEO blog article placeholder">
+                            <div class="ed-placeholder-card">
+                                <span class="ed-placeholder-eyebrow">Placeholder</span>
+                                <span class="ed-placeholder-title">SEO blog article</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ed-seo-side reveal-fade-up reveal-delay-1">
+                        <div class="ed-placeholder" aria-label="Google search result placeholder">
+                            <div class="ed-placeholder-card">
+                                <span class="ed-placeholder-eyebrow">Placeholder</span>
+                                <span class="ed-placeholder-title">Page 1 search result</span>
+                            </div>
+                        </div>
+                        <div class="ed-placeholder" aria-label="Keyword planner placeholder">
+                            <div class="ed-placeholder-card">
+                                <span class="ed-placeholder-eyebrow">Placeholder</span>
+                                <span class="ed-placeholder-title">Keyword planner sheet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ed-section" data-section="measurable-outcomes">
+            <div class="ed-container">
+                <div class="ed-outcome-layout">
+                    <div class="ed-text-block reveal-fade-up">
+                        <h2 class="ed-section-title">Result with measurable outcomes</h2>
+                        <p class="ed-display-copy">Through strategic marketing content, I drove measurable outcomes,
+                            including 936 product activations, 975 job search link clicks, and 14K website visits within
+                            the first month.</p>
+                    </div>
+                    <div class="ed-placeholder reveal-fade-up reveal-delay-1" aria-label="Product activation sheet placeholder">
+                        <div class="ed-placeholder-card">
+                            <span class="ed-placeholder-eyebrow">Placeholder</span>
+                            <span class="ed-placeholder-title">CV PowerUp activation sheet</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-placeholder ed-outcome-wide reveal-fade-up" aria-label="Analytics report placeholder">
+                    <div class="ed-placeholder-card">
+                        <span class="ed-placeholder-eyebrow">Placeholder</span>
+                        <span class="ed-placeholder-title">Analytics report snapshot</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ed-section" data-section="course-development">
+            <div class="ed-container">
+                <h2 class="ed-section-title ed-white-title reveal-fade-up">Product course development</h2>
+
+                <div class="reveal-fade-up">
+                    <h3 class="ed-course-kicker">"Million-dollar livestream selling secrets"</h3>
+                    <div class="ed-course-grid">
+                        <div class="ed-placeholder" aria-label="Course communications materials placeholder">
+                            <div class="ed-placeholder-card">
+                                <span class="ed-placeholder-eyebrow">Placeholder</span>
+                            <span class="ed-placeholder-title">Communications materials</span>
+                            </div>
+                        </div>
+                        <div class="ed-placeholder" aria-label="Course target audience analyzing placeholder">
+                            <div class="ed-placeholder-card">
+                                <span class="ed-placeholder-eyebrow">Placeholder</span>
+                            <span class="ed-placeholder-title">Target audience analyzing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ed-course-grid bottom">
+                        <div class="ed-placeholder" aria-label="Course competitor benchmarking placeholder">
+                            <div class="ed-placeholder-card">
+                                <span class="ed-placeholder-eyebrow">Placeholder</span>
+                            <span class="ed-placeholder-title">Competitor benchmarking</span>
+                            </div>
+                        </div>
+                        <div class="ed-placeholder" aria-label="Course communications strategy placeholder">
+                            <div class="ed-placeholder-card">
+                                <span class="ed-placeholder-eyebrow">Placeholder</span>
+                            <span class="ed-placeholder-title">Comms strategy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-fade-up reveal-delay-1" style="margin-top: clamp(48px, 7vw, 96px);">
+                    <h3 class="ed-course-kicker">"Winning the Affiliate Marketing with AI"</h3>
+                    <div class="ed-course-grid">
+                        <div class="ed-placeholder" aria-label="Affiliate communications materials placeholder">
+                            <div class="ed-placeholder-card">
+                                <span class="ed-placeholder-eyebrow">Placeholder</span>
+                                <span class="ed-placeholder-title">Communications materials</span>
+                            </div>
+                        </div>
+                        <div class="ed-placeholder" aria-label="Affiliate target audience analyzing placeholder">
+                            <div class="ed-placeholder-card">
+                                <span class="ed-placeholder-eyebrow">Placeholder</span>
+                                <span class="ed-placeholder-title">Target audience analyzing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ed-course-grid bottom">
+                        <div class="ed-placeholder" aria-label="Affiliate competitor benchmarking placeholder">
+                            <div class="ed-placeholder-card">
+                                <span class="ed-placeholder-eyebrow">Placeholder</span>
+                                <span class="ed-placeholder-title">Competitor benchmarking</span>
+                            </div>
+                        </div>
+                        <div class="ed-visual-grid">
+                            <div class="ed-placeholder" aria-label="Affiliate USP placeholder">
+                                <div class="ed-placeholder-card">
+                                    <span class="ed-placeholder-eyebrow">Placeholder</span>
+                                    <span class="ed-placeholder-title">Define USP</span>
+                                </div>
+                            </div>
+                            <div class="ed-placeholder" aria-label="Affiliate info hub placeholder" style="margin-top: 18px;">
+                                <div class="ed-placeholder-card">
+                                    <span class="ed-placeholder-eyebrow">Placeholder</span>
+                                    <span class="ed-placeholder-title">Info hub</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ed-display-copy ed-course-copy">Worked with the CEO to develop the course outline,
+                        conduct market and competitor research to identify USPs, design audience-specific learning
+                        formats, and craft a communication plan for all launch phases.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ed-container ed-nav reveal-fade-up">
+            <a href="project-santas-wish-list.html" class="btn btn-outline">← Project 05</a>
+            <a href="project-placeholder-07.html" class="btn btn-filled">Project 07 →</a>
+        </div>
+    </main>
+
+    <footer class="footer-bottom">
+        <div class="fb-container">
+            <p class="fb-copy">© 2026 ElysLu. All rights reserved.</p>
+            <p class="fb-design">Edtech growth system v1.0</p>
+        </div>
+    </footer>
+
+    <script src="app.js?v=20260621"></script>
+</body>
+
+</html>

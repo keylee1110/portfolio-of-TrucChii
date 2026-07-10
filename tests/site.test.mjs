@@ -64,13 +64,15 @@ const projects = [
   ['community-subprojects.html', 'Community Fest'],
   ['project-live-legend.html', 'LIVE LEGEND'],
   ['project-santas-wish-list.html', "Santa's Wish List"],
+  ['project-placeholder-06.html', 'Edtronaut'],
 ];
 
-test('Work page lists the same five projects', () => {
+test('Work page lists the same six projects', () => {
   const work = read('work.html');
-  assert.equal((work.match(/data-work-item/g) || []).length, 5);
+  assert.equal((work.match(/data-work-item/g) || []).length, 6);
   assert.match(work, /class="work-intro-sticky"/);
   for (const [file] of projects) assert.match(work, new RegExp(`href="${file}"`));
+  assert.match(work, /href="project-placeholder-06\.html"/);
 });
 
 test('all project pages exist and placeholders are explicit', () => {
@@ -79,7 +81,7 @@ test('all project pages exist and placeholders are explicit', () => {
     const html = read(file);
     assert.match(html, new RegExp(title));
     assert.match(html, /ElysLu/);
-    if (/project-placeholder-0[6-8]\.html/.test(file)) {
+    if (/project-placeholder-0[7-8]\.html/.test(file)) {
       assert.match(html, /data-editable-placeholder/);
       assert.match(html, /Replace with/i);
     }
@@ -182,6 +184,60 @@ test('all project pages use the homepage pill button system', () => {
   const appSource = read('app.src.js');
   assert.match(appSource, /const isProjectPage =/);
   assert.match(appSource, /if \(isProjectPage \|\|/);
+});
+
+test('Edtronaut follows the approved seven-section growth story', () => {
+  const html = read('project-placeholder-06.html');
+  const orderedSections = [
+    'data-section="edtronaut-overview"',
+    'data-section="managing-channels"',
+    'data-section="tiktok-revival"',
+    'data-section="linkedin-growth"',
+    'data-section="seo-articles"',
+    'data-section="measurable-outcomes"',
+    'data-section="course-development"',
+  ];
+  let previous = -1;
+
+  for (const marker of orderedSections) {
+    const current = html.indexOf(marker);
+    assert.ok(current > previous, `${marker} is missing or out of order`);
+    previous = current;
+  }
+
+  for (const asset of [
+    'section-1.png',
+    'section-2-1.png',
+    'section-2-2.png',
+    'section-3.png',
+    'section-4.png',
+    'section-5.png',
+    'section-6.png',
+    'section-7-1.png',
+    'section-7-2.png',
+    'placeholder-reach-dashboard.png',
+    'competitor-benchmarking-sheet.png',
+  ]) {
+    assert.ok(existsSync(join(root, 'assets/edtronaut', asset)), `Missing assets/edtronaut/${asset}`);
+  }
+
+  assert.doesNotMatch(html, /ref\/projects 6/i);
+  assert.match(html, /<img[^>]+assets\/edtronaut\/placeholder-edtronaut-overview\.png/i);
+  assert.match(html, /<img[^>]+assets\/edtronaut\/placeholder-weekly-report\.png/i);
+  assert.match(html, /<img[^>]+assets\/edtronaut\/views-dashboard\.png/i);
+  assert.match(html, /<img[^>]+assets\/edtronaut\/followers-dashboard\.png/i);
+  assert.match(html, /<img[^>]+assets\/edtronaut\/interactions-dashboard\.png/i);
+  assert.match(html, /https:\/\/www\.threads\.com\/@edtronaut_ai\/post\//i);
+  assert.match(html, /928k[\s\S]*9\.2k[\s\S]*1,995[\s\S]*100%/i);
+  assert.match(html, /assets\/edtronaut\/placeholder-reach-dashboard\.png/i);
+  assert.match(html, /assets\/edtronaut\/competitor-benchmarking-sheet\.png/i);
+  assert.doesNotMatch(html, /data-editable-placeholder/);
+  assert.match(html, /Edtronaut overview/);
+  assert.match(html, /Weekly report/);
+  assert.match(html, /Competitor benchmarking/);
+  assert.match(html, /Communications materials/);
+  assert.match(html, /href="project-santas-wish-list\.html"/);
+  assert.match(html, /href="project-placeholder-07\.html"/);
 });
 
 test('Community Project 01 follows the approved three-section campaign story', () => {
