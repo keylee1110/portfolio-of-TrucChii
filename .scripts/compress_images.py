@@ -15,7 +15,7 @@ def compress_images():
         'community-subprojects.html',
         'project-placeholder-04.html',
         'project-placeholder-05.html',
-        'project-placeholder-06.html',
+        'project-edtronaut.html',
         'project-placeholder-07.html',
         'project-placeholder-08.html'
     ]

@@ -35,7 +35,7 @@ test('locked homepage sections retain their approved markup', () => {
 test('homepage has six featured project links and no Results section', () => {
   const projects = sectionMarkup(home, 'campaigns-section');
   assert.equal((projects.match(/data-project-card/g) || []).length, 6);
-  assert.match(projects, /href="project-placeholder-06\.html"/);
+  assert.match(projects, /href="project-edtronaut\.html"/);
   assert.match(projects, /public\/Projects thumbnails\/06_behind\.png/);
   assert.match(projects, /public\/Projects thumbnails\/06_Front\.png/);
   assert.doesNotMatch(home, /class="results-section"|id="results"/);
@@ -67,7 +67,7 @@ const projects = [
   ['community-subprojects.html', 'Community Fest'],
   ['project-live-legend.html', 'LIVE LEGEND'],
   ['project-santas-wish-list.html', "Santa's Wish List"],
-  ['project-placeholder-06.html', 'Edtronaut'],
+  ['project-edtronaut.html', 'Edtronaut'],
 ];
 
 test('Work page lists the same six projects', () => {
@@ -75,7 +75,7 @@ test('Work page lists the same six projects', () => {
   assert.equal((work.match(/data-work-item/g) || []).length, 6);
   assert.match(work, /class="work-intro-sticky"/);
   for (const [file] of projects) assert.match(work, new RegExp(`href="${file}"`));
-  assert.match(work, /href="project-placeholder-06\.html"/);
+  assert.match(work, /href="project-edtronaut\.html"/);
 });
 
 test('all project pages exist and placeholders are explicit', () => {
@@ -190,7 +190,7 @@ test('all project pages use the homepage pill button system', () => {
 });
 
 test('Edtronaut follows the approved seven-section growth story', () => {
-  const html = read('project-placeholder-06.html');
+  const html = read('project-edtronaut.html');
   const orderedSections = [
     'data-section="edtronaut-overview"',
     'data-section="managing-channels"',
