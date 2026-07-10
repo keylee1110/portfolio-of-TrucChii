@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital-Trans - ElysLu</title>
+    <meta name="description" content="Digital-Trans case study: social channel management for a Southeast Asian game localization company.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root { --dt-bg: #050505; --dt-line: rgba(255,255,255,.16); --dt-muted: rgba(255,255,255,.7); --dt-dim: rgba(255,255,255,.44); }
+        .digital-trans-page { background: radial-gradient(circle at 8% 20%, rgba(108,0,70,.18), transparent 31%), var(--dt-bg); overflow-x: clip; }
+        .dt-container { width: min(100% - 40px, 1400px); margin-inline: auto; }
+        .dt-section { padding: clamp(88px, 10vw, 148px) 0; border-bottom: 1px solid var(--dt-line); }
+        .dt-grid { display: grid; grid-template-columns: minmax(0,.92fr) minmax(380px,1.08fr); gap: clamp(34px,6vw,96px); align-items: center; }
+        .dt-grid--threads { grid-template-columns: minmax(0,1.45fr) minmax(270px,.55fr); gap: clamp(24px,2.5vw,40px); align-items: start; }
+        .dt-kicker { color: var(--dt-dim); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+        .dt-title { margin: 16px 0 12px; font-family: var(--font-display); font-size: clamp(2rem,2.7vw,2.55rem); font-weight: 900; line-height: .95; letter-spacing: -.055em; }
+        .dt-section-title { margin-bottom: 20px; font-family: var(--font-display); font-size: clamp(2.3rem,3.4vw,3.25rem); font-weight: 900; line-height: .95; letter-spacing: -.06em; }
+        .dt-copy { max-width: 30ch; color: #fff; font-family: var(--font-display); font-size: clamp(1.2rem,1.55vw,1.55rem); font-weight: 400; line-height: 1.06; letter-spacing: -.04em; }
+        .dt-copy--wide { max-width: 50ch; font-size: clamp(1.2rem,1.45vw,1.42rem); }
+        .dt-copy + .dt-copy { margin-top: 28px; }
+        .dt-media { display: block; width: 100%; height: auto; object-fit: contain; }
+        .dt-hero-visual { overflow: hidden; border-radius: 38px; }
+        .dt-dashboard-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; margin-top: clamp(38px,5vw,66px); }
+        .dt-dashboard-grid .dt-media { align-self: start; }
+        .dt-dashboard-grid .dt-media:last-child { grid-column: 1 / 2; }
+        .dt-threads-content { display: flex; flex-direction: column; }
+        .dt-threads-content .dt-section-title { font-size: clamp(2.7rem,4vw,3.7rem); }
+        .dt-threads-content .dt-copy { max-width: 38ch; font-size: clamp(1.38rem,1.8vw,1.72rem); }
+        .dt-threads-content .dt-copy--wide { max-width: 42ch; }
+        .dt-threads-post { width: min(100%,480px); margin-top: 54px; }
+        .dt-phone { width: min(100%,400px); justify-self: end; }
+        .dt-nav { display: flex; justify-content: space-between; gap: 20px; padding: 56px 0 86px; }
+        .digital-trans-page a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+        @media (prefers-reduced-motion: reduce) { .digital-trans-page *, .digital-trans-page *::before, .digital-trans-page *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+        @media (max-width: 800px) { .dt-container { width: min(100% - 32px,1400px); } .dt-grid, .dt-grid--threads { grid-template-columns: 1fr; } .dt-title { font-size: clamp(2rem,10vw,2.7rem); } .dt-dashboard-grid { grid-template-columns: 1fr; } .dt-dashboard-grid .dt-media:last-child { grid-column: auto; } .dt-phone { width: min(100%,380px); justify-self: start; } .dt-nav { flex-direction: column; } }
+    </style>
+</head>
+<body class="digital-trans-page bg-black text-white antialiased selection-accent">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="page-wipe wipe-initial-in" id="page-wipe"></div>
+    <header class="sticky-nav"><div class="nav-container"><nav class="nav-menu" aria-label="Primary navigation"><a href="index.html#about" class="nav-link">About</a><span class="nav-comma">,</span><a href="work.html" class="nav-link">Work</a><span class="nav-comma">,</span><a href="index.html#contact" class="nav-link btn-contact-trigger">Contact</a></nav><a href="index.html" class="brand-logo nav-brand-center">ElysLu</a><div class="nav-right"><span class="nav-header-label">Project 07 / 08</span><span class="nav-header-sublabel">Social Media Marketing</span></div><button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-menu-btn"><span class="bar"></span><span class="bar"></span></button></div></header>
+    <div class="mobile-drawer" id="mobile-drawer-menu"><nav class="mobile-nav-links"><a href="index.html#about" class="mobile-nav-link">About</a><a href="work.html" class="mobile-nav-link">Work</a><a href="index.html#contact" class="mobile-nav-link btn-contact-trigger">Contact</a></nav></div>
+    <main id="main-content">
+        <section class="dt-section reveal-fade-up" data-section="digital-trans-overview"><div class="dt-container dt-grid"><div><p class="dt-kicker">Project 07 / Social media marketing</p><h1 class="dt-title">Digital-trans overview</h1><p class="dt-copy">Digital-Trans is a premier gaming localization and media translation company specializing in the Southeast Asian market. The company provides end-to-end solutions, including game testing, subtitle translation, 24/7 player support, and professional voice-over services.</p></div><div class="dt-hero-visual"><img class="dt-media" src="assets/digital-trans/hero-visual.png" width="1840" height="1211" alt="Digital-Trans game localization portfolio"></div></div></section>
+        <section class="dt-section reveal-fade-up" data-section="digital-trans-facebook"><div class="dt-container"><h2 class="dt-section-title">Facebook</h2><p class="dt-copy dt-copy--wide">Driven by the philosophy that marketing must deliver tangible conversions rather than just high engagement, I distributed tailored linguistics and freelancing content across relevant niche communities to target the exact audience.</p><div class="dt-dashboard-grid" aria-label="Facebook analytics"><img class="dt-media" src="assets/digital-trans/facebook-analytics-01.png" width="1643" height="850" alt="Facebook analytics overview"><img class="dt-media" src="assets/digital-trans/facebook-analytics-02.png" width="1689" height="1060" alt="Facebook audience analytics"><img class="dt-media" src="assets/digital-trans/facebook-analytics-03.png" width="1642" height="631" alt="Facebook content analytics"></div></div></section>
+        <section class="dt-section reveal-fade-up" data-section="digital-trans-threads"><div class="dt-container dt-grid dt-grid--threads"><div class="dt-threads-content"><h2 class="dt-section-title">Threads</h2><p class="dt-copy">Launched and managed the official Threads and Facebook channels for Digital-Trans Vietnam.</p><p class="dt-copy dt-copy--wide">Aligned closely with the brand’s core positioning to create highly engaging discussion content centered on linguistics and freelancing topics. Within the first 2 weeks, successfully built early organic momentum on Threads, driving 23.6K views and 339 engagements.</p><img class="dt-media dt-threads-post" src="assets/digital-trans/threads-post.png" width="1317" height="278" alt="Digital-Trans Threads post"></div><img class="dt-media dt-phone" src="assets/digital-trans/threads-insight.png" width="1168" height="1819" alt="Threads performance insights showing 23.6K views and 339 interactions"></div></section>
+        <nav class="dt-container dt-nav reveal-fade-up" aria-label="Project navigation"><a href="project-edtronaut.html" class="btn btn-outline">← Project 06</a><a href="project-placeholder-08.html" class="btn btn-filled">Project 08 →</a></nav>
+    </main>
+    <footer class="footer-bottom"><div class="fb-container"><p class="fb-copy">© 2026 ElysLu.</p><a href="work.html" class="fb-design">ALL WORKS</a></div></footer>
+    <script src="app.js?v=20260621"></script>
+</body>
+</html>
