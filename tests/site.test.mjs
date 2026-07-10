@@ -32,10 +32,13 @@ test('locked homepage sections retain their approved markup', () => {
   }
 });
 
-test('homepage has six featured project links and no Results section', () => {
+test('homepage has seven featured project links and no Results section', () => {
   const projects = sectionMarkup(home, 'campaigns-section');
-  assert.equal((projects.match(/data-project-card/g) || []).length, 6);
+  assert.equal((projects.match(/data-project-card/g) || []).length, 7);
   assert.match(projects, /href="project-edtronaut\.html"/);
+  assert.match(projects, /href="project-digital-trans\.html"/);
+  assert.match(projects, /public\/Projects thumbnails\/07_behind\.png/);
+  assert.match(projects, /public\/Projects thumbnails\/07_front\.png/);
   assert.match(projects, /public\/Projects thumbnails\/06_behind\.png/);
   assert.match(projects, /public\/Projects thumbnails\/06_front\.png/);
   assert.doesNotMatch(home, /class="results-section"|id="results"/);
@@ -68,11 +71,12 @@ const projects = [
   ['project-live-legend.html', 'LIVE LEGEND'],
   ['project-santas-wish-list.html', "Santa's Wish List"],
   ['project-edtronaut.html', 'Edtronaut'],
+  ['project-digital-trans.html', 'Digital-Trans'],
 ];
 
-test('Work page lists the same six projects', () => {
+test('Work page lists the same seven projects', () => {
   const work = read('work.html');
-  assert.equal((work.match(/data-work-item/g) || []).length, 6);
+  assert.equal((work.match(/data-work-item/g) || []).length, 7);
   assert.match(work, /class="work-intro-sticky"/);
   for (const [file] of projects) assert.match(work, new RegExp(`href="${file}"`));
   assert.match(work, /href="project-edtronaut\.html"/);
@@ -255,7 +259,55 @@ test('Edtronaut follows the approved seven-section growth story', () => {
   assert.match(html, /Competitor benchmarking/);
   assert.match(html, /Communications materials/);
   assert.match(html, /href="project-santas-wish-list\.html"/);
-  assert.match(html, /href="project-placeholder-07\.html"/);
+  assert.match(html, /href="project-digital-trans\.html"/);
+});
+
+test('Digital-Trans follows the supplied three-section layout with replaceable visuals', () => {
+  const html = read('project-digital-trans.html');
+  const orderedSections = [
+    'data-section="digital-trans-overview"',
+    'data-section="digital-trans-facebook"',
+    'data-section="digital-trans-threads"',
+  ];
+  let previous = -1;
+  for (const marker of orderedSections) {
+    const current = html.indexOf(marker);
+    assert.ok(current > previous, `${marker} is missing or out of order`);
+    previous = current;
+  }
+  assert.match(html, /Digital-Trans is a premier gaming localization/i);
+  assert.match(html, /23\.6K views and 339 engagements/i);
+  for (const asset of [
+    'hero-visual.png',
+    'facebook-analytics-01.png',
+    'facebook-analytics-02.png',
+    'facebook-analytics-03.png',
+    'threads-post.png',
+    'threads-insight.png',
+  ]) assert.match(html, new RegExp(`assets/digital-trans/${asset.replace('.', '\\.')}`));
+  assert.match(html, /href="project-edtronaut\.html"/);
+  assert.match(html, /href="project-placeholder-08\.html"/);
+});
+
+test('Caring with Butter follows the supplied four-section layout with replaceable visuals', () => {
+  const html = read('project-placeholder-08.html');
+  const orderedSections = [
+    'data-section="caring-overview"',
+    'data-section="caring-before"',
+    'data-section="caring-after"',
+    'data-section="caring-community"',
+  ];
+  let previous = -1;
+  for (const marker of orderedSections) {
+    const current = html.indexOf(marker);
+    assert.ok(current > previous, `${marker} is missing or out of order`);
+    previous = current;
+  }
+  assert.match(html, /Caring with Butter/i);
+  assert.match(html, /TikTok: 33\.8K followers/i);
+  assert.match(html, /Views: 7,053,931/);
+  assert.ok((html.match(/data-editable-placeholder/g) || []).length >= 13);
+  assert.match(html, /href="project-digital-trans\.html"/);
 });
 
 test('Community Project 01 follows the approved three-section campaign story', () => {
