@@ -37,7 +37,7 @@ test('homepage has six featured project links and no Results section', () => {
   assert.equal((projects.match(/data-project-card/g) || []).length, 6);
   assert.match(projects, /href="project-edtronaut\.html"/);
   assert.match(projects, /public\/Projects thumbnails\/06_behind\.png/);
-  assert.match(projects, /public\/Projects thumbnails\/06_Front\.png/);
+  assert.match(projects, /public\/Projects thumbnails\/06_front\.png/);
   assert.doesNotMatch(home, /class="results-section"|id="results"/);
 });
 

@@ -442,12 +442,10 @@ progressBar.style.width = '0%';
 statusText.textContent = '0%';
 descText.textContent = 'Initiating download pipeline...';
 const statusUpdates = [
-{ threshold: 15, msg: 'Gathering campaign case studies...' },
-{ threshold: 35, msg: 'Syncing customized marketing numbers...' },
-{ threshold: 55, msg: 'Compiling behind-the-scenes content grids...' },
-{ threshold: 75, msg: 'Generating desaturated visual mockups...' },
-{ threshold: 90, msg: 'Finalizing high-end vector layouts...' },
-{ threshold: 100, msg: 'Packaging PDF...' }
+{ threshold: 25, msg: 'Locating resume file...' },
+{ threshold: 55, msg: 'Verifying credentials...' },
+{ threshold: 85, msg: 'Preparing download pipeline...' },
+{ threshold: 100, msg: 'Packaging CV...' }
 ];
 const interval = setInterval(() => {
 progress += Math.floor(Math.random() * 8) + 3;
@@ -470,17 +468,13 @@ setTimeout(() => {
 triggerFileDownload();
 modal.classList.remove('open');
 document.body.style.overflow = '';
-showToast('ElysLu_Marketing_Portfolio.pdf downloaded successfully!');
+showToast('ElysLu_Resume.pdf downloaded successfully!');
 }, 1000);
 }
 function triggerFileDownload() {
-const mockContent = 'ElysLu - Digital Marketing Portfolio PDF Mock Content\n' +
-'Campaign awareness data, product launch results, and growth indexes.\n' +
-'Generated dynamically on: ' + new Date().toLocaleDateString();
-const blob = new Blob([mockContent], { type: 'application/pdf' });
 const link = document.createElement('a');
-link.href = URL.createObjectURL(blob);
-link.download = 'ElysLu_Marketing_Portfolio.pdf';
+link.href = 'public/ElysLu_Resume.pdf';
+link.download = 'ElysLu_Resume.pdf';
 document.body.appendChild(link);
 link.click();
 document.body.removeChild(link);
