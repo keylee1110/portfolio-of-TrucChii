@@ -32,13 +32,16 @@ test('locked homepage sections retain their approved markup', () => {
   }
 });
 
-test('homepage has seven featured project links and no Results section', () => {
+test('homepage has eight featured project links and no Results section', () => {
   const projects = sectionMarkup(home, 'campaigns-section');
-  assert.equal((projects.match(/data-project-card/g) || []).length, 7);
+  assert.equal((projects.match(/data-project-card/g) || []).length, 8);
   assert.match(projects, /href="project-edtronaut\.html"/);
   assert.match(projects, /href="project-digital-trans\.html"/);
   assert.match(projects, /public\/Projects thumbnails\/07_behind\.png/);
   assert.match(projects, /public\/Projects thumbnails\/07_front\.png/);
+  assert.match(projects, /href="project-placeholder-08\.html"/);
+  assert.match(projects, /public\/Projects thumbnails\/08_behind\.png/);
+  assert.match(projects, /public\/Projects thumbnails\/08_front\.png/);
   assert.match(projects, /public\/Projects thumbnails\/06_behind\.png/);
   assert.match(projects, /public\/Projects thumbnails\/06_front\.png/);
   assert.doesNotMatch(home, /class="results-section"|id="results"/);
@@ -306,7 +309,14 @@ test('Caring with Butter follows the supplied four-section layout with replaceab
   assert.match(html, /Caring with Butter/i);
   assert.match(html, /TikTok: 33\.8K followers/i);
   assert.match(html, /Views: 7,053,931/);
-  assert.ok((html.match(/data-editable-placeholder/g) || []).length >= 13);
+  for (const asset of [
+    'hero-visual.png', 'channel-visual.png',
+    'before-analytics-01.png', 'before-analytics-02.png', 'before-analytics-03.png',
+    'after-analytics-01.png', 'after-analytics-02.png', 'after-analytics-03.png',
+    'community-comment-01.png', 'community-comment-02.png', 'community-comment-03.png',
+    'community-comment-04.png', 'community-comment-05.png', 'community-comment-06.png',
+  ]) assert.match(html, new RegExp(`assets/caring-with-butter/${asset.replace('.', '\\.')}`));
+  assert.doesNotMatch(html, /data-editable-placeholder/);
   assert.match(html, /href="project-digital-trans\.html"/);
 });
 
