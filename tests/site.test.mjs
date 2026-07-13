@@ -196,6 +196,24 @@ test('all project pages use the homepage pill button system', () => {
   assert.match(appSource, /if \(isProjectPage \|\|/);
 });
 
+test('shared circular audio player loops music and exposes an accessible toggle', () => {
+  const appSource = read('app.src.js');
+  const styles = read('style.src.css');
+
+  assert.match(appSource, /function initAudioPlayer\(\)/);
+  assert.match(appSource, /public\/music\.mp3/);
+  assert.match(appSource, /audio\.loop = true/);
+  assert.match(appSource, /aria-pressed/);
+  assert.match(appSource, /elyslu-audio-state/);
+  assert.match(styles, /\.audio-player/);
+  assert.match(styles, /prefers-reduced-motion: reduce/);
+});
+
+test("Santa's Wish List swag copy uses the approved readable type scale", () => {
+  const html = read('project-santas-wish-list.html');
+  assert.match(html, /\.santa-swag-copy\s*\{[^}]*font-size:\s*clamp\(1rem,\s*1\.35vw,\s*1\.2rem\)/s);
+});
+
 test('Edtronaut follows the approved seven-section growth story', () => {
   const html = read('project-edtronaut.html');
   const orderedSections = [
@@ -419,6 +437,8 @@ test('LIVE PRO CAMPAIGN follows the approved five-section story', () => {
   for (const id of ['7550218638649789714', '7575815911777635592', '7576529267064950036', '7587673281524780308']) {
     assert.match(html, new RegExp(`tiktoklive_vietnam/video/${id}`));
   }
+  assert.match(html, /Generated over <strong>US\$15M<\/strong> in campaign revenue\./);
+  assert.match(html, /\.live-pro-research \.live-pro-media-frame\s*\{[^}]*border:\s*0;[^}]*background:\s*transparent;/s);
 });
 
 test('Obsolete project-launch.html is deleted', () => {

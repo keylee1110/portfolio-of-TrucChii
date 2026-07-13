@@ -164,6 +164,20 @@
             font-weight: 800;
         }
 
+        .live-pro-revenue-note {
+            margin-bottom: 16px;
+            color: #fff;
+            font-size: clamp(.78rem, 1vw, .92rem);
+            font-weight: 500;
+            letter-spacing: .08em;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+
+        .live-pro-revenue-note strong {
+            font-weight: 800;
+        }
+
         .live-pro-overview {
             display: grid;
             grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr);
@@ -290,6 +304,8 @@
 
         .live-pro-research .live-pro-media-frame {
             align-self: center;
+            border: 0;
+            background: transparent;
         }
 
         .live-pro-results {
@@ -619,6 +635,7 @@
                 <h1 class="live-pro-title">LIVE PRO CAMPAIGN</h1>
 
                 <div class="live-pro-highlight-container reveal-fade-up">
+                    <p class="live-pro-revenue-note">Generated over <strong>US$15M</strong> in campaign revenue.</p>
                     <p class="live-pro-highlight-text">
                         Achieves a <strong>~60% participation rate</strong>, compared to just <strong>10–15%</strong> for typical campaigns.
                     </p>
@@ -659,7 +676,7 @@
                 <figure class="live-pro-media-frame reveal-fade-up reveal-delay-1">
                     <img class="live-pro-media-image" src="assets/live-pro-research-dashboard.png"
                         alt="LIVE PRO monthly research dashboard with creator behavior, revenue, and campaign participation analysis"
-                        loading="lazy" decoding="async">
+                        width="1749" height="899" loading="lazy" decoding="async">
                 </figure>
             </div>
         </section>
