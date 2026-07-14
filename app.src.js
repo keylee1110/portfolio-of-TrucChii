@@ -17,6 +17,129 @@ function init() {
     initPillAnimations();
     initTestimonialParallax();
     initCertificateCursorPreview();
+    initAudioPlayer();
+}
+
+/* --------------------------------------------------------------------------
+   GLOBAL CIRCULAR AUDIO PLAYER
+   -------------------------------------------------------------------------- */
+function initAudioPlayer() {
+    if (document.querySelector('[data-audio-player]')) return;
+
+    const stateKey = 'elyslu-audio-state';
+    const timeKey = 'elyslu-audio-time';
+    const circularText = 'PLAY • PAUSE • MUSIC • ';
+    const player = document.createElement('button');
+    const audio = document.createElement('audio');
+    const orbit = document.createElement('span');
+    const icon = document.createElement('span');
+    let lastSavedSecond = -1;
+
+    player.type = 'button';
+    player.className = 'audio-player is-paused';
+    player.dataset.audioPlayer = '';
+    player.setAttribute('aria-label', 'Play background music');
+    player.setAttribute('aria-pressed', 'false');
+    player.title = 'Play background music';
+
+    orbit.className = 'audio-player__orbit';
+    orbit.setAttribute('aria-hidden', 'true');
+    Array.from(circularText).forEach((letter, index, letters) => {
+        const span = document.createElement('span');
+        span.className = 'audio-player__letter';
+        span.style.setProperty('--char-index', index);
+        span.style.setProperty('--char-count', letters.length);
+        span.textContent = letter === ' ' ? '\u00a0' : letter;
+        orbit.appendChild(span);
+    });
+
+    icon.className = 'audio-player__icon';
+    icon.setAttribute('aria-hidden', 'true');
+    player.append(orbit, icon);
+
+    audio.src = 'public/music.mp3';
+    audio.preload = 'auto';
+    audio.loop = true;
+    audio.volume = 0.55;
+    audio.setAttribute('aria-hidden', 'true');
+    player.appendChild(audio);
+    document.body.appendChild(player);
+
+    const readStorage = (key) => {
+        try {
+            return window.sessionStorage.getItem(key);
+        } catch {
+            return null;
+        }
+    };
+
+    const writeStorage = (key, value) => {
+        try {
+            window.sessionStorage.setItem(key, value);
+        } catch {
+            // The player still works when storage is unavailable.
+        }
+    };
+
+    const syncUi = () => {
+        const isPlaying = !audio.paused;
+        player.classList.toggle('is-playing', isPlaying);
+        player.classList.toggle('is-paused', !isPlaying);
+        player.setAttribute('aria-pressed', String(isPlaying));
+        player.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
+        player.title = isPlaying ? 'Pause background music' : 'Play background music';
+    };
+
+    const savePlayback = () => {
+        writeStorage(stateKey, audio.paused ? 'paused' : 'playing');
+        if (Number.isFinite(audio.currentTime)) {
+            writeStorage(timeKey, String(audio.currentTime));
+        }
+    };
+
+    const playAudio = async () => {
+        try {
+            await audio.play();
+            writeStorage(stateKey, 'playing');
+        } catch {
+            // Autoplay with sound may be blocked until the visitor presses play.
+        }
+        syncUi();
+    };
+
+    const restoreTime = () => {
+        const savedTime = Number.parseFloat(readStorage(timeKey));
+        if (Number.isFinite(savedTime) && savedTime >= 0) {
+            audio.currentTime = savedTime;
+        }
+    };
+
+    player.addEventListener('click', () => {
+        if (audio.paused) {
+            playAudio();
+            return;
+        }
+
+        audio.pause();
+        savePlayback();
+        syncUi();
+    });
+
+    audio.addEventListener('play', syncUi);
+    audio.addEventListener('pause', syncUi);
+    audio.addEventListener('timeupdate', () => {
+        const currentSecond = Math.floor(audio.currentTime);
+        if (currentSecond === lastSavedSecond) return;
+        lastSavedSecond = currentSecond;
+        writeStorage(timeKey, String(audio.currentTime));
+    });
+    window.addEventListener('pagehide', savePlayback);
+
+    if (audio.readyState >= 1) restoreTime();
+    else audio.addEventListener('loadedmetadata', restoreTime, { once: true });
+
+    syncUi();
+    if (readStorage(stateKey) !== 'paused') playAudio();
 }
 
 function initCertificateCursorPreview() {
