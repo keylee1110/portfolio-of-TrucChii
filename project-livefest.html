@@ -14,6 +14,7 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@300;400;500;600;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="phone-reel.css">
     <!-- Open Graph Meta Tags for Social Sharing -->
     <meta property="og:title" content="LIVE FEST 2025 - ElysLu">
     <meta property="og:description"
@@ -511,160 +512,6 @@
             letter-spacing: -0.04em;
         }
 
-        .phone-marquee {
-            width: 100%;
-            overflow: hidden;
-            padding-bottom: 24px;
-            -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-        }
-
-        .phone-marquee-track {
-            display: flex;
-            width: max-content;
-            animation: phoneMarqueeScroll 50s linear infinite;
-            will-change: transform;
-        }
-
-        .phone-marquee:hover .phone-marquee-track {
-            animation-play-state: paused;
-        }
-
-        .phone-marquee:not(.reveal-active) .phone-marquee-track {
-            animation-play-state: paused;
-        }
-
-        .phone-marquee-group {
-            display: flex;
-            gap: 24px;
-            padding-right: 24px;
-        }
-
-        @keyframes phoneMarqueeScroll {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
-        }
-
-        .phone-card {
-            flex-shrink: 0;
-            width: 200px;
-            contain: layout paint style;
-        }
-
-        .phone-chassis {
-            border: 3px solid #1a1a1a;
-            border-radius: 28px;
-            height: 380px;
-            background: #070707;
-            position: relative;
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
-            transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 500ms ease,
-                box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: transform;
-            backface-visibility: hidden;
-        }
-
-        .phone-card:hover .phone-chassis {
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-8px) scale(1.025);
-            box-shadow: 0 24px 56px rgba(0, 0, 0, 0.72);
-        }
-
-        .phone-notch {
-            width: 70px;
-            height: 12px;
-            background: #1a1a1a;
-            border-radius: 12px;
-            margin: 0 auto;
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 5;
-        }
-
-        .phone-screen {
-            flex: 1;
-            border: 1px dashed rgba(255, 255, 255, 0.05);
-            margin-top: 8px;
-            border-radius: 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #0a0a0a;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .phone-screen::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.01) 0%, transparent 70%);
-        }
-
-        .phone-screen-label {
-            font-size: 0.6rem;
-            font-weight: 700;
-            color: var(--color-text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            text-align: center;
-            z-index: 2;
-        }
-
-        .tiktok-phone-link {
-            position: relative;
-            z-index: 2;
-            display: block;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            overflow: hidden;
-        }
-
-        .tiktok-phone-cover {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .tiktok-phone-play {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.72);
-            border: 1px solid rgba(255, 255, 255, 0.65);
-            transform: translate(-50%, -50%);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-        }
-
-        .tiktok-phone-play::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 52%;
-            border-top: 7px solid transparent;
-            border-bottom: 7px solid transparent;
-            border-left: 11px solid #fff;
-            transform: translate(-35%, -50%);
-        }
-
         .from-shooting-title {
             font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 900;
@@ -920,12 +767,6 @@
             line-height: 1.02;
             letter-spacing: -0.035em;
             max-width: 33ch;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .phone-marquee-track {
-                animation: none;
-            }
         }
 
         .ooh-header {
@@ -1368,218 +1209,143 @@
 
             <!-- Phone Mockups Swiper -->
             <div class="mockups-swipe-section">
-                <div class="phone-marquee reveal-fade-up">
-                    <div class="phone-marquee-track">
-                        <div class="phone-marquee-group">
-                            <div class="phone-card" data-phone-slot="1">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><a class="tiktok-phone-link"
-                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7575083009800523016"
-                                            target="_blank" rel="noopener noreferrer"
-                                            aria-label="Watch TikTok LIVE Vietnam video 1"><img
-                                                class="tiktok-phone-cover"
-                                                src="assets/livefest-tiktok-7575083009800523016.jpg" alt=""
-                                                loading="lazy"><span class="tiktok-phone-play"
-                                                aria-hidden="true"></span></a></div>
-                                </div>
-                            </div>
-                            <div class="phone-card" data-phone-slot="2">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><a class="tiktok-phone-link"
-                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7572837860756212999"
-                                            target="_blank" rel="noopener noreferrer"
-                                            aria-label="Watch TikTok LIVE Vietnam video 2"><img
-                                                class="tiktok-phone-cover"
-                                                src="assets/livefest-tiktok-7572837860756212999.jpg" alt=""
-                                                loading="lazy"><span class="tiktok-phone-play"
-                                                aria-hidden="true"></span></a></div>
-                                </div>
-                            </div>
-                            <div class="phone-card" data-phone-slot="3">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><a class="tiktok-phone-link"
-                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7574720179213454600?is_from_webapp=1&amp;web_id=7625483623424378385"
-                                            target="_blank" rel="noopener noreferrer"
-                                            aria-label="Watch TikTok LIVE Vietnam video 3"><img
-                                                class="tiktok-phone-cover"
-                                                src="assets/livefest-tiktok-7574720179213454600.jpg" alt=""
-                                                loading="lazy"><span class="tiktok-phone-play"
-                                                aria-hidden="true"></span></a></div>
-                                </div>
-                            </div>
-                            <div class="phone-card" data-phone-slot="4">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><a class="tiktok-phone-link"
-                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7569229312101207304"
-                                            target="_blank" rel="noopener noreferrer"
-                                            aria-label="Watch TikTok LIVE Vietnam video 4"><img
-                                                class="tiktok-phone-cover"
-                                                src="assets/livefest-tiktok-7569229312101207304.jpg" alt=""
-                                                loading="lazy"><span class="tiktok-phone-play"
-                                                aria-hidden="true"></span></a></div>
-                                </div>
-                            </div>
-                            <div class="phone-card" data-phone-slot="5">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><a class="tiktok-phone-link"
-                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7570586038666562824"
-                                            target="_blank" rel="noopener noreferrer"
-                                            aria-label="Watch TikTok LIVE Vietnam video 5"><img
-                                                class="tiktok-phone-cover"
-                                                src="assets/livefest-tiktok-7570586038666562824.jpg" alt=""
-                                                loading="lazy"><span class="tiktok-phone-play"
-                                                aria-hidden="true"></span></a></div>
-                                </div>
-                            </div>
-                            <div class="phone-card" data-phone-slot="6">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><a class="tiktok-phone-link"
-                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7571335514410798354"
-                                            target="_blank" rel="noopener noreferrer"
-                                            aria-label="Watch TikTok LIVE Vietnam video 6"><img
-                                                class="tiktok-phone-cover"
-                                                src="assets/livefest-tiktok-7571335514410798354.jpg" alt=""
-                                                loading="lazy"><span class="tiktok-phone-play"
-                                                aria-hidden="true"></span></a></div>
-                                </div>
-                            </div>
-                            <div class="phone-card" data-phone-slot="7">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><a class="tiktok-phone-link"
-                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7580645355226696980"
-                                            target="_blank" rel="noopener noreferrer"
-                                            aria-label="Watch TikTok LIVE Vietnam video 7"><img
-                                                class="tiktok-phone-cover"
-                                                src="assets/livefest-tiktok-7580645355226696980.jpg" alt=""
-                                                loading="lazy"><span class="tiktok-phone-play"
-                                                aria-hidden="true"></span></a></div>
-                                </div>
-                            </div>
-                            <div class="phone-card" data-phone-slot="8">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><a class="tiktok-phone-link"
-                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7572076770388610312"
-                                            target="_blank" rel="noopener noreferrer"
-                                            aria-label="Watch TikTok LIVE Vietnam video 8"><img
-                                                class="tiktok-phone-cover"
-                                                src="assets/livefest-tiktok-7572076770388610312.jpg" alt=""
-                                                loading="lazy"><span class="tiktok-phone-play"
-                                                aria-hidden="true"></span></a></div>
-                                </div>
-                            </div>
-                            <div class="phone-card" data-phone-slot="9">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><a class="tiktok-phone-link"
-                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7576329236454133010"
-                                            target="_blank" rel="noopener noreferrer"
-                                            aria-label="Watch TikTok LIVE Vietnam video 9"><img
-                                                class="tiktok-phone-cover"
-                                                src="assets/livefest-tiktok-7576329236454133010.jpg" alt=""
-                                                loading="lazy"><span class="tiktok-phone-play"
-                                                aria-hidden="true"></span></a></div>
-                                </div>
-                            </div>
-                            <div class="phone-card" data-phone-slot="10">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><a class="tiktok-phone-link"
-                                            href="https://www.tiktok.com/@tiktoklive_vietnam/video/7575465004921539858"
-                                            target="_blank" rel="noopener noreferrer"
-                                            aria-label="Watch TikTok LIVE Vietnam video 10"><img
-                                                class="tiktok-phone-cover"
-                                                src="assets/livefest-tiktok-7575465004921539858.jpg" alt=""
-                                                loading="lazy"><span class="tiktok-phone-play"
-                                                aria-hidden="true"></span></a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="phone-marquee-group" aria-hidden="true">
-                            <div class="phone-card">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><img class="tiktok-phone-cover"
-                                            src="assets/livefest-tiktok-7575083009800523016.jpg" alt="" loading="lazy">
+                <div class="phone-reel reveal-fade-up" data-phone-reel role="region" aria-label="LIVE FEST TikTok videos">
+                    <div class="phone-reel-controls">
+                        <button type="button" data-reel-toggle>Pause slideshow</button>
+                        <button type="button" data-reel-step="-1" aria-label="Previous phone">←</button>
+                        <button type="button" data-reel-step="1" aria-label="Next phone">→</button>
+                    </div>
+                    <div class="phone-marquee">
+                        <div class="phone-marquee-track">
+                            <div class="phone-marquee-group">
+                                <div class="phone-card" data-phone-slot="1">
+                                    <div class="phone-chassis">
+                                        <div class="phone-notch"></div>
+                                        <div class="phone-screen"><a class="tiktok-phone-link"
+                                                href="https://www.tiktok.com/@tiktoklive_vietnam/video/7575083009800523016"
+                                                target="_blank" rel="noopener noreferrer"
+                                                aria-label="Watch TikTok LIVE Vietnam video 1"><img
+                                                    class="tiktok-phone-cover"
+                                                    src="assets/livefest-tiktok-7575083009800523016.jpg" alt=""
+                                                    loading="lazy"><span class="tiktok-phone-play"
+                                                    aria-hidden="true"></span></a></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="phone-card">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><img class="tiktok-phone-cover"
-                                            src="assets/livefest-tiktok-7574720179213454600.jpg" alt="" loading="lazy">
+                                <div class="phone-card" data-phone-slot="2">
+                                    <div class="phone-chassis">
+                                        <div class="phone-notch"></div>
+                                        <div class="phone-screen"><a class="tiktok-phone-link"
+                                                href="https://www.tiktok.com/@tiktoklive_vietnam/video/7572837860756212999"
+                                                target="_blank" rel="noopener noreferrer"
+                                                aria-label="Watch TikTok LIVE Vietnam video 2"><img
+                                                    class="tiktok-phone-cover"
+                                                    src="assets/livefest-tiktok-7572837860756212999.jpg" alt=""
+                                                    loading="lazy"><span class="tiktok-phone-play"
+                                                    aria-hidden="true"></span></a></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="phone-card">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><img class="tiktok-phone-cover"
-                                            src="assets/livefest-tiktok-7572837860756212999.jpg" alt="" loading="lazy">
+                                <div class="phone-card" data-phone-slot="3">
+                                    <div class="phone-chassis">
+                                        <div class="phone-notch"></div>
+                                        <div class="phone-screen"><a class="tiktok-phone-link"
+                                                href="https://www.tiktok.com/@tiktoklive_vietnam/video/7574720179213454600?is_from_webapp=1&amp;web_id=7625483623424378385"
+                                                target="_blank" rel="noopener noreferrer"
+                                                aria-label="Watch TikTok LIVE Vietnam video 3"><img
+                                                    class="tiktok-phone-cover"
+                                                    src="assets/livefest-tiktok-7574720179213454600.jpg" alt=""
+                                                    loading="lazy"><span class="tiktok-phone-play"
+                                                    aria-hidden="true"></span></a></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="phone-card">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><img class="tiktok-phone-cover"
-                                            src="assets/livefest-tiktok-7569229312101207304.jpg" alt="" loading="lazy">
+                                <div class="phone-card" data-phone-slot="4">
+                                    <div class="phone-chassis">
+                                        <div class="phone-notch"></div>
+                                        <div class="phone-screen"><a class="tiktok-phone-link"
+                                                href="https://www.tiktok.com/@tiktoklive_vietnam/video/7569229312101207304"
+                                                target="_blank" rel="noopener noreferrer"
+                                                aria-label="Watch TikTok LIVE Vietnam video 4"><img
+                                                    class="tiktok-phone-cover"
+                                                    src="assets/livefest-tiktok-7569229312101207304.jpg" alt=""
+                                                    loading="lazy"><span class="tiktok-phone-play"
+                                                    aria-hidden="true"></span></a></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="phone-card">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><img class="tiktok-phone-cover"
-                                            src="assets/livefest-tiktok-7570586038666562824.jpg" alt="" loading="lazy">
+                                <div class="phone-card" data-phone-slot="5">
+                                    <div class="phone-chassis">
+                                        <div class="phone-notch"></div>
+                                        <div class="phone-screen"><a class="tiktok-phone-link"
+                                                href="https://www.tiktok.com/@tiktoklive_vietnam/video/7570586038666562824"
+                                                target="_blank" rel="noopener noreferrer"
+                                                aria-label="Watch TikTok LIVE Vietnam video 5"><img
+                                                    class="tiktok-phone-cover"
+                                                    src="assets/livefest-tiktok-7570586038666562824.jpg" alt=""
+                                                    loading="lazy"><span class="tiktok-phone-play"
+                                                    aria-hidden="true"></span></a></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="phone-card">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><img class="tiktok-phone-cover"
-                                            src="assets/livefest-tiktok-7571335514410798354.jpg" alt="" loading="lazy">
+                                <div class="phone-card" data-phone-slot="6">
+                                    <div class="phone-chassis">
+                                        <div class="phone-notch"></div>
+                                        <div class="phone-screen"><a class="tiktok-phone-link"
+                                                href="https://www.tiktok.com/@tiktoklive_vietnam/video/7571335514410798354"
+                                                target="_blank" rel="noopener noreferrer"
+                                                aria-label="Watch TikTok LIVE Vietnam video 6"><img
+                                                    class="tiktok-phone-cover"
+                                                    src="assets/livefest-tiktok-7571335514410798354.jpg" alt=""
+                                                    loading="lazy"><span class="tiktok-phone-play"
+                                                    aria-hidden="true"></span></a></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="phone-card">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><img class="tiktok-phone-cover"
-                                            src="assets/livefest-tiktok-7580645355226696980.jpg" alt="" loading="lazy">
+                                <div class="phone-card" data-phone-slot="7">
+                                    <div class="phone-chassis">
+                                        <div class="phone-notch"></div>
+                                        <div class="phone-screen"><a class="tiktok-phone-link"
+                                                href="https://www.tiktok.com/@tiktoklive_vietnam/video/7580645355226696980"
+                                                target="_blank" rel="noopener noreferrer"
+                                                aria-label="Watch TikTok LIVE Vietnam video 7"><img
+                                                    class="tiktok-phone-cover"
+                                                    src="assets/livefest-tiktok-7580645355226696980.jpg" alt=""
+                                                    loading="lazy"><span class="tiktok-phone-play"
+                                                    aria-hidden="true"></span></a></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="phone-card">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><img class="tiktok-phone-cover"
-                                            src="assets/livefest-tiktok-7572076770388610312.jpg" alt="" loading="lazy">
+                                <div class="phone-card" data-phone-slot="8">
+                                    <div class="phone-chassis">
+                                        <div class="phone-notch"></div>
+                                        <div class="phone-screen"><a class="tiktok-phone-link"
+                                                href="https://www.tiktok.com/@tiktoklive_vietnam/video/7572076770388610312"
+                                                target="_blank" rel="noopener noreferrer"
+                                                aria-label="Watch TikTok LIVE Vietnam video 8"><img
+                                                    class="tiktok-phone-cover"
+                                                    src="assets/livefest-tiktok-7572076770388610312.jpg" alt=""
+                                                    loading="lazy"><span class="tiktok-phone-play"
+                                                    aria-hidden="true"></span></a></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="phone-card">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><img class="tiktok-phone-cover"
-                                            src="assets/livefest-tiktok-7576329236454133010.jpg" alt="" loading="lazy">
+                                <div class="phone-card" data-phone-slot="9">
+                                    <div class="phone-chassis">
+                                        <div class="phone-notch"></div>
+                                        <div class="phone-screen"><a class="tiktok-phone-link"
+                                                href="https://www.tiktok.com/@tiktoklive_vietnam/video/7576329236454133010"
+                                                target="_blank" rel="noopener noreferrer"
+                                                aria-label="Watch TikTok LIVE Vietnam video 9"><img
+                                                    class="tiktok-phone-cover"
+                                                    src="assets/livefest-tiktok-7576329236454133010.jpg" alt=""
+                                                    loading="lazy"><span class="tiktok-phone-play"
+                                                    aria-hidden="true"></span></a></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="phone-card">
-                                <div class="phone-chassis">
-                                    <div class="phone-notch"></div>
-                                    <div class="phone-screen"><img class="tiktok-phone-cover"
-                                            src="assets/livefest-tiktok-7575465004921539858.jpg" alt="" loading="lazy">
+                                <div class="phone-card" data-phone-slot="10">
+                                    <div class="phone-chassis">
+                                        <div class="phone-notch"></div>
+                                        <div class="phone-screen"><a class="tiktok-phone-link"
+                                                href="https://www.tiktok.com/@tiktoklive_vietnam/video/7575465004921539858"
+                                                target="_blank" rel="noopener noreferrer"
+                                                aria-label="Watch TikTok LIVE Vietnam video 10"><img
+                                                    class="tiktok-phone-cover"
+                                                    src="assets/livefest-tiktok-7575465004921539858.jpg" alt=""
+                                                    loading="lazy"><span class="tiktok-phone-play"
+                                                    aria-hidden="true"></span></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -1786,6 +1552,7 @@
 
     <!-- Core Interactive Logic Script -->
     <script src="app.js?v=20260621"></script>
+    <script src="phone-reel.js" defer></script>
 </body>
 
 </html>

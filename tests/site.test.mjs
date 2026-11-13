@@ -32,9 +32,12 @@ test('locked homepage sections retain their approved markup', () => {
   }
 });
 
-test('homepage has eight featured project links and no Results section', () => {
+test('homepage has nine featured project links and no Results section', () => {
   const projects = sectionMarkup(home, 'campaigns-section');
-  assert.equal((projects.match(/data-project-card/g) || []).length, 8);
+  assert.equal((projects.match(/data-project-card/g) || []).length, 9);
+  assert.match(projects, /href="project-loreal\.html"/);
+  assert.match(projects, /assets\/loreal\/cover-left\.webp/);
+  assert.match(projects, /assets\/loreal\/cover-right\.webp/);
   assert.match(projects, /href="project-edtronaut\.html"/);
   assert.match(projects, /href="project-digital-trans\.html"/);
   assert.match(projects, /public\/Projects thumbnails\/07_behind\.png/);
@@ -75,11 +78,12 @@ const projects = [
   ['project-santas-wish-list.html', "Santa's Wish List"],
   ['project-edtronaut.html', 'Edtronaut'],
   ['project-digital-trans.html', 'Digital-Trans'],
+  ['project-loreal.html', 'L’Oréal'],
 ];
 
-test('Work page lists the same seven projects', () => {
+test('Work page lists all eight campaign and growth projects', () => {
   const work = read('work.html');
-  assert.equal((work.match(/data-work-item/g) || []).length, 7);
+  assert.equal((work.match(/data-work-item/g) || []).length, projects.length);
   assert.match(work, /class="work-intro-sticky"/);
   for (const [file] of projects) assert.match(work, new RegExp(`href="${file}"`));
   assert.match(work, /href="project-edtronaut\.html"/);
@@ -188,7 +192,7 @@ test('all project pages use the homepage pill button system', () => {
   ];
 
   for (const file of projectFiles) {
-    assert.match(read(file), /src="app\.js\?v=20260621"/, file);
+    assert.match(read(file), /src="app\.js\?v=\d{8}"/, file);
   }
 
   const appSource = read('app.src.js');

@@ -1,0 +1,125 @@
+.phone-reel-controls {
+    display: none;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 0 0 14px;
+}
+
+.phone-reel[data-ready] .phone-reel-controls { display: flex; }
+
+.phone-reel-controls button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1px solid #555;
+    border-radius: 999px;
+    background: #101010;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.phone-reel-controls button:hover { border-color: #fff; }
+
+.phone-marquee {
+    width: 100%;
+    overflow-x: auto;
+    padding: 6px 0 14px;
+    scrollbar-width: thin;
+}
+
+.phone-reel[data-ready] .phone-marquee { scrollbar-width: none; }
+.phone-reel[data-ready] .phone-marquee::-webkit-scrollbar { display: none; }
+
+.phone-marquee-track {
+    display: flex;
+    width: max-content;
+}
+
+.phone-marquee-group {
+    display: flex;
+    gap: clamp(12px, 2vw, 24px);
+    padding-right: clamp(12px, 2vw, 24px);
+}
+
+.phone-card {
+    flex: none;
+    width: clamp(146px, 19vw, 200px);
+}
+
+.phone-chassis {
+    position: relative;
+    aspect-ratio: 10 / 19;
+    padding: 7px;
+    border: 2px solid #424047;
+    border-radius: 25px;
+    background: #08080a;
+}
+
+.phone-notch {
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    left: 50%;
+    width: 30%;
+    height: 12px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: #08080a;
+    pointer-events: none;
+}
+
+.phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 17px;
+    background: #151515;
+}
+
+.tiktok-phone-link,
+.tiktok-phone-cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.tiktok-phone-link {
+    position: relative;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.tiktok-phone-cover { object-fit: cover; }
+
+.tiktok-phone-play {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ffffffa6;
+    border-radius: 50%;
+    background: #000b;
+}
+
+.tiktok-phone-play::after {
+    content: "";
+    margin-left: 3px;
+    border-block: 7px solid transparent;
+    border-left: 11px solid #fff;
+}
+
+.tiktok-phone-link:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: -4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .phone-reel:not([data-reel-motion]) [data-reel-toggle],
+    .phone-reel:not([data-reel-motion]) .phone-marquee-group[aria-hidden="true"] { display: none; }
+}

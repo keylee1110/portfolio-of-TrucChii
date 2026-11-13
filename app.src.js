@@ -823,7 +823,7 @@ function initPageTransitions() {
         const href = link.getAttribute('href');
 
         // Skip links that are empty, anchors on the same page, external URLs, or mailto/tel
-        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || (href.startsWith('http') && !href.includes(window.location.hostname))) {
+        if (!href || link.hasAttribute('data-no-page-wipe') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || (href.startsWith('http') && !href.includes(window.location.hostname))) {
             return;
         }
 

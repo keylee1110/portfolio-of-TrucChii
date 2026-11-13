@@ -623,7 +623,7 @@ wipe.classList.remove('wipe-active-in');
 const links = document.querySelectorAll('a');
 links.forEach(link => {
 const href = link.getAttribute('href');
-if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || (href.startsWith('http') && !href.includes(window.location.hostname))) {
+if (!href || link.hasAttribute('data-no-page-wipe') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || (href.startsWith('http') && !href.includes(window.location.hostname))) {
 return;
 }
 link.addEventListener('click', (e) => {

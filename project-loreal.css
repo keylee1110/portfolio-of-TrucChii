@@ -1,0 +1,215 @@
+.loreal-page {
+    --loreal-line: #ffffff2b;
+    --loreal-muted: #c3bac0;
+    --loreal-accent: #f3c7a5;
+    overflow-x: clip;
+    background: #080709;
+}
+
+.loreal-container { width: min(1320px, 100% - clamp(36px, 9vw, 144px)); margin-inline: auto; }
+.loreal-section {
+    padding-block: clamp(44px, 5vw, 80px);
+    border-bottom: 1px solid var(--loreal-line);
+    background: radial-gradient(ellipse at top left, #24122680, transparent 52%);
+}
+.loreal-page p, .loreal-page li { text-wrap: pretty; }
+.loreal-page img { display: block; max-width: 100%; }
+.loreal-page figure { margin: 0; }
+.loreal-skip-link {
+    position: fixed;
+    z-index: 1001;
+    inset: 10px auto auto 10px;
+    transform: translateY(calc(-100% - 10px));
+    padding: 10px 14px;
+    background: #fff;
+    color: #111;
+}
+.loreal-skip-link:focus { transform: none; }
+
+.loreal-kicker {
+    color: var(--loreal-accent);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}
+
+.loreal-heading {
+    margin: 0;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1.02;
+    text-wrap: balance;
+}
+
+.loreal-heading { font-size: clamp(2rem, 3.8vw, 3.9rem); }
+.loreal-copy { max-width: 54ch; color: var(--loreal-muted); font-size: clamp(1rem, 1.45vw, 1.18rem); }
+.loreal-copy strong, .loreal-copy b { color: #fff; }
+.loreal-copy > * + * { margin-top: 1rem; }
+.loreal-copy ul { padding-left: 1.2em; }
+.loreal-copy li + li { margin-top: .7em; }
+
+.loreal-hero { padding-top: clamp(104px, 9vw, 144px); }
+.loreal-hero h1, .loreal-workflow h2, .loreal-daily-title { text-transform: uppercase; }
+.loreal-hero h1 { margin-top: 10px; }
+.loreal-lead, .loreal-reel-caption {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.2rem, 2vw, 1.85rem);
+    line-height: 1.15;
+}
+.loreal-lead { margin-top: 12px; }
+.loreal-reel-caption { max-width: 62ch; margin: 20px auto 0; text-align: center; }
+
+.loreal-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: clamp(20px, 3vw, 38px) 0;
+    border: 1px solid var(--loreal-line);
+    background: #080709;
+    text-align: center;
+}
+.loreal-metrics > div { display: grid; gap: 5px; padding: clamp(14px, 3vw, 34px); }
+.loreal-metrics > div + div { border-left: 1px solid var(--loreal-line); }
+.loreal-metrics dt { grid-row: 2; font-size: clamp(.83rem, 1.7vw, 1.15rem); line-height: 1.25; }
+.loreal-metrics dd { margin: 0; }
+.loreal-metrics strong {
+    font-size: clamp(1.2rem, 4.6vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -.07em;
+}
+.loreal-metrics time { color: var(--loreal-accent); font-size: .8rem; }
+.loreal-hero .loreal-copy { max-width: none; }
+.loreal-hero .loreal-copy p + p { margin-top: 0; }
+.loreal-reel { margin-top: 8px; }
+.loreal-reel .phone-card { width: clamp(132px, 15vw, 210px); }
+.loreal-reel .tiktok-phone-link { background: #151515; }
+
+.loreal-workflow { --workflow-top: 78px; }
+.loreal-workflow h2 { margin-bottom: 14px; }
+.loreal-workflow-window {
+    margin-top: 18px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scroll-snap-type: x mandatory;
+}
+.loreal-workflow-track { display: flex; align-items: center; width: max-content; gap: 12px; }
+.loreal-workflow-track figure {
+    flex: none;
+    width: min(41vw, 560px);
+    height: min(24vw, 330px, max(140px, 100svh - 310px));
+    scroll-snap-align: start;
+}
+.loreal-workflow-track img { width: 100%; height: 100%; object-fit: contain; }
+.loreal-workflow[data-pinned] .loreal-workflow-runway { height: var(--workflow-height); }
+.loreal-workflow[data-pinned] .loreal-workflow-stage { position: sticky; top: var(--workflow-top); }
+.loreal-workflow[data-pinned] .loreal-workflow-window { overflow: clip; scroll-snap-type: none; }
+.loreal-workflow[data-pinned] .loreal-workflow-track {
+    transform: translate3d(var(--workflow-x, 0px), 0, 0);
+}
+.loreal-workflow-outcome { margin-top: 18px; }
+.loreal-workflow .loreal-copy { max-width: 66ch; }
+.loreal-workflow .loreal-copy strong { display: block; }
+.loreal-daily-title { margin-bottom: 22px; text-align: center; }
+
+.loreal-split {
+    display: grid;
+    grid-template-columns: minmax(0, .83fr) minmax(0, 1.17fr);
+    gap: clamp(24px, 6vw, 88px);
+    align-items: center;
+}
+.loreal-split .loreal-copy { margin-top: 20px; }
+.loreal-dashboard img { width: 100%; height: auto; }
+.loreal-dashboard a { display: block; }
+.loreal-dashboard a:focus-visible { outline: 3px solid var(--loreal-accent); outline-offset: 4px; }
+.loreal-product-stack {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: 12px 0;
+    align-items: center;
+}
+.loreal-product-stack a:nth-child(1) { grid-area: 1 / 1 / 2 / 8; }
+.loreal-product-stack a:nth-child(2) { grid-area: 2 / 3 / 3 / 10; }
+.loreal-product-stack a:nth-child(3) { grid-area: 1 / 5 / 2 / 11; }
+.loreal-product-stack a:hover, .loreal-product-stack a:focus-visible { z-index: 1; }
+.loreal-product-stack img { box-shadow: 0 8px 30px #0006; }
+.loreal-hourly { margin-top: clamp(55px, 8vw, 100px); padding-top: clamp(34px, 5vw, 66px); border-top: 1px solid var(--loreal-line); }
+.loreal-hourly h4 { font-size: clamp(1.4rem, 2.55vw, 2.5rem); }
+.loreal-hourly > h3 { margin-bottom: 18px; text-transform: uppercase; }
+
+.loreal-recognition-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(16px, 2.8vw, 42px);
+    align-items: start;
+}
+.loreal-recognition-copy { grid-column: 1 / 10; grid-row: 1; z-index: 1; }
+.loreal-award-title { max-width: 32ch; margin-top: 7px; font-size: clamp(1.25rem, 3vw, 2.9rem); font-weight: 800; line-height: 1.1; }
+.loreal-recognition-copy .loreal-copy { margin-top: 6px; }
+.loreal-float img { width: 100%; height: auto; }
+.loreal-award { grid-column: 7 / 13; grid-row: 2; --float: -22px; }
+.loreal-studio-close { grid-column: 2 / 5; grid-row: 2 / 4; align-self: center; --float: 30px; }
+.loreal-studio-wide { grid-column: 9 / 13; grid-row: 3 / 5; --float: -32px; }
+.loreal-brand { grid-column: 3 / 7; grid-row: 4; --float: 22px; }
+.loreal-outro {
+    grid-column: 4 / 10;
+    grid-row: 3;
+    place-self: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 30ch;
+    text-align: center;
+    text-shadow: 0 2px 14px #080709;
+    font-size: clamp(1.6rem, 3.15vw, 3.25rem);
+}
+.loreal-outro span { display: block; }
+.loreal-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-block: 42px; }
+
+@media (prefers-reduced-motion: no-preference) {
+    .loreal-float img { animation: loreal-float 6s ease-in-out infinite alternate; }
+    .loreal-float:not(.reveal-active) img { animation-play-state: paused; }
+
+    @supports (animation-timeline: view()) {
+        .loreal-float img {
+            animation: loreal-float linear both;
+            animation-timeline: view();
+        }
+        .loreal-float:not(.reveal-active) img { animation-play-state: running; }
+    }
+
+    @keyframes loreal-float {
+        from { translate: 0 var(--float); }
+        to { translate: 0 calc(-1 * var(--float)); }
+    }
+}
+
+.loreal-video-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(420px, 94vw);
+    max-height: 92dvh;
+    padding: 14px;
+    border: 1px solid #555;
+    background: #101010;
+    color: #fff;
+}
+.loreal-video-dialog::backdrop { background: #000c; }
+.loreal-video-dialog form { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+.loreal-video-dialog video { display: block; width: 100%; max-height: 76dvh; background: #000; }
+
+@media (max-width: 700px) {
+    .loreal-split { grid-template-columns: minmax(0, 1fr); }
+    .loreal-metrics > div { padding-inline: 9px; }
+    .loreal-workflow-track figure { width: 75vw; height: min(44vw, max(140px, 100svh - 310px)); }
+    .loreal-recognition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 28px; }
+    .loreal-recognition-grid > * { grid-row: auto; }
+    .loreal-recognition-copy, .loreal-award, .loreal-outro { grid-column: 1 / -1; }
+    .loreal-studio-close { grid-column: 1; }
+    .loreal-recognition-grid .loreal-studio-wide { grid-column: 2; margin-top: 24px; }
+    .loreal-brand { grid-column: 1 / -1; justify-self: center; width: 60%; }
+    .loreal-float { --float: 12px; }
+}
