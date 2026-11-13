@@ -34,8 +34,18 @@ test('locked homepage sections retain their approved markup', () => {
 
 test('homepage has nine featured project links and no Results section', () => {
   const projects = sectionMarkup(home, 'campaigns-section');
-  assert.equal((projects.match(/data-project-card/g) || []).length, 9);
-  assert.match(projects, /href="project-loreal\.html"/);
+  const cards = [...projects.matchAll(/<a href="([^"]+)" class="project-card-wrapper" data-project-card>/g)];
+  assert.deepEqual(cards.map(([, href]) => href), [
+    'project-loreal.html',
+    'project-livefest.html',
+    'community-subprojects.html',
+    'project-live-pro.html',
+    'project-live-legend.html',
+    'project-santas-wish-list.html',
+    'project-edtronaut.html',
+    'project-digital-trans.html',
+    'project-placeholder-08.html',
+  ]);
   assert.match(projects, /assets\/loreal\/cover-left\.webp/);
   assert.match(projects, /assets\/loreal\/cover-right\.webp/);
   assert.match(projects, /href="project-edtronaut\.html"/);
