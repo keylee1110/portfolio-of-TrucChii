@@ -36,6 +36,25 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 measureWorkflow();
 
+const revealObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.setAttribute('data-revealed', '');
+        revealObserver.unobserve(entry.target);
+    }
+}, { rootMargin: '0px 0px -8% 0px' });
+
+const floatObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+        entry.target.toggleAttribute('data-floating', entry.isIntersecting);
+    }
+});
+
+const revealItems = document.querySelectorAll('[data-loreal-reveal]');
+revealItems.forEach(item => revealObserver.observe(item));
+document.querySelectorAll('.loreal-float').forEach(photo => floatObserver.observe(photo));
+document.body.setAttribute('data-reveal-ready', '');
+
 const dialog = document.querySelector('.loreal-video-dialog');
 const player = dialog.querySelector('video');
 
